@@ -16,6 +16,8 @@ ___
 ## Listado de sitios referentes:
  - [Digital Sport] (https://www.digitalsport.com.ar/) 
 
+- Por las funcionalidades al selecionar un producto.
+
 - [MisPichos] (https://mispichos.com/)
 
 - [Norden Pet] (https://nordenpet.com.ar/)
