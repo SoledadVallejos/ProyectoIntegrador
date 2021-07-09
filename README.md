@@ -15,4 +15,6 @@ ___
 
 ## Listado de sitios referentes:
  - [Digital Sport] (https://www.digitalsport.com.ar/) 
- -[petshop digital] (https://mispichos.com/?gclid=CjwKCAjwoZWHBhBgEiwAiMN66XLa_kpGGu-MoHLRVsMOupIDB8BNRnfPsW5M_kWZ7CMrhDU6BDx6oxoCXKYQAvD_BwE)  
+
+- [mispichos digital] (https://mispichos.com/#navbar)
+ 
