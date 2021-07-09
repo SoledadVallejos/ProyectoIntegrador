@@ -5,7 +5,7 @@ ___
 
 ## Equipo de desarrollo:
 
-- Leandro Nieto
+- Nieto Leandro
 
 - Cedron Sol
 
