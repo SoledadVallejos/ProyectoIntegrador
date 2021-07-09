@@ -16,5 +16,5 @@ ___
 ## Listado de sitios referentes:
  - [Digital Sport] (https://www.digitalsport.com.ar/) 
 
-- [mispichos digital] (https://mispichos.com/#navbar)
+- [MisPichos] (https://mispichos.com/#navbar)
  
