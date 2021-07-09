@@ -20,5 +20,5 @@ ___
 
 - [Norden Pet] (https://nordenpet.com.ar/)
 
-  Los sitios listados fueron seleccionados, de común acuerdo por los integrantes del grupo. En relación a la búsqueda de alternativas de diseño y experiencia de usuario que puedan servir de referencia para el desarrollo de la E-commerce. El sitio Digital Sport fue tenido en cuenta por las funcionalidades al seleccionar un producto. 
+ > Los sitios listados fueron seleccionados, de común acuerdo por los integrantes del grupo. En relación a la búsqueda de alternativas de diseño y experiencia de usuario que puedan servir de referencia para el desarrollo de la E-commerce. El sitio Digital Sport fue tenido en cuenta por las funcionalidades al seleccionar un producto. 
  
