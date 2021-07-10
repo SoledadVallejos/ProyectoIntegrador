@@ -28,6 +28,10 @@ ___
 
  > Los sitios listados fueron seleccionados, de común acuerdo por los integrantes del grupo. En relación a la búsqueda de alternativas de diseño y experiencia de usuario que puedan servir de referencia para el desarrollo de la E-commerce. El sitio Digital Sport fue tenido en cuenta por las funcionalidades al seleccionar un producto. 
 
- ## Temática de marketplace:
- La temática del sitio corresponde al rubro de indumentaria.
+## ¿Qué productos o servicios brindará nuestro sitio?
+Ofrecemos indumentaria para mujer y hombre.
+ 
+## ¿Quién será nuestra audiencia objetivo?
+En la página que estamos diseñando ofrecemos la posibilidad de adquirir ropa y accesorios, para hombre y mujer con envíos a todo el país, encontrar variedad de diseño.
+
 
