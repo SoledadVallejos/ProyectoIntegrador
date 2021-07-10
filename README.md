@@ -14,7 +14,7 @@ ___
 - Vallejos Soledad
 
 ## Listado de sitios referentes:
- - [Digital Sport] (https://www.digitalsport.com.ar/) 
+ - [Digital Sport](https://www.digitalsport.com.ar/) 
 
 - [MisPichos](https://mispichos.com/)
 
