@@ -5,7 +5,7 @@ ___
 
 ## Equipo de desarrollo:
 
-- Nieto Leandro ("mi nombre es Leandro, tengo 30 años y soy un estudiante apasionado de programacion web fullstack")
+- Nieto Leandro ("Mi nombre es Leandro, tengo 30 años y soy un estudiante apasionado de programacion web fullstack")
 
 - Cedron Sol
 
