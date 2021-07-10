@@ -9,6 +9,8 @@ En la página que estamos diseñando ofrecemos la posibilidad de adquirir ropa y
 ## ¿Cómo ajustaremos nuestra oferta a ese público?
 Creemos que la mejor forma de tener una oferta que se adecue al público de la página es ofreciendo indumentaria de la mejor calidad y el mejor precio del mercado. Tomando como referencia a los grandes líderes del mercado, tanto en su estética como en sus estrategias de marketing y ofertas.
 
+<br/>
+
 <!-- --------------------------------------------------------------------- -->
 ___
 
