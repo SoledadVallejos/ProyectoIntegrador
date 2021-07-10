@@ -47,7 +47,7 @@ ___
      Hola mi nombre es Alvaro tengo 23 años, soy estudiante de programacion FullStack.
 
 - ## Vallejos Soledad
-     Mi nombre es Soledad Vallejos, tengo 26 años, soy de Buenos Aires. Actualmente me encuentro cursando la carrera de Desarrollo de Software y haciendo el curso de Desarrollo      Web Full Stack. Me gusta aprender nuevo lenguajes de programacion y herramientas que me ayuden a crecer en el mundo de la tecnologia. 
+     Mi nombre es Soledad Vallejos, tengo 26 años, soy de Buenos Aires. Actualmente me encuentro cursando la carrera de Desarrollo de Software y haciendo el curso de Desarrollo      Web Full Stack. Me gusta aprender nuevos lenguajes de programacion y herramientas que me ayuden a crecer en el mundo de la tecnologia. 
 
 
 
