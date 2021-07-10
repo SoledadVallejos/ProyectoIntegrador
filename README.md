@@ -9,7 +9,7 @@ ___
 
 - Cedron Sol
 
-<span style="color:red;">- Quiroga Alvaro Daniel: ("Hola mi nombre es Alvaro tengo 23 años, soy estudiante de progracion")</span> 
+<span style="color🍊;">- Quiroga Alvaro Daniel: ("Hola mi nombre es Alvaro tengo 23 años, soy estudiante de progracion")</span>
 
 - Vallejos Soledad
 
