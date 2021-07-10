@@ -11,7 +11,7 @@ ___
 
 - Quiroga Alvaro Daniel
 
-- Soledad Vallejos
+- Vallejos Soledad
 
 ## Listado de sitios referentes:
  - [Digital Sport] (https://www.digitalsport.com.ar/) 
