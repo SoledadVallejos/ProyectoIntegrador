@@ -4,7 +4,7 @@
 Ofrecemos indumentaria para mujer y hombre.
 
 ## ¿Quién será nuestra audiencia objetivo?
-En la página que estamos diseñando ofrecemos la posibilidad de adquirir ropa y accesorios, para mujer y hombre con envíos a todo el país, encontrar variedad de diseño.
+En la página que estamos diseñando ofrecemos la posibilidad de adquirir ropa y accesorios, para mujer y hombre con envíos a todo el país y encontrar variedad de diseño.
 
 ## ¿Cómo ajustaremos nuestra oferta a ese público?
 Creemos que la mejor forma de tener una oferta que se adecue al público de la página es ofreciendo indumentaria de la mejor calidad y el mejor precio del mercado. Tomando como referencia a los grandes líderes del mercado, tanto en su estética como en sus estrategias de marketing y ofertas.
