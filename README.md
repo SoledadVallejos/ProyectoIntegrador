@@ -11,7 +11,7 @@ ___
 
 <span style="color🍊;">Quiroga Alvaro Daniel: ("Hola mi nombre es Alvaro tengo 23 años, soy estudiante de progracion")
 
-- Vallejos Soledad
+- Vallejos Soledad: Mi nombre es Soledad Vallejos, tengo 26 años, soy de Buenos Aires. Actualmente me encuentro cursando la carrera de Desarrollo de Software y haciendo el curso de Desarrollo Web Full Stack. Me gusta aprender nuevo lenjuajes de programacion y herramientas que me ayuden a crecer en el mundo de la tecnologia. 
 
 ## Listado de sitios referentes:
  - [Digital Sport](https://www.digitalsport.com.ar/) 
