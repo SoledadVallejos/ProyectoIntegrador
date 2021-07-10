@@ -20,9 +20,8 @@ ___
 
 - [Norden Pet] (https://nordenpet.com.ar/)
 
-<<<<<<< HEAD
 - [Bebidas Express 123] (https://www.bebidasexpress123.com)
-=======
+
  > Los sitios listados fueron seleccionados, de común acuerdo por los integrantes del grupo. En relación a la búsqueda de alternativas de diseño y experiencia de usuario que puedan servir de referencia para el desarrollo de la E-commerce. El sitio Digital Sport fue tenido en cuenta por las funcionalidades al seleccionar un producto. 
  
->>>>>>> f0da9d04af02b25e811bfa5177927dba459a8f61
+
