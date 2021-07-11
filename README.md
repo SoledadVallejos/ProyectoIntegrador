@@ -42,7 +42,7 @@ ___
 
 
 - ## Cedron Sol
-     Mi nombre es Sol Cedron tengo 21 años, estudiante del curso el programa de FullStack. 
+     Mi nombre es Sol Cedron tengo 21 años, actualmente estudiante del curso programa de FullStack. 
 
 - ## Quiroga Alvaro Daniel
      Hola mi nombre es Alvaro tengo 23 años, soy estudiante de programacion FullStack.
