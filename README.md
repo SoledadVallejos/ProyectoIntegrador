@@ -18,17 +18,17 @@ ___
 ## Listado de sitios referentes:
  - [Digital Sport](https://www.digitalsport.com.ar/) 
 
-- [MisPichos](https://mispichos.com/)
+- [PUMA](https://eu.puma.com/)
 
-- [Norden Pet](https://nordenpet.com.ar/)
+- [Dexter](https://www.dexter.com.ar/)
 
-- [Bebidas Express 123](https://www.bebidasexpress123.com)
+- [New Balance](https://www.newbalance.com.ar/)
 
 - [Zhoue](https://www.zhoue.com.ar/)
 
 - [Kika](https://www.kikamayorista.com.ar/remeras-7)
 
- > Los sitios listados fueron seleccionados, de común acuerdo por los integrantes del grupo. En relación a la búsqueda de alternativas de diseño y experiencia de usuario que puedan servir de referencia para el desarrollo de la E-commerce. El sitio Digital Sport fue tenido en cuenta por las funcionalidades al seleccionar un producto. 
+ > Los sitios listados fueron seleccionados, de común acuerdo por los integrantes del grupo. En relación a la búsqueda de alternativas de diseño y experiencia de usuario que puedan servir de referencia para el desarrollo de la E-commerce. Sitios como Zhoue, Puma y Kika fueron tenidos en cuenta a la hora de realizar el wireframe, debido a la estetica que aportan, ademas de contar con una buena estructura y una paleta de colores que nos llamo la atencion debido a la estetica que aporta.Y sitios como Digital Sport, Dexter y New Balance fueron tenido en cuenta por las funcionalidades que presentan. 
 
 <br/>
 
@@ -48,7 +48,7 @@ ___
      Hola mi nombre es Alvaro tengo 23 años, soy estudiante de programacion FullStack.
 
 - ## Vallejos Soledad
-     Mi nombre es Soledad Vallejos, tengo 26 años, soy de Buenos Aires. Actualmente me encuentro cursando la carrera de Desarrollo de Software y haciendo el curso de Desarrollo      Web Full Stack. Me gusta aprender nuevos lenguajes de programacion y herramientas que me ayuden a crecer en el mundo de la tecnologia. 
+     Mi nombre es Soledad, tengo 26 años, soy de Buenos Aires. Actualmente me encuentro cursando la carrera de Desarrollo de Software y haciendo el curso de Desarrollo      Web Full Stack. Me gusta aprender nuevos lenguajes de programacion y herramientas que me ayuden a crecer en el mundo de la tecnologia. 
 
 
 
