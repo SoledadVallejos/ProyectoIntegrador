@@ -34,7 +34,7 @@ ___
 
 ## Paleta de colores
 
-> #000000  #181818 #ffffff #fafafa #EABF9F
+   #000000  #181818 #ffffff #fafafa #EABF9F
 
 ## Tipografia
 -  Roboto
