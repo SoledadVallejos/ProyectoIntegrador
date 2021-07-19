@@ -1,4 +1,4 @@
-# G9-Proyecto Integrador
+# G9-Roma
 
  ## ¿Qué productos o servicios brindará nuestro sitio?
 Ofrecemos indumentaria para mujer y hombre.
@@ -55,7 +55,7 @@ ___
      Hola mi nombre es Alvaro tengo 23 años, soy estudiante de programacion FullStack.
 
 - ## Vallejos Soledad
-     Mi nombre es Soledad, tengo 26 años, soy de Buenos Aires. Actualmente me encuentro cursando la carrera de Desarrollo de Software y haciendo el curso de Desarrollo      Web Full Stack. Me gusta aprender nuevos lenguajes de programacion y herramientas que me ayuden a crecer en el mundo de la tecnologia. 
+     Me llamo Soledad, tengo 26 años, soy de Buenos Aires. Actualmente me encuentro cursando la carrera de Desarrollo de Software y haciendo el curso de Desarrollo      Web Full Stack. Me gusta aprender nuevos lenguajes de programacion y herramientas que me ayuden a crecer en el mundo de la tecnologia. 
 
 
 
