@@ -1,13 +1,14 @@
 # G9-Roma
 
- ## ¿Qué productos o servicios brindará nuestro sitio?
-Ofrecemos indumentaria para mujer y hombre.
+ ## ¿Qué productos o servicios brindará el sitio?
+ El sitio es un ecommerce abocado a la venta de indumentaria femenina y masculina.
 
-## ¿Quién será nuestra audiencia objetivo?
-En la página que estamos diseñando ofrecemos la posibilidad de adquirir ropa y accesorios, para mujer y hombre con envíos a todo el país. Se podra encontrar variedades de diseño.
+## ¿Quién será la audiencia objetivo?
+La página diseñada ofrece la posibilidad de adquirir indumentaria y accesorios, con envío a todo el país. Se podra encontrar variedades de diseño.
 
-## ¿Cómo ajustaremos nuestra oferta a ese público?
-Creemos que la mejor forma de tener una oferta que se adecue al público de la página es ofreciendo indumentaria de la mejor calidad y el mejor precio del mercado. Tomando como referencia a los grandes líderes del mercado, tanto en su estética como en sus estrategias de marketing y ofertas.
+## ¿Cómo se ajustara la oferta a ese público?
+
+Se cree que la mejor forma de tener una oferta que se adecue al público de la página sera ofreciendo indumentaria de la mejor calidad y el mejor precio del mercado. Se tomara como referencia a los grandes líderes del mercado, tanto en su estética como en sus estrategias de marketing y ofertas.
 
 <br/>
 
