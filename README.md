@@ -6,7 +6,7 @@
 ## ¿Quién será la audiencia objetivo?
 La página diseñada ofrece la posibilidad de adquirir indumentaria y accesorios, con envío a todo el país. Se podra encontrar variedades de diseño.
 
-## ¿Cómo se ajustara l oferta a ese público?
+## ¿Cómo se ajustara la oferta a ese público?
 
 Se cree que la mejor forma de tener una oferta que se adecue al público de la página sera ofreciendo indumentaria de la mejor calidad y el mejor precio del mercado. Se tomara como referencia a los grandes líderes del mercado, tanto en su estética como en sus estrategias de marketing y ofertas.
 
