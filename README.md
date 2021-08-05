@@ -10,7 +10,6 @@ La página diseñada ofrece la posibilidad de adquirir indumentaria y accesorios
 
 Se cree que la mejor forma de tener una oferta que se adecue al público de la página sera ofreciendo indumentaria de la mejor calidad y el mejor precio del mercado. Se tomara como referencia a los grandes líderes del mercado, tanto en su estética como en sus estrategias de marketing y ofertas.
 
-<br/>
 
 <!-- --------------------------------------------------------------------- -->
 ___
