@@ -1,4 +1,5 @@
 # G9-Roma
+<img width="60%" height="30%" align="top-center" alt="Github" src="https://user-images.githubusercontent.com/84512521/128751864-0413fc12-ae89-4084-8e6a-147ca80ac000.png" />
 
  ## ¿Qué productos o servicios brindará el sitio?
  El sitio es un ecommerce abocado a la venta de indumentaria femenina y masculina.
