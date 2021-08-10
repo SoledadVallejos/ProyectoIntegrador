@@ -1,6 +1,6 @@
-# RETROSPECTIVA:                                  
+## RETROSPECTIVA:                                  
  
-                                                            - ## SPRINT 1 -
+                                                            -SPRINT 1- 
                                                      ----------------------
 
                     SEGUIR HACIENDO: Continuar trabajando en equipo, colaboración, ideas innovadoras.
