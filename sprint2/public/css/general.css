@@ -1,0 +1,15 @@
+:root {
+    /* COLORES */
+    --color-negro: #000000;
+    --color-negroClaro: #181818;
+    --color-gris: #fafafa;
+    --color-beige: #ae946d;
+    --color-blanco: #ffffff;
+}
+
+/* GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
