@@ -421,7 +421,16 @@
 
 
     }
+    .boton-carrito:hover{
+        background-color: rgba(75, 38, 15, 0.849);
+        color: white;
+    }
 
+    .btn:hover{
+        background-color: rgba(10, 10, 10, 0.986);
+        color: white;
+     
+    }
 
 
 }
