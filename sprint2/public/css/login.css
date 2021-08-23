@@ -73,18 +73,10 @@ span a{
   border: 2px solid #065c9c;
   font-size: 10px;
   padding: 4px;
-  color: #a08c72;
-  border-radius: 2px;
-  padding: 3px;
- 
-}
-
-#login-redes .btn-face a{
-    width: 100%;
-    font-size: 10px;
-    margin: 30px;
-    
-    
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 30px;
+  
 }
 
 
@@ -107,7 +99,7 @@ span a{
     margin-top: 30px;
     padding-left: 7px;
     padding-right: 7px;
-    
+   
 }
 
 .box-form label{
