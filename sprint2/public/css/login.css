@@ -8,6 +8,7 @@ main.login .formulario{
     margin: 0 auto;
     padding: 10px;
     font-size: 11px;
+    padding-bottom: 156px;
 }
 
 main.login h2{
@@ -126,6 +127,8 @@ span a{
     border-radius: 4px;
 }
 
+                        /* F O T T E R */
+
 /*.container-buttons1 .btn-beige{
     border: 1px solid #a08c72;
     color: #a08c72;
@@ -151,13 +154,14 @@ span a{
 }*/ 
 
 /* mobile*/
-@media(min-width:425px)
+@media(min-width:424px)
 {
     .login .formulario{
         width: 300px;
         margin: 0 auto;
         padding: 5px;
         font-size: 6px;
+        padding-bottom: 156px;
     } 
     .login h2{
         margin: 30px 0;
@@ -220,7 +224,7 @@ span a{
         font-size: 9px;
         padding: 4.5px;
         padding-left: 8px;
-        padding-right: 10px;
+        padding-right: 4px;
         margin-top: 65px;
         
       }
@@ -239,11 +243,12 @@ span a{
         background-color: black;
         color: white;
         font-size: 9.3px;
-        margin-top: 146px;
+        margin-top: 122px;
         padding-left: 7px;
         padding-right: 9px;
         margin-right: -138px;
     } 
+    
 }
 
 /* Tablet*/
@@ -254,6 +259,8 @@ span a{
         margin: 0 auto;
         padding: 10px;
         font-size: 11px;
+        padding-bottom: 156px;
+        
     } 
     .p-privacidad{
         margin-bottom: 120px;
@@ -304,7 +311,7 @@ span a{
         background-color: black;
         color: white;
         font-size: 9.3px;
-        margin-top: 146px;
+        margin-top: 129px;
         padding-left: 7px;
         padding-right: 9px;
         margin-right: -162px;
@@ -319,6 +326,7 @@ span a{
         margin: 0 auto;
         padding: 10px;
         font-size: 11px;
+        padding-bottom: 156px;
     } 
     .login h2{
         margin: 30px 0;
@@ -359,7 +367,7 @@ span a{
         padding: 5px;
         padding-left: 34px;
         padding-right: 33px;
-        margin-top: 55px;
+        margin-top: 57px;
         margin-right: 97px;
     }
     .btn-crear{
