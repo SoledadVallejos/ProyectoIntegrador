@@ -117,6 +117,158 @@ span a{
     border-radius: 4px;
 }
 
+                        /* F O T T E R */
+footer section.top-footer{
+    display: none;
+    color: #fff;
+    margin-left: 300px;
+    margin-top: 70px;
+    
+}
+footer section.top-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #fff;
+    margin-left: 300px;
+}
+
+footer section article.envio
+{
+    display: flex;
+    flex-wrap: wrap;
+    color: #fff;
+    margin-left: 300px;
+    margin-left: 1200px;
+}
+
+footer section article div.envio-logo {
+
+        font-size: -50px;
+        color: #fff;
+        margin-left: 300px;
+}
+
+footer section article div.envio-logo i {
+    font-size: -40px;
+    text-align: center;
+    color: #fff;
+    margin-left: 300px;
+}
+
+footer section article div.envio-info h3 {
+    color: #fff;
+    margin-left: 300px;
+}
+footer section article div.envio-info p {
+    margin-top: 5px;
+    font-size: -12px;
+    color: #fff;
+    margin-left: 300px;
+}
+
+footer section article div.envio-info {
+    color: #fff;
+    margin-left: 300px;
+}
+
+footer section article.pagos {
+    
+        flex-wrap: wrap;
+        width: 100%;
+        color: #fff;
+        margin-left: 300px;
+    }
+
+    footer section article div.pagos-logo i {
+
+        font-size: -40px;
+   
+        padding: -10px;
+        color: #fff;
+        margin-left: 300px;
+    }
+
+    footer section article div.pagos-info h3 {
+        margin-top: -5px;
+        color: #fff;
+        margin-left: 300px;
+        
+    }
+    footer section article div.pagos-info p {
+        margin-top:-5px;
+        font-size: -12px;
+        color: #fff;
+        margin-left: 300px;
+    }
+
+    footer section article div.pagos-logo {
+
+        font-size: -50px;
+        color: #fff;
+        display: none;
+    }
+    
+    footer section article div.pagos-info {
+ 
+        color: #fff;
+        margin-left: 300px;
+        display: none;
+    }
+
+
+footer section article.seguridad {
+        display: flex;
+    
+        margin-bottom: -10px;
+        color: #fff;
+        margin-left: 300px;
+        display: none;
+    }
+
+    footer section article div.seguridad-logo {
+        width: 30%;
+        font-size: 50px;
+        color: #fff;
+        max-width: 100px;
+        margin-left: 300px;
+        display: none;
+    }
+
+   
+
+    footer section article div.seguridad-logo i {
+        width: 90%;
+        font-size: 50px;
+        text-align: center;
+        
+        padding: 10px;
+        color: #fff;
+        margin-left: 300px;
+        display: none;
+    }
+
+    footer section article div.seguridad-info h3 {
+        margin-top: 5px;
+        color: #fff;
+        margin-left: 300px;
+        display: none;
+    }
+    footer section article div.seguridad-info p {
+        margin-top: 5px;
+        font-size: 12px;
+        color: #fff;
+        margin-left: 300px;
+        display: none;
+    }
+    
+    footer section article div.seguridad-info {
+        width: 70%;
+        max-width: 260px;
+        color: #fff;
+        margin-left: 300px;
+        display: none;
+    }
 /*.container-buttons1 .btn-beige{
     border: 1px solid #a08c72;
     color: #a08c72;
@@ -142,7 +294,7 @@ span a{
 }*/ 
 
 /* mobile*/
-@media(min-width:425px)
+@media(min-width:424px)
 {
     .login .formulario{
         width: 300px;
@@ -235,6 +387,7 @@ span a{
         padding-right: 9px;
         margin-right: -138px;
     } 
+    
 }
 
 /* Tablet*/
@@ -350,7 +503,7 @@ span a{
         padding: 5px;
         padding-left: 34px;
         padding-right: 33px;
-        margin-top: 55px;
+        margin-top: 57px;
         margin-right: 97px;
     }
     .btn-crear{
