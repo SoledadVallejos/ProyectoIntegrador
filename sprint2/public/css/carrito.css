@@ -1,8 +1,6 @@
-/* .body{
-    font-family: ;
-    poner la fuente roboto, esta en generales, pullear develop
-
-} */
+.main{
+    font-family: 'Roboto', sans-serif;
+}
 
 .background-carrito {
     background-color: #ece6e2;
@@ -25,6 +23,8 @@
 .titulo-producto {
     text-decoration: underline;
     font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
 }
 
 .titulo-carrito h2 {
@@ -68,6 +68,10 @@
     height: 30%;
 }
 
+.detalle-producto{
+    display: none;
+}
+
 .descripcion-producto-inferior {
     padding: 2.5px 5px;
     height: 70%;
@@ -106,6 +110,7 @@
 .titulo-carrito-total h2 {
     text-transform: uppercase;
     font-size: 18px;
+    margin-top: 5px;
 }
 
 .estilo-bold {
@@ -274,8 +279,23 @@
         width: 60%;
     }
 
+    .titulo-carrito h2 {
+        font-size: 20px;
+    }
+
+
+    .titulo-producto {
+        font-size: 20px;
+    }
+    
+
     .contenedor-total-carrito {
         height: 400px;
+    }
+
+    .titulo-carrito-total h2 {
+        font-size: 18px;
+        margin-top: 3px;
     }
 
     .info-precio-carrito {
@@ -338,18 +358,22 @@
         margin: auto;
     }
 
+    .titulo-carrito h2 {
+        font-size: 22px;
+    }
+
     .detalle-general {
         height: 500px;
         display: flex;
         justify-content: space-evenly;
         margin-top: 10px;
-
     }
 
     .contenedor-detalle-producto {
         width: 45%;
         height: 100%;
     }
+
 
     .contenedor-articulo-carrito {
         height: 100%;
@@ -402,6 +426,11 @@
 
     }
 
+    .carrousel-relacionados {
+       
+        height: 430px;
+    }
+
     .img-carrito3 {
         display: block;
         margin: auto;
@@ -434,6 +463,15 @@
 
 
 }
+
+@media screen and (min-width:1040px) {
+    .carrousel-relacionados {
+       
+        height: 615px;
+    }
+
+}
+
 
 
 
