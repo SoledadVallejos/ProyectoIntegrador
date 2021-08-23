@@ -136,7 +136,7 @@
     /* Desktop */
     @media screen and (min-width:1024px) {
         .splide{
-            width: 50%;
+            width: 65%;
             height: 755px;
         }
 
