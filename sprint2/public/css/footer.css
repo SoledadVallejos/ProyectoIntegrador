@@ -269,13 +269,6 @@ footer section.footer-navbar article.ayuda {
 
 }
 
-
-
-
-
-
-    }
-
     @media (min-width: 724px) {
         footer section article.envio {
       
@@ -312,3 +305,4 @@ footer section.footer-navbar article.ayuda {
         }
 
     }
+}
