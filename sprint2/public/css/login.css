@@ -8,6 +8,7 @@
     margin: 0 auto;
     padding: 10px;
     font-size: 11px;
+    padding-bottom: 156px;
 }
 
 .login h2{
@@ -118,157 +119,7 @@ span a{
 }
 
                         /* F O T T E R */
-footer section.top-footer{
-    display: none;
-    color: #fff;
-    margin-left: 300px;
-    margin-top: 70px;
-    
-}
-footer section.top-footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    color: #fff;
-    margin-left: 300px;
-}
 
-footer section article.envio
-{
-    display: flex;
-    flex-wrap: wrap;
-    color: #fff;
-    margin-left: 300px;
-    margin-left: 1200px;
-}
-
-footer section article div.envio-logo {
-
-        font-size: -50px;
-        color: #fff;
-        margin-left: 300px;
-}
-
-footer section article div.envio-logo i {
-    font-size: -40px;
-    text-align: center;
-    color: #fff;
-    margin-left: 300px;
-}
-
-footer section article div.envio-info h3 {
-    color: #fff;
-    margin-left: 300px;
-}
-footer section article div.envio-info p {
-    margin-top: 5px;
-    font-size: -12px;
-    color: #fff;
-    margin-left: 300px;
-}
-
-footer section article div.envio-info {
-    color: #fff;
-    margin-left: 300px;
-}
-
-footer section article.pagos {
-    
-        flex-wrap: wrap;
-        width: 100%;
-        color: #fff;
-        margin-left: 300px;
-    }
-
-    footer section article div.pagos-logo i {
-
-        font-size: -40px;
-   
-        padding: -10px;
-        color: #fff;
-        margin-left: 300px;
-    }
-
-    footer section article div.pagos-info h3 {
-        margin-top: -5px;
-        color: #fff;
-        margin-left: 300px;
-        
-    }
-    footer section article div.pagos-info p {
-        margin-top:-5px;
-        font-size: -12px;
-        color: #fff;
-        margin-left: 300px;
-    }
-
-    footer section article div.pagos-logo {
-
-        font-size: -50px;
-        color: #fff;
-        display: none;
-    }
-    
-    footer section article div.pagos-info {
- 
-        color: #fff;
-        margin-left: 300px;
-        display: none;
-    }
-
-
-footer section article.seguridad {
-        display: flex;
-    
-        margin-bottom: -10px;
-        color: #fff;
-        margin-left: 300px;
-        display: none;
-    }
-
-    footer section article div.seguridad-logo {
-        width: 30%;
-        font-size: 50px;
-        color: #fff;
-        max-width: 100px;
-        margin-left: 300px;
-        display: none;
-    }
-
-   
-
-    footer section article div.seguridad-logo i {
-        width: 90%;
-        font-size: 50px;
-        text-align: center;
-        
-        padding: 10px;
-        color: #fff;
-        margin-left: 300px;
-        display: none;
-    }
-
-    footer section article div.seguridad-info h3 {
-        margin-top: 5px;
-        color: #fff;
-        margin-left: 300px;
-        display: none;
-    }
-    footer section article div.seguridad-info p {
-        margin-top: 5px;
-        font-size: 12px;
-        color: #fff;
-        margin-left: 300px;
-        display: none;
-    }
-    
-    footer section article div.seguridad-info {
-        width: 70%;
-        max-width: 260px;
-        color: #fff;
-        margin-left: 300px;
-        display: none;
-    }
 /*.container-buttons1 .btn-beige{
     border: 1px solid #a08c72;
     color: #a08c72;
@@ -301,6 +152,7 @@ footer section article.seguridad {
         margin: 0 auto;
         padding: 5px;
         font-size: 6px;
+        padding-bottom: 156px;
     } 
     .login h2{
         margin: 30px 0;
@@ -363,7 +215,7 @@ footer section article.seguridad {
         font-size: 9px;
         padding: 4.5px;
         padding-left: 8px;
-        padding-right: 10px;
+        padding-right: 4px;
         margin-top: 65px;
         
       }
@@ -382,7 +234,7 @@ footer section article.seguridad {
         background-color: black;
         color: white;
         font-size: 9.3px;
-        margin-top: 146px;
+        margin-top: 122px;
         padding-left: 7px;
         padding-right: 9px;
         margin-right: -138px;
@@ -398,6 +250,8 @@ footer section article.seguridad {
         margin: 0 auto;
         padding: 10px;
         font-size: 11px;
+        padding-bottom: 156px;
+        
     } 
     .p-privacidad{
         margin-bottom: 120px;
@@ -448,7 +302,7 @@ footer section article.seguridad {
         background-color: black;
         color: white;
         font-size: 9.3px;
-        margin-top: 146px;
+        margin-top: 129px;
         padding-left: 7px;
         padding-right: 9px;
         margin-right: -162px;
@@ -463,6 +317,7 @@ footer section article.seguridad {
         margin: 0 auto;
         padding: 10px;
         font-size: 11px;
+        padding-bottom: 156px;
     } 
     .login h2{
         margin: 30px 0;
