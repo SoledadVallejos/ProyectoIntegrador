@@ -1,0 +1,314 @@
+footer {
+    margin-top: 15px;
+}
+
+
+footer section.top-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer section article.envio
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    
+    
+}
+
+footer section article div.envio-logo {
+    width: 30%;
+    max-width: 100px;
+        font-size: 50px;
+    
+}
+
+footer section article div.envio-logo i {
+    width: 90%;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+}
+
+footer section article div.envio-info h3 {
+    margin-top: 5px;
+    
+}
+footer section article div.envio-info p {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+footer section article div.envio-info {
+    width: 70%;
+    max-width: 260px;
+}
+
+footer section article.pagos {
+    
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    footer section article div.pagos-logo i {
+        width: 90%;
+        font-size: 40px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    footer section article div.pagos-info h3 {
+        margin-top: 5px;
+        
+    }
+    footer section article div.pagos-info p {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+
+    footer section article div.pagos-logo {
+        width: 30%;
+        max-width: 100px;
+        font-size: 50px;
+    }
+    
+    footer section article div.pagos-info {
+        width: 70%;
+        max-width: 260px;
+    }
+
+
+footer section article.seguridad {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 10px;
+       
+
+    }
+
+    footer section article div.seguridad-logo {
+        width: 30%;
+        font-size: 50px;
+        
+        max-width: 100px;
+        
+    }
+
+   
+
+    footer section article div.seguridad-logo i {
+        width: 90%;
+        font-size: 50px;
+        text-align: center;
+        
+        padding: 10px;
+    }
+
+    footer section article div.seguridad-info h3 {
+        margin-top: 5px;
+        
+    }
+    footer section article div.seguridad-info p {
+        margin-top: 5px;
+        font-size: 12px;
+    }
+    
+    footer section article div.seguridad-info {
+        width: 70%;
+        max-width: 260px;
+    }
+
+
+    footer section.footer-box {
+        color: var(--color-blanco);
+        background-color: var(--color-negro);
+    }
+
+    footer section.footer-box a {
+        color: var(--color-blanco)
+    }
+
+    footer section.footer-box section.redes {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    footer section.redes article.redes-top h3 {
+        padding-top: 10px;
+    }
+    footer section.redes article.redes-top p {
+        padding: 4px;
+    }
+
+    footer section.footer-box section.redes a {
+        color: var(--color-negro);
+        margin: 2px;
+        font-size: 25px;
+        width: 100%;
+        border-radius: 5px;
+        background-color: var(--color-blanco);
+    }
+
+    footer section.footer-box section.redes ul {
+       display: flex;
+       width: 100%;
+       justify-content: center;
+       align-items: center;
+      
+    }
+
+
+
+    footer section.footer-box section.redes li {
+        font-size: 20px;
+       
+        
+    }
+
+    footer section.footer-box section.redes li.red-min  {
+        font-size: 30px;
+        min-width: 50px;
+        margin: 0;
+        background-color: black;
+    }
+
+    footer section.footer-box section.redes li.red-min a {
+        background-color: black;
+        margin: 0;
+        color: white;
+        font-size: 33px;
+        border-radius: 5px;
+    }
+
+    footer section.footer-navbar {
+        margin-left: 5px;
+    }
+
+    footer section.footer-navbar h4 {
+        margin-bottom: 5px;
+    }
+
+    footer section.footer-navbar article{
+        margin-bottom: 15px;
+
+    }
+
+
+    footer section.footer-navbar ul li a{
+        font-size: 10px;
+        line-height: 17px;
+    }
+
+    footer section.footer-navbar ul li {
+        font-size: 10px;
+        line-height: 17px;
+    }
+    
+
+    footer section.end-footer {
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    footer section.end-footer p{
+        font-size: 14px;
+        padding-bottom: 10px;
+        
+    }
+
+
+    @media (min-width: 425px) {
+    footer section article.envio {
+      border-right:solid 1px black;
+        width: 50%;
+    }
+    footer section article.pagos {
+        width: 50%;
+    }
+footer section.redes {
+    display: flex;
+    width: 100%;
+}
+
+footer section article.redes-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+
+}
+
+footer section article.redes-top div.logo-footer {
+    width: 50%;
+}
+
+footer section article.redes-top div.redes-footer {
+    width: 50%;
+}
+
+
+footer section.footer-navbar {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+footer section.footer-navbar article.institucional {
+    width: 50%;
+
+}
+
+footer section.footer-navbar article.ayuda {
+    width: 50%;
+
+}
+
+
+
+
+
+
+    }
+
+    @media (min-width: 724px) {
+        footer section article.envio {
+      
+            width: 33%;
+            border-right:solid 1px black;
+            margin-bottom: 10px;
+        }
+        footer section article.pagos {
+            width: 33%;
+            border-right:solid 1px black;
+            margin-bottom: 10px;
+        }
+
+        footer section article.seguridad {
+            width: 33%;
+        }
+
+
+
+        footer section.footer-navbar article.institucional {
+            width: 33%;
+        
+        }
+        
+        footer section.footer-navbar article.ayuda {
+            width: 33%;
+        
+        }
+
+
+        footer section.footer-navbar article.cliente {
+            width: 33%;
+        
+        }
+
+    }
