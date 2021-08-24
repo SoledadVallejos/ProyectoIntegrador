@@ -222,13 +222,22 @@ footer section article.seguridad {
     }
 
 
-    @media (min-width: 425px) {
+@media (min-width: 425px) {
+
+footer section.top-footer {
+    display: flex;
+}
+
     footer section article.envio {
       border-right:solid 1px black;
-        width: 50%;
+        max-width: 50%;
     }
     footer section article.pagos {
-        width: 50%;
+        max-width: 50%;
+    }
+
+    footer section article.seguridad {
+        justify-content: center;
     }
 footer section.redes {
     display: flex;
@@ -271,26 +280,23 @@ footer section.footer-navbar article.ayuda {
 
 
 
+}
 
-
-
-    }
-
-    @media (min-width: 724px) {
+@media (min-width: 724px) {
         footer section article.envio {
       
-            width: 33%;
+            max-width: 33%;
             border-right:solid 1px black;
             margin-bottom: 10px;
         }
         footer section article.pagos {
-            width: 33%;
+            max-width: 33%;
             border-right:solid 1px black;
             margin-bottom: 10px;
         }
 
         footer section article.seguridad {
-            width: 33%;
+            max-width: 33%;
         }
 
 
