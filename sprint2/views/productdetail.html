@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productdetail</title>
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Detalle de producto</title>
+    <!-- Splide -->
+    <!-- Link to the file hosted on your server, -->
+    <link rel="stylesheet" href="path-to-the-file/splide.min.css">
+    <!-- or the one installed in node_modules directory, -->
+    <link rel="stylesheet" href="node_modules/@splidejs/splide/dist/css/splide.min.css">
+    <!-- or the reference on CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js">
+
 </head>
+
 <body>
+   
     <header><div class= "top-header"><p>ENVIO GRATIS A PARTIR DE 15.000$ - 3 Y 6 CUOTAS SIN INTERES.</p></div>
         <nav class= "header-nav">
             <div class= "header-logo">
@@ -44,6 +59,70 @@
             </div>
         </nav>
     </header>
+<<<<<<< HEAD
+=======
+    <main class="contenedor-producto">
+        <!-- CAROUSELS -->
+        <div class="splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide"><img class="img" src="/img/img-producto-polera-rojo2.jpg" alt=""></li>
+                    <li class="splide__slide"><img class="img" src="/img/img-producto-polera-rojo1.jpg" alt=""></li>
+                    <li class="splide__slide"><img class="img" src="/img/img-producto-polera-rojo3.jpg" alt=""></li>
+                    <li class="splide__slide"><img class="img" src="/img/img-producto-polera-rojo4.jpg" alt=""></li>
+                    <li class="splide__slide"><img class="img" src="/img/img-producto-polera-beige.jpg" alt=""></li>
+                    <li class="splide__slide"><img class="img" src="/img/img-producto-polera-blanco1.jpg" alt=""></li>
+                    <li class="splide__slide"><img class="img" src="/img/img-producto-polera-blanco2.jpg" alt=""></li>
+                    <li class="splide__slide"><img class="img" src="/img/img-producto-polera-negro.jpg" alt=""></li>
+                </ul>
+            </div>
+        </div>
+        <!-- DETALLE DE PRODUCTO -->
+        <div class="detalle-producto">
+            <div class="descripcion-producto">
+                <p>Polera de mujer Roma <span class="precio-estilo">$3.950</span></p>
+                <div>
+                    <label for="text" >color</label>
+                    <input type="radio" name="color" value="color-rojo" >
+                    <input type="radio" name="color" value="color-beige" >
+                    <input type="radio" name="color" value="color-blanco" >
+                    <input type="radio" name="color" value="color-negro" >
+                </div>
+
+                <div>
+                    <label for="text" >talle</label>
+                    <input type="radio" name="talle" value="talle-38" >
+                    <input type="radio" name="talle" value="talle-40" >
+                    <input type="radio" name="talle" value="talle-42" >
+                    <input type="radio" name="talle" value="talle-44" >
+                </div>
+
+                <div class="cantidad-producto">
+                    <p>cant</p>
+                    <button>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <span class="color-gris">1</span>
+                    <button>
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+                <div class="boton-compra"> <button> <a href="/carrito"> agregar a carrito</a></button>
+
+                    <button> <a href="/">volver al incio</a></button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Splide -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script src="path-to-the-file/splide.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Splide('.splide').mount();
+        });
+    </script>
+>>>>>>> 1f09a37d0522a0a740612056cacfe83f1fcff340
 
 
 
@@ -148,4 +227,5 @@
             </footer>
    
 </body>
+
 </html>

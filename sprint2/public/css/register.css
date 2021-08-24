@@ -53,7 +53,7 @@
     border: 1px solid grey;
     border-radius: 4px;
     margin-left: 200px;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 
@@ -92,22 +92,36 @@
     font-size: 10px;
     margin: 71px 76px;
     border-radius: 2px;
+    margin-bottom: 30px;
 }
 
-footer section.footer-box{
-    width: 100%;
-   /* margin-left: 55px;
-    padding-left: 55px;*/
-    margin-top: 176px;
+/* F O T T E R */
+footer section.redes article.redes-top h3 {
+    padding-top: 10px;
+    margin-top: 164px;
 }
+footer section.footer-box {
+    color: var(--color-blanco);
+    background-color: var(--color-negro);
+    width: 40vh;
+    margin-left: -10px;
+    padding-left: 7px;
+}
+
 
 /*MOBILE*/
-@media (min-width:424px ){
+@media (max-width:431px ){
+    .register{
+        margin: 0 auto;
+        height: 785px;
+    }
+    
     .register .formulario{
-        width: 350px;
+        width: 275px;
         margin: 0 auto;
         padding: 10px;
         font-size: 11px;
+        height: 695px;
     }
     .register h2{
         margin: 30px 0;
@@ -143,7 +157,6 @@ footer section.footer-box{
         border: 1px solid grey;
         border-radius: 4px;
         margin-left: 0px;
-        margin-top: 9px;
         margin-bottom: 35px;
     }
     .box-check1 input {
@@ -160,25 +173,39 @@ footer section.footer-box{
         display: none;
     }
     .btn-r{
-        float: left;
         text-align: center;
         font-size: 10px;
         margin: 71px 60px;
         border-radius: 2px;
         margin-top: 110px;
+        margin-left: 26px;
     }
-    
+    footer section.redes article.redes-top h3 {
+        padding-top: 10px;
+        margin-top: 194px;
+    }
+    footer section.footer-box {
+        color: var(--color-blanco);
+        background-color: var(--color-negro);
+        width: 36vh;
+        margin-left: -57px;
+        padding-left: 23px;
+    }
 }
 
 /* TABLET */
 
-@media (min-width:724px ){
+@media (max-width:770px ){
+    .register{
+        margin: 0 auto;
+        height: 792px;
+    }
     .register .formulario{
         width: 550px;
         margin: 0 auto;
         padding: 10px;
         font-size: 11px;
-        padding-bottom: 156px;
+        height: 636px;
     }
     .register h2{
         margin: 30px 0;
@@ -238,18 +265,35 @@ footer section.footer-box{
         border-radius: 2px;
         margin-top: 120px;
     }
+    footer section.redes article.redes-top h3 {
+        padding-top: 10px;
+        margin-top: 34px;
+    }
+    footer section.footer-box {
+        color: var(--color-blanco);
+        background-color: var(--color-negro);
+        width: 74.5vh;
+        margin-left: -117px;
+        padding-left: 7px;
+        margin-top: 221px;
+    }
 
 }
 
 /* DESKTOP */
 
-/*@media (min-width:1024px ){
+@media (min-width:1024px ){
+    .register{
+        margin: 0 auto;
+        height: 792px;
+    }
     .register .formulario{
         width: 650px;
         margin: 0 auto;
         padding: 10px;
         font-size: 11px;
-        padding-bottom: 156px;
+        height: 633px;
+        
     }
     .register h2{
         margin: 30px 0;
@@ -309,5 +353,17 @@ footer section.footer-box{
         margin: 0px 187px;
         border-radius: 2px;
         margin-top: 67px;
+    }
+    footer section.redes article.redes-top h3 {
+        padding-top: 10px;
+        margin-top: 34px;
+    }
+    footer section.footer-box {
+        color: var(--color-blanco);
+        background-color: var(--color-negro);
+        width: 100vh;
+        margin-left: -196px;
+        padding-left: 0px;
+        margin-top: 221px;
     }
 }
