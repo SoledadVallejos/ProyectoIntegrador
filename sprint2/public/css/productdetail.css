@@ -30,7 +30,7 @@
  
 .caracteristicas-producto{
     background-color: #ece6e2;
-    height: 240px;
+    height: 275px;
     margin: auto;
     margin-top: 20px;
     width: 90%;
@@ -42,6 +42,99 @@
 .ml-1{
     margin-bottom: 10px;
 }
+
+.colores-radio{
+    display: flex;
+    align-items: center;
+}
+
+.radio-rojo{
+    border: solid 1px black;
+    background-color: rgb(255, 0, 13);
+    width: 25px;
+    height: 25px;
+    text-align: center;
+}
+
+
+.radio-rojo input{
+    opacity: 0;
+}
+
+.radio-beige{
+    border: solid 1px black;
+    background-color: rgba(255, 230, 0, 0.479);
+    width: 25px;
+    height: 25px;
+    text-align: center;
+
+}
+
+.radio-beige input{
+    opacity: 0;
+}
+
+.radio-blanco{
+    border: solid 1px black;
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+
+}
+
+.radio-blanco input{
+    opacity: 0;
+}
+
+.radio-negro{
+    border: solid 1px black;
+    background-color: black;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+
+}
+
+.radio-negro input{
+    opacity: 0;
+}
+
+.colores-radio label{
+    margin-right: 10px;
+}
+
+.ml-2{
+    margin-right: 8px;
+}
+
+.detalle-talla{
+    display: flex;
+    align-items: center;
+    margin: 13px 0;
+} 
+
+.detalle-talla label{
+    margin-right: 10px;
+    
+}
+
+.talle-producto{
+    border: solid 1px black;
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+}
+
+.talle-producto input{
+    opacity: 0;
+}
+
+ 
+
+
+
 
 .descripcion-producto p{
     text-transform: uppercase;
@@ -109,7 +202,7 @@
     }
 
     .caracteristicas-producto{
-        height: 300px;
+        height: 325px;
         width: 80%;
     }
 
