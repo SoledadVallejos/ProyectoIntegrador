@@ -49,58 +49,64 @@
     <!--FORMULARIO DE REGISTRO-->
 
     <div class="formulario">
-        <h2>Formulario de Registro</h2>
-        <form action="" method="POST">
-            <div class="box-form">
-                <label for="email">Nombre de usuario</label>
-                <input type="email" placeholder="" id="email" name="email">
+        <h2 class="formularioDeRegistro">Formulario de Registro</h2>
+        <form action="" method="POST" class="post">
+            <div>
+                <label  class="box-form2" for="email">Nombre de usuario</label>
+                <input class="pass2" type="email" placeholder="" id="email" name="email">
             </div>
-            <div class="box-form1">
-                <label for="email">Correo electronico</label>
-                <input type="email" placeholder="" id="email" name="email">
+            <div>
+                <label  class="box-form3" for="email">Correo electronico</label>
+                <input class="pass3" type="email" placeholder="" id="email" name="email">
             </div>
            
-            <div class="pass1">
-                <label for="pass">Contraseña</label>
-                <input type="password" placeholder="" id="pass" name="password">
+            <div>
+                <label  class="box-form4" for="pass">Contraseña</label>
+                <input class=pass4 type="password" placeholder="" id="pass" name="password">
             </div>
 
-            <div class="pass2">
-                <label for="pass">Confirmar Contraseña</label>
-                <input type="pass" placeholder="" id="pass" name="password">
-            </div>
+            
+                <label  class="box-form5" for="pass">Confirmar Contraseña</label>
+                <input class="input5" type="pass" placeholder="" id="pass" name="password">
+            
             
             <!-- CAJAS -->
 
             <main>
-                <div class="box-check1">
-                    <input type="checkbox" id="remember" name="remember" class="box-check1">
-                    <label for="remember">Al registrarte, aceptas nuestras Condiciones de uso y Politica de Privacidad</label>
+                <div>
+                    <input class="box-check2" type="checkbox" id="remember" name="remember" class="box-check1">
+                    <label class="a-check" for="remember">Al registrarte, aceptas nuestras Condiciones de uso y Politica de Privacidad</label>
                 </div>
 
             </main>
 
-            <span>¿Ya tienes una cuenta?</span> <a href="/login" class="btn-is">Iniciar sesion</a><a href="/" class="btn-r">Registrate</a>
+            <span class="¿">¿Ya tienes una cuenta?</span> <a href="/login" class="btn-is">Iniciar sesion</a>
+            <div id="boton-re">
+                <a href="/" class="btn-re">Registrate</a>
+            </div>
 
-    <footer>    
-        <section class = "footer-box">
+
+
+    <footer class="footer-register">
+
+         <section class = "footer-box">
                 
-                <section class ="redes">
+            <section class ="redes">
                     
-                    <article class="redes-top">
-                        <div class= "logo-footer"><H3>ROMA</H3></div>
-                        <div class= "redes-footer"><P>REDES SOCIALES</P>
-                            <ul>
-                                 <li><a href="/"><i class="fab fa-twitter"></i></a></li>
-                                 <li class="red-min"><a href="/"><i class="fab fa-facebook-square"></i></a></li>
-                                 <li><a href="/"><i class="fab fa-google-plus-g"></i></a></li>
-                                 <li class="red-min"><a href="/"><i class="fab fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
+                <article class="redes-top">
+                    <div class= "logo-footer"><H3>ROMA</H3></div>
+                    <div class= "redes-footer"><P>REDES SOCIALES</P>
+                        <ul>
+                              <li><a href="/"><i class="fab fa-twitter"></i></a></li>
+                              <li class="red-min"><a href="/"><i class="fab fa-facebook-square"></i></a></li>
+                              <li><a href="/"><i class="fab fa-google-plus-g"></i></a></li>
+                              <li class="red-min"><a href="/"><i class="fab fa-instagram"></i></a></li>
+                             </ul>
+                    </div>
                         
-                    </article>
+                </article>
                 
-                </section>
+             </section>
                 
                 <section class = "footer-navbar">
                     <article class= "institucional">
@@ -143,8 +149,9 @@
                 </section>
                 
                 
-        </section>
-     </footer>
+            </section>
+      </footer>
 
+   
 </body>
 </html>
