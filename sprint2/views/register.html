@@ -51,36 +51,39 @@
     <div class="formulario">
         <h2 class="formularioDeRegistro">Formulario de Registro</h2>
         <form action="" method="POST" class="post">
-            <div class="box-form2">
-                <label for="email">Nombre de usuario</label>
-                <input type="email" placeholder="" id="email" name="email">
+            <div>
+                <label  class="box-form2" for="email">Nombre de usuario</label>
+                <input class="pass2" type="email" placeholder="" id="email" name="email">
             </div>
-            <div class="box-form3">
-                <label for="email">Correo electronico</label>
-                <input type="email" placeholder="" id="email" name="email">
+            <div>
+                <label  class="box-form3" for="email">Correo electronico</label>
+                <input class="pass3" type="email" placeholder="" id="email" name="email">
             </div>
            
-            <div class="pass3">
-                <label for="pass">Contraseña</label>
-                <input type="password" placeholder="" id="pass" name="password">
+            <div>
+                <label  class="box-form4" for="pass">Contraseña</label>
+                <input class=pass4 type="password" placeholder="" id="pass" name="password">
             </div>
 
-            <div class="pass4">
-                <label for="pass">Confirmar Contraseña</label>
-                <input type="pass" placeholder="" id="pass" name="password">
-            </div>
+            
+                <label  class="box-form5" for="pass">Confirmar Contraseña</label>
+                <input class="input5" type="pass" placeholder="" id="pass" name="password">
+            
             
             <!-- CAJAS -->
 
             <main>
-                <div class="box-check2">
-                    <input type="checkbox" id="remember" name="remember" class="box-check1">
-                    <label for="remember">Al registrarte, aceptas nuestras Condiciones de uso y Politica de Privacidad</label>
+                <div>
+                    <input class="box-check2" type="checkbox" id="remember" name="remember" class="box-check1">
+                    <label class="a-check" for="remember">Al registrarte, aceptas nuestras Condiciones de uso y Politica de Privacidad</label>
                 </div>
 
             </main>
 
-            <span>¿Ya tienes una cuenta?</span> <a href="/login" class="btn-is">Iniciar sesion</a><a href="/" class="btn-re">Registrate</a>
+            <span class="¿">¿Ya tienes una cuenta?</span> <a href="/login" class="btn-is">Iniciar sesion</a>
+            <div id="boton-re">
+                <a href="/" class="btn-re">Registrate</a>
+            </div>
 
 
 
