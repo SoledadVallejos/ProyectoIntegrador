@@ -1,60 +1,99 @@
 .register{
     margin: 0 auto;
-    
+    height: 739px ;
 }
 
 .register .formulario{
-    width: 400px;
+    width: 764px;
     margin: 0 auto;
     padding: 10px;
     font-size: 11px;
 }
-
-.register h2{
+.register h2.formularioDeRegistro{
     margin: 30px 0;
     text-align: center;
     text-transform: capitalize;
     font-size: 11px;
 }
-
-.register .box-form{
+.post{
+    height: 528px;
+    width: 460px;
+    margin-bottom: 15px;
+}
+.box-form2{
     display: flex;
     flex-direction: column;
-    margin: 20px 0;
-    margin-block-end: 100px;
+    margin-bottom: 40x;
 }
-
-.register .pass1{
-    display: flex;
-    flex-direction: column
-}
-.formulario .pass1 label{
-    margin-top: 74px;
-    margin-left: 7px;
-   
-}
-.formulario .pass1 input{
-    border: 1px solid grey;
-    border-radius: 4px;
-    margin-right: 200px;
-    margin-top: 5px;
+.box-form2{
+    margin-left: 126px;
+    margin-bottom: 6px;
 }
 
 .register .pass2{
     display: flex;
-    flex-direction: column
-}
-.formulario .pass2 label{
-    margin-top: -39px;
-    margin-left: 209px;
-}
-.formulario .pass2 input{
+    flex-direction: column;
     border: 1px solid grey;
     border-radius: 4px;
-    margin-left: 200px;
-    margin-top: 8px;
+    margin-left: 117px;
+    margin-bottom: 56px;
+    padding-left: 345px;
+    padding-top: 5px;
+}
+.box-form3{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40x;
+    margin-left: 126px;
+    margin-bottom: 6px;
 }
 
+.register .pass3{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    border-radius: 4px;
+    margin-left: 117px;
+    margin-bottom: 56px;
+    padding-left: 345px;
+    padding-top: 5px;
+}
+.box-form4{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40x;
+    margin-left: 126px;
+    margin-bottom: 6px;
+}
+.register .pass4{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    border-radius: 4px;
+    margin-left: 117px;
+    margin-bottom: -53px;
+    padding-left: 60px;
+    padding-top: 5px;
+}
+.box-form5{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40x;
+    margin-left: 410px;
+    margin-bottom: 6px;
+}
+.input5{
+    margin-bottom: 5px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    margin-left: 400px;
+    margin-bottom: 56px;
+    padding-left: 60px;
+    padding-top: 5px;
+}
+.¿{
+    margin-left: 131px;
+}
 
 .btn-is{
     text-decoration-line: underline;
@@ -62,228 +101,210 @@
     font-weight: bold;
     margin-left: 15px;
 }
-
-.box-check1 input {
+main .box-check2 {
     margin-top: 5px;
-    margin-right: 60px;
-    
+    margin-left: 122px;
+    margin-bottom: 26px;  
 }
-.box-check1 label{
+
+.box-check2 label{
     font-size: 9px;
     text-transform: capitalize;
     margin-right: 89px;
     margin-left: -58px;
 }
-
-
-
-.btn-r{
+.a-check{
+    margin-left: 4px;
+    font-size: 9px;
+}
+.btn-re{
     background-color: #a68c6c;
     color: white;
     padding: 7px;
     padding-left: 80px;
     padding-right: 80px;
 }
-
-.btn-r{
-    float: left;
+#boton-re{
+    margin-top: 25px;
+}
+.btn-re{
     text-align: center;
     font-size: 10px;
     margin: 71px 76px;
     border-radius: 2px;
     margin-bottom: 30px;
+    margin-left: 260px;
+}
+
+.footer-register{
+    width: 100vw;
+    margin-left: -470px;
+    margin-top: 120px;
+   
+
 }
 
 /* F O T T E R */
 
-footer section.top-footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-footer section article.envio
-{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    
-    
-}
-
-footer section article div.envio-logo {
-    width: 30%;
-    max-width: 100px;
-        font-size: 50px;
-    
-}
-
-footer section article div.envio-logo i {
-    width: 90%;
-    font-size: 40px;
-    text-align: center;
-    padding: 10px;
-}
-
-footer section article div.envio-info h3 {
-    margin-top: 5px;
-    
-}
-footer section article div.envio-info p {
-    margin-top: 5px;
-    font-size: 12px;
-}
-
-footer section article div.envio-info {
-    width: 70%;
-    max-width: 260px;
-}
-
-footer section article.pagos {
-    
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-
-    footer section article div.pagos-logo i {
-        width: 90%;
-        font-size: 40px;
-        text-align: center;
-        padding: 10px;
-    }
-
-    footer section article div.pagos-info h3 {
-        margin-top: 5px;
-        
-    }
-    footer section article div.pagos-info p {
-        margin-top: 5px;
-        font-size: 12px;
-    }
-
-    footer section article div.pagos-logo {
-        width: 30%;
-        max-width: 100px;
-        font-size: 50px;
-    }
-    
-    footer section article div.pagos-info {
-        width: 70%;
-        max-width: 260px;
-    }
 
 
-footer section article.seguridad {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        margin-bottom: 10px;
-       
-
-    }
-
-    footer section article div.seguridad-logo {
-        width: 30%;
-        font-size: 50px;
-        
-        max-width: 100px;
-        
-    }
-
-   
-
-    footer section article div.seguridad-logo i {
-        width: 90%;
-        font-size: 50px;
-        text-align: center;
-        
-        padding: 10px;
-    }
-
-    footer section article div.seguridad-info h3 {
-        margin-top: 5px;
-        
-    }
-    footer section article div.seguridad-info p {
-        margin-top: 5px;
-        font-size: 12px;
-    }
-    
-    footer section article div.seguridad-info {
-        width: 70%;
-        max-width: 260px;
-    }
 /*MOBILE*/
-@media (min-width:425px ){
+@media (max-width:426px ){
     .register .formulario{
-        width: 350px;
+        width: 230px;
         margin: 0 auto;
         padding: 10px;
         font-size: 11px;
     }
-    .register h2{
+    .register h2.formularioDeRegistro{
         margin: 30px 0;
         text-align: left;
         text-transform: capitalize;
         font-size: 12px;
     }
-    .register .pass1{
+    /* INPUT 1*/
+    .register .box-form2{
         display: flex;
-        flex-direction: column
+        flex-direction: column;
+        margin-bottom: 12px;
+        margin-left: 3px;
     }
-    .formulario .pass1 label{
-        margin-top: 74px;
-        margin-left: 7px;
-       
-    }
-    .formulario .pass1 input{
+    .register .pass2 {
+        display: flex;
+        flex-direction: column;
         border: 1px solid grey;
         border-radius: 4px;
-        margin-right: 0px;
-        margin-top: 5px;
+        margin-left: -6px;
+        margin-bottom: 56px;
+        padding-left: 55px;
+        padding-top: 3px;
     }
-    
-    .register .pass2{
+    /* INPUT 2 */
+    .register .box-form3{
         display: flex;
-        flex-direction: column
+        flex-direction: column;
+        margin-bottom: 12px;
+        margin-left: 3px;
     }
-    .formulario .pass2 label{
-        margin-top: 65px;
-        margin-left: 6px;
-    }
-    .formulario .pass2 input{
+    .register .pass3 {
+        display: flex;
+        flex-direction: column;
         border: 1px solid grey;
         border-radius: 4px;
-        margin-left: 0px;
-        margin-bottom: 35px;
+        margin-left: -6px;
+        margin-bottom: 56px;
+        padding-left: 55px;
+        padding-top: 3px;
     }
-    .box-check1 input {
+    /* INPUT 3*/
+    .register .box-form4{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 12px;
+        margin-left: 3px;
+    }
+    .register .pass4{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid grey;
+        border-radius: 4px;
+        margin-left: -6px;
+        margin-bottom: 56px;
+        padding-left: 55px;
+        padding-top: 3px;
+    }
+    /* INPUT 4 */
+    .register .box-form5{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 12px;
+        margin-left: 3px;
+    }
+    .input5 {
+        margin-bottom: 5px;
+        border: 1px solid grey;
+        border-radius: 4px;
+        margin-left: -6px;
+        margin-bottom: 19px;
+        padding-left: 55px;
+        padding-top: 3px;
+    }
+    main .box-check2 {
         margin-top: 5px;
-        margin-right: 60px;
-        display: none;
-        
+        margin-left: -26px;
+        margin-bottom: 26px;  
     }
-    .box-check1 label{
-        font-size: 9px;
-        text-transform: capitalize;
-        margin-right: 89px;
-        margin-left: -58px;
-        display: none;
+    .a-check {
+        font-size: 7.2px;
     }
-    .btn-r{
-        float: left;
-        text-align: center;
+    .¿{
+        margin-left: -31px;
+    }
+
+    #boton-re{
+        margin-top: 45px;
+    }
+    .btn-re{
         font-size: 10px;
-        margin: 71px 60px;
         border-radius: 2px;
-        margin-top: 110px;
+        margin-left: 26px;
+    }
+    .btn-re{
+        background-color: #a68c6c;
+        color: white;
+        padding: 6px;
+        padding-left: 55px;
+        padding-right: 55px;
     }
     
+    .post{
+        height: 528px;
+        width: 268px;
+    }
+    .footer-register{
+        width: 100vw;
+        margin-top: 191px;
+        margin-left: -53px;
+        margin-right: 28px
+    }
+
 }
 
-/* TABLET */
+@media (min-width:375px ){
+    .footer-register{
+        width: 100vw;
+        margin-top: 191px;
+        margin-left: -82px;
+        margin-right: 28px
+    }
+}    
 
+@media (min-width:425px ){
+.footer-register{
+    width: 100vw;
+    margin-top: 191px;
+    margin-left: -105px;
+    margin-right: 28px
+}
+}
+@media (min-width:768px ){
+    .footer-register{
+        width: 100vw;
+        margin-top: 191px;
+        margin-left: -13px;
+        margin-right: 28px
+    }
+}
+@media (min-width:1024px ){
+    .footer-register{
+        width: 100vw;
+        margin-top: 191px;
+        margin-left: -470px;
+        margin-right: 28px
+    }
+}
+/*
+/* TABLET 
 @media (min-width:724px ){
     .register .formulario{
         width: 550px;
@@ -291,22 +312,25 @@ footer section article.seguridad {
         padding: 10px;
         font-size: 11px;
     }
-    .register h2{
+    .register h2.formularioDeRegistro{
         margin: 30px 0;
         text-align: center;
         text-transform: capitalize;
         font-size: 13px;
     }
-    .register .pass1{
+    .register .pass3
+{
         display: flex;
         flex-direction: column
     }
-    .formulario .pass1 label{
+    .formulario .pass3
+ label{
         margin-top: 74px;
         margin-left: 7px;
        
     }
-    .formulario .pass1 input{
+    .formulario .pass3
+ input{
         border: 1px solid grey;
         border-radius: 4px;
         margin-right: 320px;
@@ -341,68 +365,84 @@ footer section article.seguridad {
         display: flex;
         margin-bottom: 40px;
     }
-    .btn-r{
-        float: left;
+    .btn-re{
         text-align: center;
         font-size: 10px;
         margin: 26px 156px;
         border-radius: 2px;
         margin-top: 120px;
     }
+    .post{
+        height: 528px;
+    }
+    .footer-register{
+        width: 100vw;
+        margin-top: 191px;
+        margin-left: -117px ;
+    }
+
 
 }
 
-/* DESKTOP */
-
+/* DESKTOP 
 @media (min-width:1024px ){
     .register .formulario{
         width: 650px;
         margin: 0 auto;
         padding: 10px;
         font-size: 11px;
+        height: 592px;
     }
-    .register h2{
+    .register h2.formularioDeRegistro{
         margin: 30px 0;
         text-align: center;
         text-transform: capitalize;
         font-size: 15px;
     }
-    .register .pass1{
+    .register .pass3
+{
         display: flex;
         flex-direction: column
     }
-    .formulario .pass1 label{
+    .formulario .pass3
+ label{
         margin-top: 74px;
         margin-left: 7px;
         font-size: 12.5PX;       
     }
-    .formulario .pass1 input{
+    .formulario .pass3
+ input{
         border: 1px solid grey;
         border-radius: 4px;
         margin-right: 355px;
         margin-top: 5px;
     }
+    .box-form1 input{
+    border: 1px solid grey;
+    border-radius: 4px;
+    padding: 2.5px;
+    }
     
-    .register .pass2{
+    .register .pass4{
         display: flex;
         flex-direction: column
     }
-    .formulario .pass2 label{
+    .formulario .pass4 label{
         margin-top: -39px;
         margin-left: 336px;
         font-size: 12.5PX;  
     }
-    .formulario .pass2 input{
+    .formulario .pass4 input{
         border: 1px solid grey;
         border-radius: 4px;
         margin-left: 330px;
         margin-top: 5px;
     }
-    .box-check1 input {
+    .box-check2 input {
         margin-top: 5px;
         display: flex;
     }
-    .box-check1 label{
+    .box-check2 label{
         font-size: 11.5px;
         margin-top: 27.3px;
         text-transform: capitalize;
@@ -420,4 +460,16 @@ footer section article.seguridad {
         border-radius: 2px;
         margin-top: 67px;
     }
+    .footer-register{
+        width: 98.9vw;
+        margin-top: 191px;
+        margin-left: -530px;
+    }
+    .post{
+        height: 528px;
+    }
+}
+
+footer.register section.footer-box {
+    margin-top: 170px;
 }
