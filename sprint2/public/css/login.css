@@ -1,35 +1,38 @@
-main.login{
+.login{
     margin: 0 auto;
 }
+
 .login .formulario{
-    /*width: 480px;*/
-    /*max-width: 440px;*/
+    width: 530px;
     margin: 0 auto;
     padding: 10px;
     font-size: 11px;
-    padding-bottom: 156px;
+    padding-bottom: 88px;
 }
+
 .login h2{
     margin: 30px 0;
     text-align: center;
     text-transform: uppercase;
     font-size: 11px;
 }
+
 .login .box-form{
     display: flex;
     flex-direction: column;
     margin: 20px 0;
     margin-block-end: 130px;
 }
-main div.box-form1{
+.box-form1{
     display: flex;
     flex-direction: column;
     margin: 20px 0;
+
 }
-main div.box-check{
- margin-bottom: 15px;
+.box-check{
+    margin-bottom: 15px;
 }
-main div.box-error {
+.box-error {
     font-size: 10px;
     margin-bottom: 45px;
 }
@@ -40,61 +43,56 @@ span a{
 .p-privacidad{
     margin-bottom: 120px;
 }
-#login-redes{
-    margin-top: 27px;
-    display: flex;
-    flex-wrap: wrap;
+
+#boton-I{
+    margin-bottom: 40px;
 }
-#login-redes .botonI{
+#boton-crear{
+    margin-top: 35px;
+}
+
+
+.botonI{
   border: 1px solid #a08c72;
   color: #a08c72;
-  border-radius: 2px;
+  border-radius: 1px;
   padding: 3px;
  
 }
-#login-redes .botonI a{
-    width: 100%;
-    font-size: 10px;
-    margin: 30px;
-    margin-left: 58px;
-
-}
-#redes1{
-    padding: 15px;
-    margin-bottom: 15px;
-    margin-top: 45px;
+.botonI{
+    padding-left: 53px;
+    padding-top: 5px;
+    padding-right: 55px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    margin-left: 146px;
+    
 }
 
- .btn-face{
+.btn-face{
   background-color:#065c9c ;
   color: white;
   border: 2px solid #065c9c;
-  font-size: 10px;
-  padding: 4px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-top: 30px;
-  
+  font-size: 10.5px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: 96px;
+  margin-left: 20px;
 }
 
 
-#redes2 .btn-g{
+.btn-g{
     background-color: #7e7e7d;
     color: white ;
     border: 2px solid #7e7e7d;
-    font-size: 9.5px;
-    padding: 4px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 30px;
-
+    font-size: 10.5px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 2px;
+    
 }
-#redes3{
-    padding: 15px;
-    margin-bottom: 15px;
-    margin-top: 45px;
-}
-
 .btn-crear{
     background-color: black;
     color: white;
@@ -103,8 +101,10 @@ span a{
     margin-top: 30px;
     padding-left: 7px;
     padding-right: 7px;
-   
+    margin-left: 376px;
+    
 }
+
 .box-form label{
     margin-bottom: 4px;
     margin-left: 9px;
@@ -121,27 +121,14 @@ span a{
     border: 1px solid grey;
     border-radius: 4px;
 }
-                        /* F O T T E R */
-/*.container-buttons1 .btn-beige{
-    border: 1px solid #a08c72;
-    color: #a08c72;
-    border-radius: 2px;
-    padding: 3px;
-    padding-left: 33px;
-    padding-right: 44px;
-    font-size: 10px;
-    margin: 60px;
-    background-color: white;
-}
-.btn-azul{
-@@ -145,10 +156,10 @@
-}*/ 
 
+            
+   
 /* mobile*/
-@media(max-width:430px)
+@media(max-width: 426px) 
 {
     .login .formulario{
-        width: 275px;
+        width: 230px;
         margin: 0 auto;
         padding: 5px;
         font-size: 6px;
@@ -184,66 +171,63 @@ span a{
     .box-form1 input{
         border: 1px solid grey;
         border-radius: 4px;
-        
     }
-    #login-redes .botonI{
+    #boton-I{
+        margin-bottom: 25px;
+    }
+    .botonI{
         border: 1px solid #a08c72;
         color: #fff;
         background-color:#a08c72;
         border-radius: 3.2px;
         padding: 3.2px;
-       
+        text-transform: uppercase;
       }
-      #login-redes .botonI{
-          padding-left: 33px;
-          padding-right: 36px;
-          font-size: 11px;     
-          margin-left: 50px;      
+    .botonI{
+          padding-left: 18px;
+          padding-right: 21px;
+          font-size: 5.9px;
+         /* margin: 30px;*/
+          margin-left: 60px;      
       }
-
-      #redes1{
-
-        margin-bottom: -25px;
-        margin-top: 45px;
-    }
-      .btn-face{
-        background-color: var(--color-blanco);
+    .btn-face{
+        background-color: #fff;
         color: #065c9c;
         border: 1px solid #065c9c;
-        font-size: 8.5px;
-        padding: 6.5px;
-        padding-left: 4px;
-
-        margin-top: 65px;
-        margin-left: -17px;
-
+        font-size: 5.9px;
+        margin-left: 7px;
+        padding: 4.5px;
+        padding-left: 8px;
+        padding-right: 4px;
+        margin-right: 16px;
+        
+        
       }
-      
-      #redes2 .btn-g{
+      .btn-g{
         background-color: #fff;
         color: #7e7e7d;
         border: 1px solid #7e7e7d;
-        font-size: 9.7px;
-        padding: 5.5px;
-        padding-left: 4px;
-        padding-right: 5px;
-        margin-top: 57px;
-        margin-left: 133px;
-
+        font-size: 5.9px;
+        padding: 4.5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        
+        
     }
     .btn-crear{
         background-color: black;
         color: white;
-        font-size: 9.3px;
-        margin-top: 122px;
+        font-size: 5.7px;
+        margin-left: 156px;
         padding-left: 7px;
-        padding-right: 9px;
-        margin-left: 151px;
+        padding-right: 6px;      
     } 
-
+    
 }
+
 /* Tablet*/
-@media (min-width: 724px) {
+/*
+@media (max-width: 768px) {
     .login .formulario{
         width: 450px;
         margin: 0 auto;
@@ -258,11 +242,12 @@ span a{
         display: flex;
     }
    
+
     #login-redes .botonI{
         border: 1px solid #a08c72;
         background-color: #fff;
         color: #a08c72 ;
-        border-radius: 2px;
+        border-radius: 0.5px;
         padding: 4.5px;
        
       }
@@ -270,36 +255,34 @@ span a{
           padding-left: 50px;
           padding-right: 50px;
           font-size: 11px;
-         /* margin: 30px;*/     
-          margin-left: 123px;      
+         /* margin: 30px;*/
+   /*       margin-left: -67px;      
       }
-
-      #redes1{
-        margin-bottom: -28px;
-        margin-top: 45px;
-    }
-
-       .btn-face{
+      #login-redes .btn-face{
         background-color:#065c9c ;
         color: white;
         border: 2px solid #065c9c;
-        font-size: 11.7px;
+        font-size: 9.7px;
         padding: 4px;
-        padding-left: 12px;
-        padding-right: 13px;
-        margin-top: 30px;
-        margin-left: 10px;
+        padding-left: 18px;
+        padding-right: 20px;
+        margin-top: 65px;
+        margin-left: 15px;
       }
-
-      #redes2 .btn-g{
+      .btn-g{
         background-color: #7e7e7d;
         color: white ;
         border: 2px solid #7e7e7d;
-        font-size: 11.7px;
+        font-size: 9.7px;
         padding: 4px;
         padding-left: 18px;
-        padding-right: 15px;
-        margin-left: 224px;
+        padding-right: 20px;
+        margin-top: 51px;
+        float: right;
+        margin-right: 18px;
+    }
+    #boton-crear{
+        margin-top: 25px;
     }
     .btn-crear{
         background-color: black;
@@ -308,11 +291,12 @@ span a{
         margin-top: 129px;
         padding-left: 7px;
         padding-right: 9px;
-        margin-left: 306px;
+        margin-right: -162px;
     } 
 }
 
 /* Desktop*/
+/*
 @media(min-width: 1024px){
     .login .formulario{
         width: 650px;
@@ -339,26 +323,18 @@ span a{
           padding-left: 50px;
           padding-right: 50px;
           font-size: 12px;
-          margin-left: 205px;      
-}
-#redes1{
-    margin-bottom: -28px;
-    margin-top: 45px;
-}
-       .btn-face{
+          margin-left: -72px;      
+      }
+      #login-redes .btn-face{
         background-color:#065c9c ;
         color: white;
         border: 2px solid #065c9c;
         font-size: 11.5px;
         padding: 5px;
-        padding-left: 23px;
-        padding-right: 19.5px;
-        margin-top: 57px;
-        margin-left: 9.7px;
-}
-
-      #redes2 {
-          margin-left: 170.5px;
+        padding-left: 30px;
+        padding-right: 35px;
+        margin-top: 71px;
+        margin-left: 46px;
       }
       .btn-g{
         background-color: #7e7e7d;
@@ -368,8 +344,8 @@ span a{
         padding: 5px;
         padding-left: 34px;
         padding-right: 33px;
-        margin-top: -51px;
-        margin-right: 52px;
+        margin-top: 57px;
+        margin-right: 97px;
     }
     .btn-crear{
         background-color: black;
@@ -378,7 +354,7 @@ span a{
         margin-top: 146px;
         padding-left: 8px;
         padding-right: 9px;
-        margin-left: 472px;
+        margin-right: -215px;
     } 
     .box-form label{
         margin-bottom: 4px;
