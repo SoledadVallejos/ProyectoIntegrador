@@ -133,13 +133,18 @@
 
  
 
-
+.descripcion-producto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 .descripcion-producto p{
     text-transform: uppercase;
     font-weight: bold;
     font-size: 17px;
+    text-align: center
    
 
 }
@@ -165,6 +170,8 @@
 
 .boton-compra{
     margin-top: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .boton-compra button{
@@ -241,8 +248,11 @@
 
     /* Desktop */
     @media screen and (min-width:1024px) {
+        .contenedor-general-c-p{
+            width: 100%;
+        }
         .splide{
-            width: 65%;
+            width: 50%;
             height: 755px;
         }
 
@@ -254,7 +264,7 @@
 
         .caracteristicas-producto{
            
-            width: 70%;
+            width: 50%;
         }
 
         .boton-compra button:hover{
