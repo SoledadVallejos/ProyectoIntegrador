@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     productdetail: (req, res) => {
-        return res.render('productdetail', {
+        return res.render('products/productdetail', {
             title: 'Detalle del Producto',
 
         });

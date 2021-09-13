@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     cart: (req, res) => {
-        return res.render('cart', {
+        return res.render('products/cart', {
             title: 'Carrito',
 
         });

@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
     index: (req, res) => {
-        return res.render('index', {
+        return res.render('products/index', {
             title: 'Roma - Venta de Indumentaria Textil',
 
         });
