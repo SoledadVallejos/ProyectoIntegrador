@@ -278,11 +278,22 @@ footer section.footer-navbar article.ayuda {
 
 }
 
+<<<<<<< HEAD
+=======
 
 
 }
 
+<<<<<<< HEAD
 @media (min-width: 724px) {
+=======
+
+
+    }
+
+>>>>>>> 1f09a37d0522a0a740612056cacfe83f1fcff340
+    @media (min-width: 724px) {
+>>>>>>> register/Sol
         footer section article.envio {
       
             max-width: 33%;
@@ -318,3 +329,7 @@ footer section.footer-navbar article.ayuda {
         }
 
     }
+<<<<<<< HEAD
+}
+=======
+>>>>>>> 1f09a37d0522a0a740612056cacfe83f1fcff340

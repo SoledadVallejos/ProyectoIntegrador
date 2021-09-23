@@ -71,7 +71,7 @@
     border: 1px solid grey;
     border-radius: 4px;
     margin-left: 117px;
-    margin-bottom: -65px;
+    margin-bottom: -53px;
     padding-left: 60px;
     padding-top: 5px;
 }
@@ -101,14 +101,10 @@
     font-weight: bold;
     margin-left: 15px;
 }
-/* input y label de terminos y condiciones */
-.chek-terminos{
-    width: 650px;
-}
 main .box-check2 {
     margin-top: 5px;
     margin-left: 122px;
-    margin-bottom: 93px;  
+    margin-bottom: 26px;  
 }
 
 .box-check2 label{
@@ -117,7 +113,7 @@ main .box-check2 {
     margin-right: 89px;
     margin-left: -58px;
 }
-label .a-check{
+.a-check{
     margin-left: 4px;
     font-size: 9px;
 }

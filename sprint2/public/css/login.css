@@ -2,8 +2,14 @@
     margin: 0 auto;
 }
 
+<<<<<<< HEAD
 .login .formulario{
     width: 530px;
+=======
+.login .formularioDeLogin{
+    /*width: 480px;*/
+    /*max-width: 440px;*/
+>>>>>>> register/Sol
     margin: 0 auto;
     padding: 10px;
     font-size: 11px;
@@ -122,8 +128,36 @@ span a{
     border-radius: 4px;
 }
 
+<<<<<<< HEAD
             
    
+=======
+                        /* F O T T E R */
+
+/*.container-buttons1 .btn-beige{
+    border: 1px solid #a08c72;
+    color: #a08c72;
+    border-radius: 2px;
+    padding: 3px;
+    padding-left: 33px;
+    padding-right: 44px;
+    font-size: 10px;
+    margin: 60px;
+    background-color: white;
+}
+.btn-azul{
+  background-color:#065c9c ;
+  color: white;
+  border: 2px solid #065c9c;
+  font-size: 9.5px;
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 30px;
+  float: left;
+}*/ 
+
+>>>>>>> register/Sol
 /* mobile*/
 @media(max-width: 426px) 
 {
@@ -226,9 +260,15 @@ span a{
 }
 
 /* Tablet*/
+<<<<<<< HEAD
 /*
 @media (max-width: 768px) {
     .login .formulario{
+=======
+
+@media (min-width: 724px) {
+    .login .formularioDeLogin{
+>>>>>>> register/Sol
         width: 450px;
         margin: 0 auto;
         padding: 10px;
@@ -298,7 +338,7 @@ span a{
 /* Desktop*/
 /*
 @media(min-width: 1024px){
-    .login .formulario{
+    .login .formularioDeLogin{
         width: 650px;
         margin: 0 auto;
         padding: 10px;
