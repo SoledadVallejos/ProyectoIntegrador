@@ -59,5 +59,14 @@ ___
 - ## Vallejos Soledad
      Me llamo Soledad, tengo 26 años, soy de Buenos Aires. Actualmente me encuentro haciendo el curso de Desarrollo      Web Full Stack. Me gusta aprender nuevos lenguajes de programacion y herramientas que me ayuden a crecer en el mundo de la tecnologia. 
 
+- ## Daniel Rivera
+     Mi nombre es Daniel, tengo 41 años, de Buenos Aires.
+     Me esfuerzo por ser un ferviente seguidor del cristianismo.
+     Actualmente, estudiando Desarrollo Web Full-Stack, con el soporte fundamental de la fundación Formar, Digital House y asociados.
+     Practico regularmente, también, actividades, como correr, ejercicios de fuerza, construcción y jardinería.
+     Actualmente desempleado poniendo gran parte de mi tiempo y atención al fascinante curso de Desarrollador Web Full-Stack
+     
+
+
 
 
