@@ -1,0 +1,35 @@
+[
+    {
+       "id": 1,
+       "name": "Soledad",
+       "email": "soledadv@gmail.com",
+       "password": "$2a$10$d1C.1BBoRnMN.sj1/444.HtS/c4yYCzvlG2MEYFCzXlmPy",
+       "category": "admin",
+       "imagen": " default.png"
+    },
+    {
+       "id": 2,
+       "name": "Leandro",
+       "email": "leandroni@roma.com",
+       "password": "$2a$10$c9ePQ8Qr1.PiRN5XbB92ber62.tBVFEJmHo7e7tp.",
+       "category": "admin",
+       "imagen": " default.png"
+    },
+    {
+       "id": 3,
+       "name": "Sol",
+       "email": "sol12@.gmail.com",
+       "password": "$777s$10$Hf7vtQxa6rIGNrtDcQdkG.7NsMSyMPLIXnfiiulSBWC6CmSCLsmy6",
+       "category": "admin",
+       "imagen": " default.png"
+    },
+    {
+        "id": 3,
+        "name": "Daniel",
+        "email": "Daniel@ribera.gmail.com",
+        "password": "$1s$rtDcQdkG.7NsMulSBWC6CmSCLsmy6",
+        "category": "admin",
+        "imagen": " default.png"
+     }
+
+ ]
