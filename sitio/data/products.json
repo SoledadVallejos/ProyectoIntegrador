@@ -8,6 +8,16 @@
     "size": 38 ,
     "colors": "Rojo",
     "price": "$3.950"
+  },
+  {
+    "id": 2,
+    "name": "borrar ",
+    "description": "borrar",
+    "imagen": "img-producto-polera-rojo1.jpg",
+    "category": "20% OFF",
+    "size": 38 ,
+    "colors": "Rojo",
+    "price": "$950"
   }
   
 ]

@@ -1,9 +1,9 @@
 ﻿var express = require('express');
 var router = express.Router();
 
-const { admin } = require('../controllers/adminController');
+const { adminAllProducts } = require('../controllers/adminController');
 
-router.get('/', admin);
+router.get('/', adminAllProducts);
 
 
 
