@@ -18,7 +18,10 @@ module.exports = {
             category : 'admin.png',
             imagen : "user"
         }
-    }   
+    },
+    login : (req, res) => {
+        return res.render('login', {title: 'login',})
+    }
     
 }
 
