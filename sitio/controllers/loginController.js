@@ -17,13 +17,11 @@ module.exports = {
             req.session.userLogin = {
                 id : user.id,
                 name : user.name,
-                avatar : user.avatar,
-                rol : user.rol
+                category : user.category,
+                Image : user.Image
             }
         }
     }
 }
-users.push(user);
-        fs.writeFileSync(path.join(__dirname,'../data/users.json'),JSON.stringify(users,null,3),'utf-8');
-        return res.redirect('/')
+
 

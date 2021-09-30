@@ -15,14 +15,12 @@ module.exports = {
             name : name.trim(),
             email : email.trim(),
             password : bcrypt.hashSync(password,10),
-            avatar : 'default.png',
-            rol : "user"
+            category : 'admin.png',
+            imagen : "user"
         }
     }   
     
 }
-users.push(user);
-        fs.writeFileSync(path.join(__dirname,'../data/users.json'),JSON.stringify(users,null,3),'utf-8');
-        return res.redirect('/')
+
 
 
