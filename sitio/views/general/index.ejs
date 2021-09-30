@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %> 
+<body>
+    <%- include('../partials/header') %> 
+
+    <main class= "home">
+<section class = "banner-main">
+<img src="/img/banner-1.jpg" alt="">
+</section>
+
+
+<section class ="tipo-main">
+
+<div class="mujer">
+    <a href="/products/productdetail"><img src="/img/img-producto-vestido-beige1.jpg" alt=""></a>
+    <h4>ROPA MUJER</h4>
+</div>
+<div class = "hombre">
+    <a href="/products/productdetail"><img src="/img/ropa-hombre.jpg" alt=""></a>
+    <h4>ROPA HOMBRE</h4>
+</div>
+
+</section>
+
+<h2>OFERTAS</h2>
+
+<section class="ofertas-main">
+    <% products.forEach(product => { %>
+     
+    <article class="ofertas-android">
+        <div>
+            <a href="/products/productdetail"><img src="/img/img-producto-polera-rojo1.jpg" alt=""></a>
+            <h5><%= product.category %></h5>
+        </div>
+        <div>
+            <a href="/products/productdetail"><img src="/img/img-producto-vestido-negro1.jpg" alt=""></a>
+            <h5><%= product.category %></h5>
+        </div>
+    </article>
+
+    
+
+    <article class="ofertas-tablet">
+        <div>
+            <a href="/products/productdetail"><img src="/img/img-producto-vestido-militar1.jpg" alt=""></a>
+            <h5><%= product.category %></h5>
+        </div>
+        <div>
+            <a href="/products/productdetail"><img src="/img/img-producto-polera-rojo2.jpg" alt=""></a>
+            <h5><%= product.category %></h5>
+        </div>
+    </article>
+
+
+    <article class ="ofertas-desktop">
+        <div>
+            <a href="/products/productdetail"><img src="/img/img-producto-polera-rojo3.jpg" alt=""></a>
+            <h5><%= product.category %></h5>
+        </div>
+        <div>
+            <a href="/products/productdetail"><img src="/img/img-producto-vestido-negro2.jpg" alt=""></a>
+            <h5><%= product.category %> </h5>
+        </div>
+    </article>
+    <% }) %>
+
+</section>
+
+
+
+    </main>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>
