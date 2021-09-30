@@ -33,7 +33,12 @@
 						<tr>
 							<th scope="col">Id</th>
 							<th scope="col">Nombre</th>
+							<th scope="col">Imágen</th>
+							<th scope="col">Descripción</th>
+							<th scope="col">Color</th>
+							<th scope="col">Talle</th>
 							<th scope="col">Categoría</th>
+							<th scope="col">Precio</th>
 							<th scope="col">Ver</th>
 							<th scope="col">Editar</th>
 							<th scope="col">Borrar</th>
@@ -44,14 +49,19 @@
 						<tr>
 							<td><%= index.id%> </td>
 							<td><%= index.name%> </td>
-							<td><%= index.category.name%> </td>
+							<td><img src="/img/<%= index.imagen%>" alt="" width="100px"> </td>
+							<td><%= index.description%> </td>
+							<td><%= index.colors%> </td>
+							<td><%= index.size%> </td>
+							<td><%= index.category%> </td>
+							<td><%= index.price%> </td>
 							<td><a href="/products/productDetail/<%= index.id%>">
 									<ion-icon name="eye-outline"></ion-icon>
 								</a></td>
-							<td><a href="/products/edit/<%= index.id%>">
+							<td><a href="/admin/edit/<%= index.id%>">
 									<ion-icon name="pencil-outline"></ion-icon>
 								</a></td>
-							<td><a href="/products/delete/<%= index.id%>">
+							<td><a href="/admin/delete/<%= index.id%>">
 									<ion-icon name="trash-outline"></ion-icon>
 								</a></td>
 						</tr>

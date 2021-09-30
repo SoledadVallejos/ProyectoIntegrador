@@ -1,10 +1,12 @@
 ﻿var express = require('express');
 var router = express.Router();
 
-const { adminAllProducts } = require('../controllers/adminController');
+const { admin, edit, update, hastaLaVistaBeibi } = require('../controllers/adminController');
 
-router.get('/', adminAllProducts);
+router.get('/', admin);
 
+
+router.get('/delete/:id', hastaLaVistaBeibi);
 
 
 
