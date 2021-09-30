@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
+
 module.exports = {
     add: (req, res) => {
         return res.render('products/add', {
-            title: 'add',
+            title: 'Añadir producto',
 
         });
     },
@@ -16,13 +17,13 @@ module.exports = {
     },
     edit: (req, res) => {
         return res.render('products/edit', {
-            title: 'edit',
+            title: 'Editando producto',
 
         });
     },
     cart: (req, res) => {
         return res.render('products/cart', {
-            title: 'Carrito',
+            title: 'Tu carrito',
 
         });
     },
