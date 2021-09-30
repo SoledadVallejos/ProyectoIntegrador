@@ -4,6 +4,7 @@ var router = express.Router();
 const { add } = require('../controllers/addController');
 
 router.get('/', add);
+router.post('/add')
 
 
 
