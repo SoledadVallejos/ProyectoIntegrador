@@ -15,38 +15,52 @@
                 <h3>EDITAR PRODUCTO</h3>
             </div>
 
-            <form action="/admin/edit/<%= id %>?_method=PUT" method="POST">
+            <form action="../update/<%= product.id %>?_method=PUT" method="POST">
                 <div>
                     <label for="">Nombre
-                        <input type="text" name="name" id="name" value="<%= productToEdit.name %>">
+                        <input type="text" name="name" id="name" value="<%= product.name %>">
                     </label>
                 </div>
 
                 <div>
                     <label for="">Categoria
-                        <input type="text" name="category" id="">
+                        <input type="text" name="category" id="" value="<%= product.category  %> ">
                     </label>
                 </div>
 
                 <div>
                     <label for="">Precio
-                        <input type="text" name="price" id="price" value="<%= productToEdit.price %>">
+                        <input type="text" name="price" id="price" value="<%= product.price %>">
                     </label>
                 </div>
 
                 <div>
                     <label for="">Descuento
-                        <input type="text" name="discount" id="">
+                        <input type="text" name="discount" id="" c>
+                    </label>
+                </div>
+
+                <div>
+                    <label for="">Talle
+                       <div class="button-contain">
+                
+                        <label for="">L<input  type="radio" name="size" value="<%= product.size %>"></label>
+                        <label for="">S<input  type="radio" name="size" value="<%= product.size %>"></label>
+                        <label for="">M<input type="radio" name="size" value="<%= product.size %>"></label>
+                        <label for="">XL<input type="radio" name="size" value="<%= product.size %>"></label>
+                       
+                
+                       </div> 
                     </label>
                 </div>
 
                 <div>
                     <label for="">Color
                         <div class="button-contain">
-                            <div class="rojo"><input type="radio" name="color" value="rojo"></div>
-                            <div class="beige"><input type="radio" name="color" value="beige"></div>
-                            <div class="blanco"><input type="radio" name="color" value="blanco"></div>
-                            <div class="negro"><input type="radio" name="color" value="negro"></div>
+                            <div class="rojo"><input type="radio" name="color" value="Rojo"></div>
+                            <div class="beige"><input type="radio" name="color" value="Beige"></div>
+                            <div class="blanco"><input type="radio" name="color" value="Blanco"></div>
+                            <div class="negro"><input type="radio" name="color" value="Negro"></div>
                         </div>
                     </label>
                 </div>
@@ -61,7 +75,7 @@
                     <h4>DESCRIPCION</h4>
                 </div>
                 <div class="add-description">
-                    <textarea name="description" id="comentario"><%= productToEdit.description %> </textarea>
+                    <textarea name="description" id="comentario"><%= product.description %> </textarea>
                 </div>
 
                 <button class="button-blue" type="submit">Editar</button>
