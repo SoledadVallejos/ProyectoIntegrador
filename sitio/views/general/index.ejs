@@ -11,13 +11,13 @@
 
 
 <section class ="tipo-main">
-
+    <% products.forEach(product => { %>
 <div class="mujer">
-    <a href="/products/productdetail"><img src="/img/img-producto-vestido-beige1.jpg" alt=""></a>
+    <a href="/products/productDetail/<%= product.id %>"><img src="/img/img-producto-vestido-beige1.jpg" alt=""></a>
     <h4>ROPA MUJER</h4>
 </div>
 <div class = "hombre">
-    <a href="/products/productdetail"><img src="/img/ropa-hombre.jpg" alt=""></a>
+    <a href="/products/productDetail/<%= product.id %>"><img src="/img/ropa-hombre.jpg" alt=""></a>
     <h4>ROPA HOMBRE</h4>
 </div>
 
@@ -26,15 +26,15 @@
 <h2>OFERTAS</h2>
 
 <section class="ofertas-main">
-    <% products.forEach(product => { %>
+    
      
     <article class="ofertas-android">
         <div>
-            <a href="/products/productdetail"><img src="/img/img-producto-polera-rojo1.jpg" alt=""></a>
+            <a href="/products/productDetail/<%= product.id %>"><img src="/img/img-producto-polera-rojo1.jpg" alt=""></a>
             <h5><%= product.category %></h5>
         </div>
         <div>
-            <a href="/products/productdetail"><img src="/img/img-producto-vestido-negro1.jpg" alt=""></a>
+            <a href="/products//productDetail/<%= product.id %>"><img src="/img/img-producto-vestido-negro1.jpg" alt=""></a>
             <h5><%= product.category %></h5>
         </div>
     </article>

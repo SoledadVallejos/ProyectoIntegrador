@@ -65,7 +65,7 @@
       "description": " Aprovechala YA! \r\nEs la última en stock!",
       "imagen": "img-producto-polera-beige.jpg",
       "category": "10% OFF",
-      "size": 2,
+      "size": 4,
       "colors": "Beige",
       "price": 1900
    },
@@ -95,7 +95,7 @@
       "description": " Aprovechala YA! \r\nEs la última en stock!",
       "imagen": "img-producto-polera-beige.jpg",
       "category": "10% OFF",
-      "size": 2,
+      "size": 8,
       "colors": "Beige",
       "price": 1900
    },
@@ -105,7 +105,7 @@
       "description": " Aprovechala YA! \r\nEs la última en stock!",
       "imagen": "img-producto-polera-beige.jpg",
       "category": "10% OFF",
-      "size": 2,
+      "size": 12,
       "colors": "Beige",
       "price": 1900
    }
