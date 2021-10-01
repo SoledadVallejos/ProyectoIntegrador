@@ -8,8 +8,14 @@ module.exports = {
     add: (req, res) => {
         return res.render('admin/add', {
             // CODIGO
+           
         });
     },
+    store : (req,res)=>{
+        return res.send(req.body)
+
+    },
+
     //LISTADO DE PRODUCTOS
     admin: (req, res) => {
         return res.render('admin/admin', {
