@@ -39,6 +39,7 @@
 							<th scope="col">Talle</th>
 							<th scope="col">Categoría</th>
 							<th scope="col">Precio</th>
+							<th scope="col">OFF</th>
 							<th scope="col">Ver</th>
 							<th scope="col">Editar</th>
 							<th scope="col">Borrar</th>
@@ -49,12 +50,13 @@
 						<tr>
 							<td><%= index.id%> </td>
 							<td><%= index.name%> </td>
-							<td><img src="/img/<%= index.imagen%>" alt="" width="100px"> </td>
+							<td><img src="/img/<%= index.image%>" alt="" width="100px"> </td>
 							<td><%= index.description%> </td>
-							<td><%= index.colors%> </td>
+							<td><%= index.color%> </td>
 							<td><%= index.size%> </td>
 							<td><%= index.category%> </td>
 							<td><%= index.price%> </td>
+							<td><%= index.discount%> </td>
 							<td><a href="/products/productDetail/<%= index.id%>">
 									<ion-icon name="eye-outline"></ion-icon>
 								</a></td>

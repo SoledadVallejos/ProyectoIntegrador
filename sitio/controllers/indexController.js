@@ -1,14 +1,19 @@
 ﻿const fs = require('fs');
 const path = require('path');
-// ESTAS VARIABLES ("products" y "producto") NO SE ESTAN USANDO... YA ESTA LEIDO EL JSON  ABAJO. SE PODRIAN BORRAR...
-// let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json'), 'utf-8'));
-// let producto = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json'), 'utf-8'))
+let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json'), 'utf-8'));
 module.exports = {
     index: (req, res) => {
+        let productsOff = products.filter(index => {
+            return index.discount !== '' || null || 0;
+        });
+        let productsSugest = products.filter(index => {
+            return index.category === 'sugest';
+        })
         return res.render('general/index', {
             title: 'Roma - Venta de Indumentaria Textil',
-            products: JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json'), 'utf-8')),
-            producto: JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json'), 'utf-8'))
+            products,
+            productsOff,
+            productsSugest,
 
         });
     },
