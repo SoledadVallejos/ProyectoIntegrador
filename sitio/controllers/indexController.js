@@ -8,7 +8,7 @@ module.exports = {
         return res.render('general/index', {
             title: 'Roma - Venta de Indumentaria Textil',
             products: JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json'), 'utf-8')),
-            producto: JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json'), 'utf-8'))
+            admiProducts: JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json'), 'utf-8'))
 
         });
     },
