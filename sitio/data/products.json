@@ -5,9 +5,109 @@
       "description": "Polera de mujer Roma",
       "imagen": "img-producto-polera-rojo1.jpg",
       "category": "20% OFF",
-      "size": 0,
+      "size": "S",
       "colors": "Rojo",
       "price": "$3.950"
+   },
+   {
+      "id": 1,
+      "name": "Polera beige",
+      "description": "Aprovechala!",
+      "imagen": "img-producto-polera-beige.jpg",
+      "category": "10% OFF",
+      "size": "M",
+      "colors": "Beige",
+      "price": 1950
+   },
+   {
+      "id": 2,
+      "name": "Polera Beige",
+      "description": " Aprovechala YA! \r\nEs la última en stock!",
+      "imagen": "img-producto-polera-beige.jpg",
+      "category": "10% OFF",
+      "size": "XL",
+      "colors": "Beige",
+      "price": 1900
+   },
+   {
+      "id": 3,
+      "name": "Polera Beige",
+      "description": " Aprovechala YA! \r\nEs la última en stock!",
+      "imagen": "img-producto-polera-beige.jpg",
+      "category": "10% OFF",
+      "size": "M",
+      "colors": "Beige",
+      "price": 1900
+   },
+   {
+      "id": 4,
+      "name": "Polera Beige",
+      "description": " Aprovechala YA! \r\nEs la última en stock!",
+      "imagen": "img-producto-polera-beige.jpg",
+      "category": "10% OFF",
+      "size": "S",
+      "colors": "Beige",
+      "price": 1900
+   },
+   {
+      "id": 5,
+      "name": "Polera Beige",
+      "description": " Aprovechala YA! \r\nEs la última en stock!",
+      "imagen": "img-producto-polera-beige.jpg",
+      "category": "10% OFF",
+      "size": "M",
+      "colors": "Beige",
+      "price": 1900
+   },
+   {
+      "id": 6,
+      "name": "Polera Beige",
+      "description": " Aprovechala YA! \r\nEs la última en stock!",
+      "imagen": "img-producto-polera-beige.jpg",
+      "category": "10% OFF",
+      "size": "S",
+      "colors": "Beige",
+      "price": 1900
+   },
+   {
+      "id": 7,
+      "name": "Polera Beige",
+      "description": " Aprovechala YA! \r\nEs la última en stock! ",
+      "imagen": "img-producto-polera-beige.jpg",
+      "category": "10% OFF",
+      "size": "XL",
+      "colors": "Beige",
+      "price": 1777
+   },
+   {
+      "id": 8,
+      "name": "Polera Beige",
+      "description": " Aprovechala YA! \r\nEs la última en stock!",
+      "imagen": "img-producto-polera-beige.jpg",
+      "category": "10% OFF",
+      "size": "S",
+      "colors": "Beige",
+      "price": 1900
+   },
+   {
+      "id": 9,
+      "name": "Polera Beige",
+      "description": " Aprovechala YA! \r\nEs la última en stock!",
+      "imagen": "img-producto-polera-beige.jpg",
+      "category": "10% OFF",
+      "size": "XL",
+      "colors": "Beige",
+      "price": 1900
+   },
+   {
+      "id": 10,
+      "name": "Polera Beige",
+      "description": " Aprovechala YA! \r\nEs la última en stock!",
+      "imagen": "img-producto-polera-beige.jpg",
+      "category": "10% OFF",
+      "size": "M",
+      "colors": "Beige",
+      "price": 1900
    }
    
    

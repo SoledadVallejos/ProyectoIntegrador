@@ -1,11 +1,12 @@
 ﻿var express = require('express');
 var router = express.Router();
 
-const { admin, edit, update, hastaLaVistaBeibi, add } = require('../controllers/adminController');
+const { admin, edit, update, hastaLaVistaBeibi, add, store } = require('../controllers/adminController');
 
 router.get('/', admin);
 
-router.get('/add', add)
+router.get('/add', add);
+router.post('/add', store)
 
 router.get('/edit/:id', edit);
 router.put('/update/:id', update);
