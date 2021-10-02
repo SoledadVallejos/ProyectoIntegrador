@@ -8,10 +8,10 @@ module.exports = {
     add: (req, res) => {
         return res.render('admin/add', {
             // CODIGO
-           
+
         });
     },
-    store : (req,res)=>{
+    store: (req, res) => {
         return res.send(req.body)
 
     },
@@ -20,37 +20,40 @@ module.exports = {
     admin: (req, res) => {
         return res.render('admin/admin', {
             title: 'Administración',
-            products : JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'))
+            products: JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'))
         });
     },
 
     //EDITAR PRODUCTO
-    edit: (req,res) => {
+    edit: (req, res) => {
         return res.render('admin/edit',
-    { title: 'editar',
-           product : products.find(product => product.id === +req.params.id)});
-},
-    update: (req, res) => { 
-        
-        const {name,description,price,color,size,imagen,category} = req.body;
+            {
+                title: 'editar',
+                product: products.find(product => product.id === +req.params.id)
+            });
+    },
+    update: (req, res) => {
+
+        const { name, description, price, color, size, imagen, category } = req.body;
         let product = products.find(product => product.id === +req.params.id);
 
         let productModified = {
-            id : +req.params.id,
-            name : name.trim(),
-            description : description.trim(),
-            price : +price,
+            id: +req.params.id,
+            name: name.trim(),
+            description: description.trim(),
+            price: +price,
             colors: color,
             size: size,
-            category : category.trim(),
-            image : imagen,
-            features : product.features};
-    
-            let productsModified = products.map(product => product.id === +req.params.id ? productModified : product);
-    
-            fs.writeFileSync(path.join(__dirname,'..','data','products.json'),JSON.stringify(productsModified,null,3),'utf-8');
-    
-        
+            category: category.trim(),
+            image: imagen,
+            features: product.features
+        };
+
+        let productsModified = products.map(product => product.id === +req.params.id ? productModified : product);
+
+        fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'), JSON.stringify(productsModified, null, 3), 'utf-8');
+
+
         res.redirect('/admin')
 
     },
@@ -66,7 +69,22 @@ module.exports = {
         let productsUpdate = JSON.stringify(productsMenosUno, null, 3);
         fs.writeFileSync(productsFilePath, productsUpdate, 'utf-8');
         res.redirect('/admin')
-    }
+    },
+
+    search: (req, res) => {
+        let toSearch = (req.query.keywords).toLowerCase();
+        let searchResults = [];
+        for (let i = 0; i < products.length; i++) {
+            ((products[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
+        };
+        // res.send(searchResults); //COMPROBAR
+        res.render('admin/results', {
+            searchResults,
+
+        });
+
+
+    },
 
 
 }
