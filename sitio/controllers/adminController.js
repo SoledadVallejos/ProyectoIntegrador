@@ -6,13 +6,29 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 module.exports = {
     //CREAR PRODUCTO
     add: (req, res) => {
-        return res.render('admin/add', {
-            // CODIGO
+        return res.render('admin/add');
 
-        });
     },
     store: (req, res) => {
-        return res.send(req.body)
+        const { name, description, price, colors, size, category, imagen, discount } = req.body;
+        let product = {
+            id: products[products.length - 1].id + 1,
+            name: name.trim(),
+            description: description.trim(),
+            price: +price,
+            discount: +discount,
+            colors,
+            size,
+            category,
+            imagen,
+        };
+
+        products.push(product)
+
+        fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
+
+        // res.send(req.body); //COMPROBAR
+        res.redirect('/admin');
 
     },
 

@@ -119,5 +119,25 @@
       "colors": "Beige",
       "price": 1900,
       "discount": 33
+   },
+   {
+      "id": 11,
+      "name": "Brenda",
+      "description": "asdfsadfas",
+      "price": 200,
+      "size": "L",
+      "category": "cat 1",
+      "image": "../img/default.png"
+   },
+   {
+      "id": 12,
+      "name": "Adidas",
+      "description": "trece",
+      "price": 60,
+      "discount": 20,
+      "colors": "Rojo",
+      "size": "L",
+      "category": "cat 2",
+      "imagen": ""
    }
 ]
