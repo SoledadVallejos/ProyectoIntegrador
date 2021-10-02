@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json'), 'utf-8'))
+let adminProducts = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json'), 'utf-8'))
 
 module.exports = {
     productDetail: (req, res) => {
@@ -8,7 +8,7 @@ module.exports = {
         return res.render('products/productDetail', {
             title: 'Detalle del Producto',
             id,
-            products,
+            adminProducts,
 
         });
     },

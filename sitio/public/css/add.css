@@ -19,11 +19,9 @@ margin: 10px 10px 0 10px;
 }
 
 .contain-add div {
-    margin: 0 auto;
-    padding: 7px;
+    margin: 0 auto; 
     text-align: center;
     align-items: center;
-    overflow: hidden;
     width: 90%;
 }
 
@@ -128,5 +126,6 @@ div.negro {
 @media (min-width : 400px) {
     .contain-add {
         max-width: 410px;
+        margin-left: 50%;
     }
 }

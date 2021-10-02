@@ -1,11 +1,12 @@
 ﻿const fs = require('fs');
 const path = require('path');
-const productsFilePath = path.join(__dirname, '..', 'data', 'products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+const productsFilePath = path.join(__dirname, '..', 'data', 'adminProducts.json');
+const adminProducts = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+let  categorias = JSON.parse(fs.readFileSync(path.join(__dirname,'..','data','categorias.json'),'utf-8'));
 module.exports = {
     //CREAR PRODUCTO
     add: (req, res) => {
+<<<<<<< HEAD
         return res.render('admin/add');
         
     },
@@ -29,25 +30,41 @@ module.exports = {
 		res.redirect('/admin')
 
     },
+=======
+        return res.render('admin/add', {
+            categorias,          
+            // CODIGO
+        });
+    },
+    
+  
+>>>>>>> c6bd15d9256e79ac25e91e1e19715cf11145b8b4
 
     //LISTADO DE PRODUCTOS
     admin: (req, res) => {
         return res.render('admin/admin', {
             title: 'Administración',
-            products : JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'))
+            adminProducts : JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'))
         });
     },
+
+    
+    
+    
+
+
+
 
     //EDITAR PRODUCTO
     edit: (req,res) => {
         return res.render('admin/edit',
     { title: 'editar',
-           product : products.find(product => product.id === +req.params.id)});
+           adminProducts : products.find(product => product.id === +req.params.id)});
 },
     update: (req, res) => { 
         
         const {name,description,price,color,size,imagen,category} = req.body;
-        let product = products.find(product => product.id === +req.params.id);
+        let adminProducts = products.find(product => product.id === +req.params.id);
 
         let productModified = {
             id : +req.params.id,
@@ -60,9 +77,9 @@ module.exports = {
             image : imagen,
             features : product.features};
     
-            let productsModified = products.map(product => product.id === +req.params.id ? productModified : product);
+            let productsModified = adminProducts.map(product => product.id === +req.params.id ? productModified : product);
     
-            fs.writeFileSync(path.join(__dirname,'..','data','products.json'),JSON.stringify(productsModified,null,3),'utf-8');
+            fs.writeFileSync(path.join(__dirname,'..','data','adminProducts.json'),JSON.stringify(productsModified,null,3),'utf-8');
     
         
         res.redirect('/admin')
@@ -73,8 +90,8 @@ module.exports = {
     //ELIMINAR PRODUCTO
     hastaLaVistaBeibi: (req, res) => {
         let id = +req.params.id;
-        let productsMenosUno = products.filter(index => {
-            return id !== index.id;
+        let productsMenosUno = products.filter(product => {
+            return id !== product.id;
         });
         // return res.send(productsMenosUno); //COMPROBAR
         let productsUpdate = JSON.stringify(productsMenosUno, null, 3);
