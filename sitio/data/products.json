@@ -16,7 +16,8 @@
       "price": 1900,
       "colors": "Rojo",
       "size": "L",
-      "category": "10% OFF"
+      "category": "10% OFF",
+      "image": "img-producto-polera-beige.jpg"
    },
    {
       "id": 5,
