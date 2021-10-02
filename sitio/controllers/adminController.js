@@ -6,7 +6,6 @@ let  categorias = JSON.parse(fs.readFileSync(path.join(__dirname,'..','data','ca
 module.exports = {
     //CREAR PRODUCTO
     add: (req, res) => {
-<<<<<<< HEAD
         return res.render('admin/add');
         
     },
@@ -30,15 +29,6 @@ module.exports = {
 		res.redirect('/admin')
 
     },
-=======
-        return res.render('admin/add', {
-            categorias,          
-            // CODIGO
-        });
-    },
-    
-  
->>>>>>> c6bd15d9256e79ac25e91e1e19715cf11145b8b4
 
     //LISTADO DE PRODUCTOS
     admin: (req, res) => {
