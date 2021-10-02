@@ -6,6 +6,7 @@ const { add, productDetail, edit, cart } = require('../controllers/productsContr
 router.get('/productDetail/:id', productDetail);
 router.get('/cart', cart);
 
+router.post('/add'),
 
 
 
