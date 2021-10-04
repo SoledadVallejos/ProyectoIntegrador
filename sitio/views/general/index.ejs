@@ -6,6 +6,7 @@
     <%- include('../partials/header') %>
 
     <main class="home">
+
         <section class="banner-main">
             <img src="/img/banner-1.jpg" alt="">
         </section>
@@ -21,46 +22,34 @@
             </div>
         </section>
 
-
-        <!-- 
-            <article class="ofertas-android">
-                <div>
-                    <a href="/productdetail"><img src="/img/img-producto-polera-rojo1.jpg" alt=""></a>
-                    <h5>20% OFF</h5>
-                </div>
-                <div>
-                    <a href="/productdetail"><img src="/img/img-producto-vestido-negro1.jpg" alt=""></a>
-                    <h5>25% OFF</h5>
-                </div>
-            </article>
- -->
-
-
-        <h2>SUGERIDOS</h2>
-
-        <% productsSugest.forEach(element => { %>
-        <section class="ofertas-main">
-            <article class="ofertas-desktop">
-                <div>
-                    <a href="/products/productDetail/<%= element.id %>"><img src="/img/<%= element.image %>" alt=""></a>
-                    <br>
-                </div>
-            </article>
-        </section>
-        <% }) %>
-
         <h2>OFERTAS</h2>
 
-        <% productsOff.forEach(element => { %>
         <section class="ofertas-main">
-            <article class="ofertas-desktop">
+            <% productsOff.forEach(element => { %>
+            <article class="ofertas-android">
                 <div>
                     <a href="/products/productDetail/<%= element.id %>"><img src="/img/<%= element.image %>" alt=""></a>
                     <h5><%= element.discount %> % OFF</h5>
                 </div>
             </article>
+            <% }) %>
         </section>
-        <% }) %>
+
+        <!-- 
+        TARJETAS CON INDUMENTARIA SUGERIDA POR EL SITIO
+        <h2>SUGERIDOS</h2>
+        <section class="ofertas-main">
+            < productsSugest.forEach(element=> { %>
+                <article class="ofertas-desktop">
+                    <div>
+                        <a href="/products/productDetail/<= element.id %>"><img src="/img/<= element.image %>"
+                                alt=""></a>
+                        <br>
+                    </div>
+                </article>
+                < }) %>
+        </section>
+        -->
 
     </main>
 

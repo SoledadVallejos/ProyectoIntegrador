@@ -10,7 +10,7 @@ module.exports = {
 
     },
     store: (req, res) => {
-        const { name, description, price, colors, size, category, imagen, discount } = req.body;
+        const { name, description, price, colors, size, category, image, discount } = req.body;
         let product = {
             id: products[products.length - 1].id + 1,
             name: name.trim(),
@@ -20,7 +20,7 @@ module.exports = {
             colors,
             size,
             category,
-            imagen,
+            image,
         };
 
         products.push(product)
@@ -50,7 +50,7 @@ module.exports = {
     },
     update: (req, res) => {
 
-        const { name, description, price, color, size, imagen, category } = req.body;
+        const { name, description, price, color, size, image, category } = req.body;
         let product = products.find(product => product.id === +req.params.id);
 
         let productModified = {
@@ -61,7 +61,7 @@ module.exports = {
             colors: color,
             size: size,
             category: category.trim(),
-            image: imagen,
+            image: image,
             features: product.features
         };
 
