@@ -12,15 +12,15 @@
 			</article>
 			<article class="col-6">
 
-				<a class="btn btn-primary" href="/products/create">Agregar <ion-icon name="add-circle-outline">
+				<a class="btn btn-primary" href="/admin/add">Agregar <ion-icon name="add-circle-outline">
 					</ion-icon>
 
 				</a>
 			</article>
 			<article class="col-6">
 
-				<form action="/administrar/search_results" method="GET">
-					<input type="search" name="search">
+				<form action="/admin/search_results" method="GET">
+					<input type="search" name="keywords" placeholder="nom. cat. color descr.">
 					<button class="btn btn-primary" type="submit">
 						<ion-icon name="search-outline"></ion-icon>
 					</button>
@@ -39,33 +39,41 @@
 							<th scope="col">Talle</th>
 							<th scope="col">Categoría</th>
 							<th scope="col">Precio</th>
-							<th scope="col">OFF</th>
+							<th scope="col">Descuento</th>
 							<th scope="col">Ver</th>
 							<th scope="col">Editar</th>
 							<th scope="col">Borrar</th>
 						</tr>
 					</thead>
 					<tbody>
+
 						<% products.forEach(index => { %>
 						<tr>
 							<td><%= index.id%> </td>
 							<td><%= index.name%> </td>
-							<td><img src="/img/<%= index.image%>" alt="" width="100px"> </td>
+							<td><a href="/products/productDetail/<%= index.id%>">
+									<img src="/img/<%= index.imagen %>" alt="" width="100px">
+								</a>
+							</td>
 							<td><%= index.description%> </td>
 							<td><%= index.color%> </td>
 							<td><%= index.size%> </td>
 							<td><%= index.category%> </td>
 							<td><%= index.price%> </td>
 							<td><%= index.discount%> </td>
-							<td><a href="/products/productDetail/<%= index.id%>">
+							<td>
+								<a href="/products/productDetail/<%= index.id%>">
 									<ion-icon name="eye-outline"></ion-icon>
 								</a></td>
-							<td><a href="/admin/edit/<%= index.id%>">
+							<td>
+								<a href="/admin/edit/<%= index.id%>">
 									<ion-icon name="pencil-outline"></ion-icon>
 								</a></td>
-							<td><a href="/admin/delete/<%= index.id%>">
+							<td>
+								<a href="/admin/delete/<%= index.id%>">
 									<ion-icon name="trash-outline"></ion-icon>
-								</a></td>
+								</a>
+							</td>
 						</tr>
 						<% }); %>
 					</tbody>
