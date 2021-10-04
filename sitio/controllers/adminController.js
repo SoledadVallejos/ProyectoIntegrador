@@ -36,7 +36,7 @@ module.exports = {
     admin: (req, res) => {
         return res.render('admin/admin', {
             title: 'Administración',
-            products: JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'))
+            products,
         });
     },
 
@@ -91,16 +91,28 @@ module.exports = {
         let toSearch = (req.query.keywords).toLowerCase();
         let searchResults = [];
         for (let i = 0; i < products.length; i++) {
-            ((products[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
+            ((products[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : "Nada encontrado";
+            ((products[i].category).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
+            ((products[i].colors).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
+            ((products[i].description).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
         };
+        //FILTRAR REPETIDOS
+        let hash = {};
+        searchResults = searchResults.filter(function (current) {
+            let exists = !hash[current.id];
+            hash[current.id] = true;
+            return exists;
+        });
+        // console.log(JSON.stringify(searchResults)); //COMPROBAR
+
         // res.send(searchResults); //COMPROBAR
         res.render('admin/results', {
             searchResults,
 
         });
-
-
     },
 
 
 }
+
+// console.log(products); // COMPROBAR

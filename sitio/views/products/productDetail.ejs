@@ -12,23 +12,18 @@
             <div class="splide">
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <li class="splide__slide"><img class="img" src="/img/img-producto-polera-rojo1.jpg" alt=""></li>
-                        <li class="splide__slide"><img class="img" src="/img/img-producto-polera-rojo2.jpg" alt=""></li>
-                        <li class="splide__slide"><img class="img" src="/img/img-producto-polera-rojo3.jpg" alt=""></li>
-                        <li class="splide__slide"><img class="img" src="/img/img-producto-polera-rojo4.jpg" alt=""></li>
-                        <li class="splide__slide"><img class="img" src="/img/img-producto-polera-beige.jpg" alt=""></li>
-                        <li class="splide__slide"><img class="img" src="/img/img-producto-polera-blanco1.jpg" alt="">
-                        </li>
-                        <li class="splide__slide"><img class="img" src="/img/img-producto-polera-blanco2.jpg" alt="">
-                        </li>
-                        <li class="splide__slide"><img class="img" src="/img/img-producto-polera-negro.jpg" alt=""></li>
+                        <!--                         productImg YA TIENE LAS IMAGENES. CONFIGURADO EN productsController.js -->
+                        <% for( let i = 0; i < productImg.length; i++ ) { %>
+                        <!--                                                                                     productImg[i].imagen  NO VA PORQUE YA HAY IMAGENES EN productImg-->
+                        <li class="splide__slide"><img class="img" src="/img/<%= productImg[i] %>" alt=""></li>
+                        <% } %>
                     </ul>
                 </div>
             </div>
             <!-- DETALLE DE PRODUCTO -->
             <div class="caracteristicas-producto">
                 <div class="descripcion-producto">
-                    <p class="ml-1"><%=products[id].name%><span class="precio-estilo"><%=products[id].price%></span></p>
+                    <p class="ml-1"><%=products[id].name%> <span class="precio-estilo"> <%=products[id].price%></span></p>
                     <div class="colores-radio ml-2">
                         <label for="text">color</label>
                         <div class="radio-rojo ml-2">

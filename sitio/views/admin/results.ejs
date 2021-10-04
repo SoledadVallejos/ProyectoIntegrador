@@ -20,7 +20,7 @@
             <article class="col-6">
 
                 <form action="/admin/search_results" method="GET">
-                    <input type="search" name="keywords" placeholder="PON OfErTa O ROJA">
+                    <input type="search" name="keywords" placeholder="nom. cat. color descr.">
                     <button class=" btn btn-primary" type="submit">
                         <ion-icon name="search-outline"></ion-icon>
                     </button>
@@ -52,7 +52,10 @@
                             <% for( let i = 0; i < searchResults.length; i++ ) { %>
                             <td><%= searchResults[i].id%></td>
                             <td><%= searchResults[i].name%></td>
-                            <td><img src="/img/<%= searchResults[i].imagen%>" alt="" width="100px"></td>
+                            <td><a href="/products/productDetail/<%= searchResults[i].id%>">
+                                    <img src="/img/<%= searchResults[i].imagen %>" alt="" width="100px">
+                                </a>
+                            </td>
                             <td><%= searchResults[i].description%></td>
                             <td><%= searchResults[i].colors%></td>
                             <td><%= searchResults[i].size%></td>

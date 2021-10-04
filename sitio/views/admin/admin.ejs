@@ -20,7 +20,7 @@
 			<article class="col-6">
 
 				<form action="/admin/search_results" method="GET">
-					<input type="search" name="keywords" placeholder="PON OfErTa o ROJA">
+					<input type="search" name="keywords" placeholder="nom. cat. color descr.">
 					<button class="btn btn-primary" type="submit">
 						<ion-icon name="search-outline"></ion-icon>
 					</button>
@@ -46,26 +46,34 @@
 						</tr>
 					</thead>
 					<tbody>
+
 						<% products.forEach(index => { %>
 						<tr>
 							<td><%= index.id%> </td>
 							<td><%= index.name%> </td>
-							<td><img src="/img/<%= index.imagen %> " alt="" width="100px"> </td>
+							<td><a href="/products/productDetail/<%= index.id%>">
+									<img src="/img/<%= index.imagen %>" alt="" width="100px">
+								</a>
+							</td>
 							<td><%= index.description%> </td>
 							<td><%= index.colors%> </td>
 							<td><%= index.size%> </td>
 							<td><%= index.category%> </td>
 							<td><%= index.price%> </td>
 							<td><%= index.discount%> </td>
-							<td><a href="/products/productDetail/<%= index.id%>">
+							<td>
+								<a href="/products/productDetail/<%= index.id%>">
 									<ion-icon name="eye-outline"></ion-icon>
 								</a></td>
-							<td><a href="/admin/edit/<%= index.id%>">
+							<td>
+								<a href="/admin/edit/<%= index.id%>">
 									<ion-icon name="pencil-outline"></ion-icon>
 								</a></td>
-							<td><a href="/admin/delete/<%= index.id%>">
+							<td>
+								<a href="/admin/delete/<%= index.id%>">
 									<ion-icon name="trash-outline"></ion-icon>
-								</a></td>
+								</a>
+							</td>
 						</tr>
 						<% }); %>
 					</tbody>
