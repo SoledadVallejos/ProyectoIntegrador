@@ -1,12 +1,25 @@
 ﻿var express = require('express');
-var router = express.Router();
+const path = require('path');
+const multer = require('multer');
 
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, '../public/img'));
+    },
+    filename: (req, file, cb) => {
+        cb(null, 'zimg-producto' + Date.now() + path.extname(file.originalname));
+        console.log(file);
+    },
+});
+let upload = multer({ storage });
+
+var router = express.Router();
 const { admin, add, store, edit, update, hastaLaVistaBeibi, search } = require('../controllers/adminController');
 
 router.get('/', admin);
 
 router.get('/add', add);
-router.post('/add', store)
+router.post('/add', upload.single('imageAdmin'), store);
 
 router.get('/edit/:id', edit);
 router.put('/update/:id', update);

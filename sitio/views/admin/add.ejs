@@ -5,12 +5,6 @@
 <body>
     <%- include('../partials/header') %>
 
-
-
-
-
-
-
     <main class="add">
 
         <section class="contain-add">
@@ -18,16 +12,12 @@
             <div>
                 <h3>AGREGAR PRODUCTO</h3>
             </div>
-            <form action="" method="POST">
+            <form action="/admin/add" method="POST" enctype="multipart/form-data" >
                 <div>
                     <label for="">Nombre
                         <input type="text" name="name" id="">
                     </label>
                 </div>
-
-
-
-
 
                 <div>
                     <label for="">Categoria
@@ -69,14 +59,15 @@
                             <label for="">M<input type="radio" name="size" value="M"></label>
                             <label for="">XL<input type="radio" name="size" value="XL"></label>
 
-
                         </div>
                     </label>
                 </div>
 
                 <div>
                     <label for="">Imagen
-                        <input type="file" name="image" id="/img/default.png" placeholder="" value="">
+                        <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. name enctype -->
+                        <input type="file" name="imageAdmin" id="imageAdmin"
+                            placeholder="" value="imageAdmin">
                     </label>
                 </div>
                 <div>
@@ -89,15 +80,9 @@
                 <button class="button-blue" type="submit">Agregar</button>
                 <button class="button-red" type="reset">Cancelar</button>
 
-
-
-
-
             </form>
 
         </section>
-
-
 
     </main>
 
