@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head',{title : 'Agregar producto'}) %>
+
+<body>
+    <%- include('../partials/header') %>
+
+
+
+    <main class="edit">
+
+        <section class="contain-edit">
+
+            <div>
+                <h3>EDITAR PRODUCTO</h3>
+            </div>
+
+            <form action="../update/<%= product.id %>?_method=PUT" method="POST">
+                <div>
+                    <label for="">Nombre
+                        <input type="text" name="name" id="name" value="<%= product.name %>">
+                    </label>
+                </div>
+
+                <div>
+                    <label for="">Categoria
+                        <input type="text" name="category" id="" value="<%= product.category  %> ">
+                    </label>
+                </div>
+
+                <div>
+                    <label for="">Precio
+                        <input type="text" name="price" id="price" value="<%= product.price %>">
+                    </label>
+                </div>
+
+                <div>
+                    <label for="">Descuento
+                        <input type="text" name="discount" id="" c>
+                    </label>
+                </div>
+
+                <div>
+                    <label for="">Talle
+                       <div class="button-contain">
+                
+                        <label for="">L<input  type="radio" name="size" value="<%= product.size %>"></label>
+                        <label for="">S<input  type="radio" name="size" value="<%= product.size %>"></label>
+                        <label for="">M<input type="radio" name="size" value="<%= product.size %>"></label>
+                        <label for="">XL<input type="radio" name="size" value="<%= product.size %>"></label>
+                       
+                
+                       </div> 
+                    </label>
+                </div>
+
+                <div>
+                    <label for="">Color
+                        <div class="button-contain">
+                            <div class="rojo"><input type="radio" name="color" value="Rojo"></div>
+                            <div class="beige"><input type="radio" name="color" value="Beige"></div>
+                            <div class="blanco"><input type="radio" name="color" value="Blanco"></div>
+                            <div class="negro"><input type="radio" name="color" value="Negro"></div>
+                        </div>
+                    </label>
+                </div>
+
+                <div>
+                    <label for="">Imagen
+                        <input type="file" name="image" id="">
+                    </label>
+                </div>
+
+                <div>
+                    <h4>DESCRIPCION</h4>
+                </div>
+                <div class="add-description">
+                    <textarea name="description" id="comentario"><%= product.description %> </textarea>
+                </div>
+
+                <button class="button-blue" type="submit">Editar</button>
+                <button class="button-red" type="reset">Cancelar</button>
+            </form>
+
+        </section>
+
+
+
+    </main>
+
+
+
+
+    <%- include('../partials/footer') %>
+</body>
+
+</html>

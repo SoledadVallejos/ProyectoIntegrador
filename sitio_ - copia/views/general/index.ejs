@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+<body>
+    <%- include('../partials/header') %>
+
+    <main class="home">
+
+        <section class="banner-main">
+            <img src="/img/banner-1.jpg" alt="">
+        </section>
+
+        <section class="tipo-main">
+            <div class="mujer">
+                <a href="/products/mujer"><img src="/img/img-producto-vestido-beige1.jpg" alt=""></a>
+                <h4>ROPA MUJER</h4>
+            </div>
+            <div class="hombre">
+                <a href="/products/hombre"><img src="/img/ropa-hombre.jpg" alt=""></a>
+                <h4>ROPA HOMBRE</h4>
+            </div>
+        </section>
+
+        <h2>OFERTAS</h2>
+
+        <section class="ofertas-main">
+            <% productsOff.forEach(element => { %>
+            <article class="ofertas-android">
+                <div>
+                    <a href="/products/productDetail/<%= element.id %>"><img src="/img/<%= element.image %>" alt=""></a>
+                    <h5><%= element.discount %> % OFF</h5>
+                </div>
+            </article>
+            <% }) %>
+        </section>
+
+        <!-- 
+        TARJETAS CON INDUMENTARIA SUGERIDA POR EL SITIO
+        <h2>SUGERIDOS</h2>
+        <section class="ofertas-main">
+            < productsSugest.forEach(element=> { %>
+                <article class="ofertas-desktop">
+                    <div>
+                        <a href="/products/productDetail/<= element.id %>"><img src="/img/<= element.image %>"
+                                alt=""></a>
+                        <br>
+                    </div>
+                </article>
+                < }) %>
+        </section>
+        -->
+
+    </main>
+
+    <%- include('../partials/footer') %>
+</body>
+
+</html>
