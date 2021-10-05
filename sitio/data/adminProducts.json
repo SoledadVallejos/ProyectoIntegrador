@@ -1,0 +1,112 @@
+[
+    {
+       "id": 0,
+       "name": "Polera Roja",
+       "description": "Polera de mujer Roma",
+       "imagen": "img-producto-polera-rojo1.jpg",
+       "category": "20% OFF",
+       "size": 0,
+       "colors": "Rojo",
+       "price": "$3.950"
+    },
+    {
+       "id": 1,
+       "name": "Polera beige",
+       "description": "Aprovechala!",
+       "imagen": "img-producto-polera-beige.jpg",
+       "category": "10% OFF",
+       "size": 1,
+       "colors": "Beige",
+       "price": "$1.950"
+    },
+    {
+       "id": 2,
+       "name": "Vestido Militar",
+       "description": " Aprovechala YA! \r\nEs la última en stock!",
+       "imagen": "img-producto-vestido-militar1.jpg",
+       "category": "10% OFF",
+       "size": 2,
+       "colors": "verde y negro",
+       "price": "$2.900"
+    },
+    {
+       "id": 3,
+       "name": "Vestido Beige",
+       "description": "última en stock!",
+       "imagen": "img-producto-vestido-beige1.jpg",
+       "category": "30% OFF",
+       "size": 4,
+       "colors": "Beige",
+       "price": "$4.000"
+    },
+    {
+       "id": 4,
+       "name": "Polera Beige",
+       "description": " Aprovechala YA! \r\nEs la última en stock!",
+       "imagen": "img-producto-vestido-militar3.jpg",
+       "category": "10% OFF",
+       "size": 10,
+       "colors": "Verde",
+       "price": "$2.000"
+    },
+    {
+       "id": 5,
+       "name": "Vestido negro",
+       "description": " Aprovechala YA! \r\nEs la última en stock!",
+       "imagen": "img-producto-vestido-negro1.jpg",
+       "category": "10% OFF",
+       "size": 2,
+       "colors": "Beige",
+       "price": "$1.500"
+    },
+    {
+       "id": 6,
+       "name": "Polera Blanco",
+       "description": " Aprovechala YA! \r\nEs la última en stock!",
+       "imagen": "img-producto-polera-blanco1.jpg",
+       "category": "10% OFF",
+       "size": 8,
+       "colors": "Beige",
+       "price": "$1.900"
+    },
+    {
+       "id": 7,
+       "name": "Polera Beige",
+       "description": " Aprovechala YA!",
+       "imagen": "img-producto-polera-beige.jpg",
+       "category": "10% OFF",
+       "size": 2,
+       "colors": "Beige",
+       "price": "$1.777"
+    },
+    {
+       "id": 8,
+       "name": "Remera",
+       "description": " Es la última en stock!",
+       "imagen": "ropa-hombre.jpg",
+       "category": "10% OFF",
+       "size": 2,
+       "colors": "Negro",
+       "price": 1900
+    },
+    {
+       "id": 9,
+       "name": "Polera Blanco",
+       "description": " Aprovechala YA!",
+       "imagen": "img-producto-polera-blanco2.jpg",
+       "category": "10% OFF",
+       "size": 12,
+       "colors": "Beige",
+       "price": 1900
+    },
+    {
+       "id": 10,
+       "name": "Polera Beige",
+       "description": " Aprovechala YA! \r\nEs la última en stock!",
+       "imagen": "img-producto-polera-beige.jpg",
+       "category": "10% OFF",
+       "size": 4,
+       "colors": "Beige",
+       "price": 1900
+    }
+ ] 

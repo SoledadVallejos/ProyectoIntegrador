@@ -6,6 +6,8 @@ const { productDetail, cart } = require('../controllers/productsController');
 router.get('/productDetail/:id', productDetail);
 router.get('/cart', cart);
 
+router.post('/add'),
+router.post('/add'),
 
 
 
