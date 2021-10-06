@@ -1,8 +1,13 @@
+body .container {
+    max-width: 100%;
+    margin: auto;
+}
+
 main.home section.banner-main img {
     width: 100%;
 }
 
-main.home section.tipo-main div.mujer a img{
+main.home section.tipo-main div.mujer a img {
     width: 100%;
 }
 
@@ -14,18 +19,18 @@ main.home section.tipo-main div.mujer h4 {
     width: 100%;
     text-align: center;
     position: relative;
-    bottom:60px;
+    bottom: 60px;
     font-size: 30px;
     color: white;
-    
+
 
 }
 
-main.home section.tipo-main div.hombre h4{
+main.home section.tipo-main div.hombre h4 {
     width: 100%;
     text-align: center;
     position: relative;
-    bottom:60px;
+    bottom: 60px;
     font-size: 30px;
     color: white;
 }
@@ -45,7 +50,8 @@ main.home section.ofertas-main {
 main.home section.ofertas-main article.ofertas-android {
     display: flex;
 }
-main.home section.ofertas-main article.ofertas-android div{
+
+main.home section.ofertas-main article.ofertas-android div {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -58,10 +64,10 @@ main.home section.ofertas-main article.ofertas-android div a img {
 
 main.home section.ofertas-main article.ofertas-tablet div a img {
     width: 50%;
-    
+
 }
 
-main.home section.ofertas-main article.ofertas-tablet div{
+main.home section.ofertas-main article.ofertas-tablet div {
     display: none;
 }
 
@@ -70,16 +76,16 @@ main.home section.ofertas-main article.ofertas-desktop div a img {
     display: none;
 }
 
-main.home section.ofertas-main article.ofertas-desktop div{
+main.home section.ofertas-main article.ofertas-desktop div {
     display: none;
 }
 
 
-main.home section.ofertas-main article.ofertas-android div  h5{
+main.home section.ofertas-main article.ofertas-android div h5 {
     width: 100%;
     text-align: center;
     position: relative;
-    bottom:60px;
+    bottom: 60px;
     font-size: 25px;
     color: white;
 }
@@ -88,20 +94,20 @@ main.home section.ofertas-main article.ofertas-tablet div h5 {
     width: 100%;
     text-align: center;
     position: relative;
-    bottom:60px;
+    bottom: 60px;
     font-size: 25px;
     color: white;
-    
+
 }
 
-main.home section.ofertas-main article.ofertas-desktop div h5{
+main.home section.ofertas-main article.ofertas-desktop div h5 {
     width: 50%;
     text-align: center;
     position: relative;
-    bottom:60px;
+    bottom: 60px;
     font-size: 25px;
     color: white;
-    
+
 }
 
 
@@ -111,60 +117,61 @@ main.home section.ofertas-main article.ofertas-desktop div h5{
         display: flex;
         justify-content: space-around;
         margin-top: 15px;
-        
+
     }
 
 
-    main.home section.tipo-main div.mujer a img{
+    main.home section.tipo-main div.mujer a img {
         width: 92%;
         height: 77%;
     }
-    
+
     main.home section.tipo-main div.hombre a img {
         width: 100%;
         height: 77%;
-    }  
-    
+    }
+
     main.home section.tipo-main div.mujer h4 {
         width: 100%;
         text-align: center;
         position: relative;
-        bottom:60px;
+        bottom: 60px;
         font-size: 25px;
         color: white;
-        
-    
+
+
     }
-    
-    main.home section.tipo-main div.hombre h4{
+
+    main.home section.tipo-main div.hombre h4 {
         width: 100%;
         text-align: center;
         position: relative;
-        bottom:60px;
+        bottom: 60px;
         font-size: 25px;
         color: white;
     }
 
     main.home section.ofertas-main article.ofertas-tablet div a img {
         width: 50%;
-        
+
     }
-    
-    main.home section.ofertas-main article.ofertas-android{
-        
+
+    main.home section.ofertas-main article.ofertas-android {
+
         width: 50%;
 
     }
 
 
-    main.home section.ofertas-main article.ofertas-tablet div
-{display: block;
-    width: 50%;}
+    main.home section.ofertas-main article.ofertas-tablet div {
+        display: block;
+        width: 50%;
+    }
 
-    main.home section.ofertas-main article.ofertas-tablet{
+    main.home section.ofertas-main article.ofertas-tablet {
         width: 50%;
         display: flex;
-        
+
 
     }
 
@@ -172,57 +179,55 @@ main.home section.ofertas-main article.ofertas-desktop div h5{
         width: 97%;
     }
 
-    
+
 }
 
 
 @media (min-width: 724px) {
-  
 
-    
-    main.home section.ofertas-main article.ofertas-android{
-        
+
+
+    main.home section.ofertas-main article.ofertas-android {
+
         width: 33%;
 
     }
 
-    main.home section.ofertas-main article.ofertas-tablet{
-        
+    main.home section.ofertas-main article.ofertas-tablet {
+
         width: 33%;
 
     }
 
-    main.home section.ofertas-main article.ofertas-desktop{
-        
+    main.home section.ofertas-main article.ofertas-desktop {
+
         width: 33%;
 
     }
 
-    main.home section.ofertas-main article.ofertas-desktop
-    {display: flex;
-        }
-    
-        main.home section.ofertas-main article.ofertas-desktop div{
-            
-            width: 100%;
-            display: block;
-            
-    
-        }
-    
-        main.home section.ofertas-main article.ofertas-desktop div a img {
-            width: 97%;
-            display: block;
-        }
+    main.home section.ofertas-main article.ofertas-desktop {
+        display: flex;
+    }
 
-        main.home section.ofertas-main article.ofertas-desktop div h5 {
-            width: 100%;
-            
-        }
+    main.home section.ofertas-main article.ofertas-desktop div {
+
+        width: 100%;
+        display: block;
+
+
+    }
+
+    main.home section.ofertas-main article.ofertas-desktop div a img {
+        width: 97%;
+        display: block;
+    }
+
+    main.home section.ofertas-main article.ofertas-desktop div h5 {
+        width: 100%;
+
+    }
 
 
 
 
 }
-
-

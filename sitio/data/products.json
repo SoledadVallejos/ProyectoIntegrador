@@ -134,22 +134,6 @@
       "category": "a"
    },
    {
-      "id": 13,
-      "name": "",
-      "description": "",
-      "price": 0,
-      "discount": 0,
-      "category": ""
-   },
-   {
-      "id": 14,
-      "name": "",
-      "description": "",
-      "price": 0,
-      "discount": 0,
-      "category": ""
-   },
-   {
       "id": 15,
       "name": "",
       "description": "",
@@ -191,22 +175,12 @@
    },
    {
       "id": 19,
-      "name": "",
-      "description": "",
-      "price": 0,
-      "discount": 0,
-      "colors": "Blanco",
-      "size": "S",
-      "category": ""
-   },
-   {
-      "id": 20,
-      "name": "",
-      "description": "",
-      "price": 0,
-      "discount": 0,
-      "colors": "Blanco",
-      "size": "S",
-      "category": ""
+      "name": "aaa",
+      "description": "aaa",
+      "price": 60,
+      "discount": 20,
+      "colors": "Rojo",
+      "size": "L",
+      "category": "aaa"
    }
 ]
