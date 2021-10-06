@@ -23,6 +23,9 @@
     position: static !important;
 }
 
+p {
+    margin-bottom: auto;
+}
 
 
 
@@ -35,10 +38,10 @@ article img:hover {
     opacity: 0.8;
 }
 
-p {
+/*p {
     text-align: justify;
 }
-
+*/
 
 .descuento {
     right: 15px;
