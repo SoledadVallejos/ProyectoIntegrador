@@ -1,32 +1,32 @@
 ﻿<!doctype html>
 <html lang="es">
 <%- include('../partials/head.ejs') %>
-<%- include('../partials/header.ejs') %>
 
 <body>
+    <%- include('../partials/header.ejs') %>
+
     <main class="container-fluid">
         <!--Administrador de productos-->
         <section class="row">
             <article class="col-12">
-                <h2 class="display-4 text-white bg-info text-center pt-5">Administrador de Productos</h2>
+                <h2 class="display-4 text-white bg-info text-center pt-5">Resultados de la búsqueda</h2>
             </article>
-            <article class="col-6">
 
-                <a class="btn btn-primary" href="/admin/add">Agregar <ion-icon name="add-circle-outline">
-                    </ion-icon>
-
-                </a>
-            </article>
-            <article class="col-6">
-
-                <form action="/admin/search_results" method="GET">
+            <div class="addSearch">
+                <article>
+                    <a class="btn btn-primary" href="/admin/add">Agregar <ion-icon name="add-circle-outline">
+                        </ion-icon>
+                    </a>
+                </article>
+                <article ">
+					<form action="/admin/search_results" method="GET">
                     <input type="search" name="keywords" placeholder="nom. cat. color descr.">
-                    <button class=" btn btn-primary" type="submit">
+                    <button class="btn btn-primary" type="submit">
                         <ion-icon name="search-outline"></ion-icon>
                     </button>
-                </form>
-
-            </article>
+                    </form>
+                </article>
+            </div>
 
             <article class="col-12">
                 <table class="table">
@@ -63,13 +63,13 @@
                             <td><%= searchResults[i].price%></td>
                             <td><%= searchResults[i].discount%></td>
                             <td><a href="/products/productDetail/<%= searchResults[i].id%>">
-                                    <ion-icon name="eye-outline"></ion-icon>
+                                    <ion-icon class="ion-icon" name="eye-outline"></ion-icon>
                                 </a></td>
                             <td><a href="/admin/edit/<%= searchResults[i].id%>">
-                                    <ion-icon name="pencil-outline"></ion-icon>
+                                    <ion-icon class="ion-icon" name="construct-outline"></ion-icon>
                                 </a></td>
                             <td><a href="/admin/delete/<%= searchResults[i].id%>">
-                                    <ion-icon name="trash-outline"></ion-icon>
+                                    <ion-icon class="ion-icon" name="trash-outline"></ion-icon>
                                 </a></td>
                         </tr>
                         <% } %>
@@ -78,7 +78,9 @@
                 </table>
             </article>
     </main>
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <!-- THIS IS DEPRECATED. ESTO VA CON OTRA SINTAXIS EN EL head -->
+    <!-- 	<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+ -->
 </body>
 
 </html>

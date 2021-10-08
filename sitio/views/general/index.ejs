@@ -25,14 +25,30 @@
         <h2>OFERTAS</h2>
 
         <section class="ofertas-main">
+
             <% productsOff.forEach(element => { %>
+            <article class="ofertas-android">
+                <div>
+                    <a href="/products/productDetail/<%= element.id %>"><img src="/img/<%= element.image %>" alt=""></a>
+                    <h5><%= element.discount %> % OFF</h5>
+                </div>
+            </article>
+
             <article class="ofertas-tablet">
                 <div>
                     <a href="/products/productDetail/<%= element.id %>"><img src="/img/<%= element.image %>" alt=""></a>
                     <h5><%= element.discount %> % OFF</h5>
                 </div>
             </article>
+
+            <article class="ofertas-desktop">
+                <div>
+                    <a href="/products/productDetail/<%= element.id %>"><img src="/img/<%= element.image %>" alt=""></a>
+                    <h5><%= element.discount %> % OFF</h5>
+                </div>
+            </article>
             <% }) %>
+
         </section>
 
         <!-- 

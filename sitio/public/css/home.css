@@ -1,6 +1,7 @@
-
 main.home section.banner-main img {
     width: 100%;
+    margin: auto;
+    text-align: center;
 }
 
 main.home section.tipo-main div.mujer a img {
@@ -41,6 +42,7 @@ main.home h2 {
 main.home section.ofertas-main {
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
 }
 
 main.home section.ofertas-main article.ofertas-android {
@@ -153,15 +155,14 @@ main.home section.ofertas-main article.ofertas-desktop div h5 {
     }
 
     main.home section.ofertas-main article.ofertas-android {
-
         width: 50%;
-
+        display: none;
     }
 
 
     main.home section.ofertas-main article.ofertas-tablet div {
         display: block;
-        width: 50%;
+        /* width: 50%; */
     }
 
     main.home section.ofertas-main article.ofertas-tablet {
@@ -186,12 +187,12 @@ main.home section.ofertas-main article.ofertas-desktop div h5 {
     main.home section.ofertas-main article.ofertas-android {
 
         width: 33%;
-
+        display: none;
     }
 
     main.home section.ofertas-main article.ofertas-tablet {
 
-        width: 33%;
+        width: 20%;
 
     }
 
@@ -203,7 +204,9 @@ main.home section.ofertas-main article.ofertas-desktop div h5 {
 
     main.home section.ofertas-main article.ofertas-desktop {
         display: flex;
+        display: none;
     }
+
 
     main.home section.ofertas-main article.ofertas-desktop div {
 

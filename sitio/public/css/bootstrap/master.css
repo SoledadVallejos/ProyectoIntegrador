@@ -1,55 +1,110 @@
-/* .container-fluid {
-    margin: 0 auto;
-    padding: 0;
-    margin: 0;
-}
+ .container-fluid {
+     margin: 0 auto;
+     padding: 0;
+     margin: 0;
+ }
+
+ .misH1 {
+     text-align: center;
+     color: red;
+     font-size: 2rem;
+ }
+
+ /*Aquí dispuse nuestros mismos css que tenidamos en nuestra clase 3, lo realice sólo para que vean que podemos sin ningún problema, combinar como deseemos nuestros conocimientos de maquetación ahora con Bootstrap*/
+
+ /* AGREGADO POR D.R. */
+
+ /*  @media(min-width: 425px) {
+
+     .addSearch {
+         display: flex;
+         min-width: 97%;
+         margin: auto;
+         justify-content: space-evenly;
+         flex-direction: column;
+     }
+
+ }
  */
-.misH1 {
-    text-align: center;
-    color: red;
-    font-size: 2rem;
-}
+ .pt-5,
+ .py-5 {
+     padding: 0 !important;
+     background-color: red !important;
+     border-radius: 5px;
+ }
 
-/*Aquí dispuse nuestros mismos css que tenidamos en nuestra clase 3, lo realice sólo para que vean que podemos sin ningún problema, combinar como deseemos nuestros conocimientos de maquetación ahora con Bootstrap*/
+ .btn {
+     position: static !important;
+ }
 
-/* AGREGADO POR D.R. */
-.pt-5,
-.py-5 {
-    padding: 0 !important;
-    background-color: red !important;
-}
+ p {
+     margin-bottom: auto;
+ }
 
-.btn {
-    position: static !important;
-}
+ .ion-icon {
+     font-size: 2em;
+ }
 
-p {
-    margin-bottom: auto;
-}
+ .row {
+     margin: 0;
+ }
+
+ input {
+     padding: 4px;
+     width: 247px;
+ }
+
+ [type=search] {
+     -webkit-appearance: auto;
+ }
+
+ @media(min-width: 480px) {
+     .addSearch {
+         display: flex;
+         min-width: 97%;
+         justify-content: space-between;
+         margin: auto;
+         height: 47px;
+     }
+
+     input {
+         width: 237px;
+     }
+
+
+ }
 
 
 
-article img {
-    width: 100%;
-    opacity: 1;
-}
 
-article img:hover {
-    opacity: 0.8;
-}
 
-/*p {
+
+
+
+
+
+
+ article img {
+     /* width: 100%; */
+     opacity: 1;
+ }
+
+ article img:hover {
+     opacity: 0.8;
+ }
+
+ /*p {
     text-align: justify;
 }
 */
 
-.descuento {
-    right: 15px;
-    top: 20px;
-    position: absolute;
-    width: 20%;
-}
+ .descuento {
+     right: 15px;
+     top: 20px;
+     position: absolute;
+     width: 20%;
+ }
 
-.descripcion {
-    min-height: 10vh;
-}
+ .descripcion {
+     min-height: 10vh;
+ }
