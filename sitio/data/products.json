@@ -76,54 +76,17 @@
    },
    {
       "id": 5,
-      "name": "Polera Blanca",
-      "description": " Aprovechala YA! Es la última en stock!",
-      "image": "img-producto-polera-blanco1.jpg",
-      "imageSplide": [
-         "img-producto-polera-blanco1.jpg",
-         "img-producto-polera-blanco2.jpg"
-      ],
-      "category": "sugest",
-      "size": 40,
-      "colors": "Blanco",
-      "price": 1900,
-      "discount": 10
-   },
-   {
-      "id": 6,
-      "name": "Polera Blanca",
-      "description": " Aprovechala YA! Es la última en stock!",
-      "image": "img-producto-polera-blanco1.jpg",
-      "imageSplide": [
-         "img-producto-polera-blanco1.jpg",
-         "img-producto-polera-blanco2.jpg"
-      ],
-      "category": "sugest",
-      "size": 40,
-      "colors": "Blanco",
-      "price": 1900,
-      "discount": 10
-   },
-   {
-      "id": 7,
-      "name": "aa",
-      "description": "aa",
-      "price": 60,
-      "discount": 20,
-      "colors": "Negro",
+      "name": "Very Hard",
+      "description": "aaaaaaaaaaa",
+      "price": 33,
+      "discount": 3,
+      "colors": "Rojo",
       "size": "L",
-      "category": "cat 1",
-      "image": ""
-   },
-   {
-      "id": 8,
-      "name": "aa",
-      "description": "aa",
-      "price": 60,
-      "discount": 20,
-      "colors": "Negro",
-      "size": "L",
-      "category": "cat 1",
-      "image": ""
+      "category": "cat",
+      "image": "img-producto-1633684909036.jpg",
+      "imageSplide": [
+         "img-producto-1633684909036.jpg",
+         "img-producto-1633684909036.jpg"
+      ]
    }
 ]

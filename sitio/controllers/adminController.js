@@ -10,30 +10,32 @@ module.exports = {
 
     },
     store: (req, res) => {
-        const { name, description, price, colors, size, category, image, discount } = req.body;
+        // const { name, description, price, colors, size, category, image, discount } = req.body;
         let product = {
             id: products[products.length - 1].id + 1,
-            name: name.trim(),
-            description: description.trim(),
-            price: +price,
-            discount: +discount,
-            colors,
-            size,
-            category,
-            image,
+            name: req.body.name.trim(),
+            description: req.body.description.trim(),
+            price: +req.body.price,
+            discount: +req.body.discount,
+            colors: req.body.colors,
+            size: req.body.size,
+            category: req.body.category,
+            image: req.file.filename,
         };
+
+        // res.send(product); //COMPROBAR
 
         products.push(product)
 
         fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
 
-        // res.send(req.body); //COMPROBAR
         res.redirect('/admin');
 
     },
 
     //LISTADO DE PRODUCTOS
     admin: (req, res) => {
+        // let productimage = products[id]
         return res.render('admin/admin', {
             title: 'Administración',
             products,

@@ -7,8 +7,10 @@ const storage = multer.diskStorage({
         cb(null, path.join(__dirname, '../public/img'));
     },
     filename: (req, file, cb) => {
-        cb(null, 'zimg-producto' + Date.now() + path.extname(file.originalname));
-        console.log(file);
+        console.log(file); // COMPROBAR EN TERMINAL DONDE CORRE EL PUERTO
+        let newFilename = 'img-producto-' + Date.now() + path.extname(file.originalname);
+        cb(null, newFilename);
+
     },
 });
 let upload = multer({ storage });
@@ -19,7 +21,7 @@ const { admin, add, store, edit, update, hastaLaVistaBeibi, search } = require('
 router.get('/', admin);
 
 router.get('/add', add);
-router.post('/add', upload.single('imageAdmin'), store);
+router.post('/add', upload.single('image'), store);
 
 router.get('/edit/:id', edit);
 router.put('/update/:id', update);
