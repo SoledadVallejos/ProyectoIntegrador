@@ -36,7 +36,7 @@ module.exports = {
     admin: (req, res) => {
         return res.render('admin/admin', {
             title: 'Administración',
-            products,
+            products : JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'))
         });
     },
 
@@ -61,7 +61,7 @@ module.exports = {
             colors: color,
             size: size,
             category: category.trim(),
-            image: image,
+            image: product.image,
             features: product.features
         };
 

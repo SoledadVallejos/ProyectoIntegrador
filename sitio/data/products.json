@@ -34,30 +34,20 @@
    {
       "id": 2,
       "name": "Polera Negra",
-      "description": "Polera de mujer Roma",
-      "image": "img-producto-polera-negro.jpg",
-      "imageSplide": [
-         "img-producto-polera-negro.jpg"
-      ],
+      "description": "Polera de mujer Roma ya",
+      "price": 4444,
+      "colors": "Beige",
+      "size": "",
       "category": "Oferta",
-      "size": 0,
-      "colors": "Negro",
-      "price": "4444",
-      "discount": 5
+      "image": ""
    },
    {
       "id": 3,
       "name": "Polera Beige",
-      "description": "Polera de mujer Roma",
-      "image": "img-producto-polera-beige.jpg",
-      "imageSplide": [
-         "img-producto-polera-beige.jpg"
-      ],
+      "description": "Polera de mujer Roma 2",
+      "price": 5555,
       "category": "Oferta",
-      "size": 0,
-      "colors": "Beige",
-      "price": "5555",
-      "discount": 15
+      "image": "img-producto-polera-beige.jpg"
    },
    {
       "id": 6,
