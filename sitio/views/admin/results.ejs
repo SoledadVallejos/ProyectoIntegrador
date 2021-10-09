@@ -9,7 +9,7 @@
         <!--Administrador de productos-->
         <section class="row">
             <article class="col-12">
-                <h2 class="display-4 text-white bg-info text-center pt-5">Resultados de la búsqueda</h2>
+                <h2 class="display-4 text-white bg-info text-center pt-5">Resultado de la búsqueda</h2>
             </article>
 
             <div class="addSearch">
@@ -20,7 +20,7 @@
                 </article>
                 <article ">
 					<form action="/admin/search_results" method="GET">
-                    <input type="search" name="keywords" placeholder="nom. cat. color descr.">
+                    <input type="search" name="keywords" placeholder="nom. cat. color descr." class="searchAdmin">
                     <button class="btn btn-primary" type="submit">
                         <ion-icon name="search-outline"></ion-icon>
                     </button>
@@ -49,11 +49,14 @@
                     <tbody>
 
                         <tr>
+                            <% if (searchResults != ''){%>
+
                             <% for( let i = 0; i < searchResults.length; i++ ) { %>
                             <td><%= searchResults[i].id%></td>
                             <td><%= searchResults[i].name%></td>
                             <td><a href="/products/productDetail/<%= searchResults[i].id%>">
-                                    <img src="/img/<%= searchResults[i].image %>" alt="" width="100px">
+                                    <img src="/img/productDetail-splide/<%= searchResults[i].splideImages[0]%>" alt=""
+                                        width="100px">
                                 </a>
                             </td>
                             <td><%= searchResults[i].description%></td>
@@ -72,6 +75,10 @@
                                     <ion-icon class="ion-icon" name="trash-outline"></ion-icon>
                                 </a></td>
                         </tr>
+                        <% } %>
+
+                        <% } else{%>
+                        <h2 style="text-align:center; color: red;"   >Nada encontrado, intenta con otras palabras...</h2>
                         <% } %>
 
                     </tbody>

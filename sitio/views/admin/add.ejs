@@ -12,7 +12,8 @@
             <div>
                 <h3>AGREGAR PRODUCTO</h3>
             </div>
-            <form action="/admin/add" method="POST" enctype="multipart/form-data" >
+            <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. enctype  -->
+            <form action="/admin/add" method="POST" enctype="multipart/form-data">
                 <div>
                     <label for="">Nombre
                         <input type="text" name="name" id="">
@@ -63,13 +64,15 @@
                     </label>
                 </div>
 
+                <!-- CARGA DE IMAGENES CON MULTER -->
                 <div>
-                    <label for="">Imagen
-                        <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. name enctype -->
-                        <input type="file" name="image" id="image"
-                            placeholder="" value="image">
+                    <label for="">Imágenes para detalle de producto.
+                        <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. name  -->
+                        <input type="file" name="splideImages" id="splideImages" placeholder="" value="splideImages"
+                            multiple>
                     </label>
                 </div>
+
                 <div>
                     <h4>DESCRIPCION</h4>
                 </div>

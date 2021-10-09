@@ -49,9 +49,10 @@
      margin: 0;
  }
 
- input {
+ input.searchAdmin {
      padding: 4px;
      width: 247px;
+     width: 237px;
  }
 
  [type=search] {
@@ -65,10 +66,6 @@
          justify-content: space-between;
          margin: auto;
          height: 47px;
-     }
-
-     input {
-         width: 237px;
      }
 
 

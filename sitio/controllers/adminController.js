@@ -4,13 +4,16 @@ const productsFilePath = path.join(__dirname, '..', 'data', 'products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 module.exports = {
+
     //CREAR PRODUCTO
     add: (req, res) => {
         return res.render('admin/add');
-
     },
     store: (req, res) => {
         // const { name, description, price, colors, size, category, image, discount } = req.body;
+        let imagesArr = req.files.map(images => {
+            return images.filename
+        });
         let product = {
             id: products[products.length - 1].id + 1,
             name: req.body.name.trim(),
@@ -20,17 +23,13 @@ module.exports = {
             colors: req.body.colors,
             size: req.body.size,
             category: req.body.category,
-            image: req.file.filename,
+            splideImages: imagesArr,
+            // adminImage: req.file.filename, // CAPTURA UNA single IMAGE
         };
-
         // res.send(product); //COMPROBAR
-
         products.push(product)
-
         fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
-
         res.redirect('/admin');
-
     },
 
     //LISTADO DE PRODUCTOS
@@ -60,7 +59,7 @@ module.exports = {
             name: name.trim(),
             description: description.trim(),
             price: +price,
-            colors: color,
+            colors: colors,
             size: size,
             category: category.trim(),
             image: image,
@@ -77,7 +76,7 @@ module.exports = {
     },
 
 
-    //ELIMINAR PRODUCTO
+    //ELIMINAR PRODUCTO DELETE DESTROY
     hastaLaVistaBeibi: (req, res) => {
         let id = +req.params.id;
         let productsMenosUno = products.filter(index => {
@@ -106,7 +105,6 @@ module.exports = {
             return exists;
         });
         // console.log(JSON.stringify(searchResults)); //COMPROBAR
-
         // res.send(searchResults); //COMPROBAR
         res.render('admin/results', {
             searchResults,

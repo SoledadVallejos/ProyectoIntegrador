@@ -4,7 +4,7 @@
       "name": "Polera Roja",
       "description": "Polera de mujer Roma",
       "image": "img-producto-polera-rojo1.jpg",
-      "imageSplide": [
+      "splideImages": [
          "img-producto-polera-rojo1.jpg",
          "img-producto-polera-rojo2.jpg",
          "img-producto-polera-rojo3.jpg",
@@ -21,7 +21,7 @@
       "name": "Polera Blanca",
       "description": " Aprovechala YA! Es la última en stock!",
       "image": "img-producto-polera-blanco1.jpg",
-      "imageSplide": [
+      "splideImages": [
          "img-producto-polera-blanco1.jpg",
          "img-producto-polera-blanco2.jpg"
       ],
@@ -36,7 +36,7 @@
       "name": "Polera Negra",
       "description": "Polera de mujer Roma",
       "image": "img-producto-polera-negro.jpg",
-      "imageSplide": [
+      "splideImages": [
          "img-producto-polera-negro.jpg"
       ],
       "category": "Oferta",
@@ -50,7 +50,7 @@
       "name": "Polera Beige",
       "description": "Polera de mujer Roma",
       "image": "img-producto-polera-beige.jpg",
-      "imageSplide": [
+      "splideImages": [
          "img-producto-polera-beige.jpg"
       ],
       "category": "Oferta",
@@ -61,32 +61,182 @@
    },
    {
       "id": 4,
-      "name": "Polera Blanca",
-      "description": " Aprovechala YA! Es la última en stock!",
-      "image": "img-producto-polera-blanco1.jpg",
-      "imageSplide": [
-         "img-producto-polera-blanco1.jpg",
-         "img-producto-polera-blanco2.jpg"
-      ],
-      "category": "sugest",
-      "size": 40,
-      "colors": "Blanco",
-      "price": 1900,
-      "discount": 10
+      "name": "Very Hard",
+      "description": "aaaaaaaaaa",
+      "price": 777777,
+      "discount": 2,
+      "colors": "Negro",
+      "size": "XL",
+      "category": "aaaaaaaaaaaa",
+      "splideImages": [
+         "splideImages-1633744594891-.jpg",
+         "splideImages-1633744594979-.jpg",
+         "splideImages-1633744595034-.jpg",
+         "splideImages-1633744595078-.jpg"
+      ]
    },
    {
       "id": 5,
-      "name": "Very Hard",
-      "description": "aaaaaaaaaaa",
-      "price": 33,
-      "discount": 3,
+      "name": "aaaaaaa",
+      "description": "aaaaaaaaaa. Este tampo tiene descuentooooo. ",
+      "price": 777777,
+      "discount": 0,
+      "colors": "Negro",
+      "size": "XL",
+      "category": "cat1",
+      "splideImages": [
+         "splideImages-1633744798860-.jpg",
+         "splideImages-1633744799173-.jpg",
+         "splideImages-1633744799215-.jpg",
+         "splideImages-1633744799432-.jpg",
+         "splideImages-1633744799473-.jpg"
+      ]
+   },
+   {
+      "id": 6,
+      "name": "dd",
+      "description": "csdewrew",
+      "price": 777777,
+      "discount": 2,
+      "colors": "Negro",
+      "size": "XL",
+      "category": "cat1",
+      "splideImages": [
+         "splideImages-1633744867983-.jpg",
+         "splideImages-1633744868117-.jpg",
+         "splideImages-1633744868158-.jpg"
+      ]
+   },
+   {
+      "id": 7,
+      "name": "",
+      "description": "",
+      "price": 0,
+      "discount": 44,
+      "category": "",
+      "colors": "Negro",
+      "splideImages": [
+         "splideImages-1633745122030-.jpg"
+      ]
+   },
+   {
+      "id": 8,
+      "name": "",
+      "description": "",
+      "price": 0,
+      "discount": 2,
+      "category": "",
+      "colors": "Negro",
+      "splideImages": [
+         "splideImages-1633745170683-.jpg"
+      ]
+   },
+   {
+      "id": 9,
+      "name": "Cafetera Moulinex Dolce Gusto Edited EDITADO",
+      "description": "eeeeeee",
+      "price": 200,
+      "discount": 10,
+      "colors": "Blanco",
+      "size": "S",
+      "category": "cat 1",
+      "splideImages": [
+         "splideImages-1633758284732-.png"
+      ]
+   },
+   {
+      "id": 10,
+      "name": "Charles",
+      "description": "rrrrrrrr",
+      "price": 20000,
+      "discount": 10,
       "colors": "Rojo",
       "size": "L",
-      "category": "cat",
-      "image": "img-producto-1633684909036.jpg",
-      "imageSplide": [
-         "img-producto-1633684909036.jpg",
-         "img-producto-1633684909036.jpg"
+      "category": "OFF",
+      "splideImages": [
+         "splideImages-1633758437649-.jpg",
+         "splideImages-1633758437911-.jpg"
+      ]
+   },
+   {
+      "id": 11,
+      "name": "Charles",
+      "description": "rrrrrrrr",
+      "price": 20000,
+      "discount": 10,
+      "colors": "Rojo",
+      "size": "L",
+      "category": "OFF",
+      "splideImages": [
+         "splideImages-1633758437649-.jpg",
+         "splideImages-1633758437911-.jpg"
+      ]
+   },
+   {
+      "id": 12,
+      "name": "Adidas",
+      "description": "seeeeee",
+      "price": 60,
+      "discount": 33,
+      "colors": "Beige",
+      "size": "S",
+      "category": "cat 1",
+      "splideImages": [
+         "splideImages-1633759488046-.jpg"
+      ]
+   },
+   {
+      "id": 13,
+      "name": "Very Hard",
+      "description": "dos",
+      "price": 334447,
+      "discount": 10,
+      "colors": "Blanco",
+      "size": "L",
+      "category": "cat1",
+      "splideImages": [
+         "splideImages-1633802002137-.jpg",
+         "splideImages-1633802002330-.jpg"
+      ]
+   },
+   {
+      "id": 14,
+      "name": "look1",
+      "description": "dos images",
+      "price": 33,
+      "discount": 1,
+      "colors": "Beige",
+      "size": "M",
+      "category": "cat2",
+      "splideImages": [
+         "splideImages-1633802295358-.jpg",
+         "splideImages-1633802295540-.jpg"
+      ]
+   },
+   {
+      "id": 15,
+      "name": "single",
+      "description": "single image. No debería verse este último item en home, pues no tiene descuento!",
+      "price": 334,
+      "discount": 0,
+      "colors": "Rojo",
+      "size": "XL",
+      "category": "sugerido",
+      "splideImages": [
+         "splideImages-1633802533333-.jpg"
+      ]
+   },
+   {
+      "id": 16,
+      "name": " WARNING!",
+      "description": "Una foto mas para avisar! Para que no se rompa...No agregar items sin valores. Solo se puede borrar el último item jajaja!",
+      "price": 100,
+      "discount": 99,
+      "colors": "Blanco",
+      "size": "S",
+      "category": "warining",
+      "splideImages": [
+         "splideImages-1633803205741-.jpg"
       ]
    }
 ]

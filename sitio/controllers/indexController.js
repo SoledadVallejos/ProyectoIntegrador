@@ -4,7 +4,7 @@ let products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'pr
 module.exports = {
     index: (req, res) => {
         let productsOff = products.filter(index => {
-            return index.discount !== '' || null || 0;
+            return index.discount !== 0 || '' || null;
         });
         let productsSugest = products.filter(index => {
             return index.category === 'sugest';
