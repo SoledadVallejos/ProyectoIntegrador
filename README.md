@@ -51,9 +51,6 @@ ___
 - ## Nieto Leandro
      Mi nombre es Leandro, tengo 30 años y soy un estudiante apasionado de programacion web fullstack.
 
-- ## Cedron Sol
-     Mi nombre es Sol tengo 21 años, actualmente estudiante del curso programacion FullStack.
-
 - ## Vallejos Soledad
      Me llamo Soledad, tengo 26 años, soy de Buenos Aires. Actualmente me encuentro haciendo el curso de Desarrollo      Web Full Stack. Me gusta aprender nuevos lenguajes de programacion y herramientas que me ayuden a crecer en el mundo de la tecnologia. 
 
