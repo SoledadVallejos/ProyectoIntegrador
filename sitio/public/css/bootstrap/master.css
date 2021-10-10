@@ -26,8 +26,14 @@
 
  }
  */
- .pt-5,
- .py-5 {
+
+ .searchResultsAdmin {
+     padding: 0 !important;
+     background-color: inherit;
+     border-radius: 5px;
+ }
+
+ .pt-5 {
      padding: 0 !important;
      background-color: red !important;
      border-radius: 5px;
