@@ -45,11 +45,27 @@ ___
 - Falta de comunicación.
 ### Dejar de hacer:
 
+   <!-- --------------------------------------------------------------------- -->
+___   
+
+## Sprint 4
+
+### Seguir haciendo:
+- Continuar trabajando en equipo, colaboración e ideas innovadoras.
+### Hacer mas:
+-  Revisión grupal, más compromiso y dayli.
+### Empezar a hacer:
+- Mayor preparación, weecky y minutas.
+### Hacer menos: 
+- Falta de comunicación.
+### Dejar de hacer:
+- Abandonar.
+
 
 ## Tablero de trelo
 - https://trello.com/b/hAjk8XCb/comision-10-grupo-9-myapp
 
    <!-- --------------------------------------------------------------------- -->
-___                                                  
+___     
 
                                     
