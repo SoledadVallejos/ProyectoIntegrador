@@ -90,7 +90,7 @@ div.negro {
 }
 .contain-add button {
     padding: 7px;
-    margin: 15px;
+    margin: 10px;
     border-radius: 15%;
 }
 
@@ -100,8 +100,17 @@ div.negro {
     text-transform: uppercase;
     font-weight: bold;
     transition: all .3s;
+ 
 }
 
+.button-blue A {
+    font-size: 13px;
+   color: white;
+   transition: all .3s;
+}
+
+.button-blue:hover a {
+    color: white;}
 
 .button-blue:hover {
     background-color: blue;

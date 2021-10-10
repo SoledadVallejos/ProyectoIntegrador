@@ -14,31 +14,31 @@
             </div>
             <form action="/admin/add" method="POST" enctype="multipart/form-data" >
                 <div>
-                    <label for="">Nombre
+                    <label for="name">Nombre
                         <input type="text" name="name" id="">
                     </label>
                 </div>
 
                 <div>
-                    <label for="">Categoria
+                    <label for="category">Categoria
                         <input type="text" name="category" id="">
                     </label>
                 </div>
 
                 <div>
-                    <label for="">Precio
+                    <label for="price">Precio
                         <input type="text" name="price" id="">
                     </label>
                 </div>
 
                 <div>
-                    <label for="">Descuento
+                    <label for="discount">Descuento
                         <input type="text" name="discount" id="">
                     </label>
                 </div>
 
                 <div>
-                    <label for="">Color
+                    <label for="colors">Color
                         <div class="button-contain">
 
                             <div class="rojo"><input type="radio" name="colors" value="Rojo"></div>
@@ -51,7 +51,7 @@
                 </div>
 
                 <div>
-                    <label for="">Talle
+                    <label for="size">Talle
                         <div class="button-contain">
 
                             <label for="">L<input type="radio" name="size" value="L"></label>
@@ -64,10 +64,8 @@
                 </div>
 
                 <div>
-                    <label for="">Imagen
-                        <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. name enctype -->
-                        <input type="file" name="imageAdmin" id="imageAdmin"
-                            placeholder="" value="imageAdmin">
+                    <label for="image">Imagen
+                        <input type="file" name="image" id="/img/default.png" placeholder="" value="">
                     </label>
                 </div>
                 <div>
