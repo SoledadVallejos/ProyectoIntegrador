@@ -238,5 +238,20 @@
       "splideImages": [
          "splideImages-1633803205741-.jpg"
       ]
+   },
+   {
+      "id": 17,
+      "name": "aaaaaaa",
+      "description": "eel problema era el JSON",
+      "price": 777777,
+      "discount": 33,
+      "colors": "Negro",
+      "size": "XL",
+      "category": "cat",
+      "splideImages": [
+         "splideImages-2021-10-10-50-1633918700130-.jpg",
+         "splideImages-2021-10-10-50-1633918700311-.jpg",
+         "splideImages-2021-10-10-50-1633918700397-.jpg"
+      ]
    }
 ]
