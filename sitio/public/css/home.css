@@ -136,8 +136,6 @@ main.home section.ofertas-main article.ofertas-desktop div h5 {
         bottom: 60px;
         font-size: 25px;
         color: white;
-
-
     }
 
     main.home section.tipo-main div.hombre h4 {
@@ -161,8 +159,9 @@ main.home section.ofertas-main article.ofertas-desktop div h5 {
 
 
     main.home section.ofertas-main article.ofertas-tablet div {
-        display: block;
         /* width: 50%; */
+        display: block;
+        margin: auto;
     }
 
     main.home section.ofertas-main article.ofertas-tablet {
@@ -173,7 +172,10 @@ main.home section.ofertas-main article.ofertas-desktop div h5 {
     }
 
     main.home section.ofertas-main article.ofertas-tablet div a img {
-        width: 97%;
+        /* width: 97%; */
+        width: auto;
+        height: 287px;
+
     }
 
 
@@ -191,9 +193,12 @@ main.home section.ofertas-main article.ofertas-desktop div h5 {
     }
 
     main.home section.ofertas-main article.ofertas-tablet {
+        margin: auto;
+        width: auto;
+    }
 
-        width: 20%;
-
+    main.home section.ofertas-main article.ofertas-tablet div a img {
+        height: 247px;
     }
 
     main.home section.ofertas-main article.ofertas-desktop {
@@ -226,7 +231,57 @@ main.home section.ofertas-main article.ofertas-desktop div h5 {
 
     }
 
+}
 
 
+@media (min-width: 450px) {
+    main.home section.ofertas-main article.ofertas-tablet {
+        margin: auto;
+        width: auto;
+    }
+
+    main.home section.ofertas-main article.ofertas-tablet div a img {
+        margin: auto;
+        height: 215px;
+    }
+
+}
+@media (min-width: 1024px) {
+    main.home section.ofertas-main article.ofertas-tablet {
+        margin: auto;
+        width: auto;
+    }
+
+    main.home section.ofertas-main article.ofertas-tablet div a img {
+        margin: auto;
+        height: 284px;
+    }
+
+}
+
+
+@media (min-width: 1400px) {
+    main.home section.ofertas-main article.ofertas-tablet {
+        margin: auto;
+        width: auto;
+    }
+
+    main.home section.ofertas-main article.ofertas-tablet div a img {
+        height: 397px;
+    }
+
+}
+
+
+
+@media (min-width: 2500px) {
+    main.home section.ofertas-main article.ofertas-tablet {
+        margin: auto;
+        width: auto;
+    }
+
+    main.home section.ofertas-main article.ofertas-tablet div a img {
+        height: 477px;
+    }
 
 }

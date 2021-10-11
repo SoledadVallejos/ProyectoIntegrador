@@ -6,7 +6,7 @@ module.exports = {
     productDetail: (req, res) => {
         let id = +req.params.id;
         let product = products[id]; // PRODUCTO ESPECÍFICO DINAMICO
-        let productImg = products[id].imageSplide; // IMAGENES DE PRODUCTO ESPECÍFICO DINÁMICO
+        let productImg = products[id].splideImages; // IMAGENES DE PRODUCTO ESPECÍFICO DINÁMICO
         // res.send(productImg); // COMPROBAR PRODUCTO ESPECÍFICO DINAMICO
         return res.render('products/productDetail', {
             title: 'Detalle del Producto',
