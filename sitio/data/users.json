@@ -146,10 +146,30 @@
   "id": 15,
   "name": "Daniel",
   "lastName": "Rivera",
-  "email": "17dannieldavvid2004@gmail.com",
+  "email": "12dannieldavvid2004@gmail.com",
   "password": "$2a$10$xghSsDKY2AZhyzHlMG8d1.mPnJSfiJ6aciTI2SblbTNKzyDE.lIqK",
   "password2": null,
   "country": "Colombia",
   "avatar": "1634657568992_img.png"
+ },
+ {
+  "id": 16,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "wefdsafdsdannieldavvid2004@gmail.com",
+  "password": "$2a$10$8mOT1DzeEa55l60J641aguZSY8r5WLhVxhQAgvnbjy2kvsTN3.AuS",
+  "password2": null,
+  "country": "Argentina",
+  "avatar": "1634686234762_img.png"
+ },
+ {
+  "id": 17,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "17dannieldavvid2004@gmail.com",
+  "password": "$2a$10$aKGVrIuC9fatlv3KCLfXZuAy89hgw6gNt/F9Bj8D6lE9K/225tJcm",
+  "password2": null,
+  "country": "Argentina",
+  "avatar": "1634686328032_img.png"
  }
 ]

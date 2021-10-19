@@ -53,7 +53,8 @@
 							<td><%= index.id%> </td>
 							<td><%= index.name%> </td>
 							<td><a href="/products/productDetail/<%= index.id%>">
-									<img src="/img/productDetail-splide/<%= index.splideImages[0]%>" alt="" width="100px">
+									<img src="/img/productDetail-splide/<%= index.splideImages[0]%>" alt=""
+										width="100px">
 								</a>
 							</td>
 							<td><%= index.description%> </td>
@@ -90,11 +91,10 @@
 </html>
 
 
-
 <!-- 
-// < !--REPASANDO ARRAYS... -->
-// < !--index.splideImages[0] USANDO foreach-->
-// PARA ACCEDER A VALORES DE ARRAY,ESTE DEBE TENER NOMBRE (SIN USAR foreach)
+REPASANDO ARRAYS
+index.splideImages[0] USANDO foreach
+ PARA ACCEDER A VALORES DE ARRAY,ESTE DEBE TENER NOMBRE (SIN USAR foreach)
 products =
     [
         {
@@ -130,11 +130,12 @@ products =
             "discount": 10
         }
     ]
-//                   index.     .splideImages[0] // USANDO foreach, index REPRESENTA CADA ÍNDICE DE ARRAY ITERADO
+	 -->
+<!--                    index.     .splideImages[0] // USANDO foreach, index REPRESENTA CADA ÍNDICE DE ARRAY ITERADO
 console.log(products[0].splideImages[0]); // ACCEDIENDO A VALOR DE ARRAY SIN ITERAR
-//               products[0]                                DEBE NOMBRARSE PRIMERO NOMBRE ARRAY + ÍNDICE QUE SE QUIERE ACCEDER...
-//                                 .splideImages           ES NOMBRE DEL ÚLTIMO SUBGRUPO DE ÍNDICES
-//                                                     [0]        ES EL ÍNDICE ESPECÍFICO AL CUAL QUIERO ACCEDER PARA MOSTRAR SU VALOR FINALMENTE
-// IMPRIME: img-producto-polera-rojo1.jpg
+               products[0]                                DEBE NOMBRARSE PRIMERO NOMBRE ARRAY + ÍNDICE QUE SE QUIERE ACCEDER...
+                                 .splideImages           ES NOMBRE DEL ÚLTIMO SUBGRUPO DE ÍNDICES
+                                                     [0]        ES EL ÍNDICE ESPECÍFICO AL CUAL QUIERO ACCEDER PARA MOSTRAR SU VALOR FINALMENTE
+ IMPRIME: img-producto-polera-rojo1.jpg
 
  -->

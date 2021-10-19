@@ -29,6 +29,9 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+// INDICAR PUERTO EN USO
+console.log(`Servidor activo en http://www.localhost:${port}/`);
+
 /**
  * Normalize a port into a number, string, or false.
  */
