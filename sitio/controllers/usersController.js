@@ -87,6 +87,27 @@ module.exports = {
 
         });
     },
+    processLogin : (req,res) => {
+        let errors = validationResult(req);
+        
+       if(errors.isEmpty()){
+            let user = users.find(user => user.email === req.body.email);
+            req.session.userLogin = {
+                id : user.id,
+                name : user.name,
+                avatar : user.avatar,
+                rol : user.rol
+            }
+            if(req.body.remember){
+                res.cookie('Rome',req.session.userLogin,{maxAge : 1000 * 60})
+            }
+            return res.redirect('/')
+        }else{
+            return res.render('login',{
+                errores : errors.mapped()
+            })
+        } 
+    }
 }
 
 
