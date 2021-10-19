@@ -141,5 +141,15 @@
   "password2": null,
   "country": "Argentina",
   "avatar": "1634646717490_img.png"
+ },
+ {
+  "id": 15,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "17dannieldavvid2004@gmail.com",
+  "password": "$2a$10$xghSsDKY2AZhyzHlMG8d1.mPnJSfiJ6aciTI2SblbTNKzyDE.lIqK",
+  "password2": null,
+  "country": "Colombia",
+  "avatar": "1634657568992_img.png"
  }
 ]
