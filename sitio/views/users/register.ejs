@@ -1,58 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head',{title: 'Registro de usuario'}) %>
+<%- include('../partials/head',{title: 'Registro de usuario'}) %>
+
 <body class="register">
-    <%- include('../partials/header') %> 
+    <%- include('../partials/header') %>
 
 
     <main class="edit">
-
         <section class="contain-edit">
-        <h3>FORMULARIO REGISTRO</h3>
-        <form action="" method="POST">
-            <div>
-                <label for="name">Nombre
-                <input type="text" id= "name" placeholder="Ingrese su nombre" name="name"></label>
-            </div>
-            <div>
-                <label for="Email">Correo electronico
-                <input type="email" id="Email" placeholder="Ingrese su Email" name="Email"></label>
-            </div>
-           
-            <div>
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" placeholder="Ingrese su contraseña" name="password">
-            </div>
 
-            <div>
-                <label for="password2">Confirmar Contraseña</label>
-                <input type="password" id="password2" placeholder="Ingrese su contraseña" name="password">
-            </div>
-      
-            
-            <!-- CAJAS -->
+            <h3>FORMULARIO REGISTRO</h3>
+            <!-- // app.js+users.js= '/users/register' -->
+            <form action="/users/register" method="POST" enctype="multipart/form-data">
 
+                <div>
+                    <label for="name">Nombre
+                        <input type="text" id="name" placeholder="Ingrese su nombre" name="name"
+                            value="<%= locals.old && old.name ? old.name : ''%>">
+                        <!--			     IF data old  Y    old 	 name          old.    name    imprimir-->
+                        <!-- 					  RECORDAR VIEJO DATO INGRESADO EN input -->
+                    </label>
+                    <!-- MENSAJE DE VALIDACION -->
+                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                    <% if (locals.errors ) { %>
+                    <% errors.forEach(error => { %>
+                    <p class="text-danger">
+                        <%= error.param=='name' ?error.msg : null %>
+                    </p>
+                    <% }) %>
+                    <% } %>
+                    <!-- MENSAJE DE VALIDACION/ -->
+                </div>
+
+                <div>
+                    <label for="lastName">Apellido
+                        <input type="text" id="lastName" placeholder="Ingrese su apellido" name="lastName"
+                            value="<%= locals.old && old.lastName ? old.lastName : ''%>">
+                        <!--				IF data old  Y    old 	 name       old.    name    imprimir-->
+                        <!-- 					  RECORDAR VIEJO DATO INGRESADO EN input -->
+                    </label>
+                    <!-- MENSAJE DE VALIDACION -->
+                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                    <% if (locals.errors ) { %>
+                    <% errors.forEach(error => { %>
+                    <p class="text-danger">
+                        <%= error.param=='lastName' ?error.msg : null %>
+                    </p>
+                    <% }) %>
+                    <% } %>
+                    <!-- MENSAJE DE VALIDACION/ -->
+                </div>
+
+                <div>
+                    <label for="email">Correo electronico
+                        <input type="email" id="email" placeholder="Ingrese su Email" name="email"
+                            value="<%= locals.old && old.email ? old.email : ''%>">
+                        <!--				IF data old  Y    old 	 name       old.    name    imprimir-->
+                        <!-- 					  RECORDAR VIEJO DATO INGRESADO EN input -->
+                    </label>
+                    <!-- MENSAJE DE VALIDACION -->
+                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                    <% if (locals.errors ) { %>
+                    <% errors.forEach(error => { %>
+                    <p class="text-danger">
+                        <%= error.param=='email' ?error.msg : null %>
+                    </p>
+                    <% }) %>
+                    <% } %>
+                    <!-- MENSAJE DE VALIDACION/ -->
+                </div>
+
+                <div>
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="Ingrese su contraseña" name="password">
+                    <!-- NO ES PRUDENTE PERSISTIR LA VIEJA DATA INGRESADA EN ESTE input -->
+                    <!-- MENSAJE DE VALIDACION -->
+                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                    <% if (locals.errors ) { %>
+                    <% errors.forEach(error => { %>
+                    <p class="text-danger">
+                        <%= error.param=='password' ?error.msg : null %>
+                    </p>
+                    <% }) %>
+                    <% } %>
+                    <!-- MENSAJE DE VALIDACION/ -->
+                </div>
+
+                <div>
+                    <label for="password2">Confirmar Contraseña</label>
+                    <input type="password" id="password2" placeholder="Ingrese su contraseña" name="password2">
+                    <!-- NO ES PRUDENTE PERSISTIR LA VIEJA DATA INGRESADA EN ESTE input -->
+                    <!-- MENSAJE DE VALIDACION -->
+                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                    <% if (locals.errors ) { %>
+                    <% errors.forEach(error => { %>
+                    <p class="text-danger">
+                        <%= error.param=='password' ?error.msg : null %>
+                    </p>
+                    <% }) %>
+                    <% } %>
+                    <!-- MENSAJE DE VALIDACION/ -->
+                </div>
+
+                <div>
+                    <label><b>País de nacimiento:</b></label>
+                    <select name="country"
+                        class="form-select <%= locals.errors && errors.country ? 'is-invalid' : null %>">
+                        <option value="">Elegí un país</option>
+                        <%  
+                                let countries = ['Argentina', 'Bolivia', 'Brasil', 'Colombia', 'Chile', 'Ecuador', 'Paraguay', 'Perú', 'Uruguay', 'Venezuela'];
+                            %>
+                        <!--                   UN PAIS    DE  PAISES -->
+                        <% for (const oneCountry of countries) { %>
+                        <!-- EN  value               UN PAIS     Y EL SIGUIENTE... HASTA RECORRER TODOS LOS PAISES EN contries EN value-->
+                        <option value="<%= oneCountry %>"
+                            <%= locals.old && (oneCountry === old.country) ? 'selected' : null %>>
+                            <%= oneCountry %>
+                        </option>
+                        <!-- SI DATO VIEJO  Y  UN PAIS    IGUAL A VIEJO PAIS  ? SELECCIONARLO  :  SINO PONER nada -->
+                        <!--        UN PAIS          MOSTRAR Y LOS SIGUIENTES... HASTA COMPLETAR TODOS LOS PAISES EN countries EN option-->
+                        <% } %>
+                    </select>
+                </div>
+
+                <!-- MENSAJE DE VALIDACION -->
+                <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                <% if (locals.errors ) { %>
+                <% errors.forEach(error => { %>
+                <p class="text-danger">
+                    <%= error.param=='country' ?error.msg : null %>
+                </p>
+                <% }) %>
+                <% } %>
+                <!-- MENSAJE DE VALIDACION/ -->
+                <div>
+                    <label><b>Imagen de perfil:</b></label>
+                    <input type="file" name="avatar"
+                        class=" <%= locals.errors && errors.avatar ? 'is-invalid' : null %>">
+                    <!-- MENSAJE DE VALIDACION -->
+                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                    <% if (locals.errors ) { %>
+                    <% errors.forEach(error => { %>
+                    <p class="text-danger">
+                        <%= error.param=='avatar' ?error.msg : null %>
+                    </p>
+                    <% }) %>
+                    <% } %>
+                    <!-- MENSAJE DE VALIDACION/ -->
+                </div>
+
+                <!-- CAJAS -->
+
+                <div>
+                    <label for="remember"><input type="checkbox" name="terms" value="terms"> Acepto los terminos y
+                        condiciones</label>
+                </div>
+
+                <div>
+                    <button class="button-blue" type="submit">Crear</button>
+                    <button class="button-red" type="reset">Cancelar</button>
+                </div>
+            </form>
             <div>
-                <label for="remember"><input type="checkbox" name="terms" value="terms"> Acepto los terminos y condiciones</label>
+                <label for="">¿Ya tenes usuario? <button class="button-blue"><a
+                            href="/users/login">Logueate</a></button></label>
             </div>
-            
-            <div>
-                <button class="button-blue" type="submit">Crear</button>
-                <button class="button-red" type="reset">Cancelar</button>
-            </div>
-        </form>
-        <div>
-            <label for="">¿Ya tenes usuario? <button class="button-blue"><a href="/users/login">Logueate</a></button></label>
-           </div> 
         </section>
     </main>
 
-            
 
 
 
-            <%- include('../partials/footerRegister') %> 
 
-   
+    <%- include('../partials/footerRegister') %>
+
+
 </body>
+
 </html>

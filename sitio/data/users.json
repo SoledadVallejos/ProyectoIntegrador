@@ -1,0 +1,145 @@
+[
+ {
+  "id": 1,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "dannieldavvid2004@gmail.com",
+  "password": [
+   "eggsrgrsgdfgth",
+   "eggsrgrsgdfgth"
+  ],
+  "country": "Colombia",
+  "avatar": "1634632924210_img.png"
+ },
+ {
+  "id": 2,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "dannieldavvid20041@gmail.com",
+  "password": [
+   "eggsrgrsgdfgth",
+   "eggsrgrsgdfgth"
+  ],
+  "country": "Ecuador",
+  "avatar": "1634637702930_img.png"
+ },
+ {
+  "id": 3,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "dannieldavvid2021@gmail.com",
+  "password": "$2a$10$PtjTlNqNpaSmpuoeTLXrjuL9zrXL/DTCjPnttveC16mqkSy1dJone",
+  "country": "Chile",
+  "avatar": "1634639778793_img.png"
+ },
+ {
+  "id": 4,
+  "name": "da",
+  "lastName": "r",
+  "email": "1dannieldavvid2021@gmail.com",
+  "password": "$2a$10$P2ZeTMZSyT3xzxey4/5DgexL3TZorRlOqXAhlfL8vjX1Bvwqn.TqK",
+  "password2": "",
+  "country": "Bolivia",
+  "avatar": "1634640494300_img.png"
+ },
+ {
+  "id": 5,
+  "name": "aaaaaaa",
+  "lastName": "r",
+  "email": "2dannieldavvid2004@gmail.com",
+  "password": "$2a$10$SOoiT3WkeZiyXOIZ6KqiK.Av71YsjVJ.Yi5W9ZGcjWc2E7m7NpklW",
+  "password2": "$2a$10$rS2t0Tbsnq1bRBq7OL6FH.3ageX1RT4QjoytFkcUU/0MXVUTxjfG2",
+  "country": "Chile",
+  "avatar": "1634640989672_img.png"
+ },
+ {
+  "id": 6,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "3dannieldavvid2021@gmail.com",
+  "password": "$2a$10$RSpuw0yracps/EzS6t66mukl52F1E59aZCKm2ekzvIGHvQ084sjMi",
+  "password2": "$2a$10$hSCcPTJsr8lcSc0UnfPl4urpcCm6ApiTFjCU3WTxG7SMEEYOa.37K",
+  "country": "Brasil",
+  "avatar": "1634641105255_img.png"
+ },
+ {
+  "id": 7,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "4dannieldavvid2004@gmail.com",
+  "password": "eggsrgrsgdfgth",
+  "password2": "eggsrgrsgdfgth",
+  "country": "Uruguay",
+  "avatar": "1634644273701_img.png"
+ },
+ {
+  "id": 8,
+  "name": "d",
+  "lastName": "ads",
+  "email": "dansddnieldavvid2004@gmail.com",
+  "password": "$2a$10$AFimnAbs0QVTxgMjMLTAa.kSacd.NovFQF9g1UKpcF.ElrIZZmtFK",
+  "password2": "asdfasfasd",
+  "country": "Ecuador",
+  "avatar": "1634645229102_img.png"
+ },
+ {
+  "id": 9,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "5dannieldavvid2004@gmail.com",
+  "password": "$2a$10$.lFT2Rkcv8iEBW.JBICpC.En8jukrmCYv8wnRyIYV7/MSo4sBZBWW",
+  "password2": "eggsrgrsgdfgth",
+  "country": "Argentina",
+  "avatar": "1634645439879_img.png"
+ },
+ {
+  "id": 10,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "6dannieldavvid2004@gmail.com",
+  "password": "$2a$10$HFlR52Ujx8QGd0oa.ls3B.04pmRl7zkInwrp9ulgB70DvXRIPeSYW",
+  "password2": false,
+  "country": "Argentina",
+  "avatar": "1634645585538_img.png"
+ },
+ {
+  "id": 11,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "7dannieldavvid2004@gmail.com",
+  "password": "$2a$10$/JGVqEq1zUpHWEk5CksjbuJgVjM3Mt3Gswf0jnUqmB.h/WHM4QCy2",
+  "password2": "12344321",
+  "country": "Argentina",
+  "avatar": "1634645711634_img.png"
+ },
+ {
+  "id": 12,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "8dannieldavvid2004@gmail.com",
+  "password": "$2a$10$6ryUda8Xdz7dmq5x6TGw4OnxNWaS5FTN1RxOXjxpmfzCakoLeNeQi",
+  "password2": null,
+  "country": "Argentina",
+  "avatar": "1634645977021_img.png"
+ },
+ {
+  "id": 13,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "10dannieldavvid2004@gmail.com",
+  "password": "$2a$10$eFd0bucwGuNjS8JiLjTtl.n4hrpAgJVbNpHm8TmBORb9vaLukEiXy",
+  "password2": null,
+  "country": "Argentina",
+  "avatar": "1634646377092_img.png"
+ },
+ {
+  "id": 14,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "11dannieldavvid2004@gmail.com",
+  "password": "$2a$10$raIBjVfIsabXuP4A.B0t2.asewMzkP1Pv8P17r7TB/.WWznhR1aDC",
+  "password2": null,
+  "country": "Argentina",
+  "avatar": "1634646717490_img.png"
+ }
+]
