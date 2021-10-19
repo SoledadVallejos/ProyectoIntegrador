@@ -5,6 +5,7 @@ const path = require('path');
 const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
 const User = require('../models/UserModel');
+let users = require(path.join(__dirname,'../data/users.json'));
 
 
 module.exports = {
@@ -90,7 +91,7 @@ module.exports = {
     processLogin : (req,res) => {
         let errors = validationResult(req);
         
-       if(errors.isEmpty()){
+        if(errors.isEmpty()){
             let user = users.find(user => user.email === req.body.email);
             req.session.userLogin = {
                 id : user.id,
@@ -98,15 +99,13 @@ module.exports = {
                 avatar : user.avatar,
                 rol : user.rol
             }
-            if(req.body.remember){
-                res.cookie('Rome',req.session.userLogin,{maxAge : 1000 * 60})
-            }
+            
             return res.redirect('/')
         }else{
-            return res.render('login',{
+            return res.render('users/login',{
                 errores : errors.mapped()
             })
-        } 
+        }
     }
 }
 
