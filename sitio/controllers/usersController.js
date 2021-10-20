@@ -99,6 +99,9 @@ module.exports = {
                 avatar : user.avatar,
                 rol : user.rol
             }
+            if(req.body.remember){
+                res.cookie('rememberRoma',req.session.userLogged,{maxAge : 1000000 * 60})
+            }
             
             return res.redirect('/')
         }else{

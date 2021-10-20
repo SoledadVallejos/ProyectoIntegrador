@@ -5,15 +5,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const methodOverride = require('method-override'); // Para poder usar los métodos PUT y DELETE
-// const session = require('express-session');
 const session = require('express-session');
-// const cookies = require('cookie-parser');
+
 
 // REQUIRE ROUTES
 var index = require('./routes/index');
 var products = require('./routes/products');
 var users = require('./routes/users');
 var admin = require('./routes/admin');
+const checkcookie = require('./middlewares/checkcookie');
 
 // EXPRESS EN app
 var app = express();
@@ -41,6 +41,7 @@ app.use('/', index);
 app.use('/products', products);
 app.use('/users', users);
 app.use('/admin', admin);
+app.use(checkcookie);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

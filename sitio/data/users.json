@@ -177,5 +177,16 @@
   "terms": "terms",
   "avatar": "1634671428313_img.png",
   "rol": "admin"
+ },
+ {
+  "id": 17,
+  "name": "Leandro",
+  "lastName": "Nieto",
+  "email": "kyller_2008_@hotmail.com",
+  "password": "$2a$10$2s6861H6cN.UkK9d4Ec/4uzULajnI7zkMLCwmx4eFhES2odKQo9UG",
+  "password2": null,
+  "country": "Argentina",
+  "terms": "terms",
+  "avatar": "1634740490525_img.png"
  }
 ]
