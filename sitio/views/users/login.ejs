@@ -22,8 +22,9 @@
             <div>
                 <label for="remember"><input type="checkbox" name="remember" value="remember"> Recordame</label>
             </div>
-              
-            
+            <div style="color: red;">
+                <span><%= locals.errores && errores.email ? errores.email.msg : null %> </span>
+            </div>
             <div>
                 <button class="button-blue" type="submit">Iniciar</button>
                 <button class="button-red" type="reset">Cancelar</button>
