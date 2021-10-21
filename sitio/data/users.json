@@ -188,5 +188,17 @@
   "country": "Argentina",
   "terms": "terms",
   "avatar": "1634740490525_img.png"
+ },
+ {
+  "id": 18,
+  "name": "alejandra",
+  "lastName": "rodriguez",
+  "email": "ale_rodriguez@hotmail.com",
+  "password": "$2a$10$UqwPOoQLiiBq3wXDU52r1OexkszopznklT/V9JfkitpK6CO/i5/ma",
+  "password2": null,
+  "country": "Venezuela",
+  "terms": "terms",
+  "avatar": "1634788732106_img.jpg",
+  "rol": "user"
  }
 ]

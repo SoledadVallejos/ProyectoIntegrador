@@ -7,6 +7,8 @@ var logger = require('morgan');
 const methodOverride = require('method-override'); // Para poder usar los métodos PUT y DELETE
 const session = require('express-session');
 
+const localUserCheck = require('./middlewares/localsUserCheck');
+
 
 // REQUIRE ROUTES
 var index = require('./routes/index');
@@ -35,6 +37,8 @@ app.use(session({
   resave : false,
   saveUninitialized : true
 }))
+
+app.use(localUserCheck);
 
 // INICIAN RUTAS
 app.use('/', index);
