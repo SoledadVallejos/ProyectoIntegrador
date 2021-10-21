@@ -16,12 +16,12 @@ const loginValidator = require('../validations/loginValidator');
 
 // REGISTER
 //     '/users/register' =app.js+users.js
-router.get('/register', create);
+router.get('/register', guestMiddleware, create);
 // REGISTER PROCESS
 router.post('/register', uploadFile.single('avatar'), validations, processCreate);
 
 // LOGIN
-router.get('/login', login);
+router.get('/login', guestMiddleware, login);
 router.post('/login', loginValidator, processLogin);
 
 router.get('/logout/', logout);

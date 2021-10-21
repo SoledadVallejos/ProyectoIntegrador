@@ -200,5 +200,16 @@
   "terms": "terms",
   "avatar": "1634788732106_img.jpg",
   "rol": "user"
+ },
+ {
+  "id": 19,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "18dannieldavvid2004@gmail.com",
+  "password": "$2a$10$C5LKLQLHqqq6SXv4WBmALeQ1o5.ef8gYortNtNdyIRvpBnwFBfsNC",
+  "password2": null,
+  "country": "Argentina",
+  "terms": "terms",
+  "avatar": "1634806690585_img.jpg"
  }
 ]
