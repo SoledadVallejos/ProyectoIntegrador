@@ -17,31 +17,31 @@
 
             <form action="../update/<%= product.id %>?_method=PUT" method="POST">
                 <div>
-                    <label for="">Nombre
+                    <label for="name">Nombre
                         <input type="text" name="name" id="name" value="<%= product.name %>">
                     </label>
                 </div>
 
                 <div>
-                    <label for="">Categoria
-                        <input type="text" name="category" id="" value="<%= product.category  %> ">
+                    <label for="category">Categoria
+                        <input type="text" name="category" id="category" value="<%= product.category  %> ">
                     </label>
                 </div>
 
                 <div>
-                    <label for="">Precio
+                    <label for="price">Precio
                         <input type="text" name="price" id="price" value="<%= product.price %>">
                     </label>
                 </div>
 
                 <div>
-                    <label for="">Descuento
-                        <input type="text" name="discount" id="" c>
+                    <label for="discount">Descuento
+                        <input type="text" name="discount" id="discount" >
                     </label>
                 </div>
 
                 <div>
-                    <label for="">Talle
+                    <label for="size">Talle
                        <div class="button-contain">
                 
                         <label for="">L<input  type="radio" name="size" value="<%= product.size %>"></label>
@@ -66,8 +66,8 @@
                 </div>
 
                 <div>
-                    <label for="">Imagen
-                        <input type="file" name="image" id="">
+                    <label for="image">Imagen
+                        <input type="file" name="image" id="image">
                     </label>
                 </div>
 
