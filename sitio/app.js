@@ -7,7 +7,13 @@ var logger = require('morgan');
 const methodOverride = require('method-override'); // Para poder usar los métodos PUT y DELETE
 const session = require('express-session');
 
+// EXPRESS EN app
+var app = express();
+
+// REQUIRE middlewares
 const localUserCheck = require('./middlewares/localsUserCheck');
+const checkcookie = require('./middlewares/checkcookie');
+const adminMiddleware = require('./middlewares/adminMiddleware');
 
 
 // REQUIRE ROUTES
@@ -15,10 +21,6 @@ var index = require('./routes/index');
 var products = require('./routes/products');
 var users = require('./routes/users');
 var admin = require('./routes/admin');
-const checkcookie = require('./middlewares/checkcookie');
-
-// EXPRESS EN app
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,21 +33,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
-
 app.use(session({
   secret : "Roma",
   resave : false,
   saveUninitialized : false // true ESTA OBSOLETO... CAMBIADO A false // EN true NO ES POSIBLE BORRAR COOKIE connect.sid
 }))
-
 app.use(localUserCheck);
+app.use(checkcookie);
 
 // INICIAN RUTAS
 app.use('/', index);
 app.use('/products', products);
 app.use('/users', users);
-app.use('/admin', admin);
-app.use(checkcookie);
+app.use('/admin', adminMiddleware, admin);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

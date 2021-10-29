@@ -1,6 +1,8 @@
-﻿var express = require('express');
+﻿// REQUIRE
+var express = require('express');
 const path = require('path');
 const multer = require('multer');
+// const guestMiddleware = require('../middlewares/guestMiddleware');
 
 n = new Date();
 //Año
@@ -32,7 +34,7 @@ let uploadMultiple = multer({ storage });
 var router = express.Router();
 const { admin, add, store, edit, update, hastaLaVistaBeibi, search } = require('../controllers/adminController');
 
-router.get('/', admin);
+router.get('/',  admin);
 
 router.get('/add', add);
 router.post('/add', uploadMultiple.array('splideImages'), store);

@@ -6,8 +6,76 @@ header div.top-header {
     text-align: center;
 }
 
+/* MENU DE USUARIOS */
+.menuHeader {
+    width: 100%;
+}
+
+label.menuUser {
+    color: white;
+}
+
+/* MENU DESPLEGABLE DE USUARIO*/
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    /* padding: 16px; */
+    font-size: 17px;
+    /* border: none; */
+    cursor: pointer;
+    width: 12.5rem;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 header nav.header-nav {
-    
+
     display: flex;
     background-color: var(--color-negro);
     justify-content: space-between;
@@ -25,7 +93,7 @@ header nav div.header-logo {
 
 
 header nav div li.logo {
-    
+
     width: 100%;
     margin: auto;
     justify-content: stretch;
@@ -34,31 +102,32 @@ header nav div li.logo {
 
 
 
-header nav div li.logo a img{
+header nav div li.logo a img {
     width: 70%;
     border-radius: 50%;
     margin-top: 5px;
     margin-bottom: 5px;
-    
-    
+
+
 }
 
 header nav div li.logo-name {
     margin-top: 14%;
-   width: 40%;
+    width: 40%;
     margin: auto;
-   
+
 }
+
 header nav div li.logo-name a {
- 
-  color: VAR(--color-blanco);
+
+    color: VAR(--color-blanco);
     margin: auto;
     font-family: 'Permanent Marker', cursive;
     font-style: italic;
     font-size: 15px;
     text-transform: uppercase;
     text-align: center;
-   
+
 }
 
 header nav div.header-buscador {
@@ -66,19 +135,19 @@ header nav div.header-buscador {
     display: flex;
 }
 
-header nav div.header-buscador form input{
-    display : none;
+header nav div.header-buscador form input {
+    display: none;
 }
 
 
-header nav div.header-login{
+header nav div.header-login {
     width: 32%;
     display: flex;
     justify-content: space-around
 }
 
 header nav div.header-login li {
-    
+
     font-size: 15px;
     text-transform: uppercase;
 
@@ -93,8 +162,8 @@ header nav div.burger-menu {
     display: block;
     text-align: center;
     width: 100%;
-    
-    
+
+
 }
 
 header nav div.burger-menu i {
@@ -124,15 +193,16 @@ header nav div.search-bar {
 
     header nav div.header-buscador {
         width: 33%;
-        display : flex;
-        
+        display: flex;
+
     }
 
-    header nav div.header-buscador form{
+    header nav div.header-buscador form {
         WIDTH: 100%;
-    display: flex;
+        display: flex;
     }
-    header nav div.header-buscador form input{
+
+    header nav div.header-buscador form input {
         display: flex;
         width: 100%;
         margin-left: 3px;
@@ -151,30 +221,30 @@ header nav div.search-bar {
         max-width: 200px;
     }
 
-    header nav div.burger-menu{
+    header nav div.burger-menu {
         display: none;
     }
 
     header nav div.search-bar {
         display: flex;
-        
+
         justify-content: space-between;
         background-color: var(--color-blanco);
     }
 
-    header nav div.search-bar ul{
+    header nav div.search-bar ul {
         display: flex;
         width: 100%;
         border: solid 1px var(--color-negro);
-    
+
     }
 
     header nav div.search-bar ul li {
         margin: 9px;
-        
+
     }
 
-    header nav div.search-bar ul li a{
+    header nav div.search-bar ul li a {
         font-size: 17px;
         text-transform: capitalize;
         font-weight: bold;
@@ -185,14 +255,15 @@ header nav div.search-bar {
 
 
 @media (min-width: 724px) {
-    
+
     header div.top-header {
         font-size: 15px;
     }
 
     header nav div.header-buscador {
         width: 40%;
-        display : flex;}
+        display: flex;
+    }
 
     header nav div.search-bar ul li {
         margin-left: 20px;

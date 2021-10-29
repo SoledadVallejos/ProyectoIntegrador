@@ -1,6 +1,6 @@
 // REQUIRES
 var express = require('express');
-const { create, processCreate, login, processLogin, logout } = require('../controllers/usersController');
+const { create, processCreate, login, processLogin, index, logout } = require('../controllers/usersController');
 
 // express.Router() EN router
 var router = express.Router();
@@ -8,6 +8,7 @@ var router = express.Router();
 // Middlewares
 const uploadFile = require('../middlewares/multerMiddleware');
 const validations = require('../middlewares/validateRegisterMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 const loginValidator = require('../validations/loginValidator');
@@ -24,7 +25,16 @@ router.post('/register', uploadFile.single('avatar'), validations, processCreate
 router.get('/login', guestMiddleware, login);
 router.post('/login', loginValidator, processLogin);
 
+// TODOS LOS USARIOS
+router.get('/', adminMiddleware, index);
+
+// // PERFIL DE USUARIO
+// router.get('/:id', profile);
+
+// LOGOUT
 router.get('/logout/', logout);
+
+
 
 
 

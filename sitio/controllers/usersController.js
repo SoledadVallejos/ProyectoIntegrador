@@ -7,13 +7,12 @@ const bcryptjs = require('bcryptjs');
 const User = require('../models/UserModel');
 let users = require(path.join(__dirname, '../data/users.json'));
 
-
 module.exports = {
 
     // REGISTER
     create: (req, res) => {
-        //vista register.ejs= '/users/register'
         res.render('users/register');
+        return res.send(user); // COMPROBAR USUARIOS
     },
     processCreate: (req, res) => {
         // PONER ERRORES EN UNA VARIABLE SI LOS HAY
@@ -50,7 +49,9 @@ module.exports = {
                     // PISA password NO ENCRIPTADO DEL req.body Y ES ENCRIPTADO POR bcryptsjs
                     password: bcryptjs.hashSync(req.body.password, 10),
                     // REQUIERE filename DE avatar (nombre de imágen)
-                    avatar: req.file.filename
+                    avatar: req.file.filename,
+                    // SI checkbox   NO VACIO    Admin    SINO  Usuario
+                    rol: req.body.rol != null ? 'Administrador' : 'Usuario',
                 }
                 // USUARIO CREADO CON FUNCION DEFINIDA EN UserModel
                 let userCreated = User.create(userToCreate);
@@ -109,6 +110,17 @@ module.exports = {
             })
         }
     },
+
+    index: (req, res) => {
+        let users = User.findAll();
+        // return res.send(users); // COMPROBAR LISTA DE USUARIOS
+        res.render('users/index', { users });
+    },
+
+    // profile: (req, res) => {
+    //     let user = usersModel.find(req.params.id);
+    //     res.render('users/detail', { user });
+    // },
 
     logout: (req, res) => {
         res.clearCookie('connect.sid');

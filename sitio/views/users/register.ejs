@@ -5,7 +5,6 @@
 <body class="register">
     <%- include('../partials/header') %>
 
-
     <main class="edit">
         <section class="contain-edit">
 
@@ -122,7 +121,6 @@
                         <% } %>
                     </select>
                 </div>
-
                 <!-- MENSAJE DE VALIDACION -->
                 <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
                 <% if (locals.errors ) { %>
@@ -134,6 +132,7 @@
                 <% } %>
                 <!-- MENSAJE DE VALIDACION/ -->
                 <div>
+
                     <label><b>Imagen de perfil:</b></label>
                     <input type="file" name="avatar"
                         class=" <%= locals.errors && errors.avatar ? 'is-invalid' : null %>">
@@ -152,9 +151,34 @@
                 <!-- CAJAS -->
 
                 <div>
-                    <label for="remember"><input type="checkbox" name="terms" value="terms"> Acepto los terminos y
+                    <label for="terms"><input type="checkbox" name="terms" value="terms"> Acepto los terminos y
                         condiciones</label>
                 </div>
+                <!-- MENSAJE DE VALIDACION -->
+                <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                <% if (locals.errors ) { %>
+                <% errors.forEach(error => { %>
+                <p class="text-danger">
+                    <%= error.param=='terms' ?error.msg : null %>
+                </p>
+                <% }) %>
+                <% } %>
+                <!-- MENSAJE DE VALIDACION/ -->
+
+                <div>
+                    <label for="rol">Esta es una cuenta de Administrador</label>
+                    <input type="checkbox" name="rol" value="" id="rol">
+                </div>
+                <!-- MENSAJE DE VALIDACION -->
+                <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                <% if (locals.errors ) { %>
+                <% errors.forEach(error => { %>
+                <p class="text-danger">
+                    <%= error.param=='rol' ?error.msg : null %>
+                </p>
+                <% }) %>
+                <% } %>
+                <!-- MENSAJE DE VALIDACION/ -->
 
                 <div>
                     <button class="button-blue" type="submit">Crear</button>
