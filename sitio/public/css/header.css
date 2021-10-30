@@ -17,18 +17,22 @@ label.menuUser {
 
 /* MENU DESPLEGABLE DE USUARIO*/
 .dropbtn {
-    background-color: #3498DB;
+    background-color: transparent;
     color: white;
-    /* padding: 16px; */
+    padding: 16px;
     font-size: 17px;
-    /* border: none; */
+    border: none !important;
     cursor: pointer;
     width: 12.5rem;
+    margin-right: 2px;
+    height: 87px;
 }
 
 .dropbtn:hover,
 .dropbtn:focus {
     background-color: #2980B9;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
 
 .dropdown {

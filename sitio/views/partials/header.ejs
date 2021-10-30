@@ -38,56 +38,64 @@
     </nav>
  -->
 
-        <!-- MENU DESPLEGABLE DE USUARIO -->
-        <div class="dropdown">
-            <button onclick="myFunction()"
-                class="dropbtn"><%= locals.userLogin ? 'Bienvenido: ' + locals.userLogin.name : 'Menu' %>
-            </button>
-            <div id="myDropdown" class="dropdown-content">
+        <div class="holausuario">
+            <!-- MENU DESPLEGABLE DE USUARIO -->
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">
+                    <!-- AVATAR USUARIO -->
+                    <% if (locals.userLogin) { %>
+                    <img src="/img/users/<%= locals.userLogin.avatar %>" width="57" height="57"
+                        style="border-radius: 50%; ">
+                    <%= 'Hola ' + locals.userLogin.name %>
+                    <% }else{ %>
+                    Iniciar Sesión
+                    <% } %>
 
-                <% if (locals.userLogin) { %>
-                <a href="/users/profile">Mi Perfil</a>
-                <a href="/products/cart"><i class="fas fa-shopping-bag"> Carrito</i></a>
+                </button>
+                <div id="myDropdown" class="dropdown-content">
 
-                <% if (locals.userLogin.rol === 'Administrador') { %>
-                <a href="/admin">Administrar Productos</a>
-                <a href="/users">Administrar Usuarios</a>
-                <a href="/users/register">Registro</a>
-                <% } %>
+                    <% if (locals.userLogin) { %>
+                    <a href="/users/<%= locals.userLogin.id %>">Mi Perfil</a>
+                    <a href="/products/cart"><i class="fas fa-shopping-bag"> Carrito</i></a>
 
-                <a href="/users/logout">Salir</a>
+                    <% if (locals.userLogin.rol === 'Administrador') { %>
+                    <a href="/admin">Administrar Productos</a>
+                    <a href="/users">Administrar Usuarios</a>
+                    <a href="/users/register">Registro</a>
+                    <% } %>
 
-                <% }else{ %>
-                <a href="/users/login">Entrar</a>
-                <a href="/users/register">Registro</a>
-                <% } %>
+                    <a href="/users/<%= locals.userLogin.id %>/logout">Salir</a>
 
+                    <% }else{ %>
+                    <a href="/users/login">Entrar</a>
+                    <a href="/users/register">Registro</a>
+                    <% } %>
+
+                </div>
             </div>
-        </div>
 
-        <script>
-            /* When the user clicks on the button, 
-  toggle between hiding and showing the dropdown content */
-            function myFunction() {
-                document.getElementById("myDropdown").classList.toggle("show");
-            }
+            <script>
+                /* When the user clicks on the button,  toggle between hiding and showing the dropdown content */
+                function myFunction() {
+                    document.getElementById("myDropdown").classList.toggle("show");
+                }
 
-            // Close the dropdown if the user clicks outside of it
-            window.onclick = function (event) {
-                if (!event.target.matches('.dropbtn')) {
-                    var dropdowns = document.getElementsByClassName("dropdown-content");
-                    var i;
-                    for (i = 0; i < dropdowns.length; i++) {
-                        var openDropdown = dropdowns[i];
-                        if (openDropdown.classList.contains('show')) {
-                            openDropdown.classList.remove('show');
+                // Close the dropdown if the user clicks outside of it
+                window.onclick = function (event) {
+                    if (!event.target.matches('.dropbtn')) {
+                        var dropdowns = document.getElementsByClassName("dropdown-content");
+                        var i;
+                        for (i = 0; i < dropdowns.length; i++) {
+                            var openDropdown = dropdowns[i];
+                            if (openDropdown.classList.contains('show')) {
+                                openDropdown.classList.remove('show');
+                            }
                         }
                     }
                 }
-            }
-        </script>
-        <!-- MENU DESPLEGABLE DE USUARIO / -->
-
+            </script>
+            <!-- MENU DESPLEGABLE DE USUARIO / -->
+        </div>
 
 
         <nav class="menuHeader">

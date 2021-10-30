@@ -4,8 +4,12 @@ const path = require('path');
 //              ERRORES    EXTRAER  DE  express - validator
 const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
+// DE REGISTRO LOGIN COMPLETO JAVI...
 const User = require('../models/UserModel');
 let users = require(path.join(__dirname, '../data/users.json'));
+// DE DH COMPLETE VALIDACIONES CODELANDO...
+const jsonTable = require('../models/jsonTable');
+const usersModel = jsonTable('users');
 
 module.exports = {
 
@@ -117,10 +121,10 @@ module.exports = {
         res.render('users/index', { users });
     },
 
-    // profile: (req, res) => {
-    //     let user = usersModel.find(req.params.id);
-    //     res.render('users/detail', { user });
-    // },
+    profile: (req, res) => {
+        let user = usersModel.find(req.params.id);
+        res.render('users/detail', { user });
+    },
 
     logout: (req, res) => {
         res.clearCookie('connect.sid');
