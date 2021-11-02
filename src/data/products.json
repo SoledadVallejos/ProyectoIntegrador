@@ -58,21 +58,5 @@
       "colors": "Beige",
       "price": "5555",
       "discount": 15
-   },
-   {
-      "id": 4,
-      "name": "Very Hard",
-      "description": "aaaaaaaaaa",
-      "price": 777777,
-      "discount": 2,
-      "colors": "Negro",
-      "size": "XL",
-      "category": "aaaaaaaaaaaa",
-      "splideImages": [
-         "splideImages-1633744594891-.jpg",
-         "splideImages-1633744594979-.jpg",
-         "splideImages-1633744595034-.jpg",
-         "splideImages-1633744595078-.jpg"
-      ]
    }
 ]
