@@ -1,0 +1,122 @@
+[
+ {
+  "id": 1,
+  "name": "Soledad",
+  "lastName": "Vallejos",
+  "email": "soledad_vallejos@hotmail.com",
+  "password": "$2a$10$gTnJCYk8ATuXKduPkIGgw.9.w.ACSHDXS6nqXFD5lag8kbqyE5cni",
+  "password2": null,
+  "country": "Argentina",
+  "terms": "terms",
+  "avatar": "1634671428313_img.png",
+  "rol": "Administrador"
+ },
+ {
+  "id": 2,
+  "name": "Leandro",
+  "lastName": "Nieto",
+  "email": "kyller_2008_@hotmail.com",
+  "password": "$2a$10$2s6861H6cN.UkK9d4Ec/4uzULajnI7zkMLCwmx4eFhES2odKQo9UG",
+  "password2": null,
+  "country": "Argentina",
+  "terms": "terms",
+  "avatar": "1634740490525_img.png",
+  "rol": "Administrador"
+ },
+ {
+  "id": 3,
+  "name": "alejandra",
+  "lastName": "rodriguez",
+  "email": "ale_rodriguez@hotmail.com",
+  "password": "$2a$10$UqwPOoQLiiBq3wXDU52r1OexkszopznklT/V9JfkitpK6CO/i5/ma",
+  "password2": null,
+  "country": "Venezuela",
+  "terms": "terms",
+  "avatar": "1634788732106_img.jpg",
+  "rol": "Usuario"
+ },
+ {
+  "id": 4,
+  "name": "Daniel",
+  "lastName": "Rivera",
+  "email": "18dannieldavvid2004@gmail.com",
+  "password": "$2a$10$C5LKLQLHqqq6SXv4WBmALeQ1o5.ef8gYortNtNdyIRvpBnwFBfsNC",
+  "password2": null,
+  "country": "Argentina",
+  "terms": "terms",
+  "avatar": "1634806690585_img.jpg",
+  "rol": "Administrador"
+ },
+ {
+  "id": 5,
+  "name": "user1",
+  "lastName": "user",
+  "email": "user1@hotmail.com",
+  "password": "$2a$10$wt8Px3Wy3DC6PK8lEaO0juLm73IIItpMrwhtIIgqEr9k.VJg.Fr9S",
+  "password2": null,
+  "country": "Paraguay",
+  "terms": "terms",
+  "avatar": "1635486763621_img.jpg",
+  "rol": "Usuario"
+ },
+ {
+  "id": 6,
+  "name": "User D",
+  "lastName": "Dos",
+  "email": "user2@hotmail.com",
+  "password": "$2a$10$wt8Px3Wy3DC6PK8lEaO0juLm73IIItpMrwhtIIgqEr9k.VJg.Fr9S",
+  "password2": null,
+  "country": "Ecuador",
+  "terms": "terms",
+  "avatar": "1635624102271_img.png",
+  "rol": "Usuario"
+ },
+ {
+  "id": 7,
+  "name": "User T",
+  "lastName": "Tres",
+  "email": "user3@hotmail.com",
+  "password": "$2a$10$cZI34/f.2fyBkvCkzt/vIeXOzXtuq1O.Ng.zW3hvL.T.KhukphS7O",
+  "password2": null,
+  "country": "Brasil",
+  "terms": "terms",
+  "avatar": "1635624341355_img.png",
+  "rol": "Usuario"
+ },
+ {
+  "id": 8,
+  "name": "User C",
+  "lastName": "Cuatro",
+  "email": "user4@hotmail.com",
+  "password": "$2a$10$RKtp10kEDmQP/7cNiq37dex8G5BWQ2DBv67IOuW9M8exYy02y4Au2",
+  "password2": null,
+  "country": "Colombia",
+  "terms": "terms",
+  "rol": "Administrador",
+  "avatar": "1635624692575_img.png"
+ },
+ {
+  "id": 9,
+  "name": "Admin Uno",
+  "lastName": "Uno",
+  "email": "admin1@hotmail.com",
+  "password": "$2a$10$wTaDC100IR1JLrPLt8nxNebjnSPofOtEGFWEQ93/Solj3y/PGLsPG",
+  "password2": null,
+  "country": "Colombia",
+  "terms": "terms",
+  "rol": "Administrador",
+  "avatar": "1635704392555_img.jpg"
+ },
+ {
+  "id": 10,
+  "name": "a",
+  "lastName": "a",
+  "email": "a@gmail.com",
+  "password": "$2a$10$1n2kRjsVFULoEUpmEJW6CO66ElrGr9Ua3qkPKrJnOkL4ALH2.Qszm",
+  "password2": null,
+  "country": "Argentina",
+  "terms": "terms",
+  "rol": "Administrador",
+  "avatar": "1635888993069_img.jpg"
+ }
+]

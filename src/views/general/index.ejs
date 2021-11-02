@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+<body class="home">
+
+    <%- include('../partials/header') %>
+
+    <main class="home">
+
+        <!--         <section class="banner-main">
+            <img src="/img/banner-1.jpg" alt="">
+        </section>
+ -->
+
+        <!-- CAROUSELS -->
+        <div id="image-slider" class="splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <!--                         bannerImages YA TIENE LAS IMAGENES. CONFIGURADO EN productsController.js -->
+                    <% for( let i = 0; i < bannerImages.length; i++ ) { %>
+                    <!--                                                                                     bannerImages[i].image  NO VA PORQUE YA HAY IMAGENES EN bannerImages-->
+                    <li class="splide__slide"><img class="img" src="/img/banner-splide/<%= bannerImages[i] %>" alt="">
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+
+        <section class="tipo-main">
+            <div class="mujer">
+                <a href="/products/mujer"><img src="/img/img-producto-vestido-beige1.jpg" alt=""></a>
+                <h4>ROPA MUJER</h4>
+            </div>
+            <div class="hombre">
+                <a href="/products/hombre"><img src="/img/ropa-hombre.jpg" alt=""></a>
+                <h4>ROPA HOMBRE</h4>
+            </div>
+        </section>
+
+        <h2>OFERTAS</h2>
+
+        <section class="ofertas-main">
+
+            <% productsOff.forEach(element => { %>
+            <article class="ofertas-android">
+                <div>
+                    <a href="/products/productDetail/<%= element.id %>"><img
+                            src="/img/productDetail-splide/<%= element.splideImages[0]%>" alt=""></a>
+                    <h5><%= element.discount %> % OFF</h5>
+                </div>
+            </article>
+
+            <article class="ofertas-tablet">
+                <div>
+                    <a href="/products/productDetail/<%= element.id %>"><img
+                            src="/img/productDetail-splide/<%= element.splideImages[0]%>" alt=""></a>
+                    <h5><%= element.discount %> % OFF</h5>
+                </div>
+            </article>
+
+            <article class="ofertas-desktop">
+                <div>
+                    <a href="/products/productDetail/<%= element.id %>"><img
+                            src="/img/productDetail-splide/<%= element.splideImages[0]%>" alt=""></a>
+                    <h5><%= element.discount %> % OFF</h5>
+                </div>
+            </article>
+            <% }) %>
+
+        </section>
+
+        <!-- 
+        TARJETAS CON INDUMENTARIA SUGERIDA POR EL SITIO
+        <h2>SUGERIDOS</h2>
+        <section class="ofertas-main">
+            < productsSugest.forEach(element=> { %>
+                <article class="ofertas-desktop">
+                    <div>
+                        <a href="/products/productDetail/<= element.id %>"><img src="/img/<= element.image %>"
+                                alt=""></a>
+                        <br>
+                    </div>
+                </article>
+                < }) %>
+        </section>
+        -->
+
+    </main>
+
+    <!-- Splide -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Splide('.splide', {
+                type: 'loop', // 'slide' 'fade' 'loop'
+                perPage: 1,
+                autoplay: true,
+                speed: 3000, // VELOCIDAD DEL SLIDE
+                interval: 60000*2, // RETARDO HASTA LA PRÓXIMA IMÁGEN
+                pauseOnHover: false,
+                // rewind: false,
+                transition: 'fade'
+            }).mount();
+        });
+    </script>
+    <!-- Splide /-->
+
+
+
+    <%- include('../partials/footer') %>
+</body>
+
+</html>

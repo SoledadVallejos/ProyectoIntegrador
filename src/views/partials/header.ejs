@@ -1,0 +1,118 @@
+<header>
+
+    <div class="top-header">
+        <p>ENVIO GRATIS A PARTIR DE 15.000$ - 3 Y 6 CUOTAS SIN INTERES.</p>
+    </div>
+    <nav class="header-nav">
+        <div class="header-logo">
+            <li class="logo"><a href="/"><img src="/img/logo-roma.jpg" alt=""></a></li>
+            <li class="logo-name"><a href="/">roma</a></li>
+        </div>
+        <div class="header-buscador">
+            <form action="" class="buscar">
+                <a href="" class="icon"></a>
+                <input type="search" name="Search" id="search" placeholder="¿Que desea buscar?"><i
+                    class="fas fa-search"></i>
+            </form>
+
+        </div>
+
+
+        <!--         <div class="header-login">
+            <% if (locals.userLogin) { %>
+            <li><a href="/users/profile"><%= locals.userLogin.name %> </a></li>
+            <li><a href="/products/cart"><i class="fas fa-shopping-bag"></i></li></a>
+            <li><a href="/users/profile"><%= locals.userLogin.name %> </a></li>
+
+            <% if (locals.userLogin.rol === 'Administrador') { %>
+            <li><a href="/admin">Admin</a></li>
+            <% } %>
+
+            <li><a href="/users/logout">Salir</a></li>
+
+            <% }else{ %>
+            <li><a href="/users/login">login</a></li>
+            <li><a href="/users/register">register</a></li>
+            <% } %>
+        </div>
+    </nav>
+ -->
+
+        <div class="holausuario">
+            <!-- MENU DESPLEGABLE DE USUARIO -->
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">
+                    <!-- AVATAR USUARIO -->
+                    <% if (locals.userLogin) { %>
+                    <img src="/img/users/<%= locals.userLogin.avatar %>" width="57" height="57"
+                        style="border-radius: 50%; ">
+                    <%= 'Hola ' + locals.userLogin.name %>
+                    <% }else{ %>
+                    Iniciar Sesión
+                    <% } %>
+
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+
+                    <% if (locals.userLogin) { %>
+                    <!--   ruta users/profile (link) misma ruta que en app.js + user.js -->
+                    <a href="/users/profile/<%= locals.userLogin.id %>">Mi Perfil</a>
+                    <a href="/products/cart"><i class="fas fa-shopping-bag"> Carrito</i></a>
+
+                    <% if (locals.userLogin.rol === 'Administrador') { %>
+                    <a href="/admin">Administrar Productos</a>
+                    <a href="/users">Administrar Usuarios</a>
+                    <a href="/users/register">Registro</a>
+                    <% } %>
+
+                    <a href="/users/<%= locals.userLogin.id %>/logout">Salir</a>
+
+                    <% }else{ %>
+                    <a href="/users/login">Entrar</a>
+                    <a href="/users/register">Registro</a>
+                    <% } %>
+
+                </div>
+            </div>
+
+            <script>
+                /* When the user clicks on the button,  toggle between hiding and showing the dropdown content */
+                function myFunction() {
+                    document.getElementById("myDropdown").classList.toggle("show");
+                }
+
+                // Close the dropdown if the user clicks outside of it
+                window.onclick = function (event) {
+                    if (!event.target.matches('.dropbtn')) {
+                        var dropdowns = document.getElementsByClassName("dropdown-content");
+                        var i;
+                        for (i = 0; i < dropdowns.length; i++) {
+                            var openDropdown = dropdowns[i];
+                            if (openDropdown.classList.contains('show')) {
+                                openDropdown.classList.remove('show');
+                            }
+                        }
+                    }
+                }
+            </script>
+            <!-- MENU DESPLEGABLE DE USUARIO / -->
+        </div>
+
+
+        <nav class="menuHeader">
+            <div class="burger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <div class="search-bar">
+                <ul>
+                    <li><a href="">Mujer</a></li>
+                    <li><a href="">Hombre</a></li>
+                    <li><a href="">Categorias</a></li>
+                    <li><a href="">Marcas</a></li>
+                    <li><a href="">Liquidacion</a></li>
+                </ul>
+            </div>
+        </nav>
+
+</header>

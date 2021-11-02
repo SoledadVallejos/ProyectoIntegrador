@@ -1,0 +1,278 @@
+header div.top-header {
+    width: 100%;
+    color: var(--color-blanco);
+    background-color: var(--color-beige);
+    font-size: 9px;
+    text-align: center;
+}
+
+/* MENU DE USUARIOS */
+.menuHeader {
+    width: 100%;
+}
+
+label.menuUser {
+    color: white;
+}
+
+/* MENU DESPLEGABLE DE USUARIO*/
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 16px;
+    font-size: 17px;
+    border: none !important;
+    cursor: pointer;
+    /* width: 12.5rem; */
+    margin-right: 2px;
+    height: 87px;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    /* background-color: white; */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 0px -40px 30px white;
+    color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 100%;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+header nav.header-nav {
+
+    display: flex;
+    background-color: var(--color-negro);
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+header nav div.header-logo {
+    margin-top: 5px;
+    width: 33%;
+    display: flex;
+    list-style: NONE;
+}
+
+
+header nav div li.logo {
+
+    width: 100%;
+    margin: auto;
+    justify-content: stretch;
+    text-align: center;
+}
+
+
+
+header nav div li.logo a img {
+    width: 70%;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+
+}
+
+header nav div li.logo-name {
+    margin-top: 14%;
+    width: 40%;
+    margin: auto;
+
+}
+
+header nav div li.logo-name a {
+
+    color: VAR(--color-blanco);
+    margin: auto;
+    font-family: 'Permanent Marker', cursive;
+    font-style: italic;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+header nav div.header-buscador {
+    width: 20%;
+    display: flex;
+}
+
+header nav div.header-buscador form input {
+    display: none;
+}
+
+
+header nav div.header-login {
+    width: 32%;
+    display: flex;
+    justify-content: space-around
+}
+
+header nav div.header-login li {
+
+    font-size: 15px;
+    text-transform: uppercase;
+
+}
+
+header nav div.header-login li a {
+    color: var(--color-blanco)
+}
+
+header nav div.burger-menu {
+    background-color: var(--color-negro);
+    display: block;
+    text-align: center;
+    width: 100%;
+
+
+}
+
+header nav div.burger-menu i {
+    border: solid 1px var(--color-blanco);
+    color: var(--color-blanco);
+    padding: 5px;
+    background-color: var(--color-negro);
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
+header nav div.search-bar {
+    display: none;
+}
+
+
+@media (min-width: 425px) {
+    header div.top-header {
+        font-size: 12px;
+    }
+
+    header nav div.header-logo {
+        max-width: 200px;
+    }
+
+    header nav div.header-buscador {
+        width: 33%;
+        display: flex;
+
+    }
+
+    header nav div.header-buscador form {
+        WIDTH: 100%;
+        display: flex;
+    }
+
+    header nav div.header-buscador form input {
+        display: flex;
+        width: 100%;
+        margin-left: 3px;
+    }
+
+    header nav div.header-buscador form i {
+        color: var(--color-blanco);
+        border: solid 1px white;
+        padding: 3px;
+        border-radius: 0px 5px 5px 0px;
+    }
+
+
+
+    header nav div.header-login {
+        max-width: 200px;
+    }
+
+    header nav div.burger-menu {
+        display: none;
+    }
+
+    header nav div.search-bar {
+        display: flex;
+
+        justify-content: space-between;
+        background-color: var(--color-blanco);
+    }
+
+    header nav div.search-bar ul {
+        display: flex;
+        width: 100%;
+        border: solid 1px var(--color-negro);
+
+    }
+
+    header nav div.search-bar ul li {
+        margin: 9px;
+
+    }
+
+    header nav div.search-bar ul li a {
+        font-size: 17px;
+        text-transform: capitalize;
+        font-weight: bold;
+        color: var(--color-negro);
+        margin-bottom: 10px;
+    }
+}
+
+
+@media (min-width: 724px) {
+
+    header div.top-header {
+        font-size: 15px;
+    }
+
+    header nav div.header-buscador {
+        width: 40%;
+        display: flex;
+    }
+
+    header nav div.search-bar ul li {
+        margin-left: 20px;
+    }
+}
