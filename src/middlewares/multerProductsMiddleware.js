@@ -1,4 +1,5 @@
 ﻿const multer = require('multer')
+const path = require('path')
 
 //SplideImages
 const storage = multer.diskStorage({

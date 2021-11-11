@@ -1,6 +1,21 @@
-[
+'use strict';
+
+// BANNER IMAGES
+let bannerImages = [
    {
-      "id": 0,
+      "bannerImages":
+         [
+            "banner-1.jpg",
+            "banner-2.jpg",
+            "banner-3.jpg"
+         ]
+   }
+]
+
+// PRODUCTS IMAGES
+let products = [
+   {
+      "id": 1,
       "name": "Polera Roja",
       "description": "Polera de mujer Roma",
       "image": "img-producto-polera-rojo1.jpg",
@@ -17,7 +32,7 @@
       "discount": 30
    },
    {
-      "id": 1,
+      "id": 2,
       "name": "Polera Blanca",
       "description": " Aprovechala YA! Es la última en stock!",
       "image": "img-producto-polera-blanco1.jpg",
@@ -34,7 +49,7 @@
       "discount": 10
    },
    {
-      "id": 2,
+      "id": 3,
       "name": "Polera Negra",
       "description": "Polera de mujer Roma",
       "image": "img-producto-polera-negro.jpg",
@@ -51,7 +66,7 @@
       "discount": 5
    },
    {
-      "id": 3,
+      "id": 4,
       "name": "Polera Beige",
       "description": "Polera de mujer Roma",
       "image": "img-producto-polera-beige.jpg",
@@ -68,3 +83,42 @@
       "discount": 15
    }
 ]
+
+let imagesBanner = bannerImages.map(product => {
+   let image = {
+      // id: product.id, // NO NECESARIO
+      // productId: product.id, // NO NECESARIO
+      file: product.bannerImages[0], // CAMBIAR INDICE HASTA COMPLETAR TODAS LAS IMAGENES ( se usa sequelize db:seed:all) ITERANDO
+      createdAt: new Date
+   }
+   return image
+})
+// console.log(imagesBanner); //COMPROBAR
+
+let images = products.map(product => {
+   let image = {
+      // id: product.id, // NO NECESARIO
+      file: product.splideImages[3], // CAMBIAR INDICE HASTA COMPLETAR TODAS LAS IMAGENES ( se usa sequelize db:seed:all) ITERANDO
+      productId: product.id,
+      categoryId: 2,
+      createdAt: new Date
+   }
+   return image
+})
+console.log(images); //COMPROBAR
+
+
+
+module.exports = {
+   up: async (queryInterface, Sequelize) => {
+
+      await queryInterface.bulkInsert('images', images, {}); // ELEGIR ARRAY DE OBJETOS PARA LLENAR DB
+
+   },
+
+   down: async (queryInterface, Sequelize) => {
+
+      await queryInterface.bulkDelete('Images', null, {});
+
+   }
+};

@@ -10,7 +10,7 @@ module.exports = {
         return res.render('admin/add');
     },
     store: (req, res) => {
-        // const { name, description, price, colors, size, category, image, discount } = req.body;
+        // const { name, description, price, color, size, category, image, discount } = req.body;
         let imagesArr = req.files.map(images => {
             return images.filename
         });
@@ -20,7 +20,7 @@ module.exports = {
             description: req.body.description.trim(),
             price: +req.body.price,
             discount: +req.body.discount,
-            colors: req.body.colors,
+            color: req.body.color,
             size: req.body.size,
             category: req.body.category,
             splideImages: imagesArr,
@@ -93,7 +93,7 @@ module.exports = {
         for (let i = 0; i < products.length; i++) {
             ((products[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : "Nada encontrado";
             ((products[i].category).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
-            ((products[i].colors).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
+            ((products[i].color).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
             ((products[i].description).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
         };
         //FILTRAR REPETIDOS
@@ -137,7 +137,7 @@ products =
             ],
             "category": "Oferta",
             "size": 38,
-            "colors": "Rojo",
+            "color": "Rojo",
             "price": "3950",
             "discount": 30
         },
@@ -152,7 +152,7 @@ products =
             ],
             "category": "sugest",
             "size": 40,
-            "colors": "Blanco",
+            "color": "Blanco",
             "price": 1900,
             "discount": 10
         }
