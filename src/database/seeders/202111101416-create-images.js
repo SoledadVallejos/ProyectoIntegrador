@@ -98,7 +98,7 @@ let imagesBanner = bannerImages.map(product => {
 let images = products.map(product => {
    let image = {
       // id: product.id, // NO NECESARIO
-      file: product.splideImages[3], // CAMBIAR INDICE HASTA COMPLETAR TODAS LAS IMAGENES ( se usa sequelize db:seed:all) ITERANDO
+      file: product.splideImages[0], // CAMBIAR INDICE HASTA COMPLETAR TODAS LAS IMAGENES ( se usa sequelize db:seed:all) ITERANDO
       productId: product.id,
       categoryId: 2,
       createdAt: new Date

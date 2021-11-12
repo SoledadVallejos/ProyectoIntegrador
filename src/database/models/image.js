@@ -11,6 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Image.belongsToMany(models.Section, {
+        as: 'sections',
+        through: 'section_image',
+        foreignKey: 'imageId',
+        otherKey: 'sectionId'
+      })
       Image.belongsTo(models.Product, {
         as: 'product',
         foreignKey: 'productId'
@@ -18,12 +24,6 @@ module.exports = (sequelize, DataTypes) => {
         Image.belongsTo(models.Category, {
           as: 'category',
           foreignKey: 'categoryId'
-        }),
-        Image.belongsToMany(models.Section, {
-          as: 'sections',
-          through: 'section_image',
-          foreignKey: 'imageId',
-          otherKey: 'sectionId'
         })
     }
   };

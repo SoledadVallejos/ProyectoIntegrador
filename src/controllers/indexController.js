@@ -9,13 +9,17 @@ const { Op, Sequelize } = require('sequelize');
 
 module.exports = {
 
+    // COMPROBAR AQUI DATOS DE DB ESTEN LLEGANDO BIEN
     index: (req, res) => {
         let products = db.Product.findAll({
             include: [
                 'images',
                 'section',
                 'category',
-                // 'section-image'
+                // 'carts',
+                'features',
+                // 'products'
+                // 'rol'
             ]
         });
         console.log(products);
@@ -42,6 +46,7 @@ module.exports = {
             })
             .catch(error => console.log(error))
     }
+    // COMPROBAR AQUI DATOS DE DB ESTEN LLEGANDO BIEN /
 
 
 

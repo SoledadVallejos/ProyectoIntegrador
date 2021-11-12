@@ -24,6 +24,12 @@ module.exports = (sequelize, DataTypes) => {
         as: 'section',
         foreignKey: 'sectionId' // PERTENECE A... REFIERE A OTRO (sectionId)
       })
+      Product.belongsToMany(models.Feature, {
+        as: 'features',
+        through: 'product_feature',
+        foreignKey: 'productId',
+        otherKey: 'featureId'
+      })
     }
   };
   Product.init({
