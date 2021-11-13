@@ -1,18 +1,5 @@
 'use strict';
 
-// BANNER IMAGES
-let bannerImages = [
-   {
-      "bannerImages":
-         [
-            "banner-1.jpg",
-            "banner-2.jpg",
-            "banner-3.jpg"
-         ]
-   }
-]
-
-// PRODUCTS IMAGES
 let products = [
    {
       "id": 1,
@@ -82,37 +69,30 @@ let products = [
       "price": "5555",
       "discount": 15
    }
-]
+];
 
-let imagesBanner = bannerImages.map(product => {
-   let image = {
-      // id: product.id, // NO NECESARIO
-      // productId: product.id, // NO NECESARIO
-      file: product.bannerImages[0], // CAMBIAR INDICE HASTA COMPLETAR TODAS LAS IMAGENES ( se usa sequelize db:seed:all) ITERANDO
+let productSeed = products.map(product => {
+   let productDetail = {
+      id: product.id,
+      name: product.name,
+      description: product.description,
+      size: product.size,
+      color: product.color,
+      price: product.price,
+      discount: product.discount,
+      // categoryId: 2,
+      // sectionId: 3,
       createdAt: new Date
    }
-   return image
+   return productDetail;
 })
-// console.log(imagesBanner); //COMPROBAR
-
-let images = products.map(product => {
-   let image = {
-      // id: product.id, // NO NECESARIO
-      file: product.splideImages[0], // CAMBIAR INDICE HASTA COMPLETAR TODAS LAS IMAGENES ( se usa sequelize db:seed:all) ITERANDO
-      productId: product.id,
-      categoryId: 2,
-      createdAt: new Date
-   }
-   return image
-})
-console.log(images); //COMPROBAR
-
+console.log(productSeed);//COMPROBAR
 
 
 module.exports = {
    up: async (queryInterface, Sequelize) => {
 
-      await queryInterface.bulkInsert('images', images, {}); // ELEGIR ARRAY DE OBJETOS PARA LLENAR DB
+      await queryInterface.bulkInsert('products', productSeed, {});
 
    },
 
@@ -121,4 +101,9 @@ module.exports = {
       await queryInterface.bulkDelete('Images', null, {});
 
    }
+
+
+
 };
+
+

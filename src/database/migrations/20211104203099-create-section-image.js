@@ -1,29 +1,29 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('product_features', {
+    await queryInterface.createTable('section_images', { // IMPORTANTE!!! EN PLURAL!
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      productId: {
+      sectionId: {
         type: Sequelize.INTEGER,
-        references : {
-          model : {
-            tableName : 'Products'
+        references: {
+          model: {
+            tableName: 'Sections'
           },
-          key : 'id'
+          key: 'id'
         }
       },
-      featureId: {
+      imageId: {
         type: Sequelize.INTEGER,
-        references : {
-          model : {
-            tableName : 'Features'
+        references: {
+          model: {
+            tableName: 'Images'
           },
-          key : 'id'
+          key: 'id'
         }
       },
       createdAt: {
@@ -31,12 +31,12 @@ module.exports = {
         type: Sequelize.DATE
       },
       updatedAt: {
-        defaultValue : null,
+        defaultValue: null,
         type: Sequelize.DATE
       }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('product_features');
+    await queryInterface.dropTable('section_images');
   }
 };

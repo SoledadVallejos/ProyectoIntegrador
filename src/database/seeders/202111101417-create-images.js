@@ -1,5 +1,6 @@
 'use strict';
 
+// PRODUCTS IMAGES
 let products = [
    {
       "id": 1,
@@ -69,30 +70,24 @@ let products = [
       "price": "5555",
       "discount": 15
    }
-];
+]
 
-let productSeed = products.map(product => {
-   let productDetail = {
-      id: product.id,
-      name: product.name,
-      description: product.description,
-      size: product.size,
-      color: product.color,
-      price: product.price,
-      discount: product.discount,
+let images = products.map(product => {
+   let image = {
+      // id: product.id, // NO NECESARIO
+      file: product.splideImages[3], // CAMBIAR INDICE HASTA COMPLETAR TODAS LAS IMAGENES ( se usa sequelize db:seed:all) ITERANDO
+      productId: product.id,
       categoryId: 2,
-      sectionId: 3,
       createdAt: new Date
    }
-   return productDetail;
+   return image
 })
-console.log(productSeed);//COMPROBAR
-
+// console.log(images); //COMPROBAR
 
 module.exports = {
    up: async (queryInterface, Sequelize) => {
 
-      await queryInterface.bulkInsert('products', productSeed, {});
+      await queryInterface.bulkInsert('images', images, {}); 
 
    },
 
@@ -101,23 +96,4 @@ module.exports = {
       await queryInterface.bulkDelete('Images', null, {});
 
    }
-
-
-   /* module.exports = {
-      up: async (queryInterface, Sequelize) => {
-   
-         await queryInterface.bulkInsert('Products', products, {});
-   
-      },
-   
-      down: async (queryInterface, Sequelize) => {
-   
-         await queryInterface.bulkDelete('Products', null, {});
-   
-      }
-    */
-
-
 };
-
-

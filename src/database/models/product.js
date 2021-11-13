@@ -11,8 +11,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Product.belongsTo(models.Section, {
+        as: 'section', // TAL CUAL DEBE INCLUIRSE EN COMO include: [sections, ...]
+        foreignKey: 'sectionId' // PERTENECE A... REFIERE A OTRO (sectionId)
+      }),
       Product.hasMany(models.Image, {
-        as: 'images',
+        as: 'image',
+        onDelete: 'cascade',
+        foreignKey: 'productId' // TIENE MUCHOS... REFIERE A SI MISMO (productId)
+      })
+      Product.hasMany(models.Cart, {
+        as: 'cart',
         onDelete: 'cascade',
         foreignKey: 'productId' // TIENE MUCHOS... REFIERE A SI MISMO (productId)
       })
@@ -20,12 +29,8 @@ module.exports = (sequelize, DataTypes) => {
         as: 'category',
         foreignKey: 'categoryId' // PERTENECE A... REFIERE A OTRO (categoryId)
       })
-      Product.belongsTo(models.Section, {
-        as: 'section',
-        foreignKey: 'sectionId' // PERTENECE A... REFIERE A OTRO (sectionId)
-      })
       Product.belongsToMany(models.Feature, {
-        as: 'features',
+        as: 'feature',
         through: 'product_feature',
         foreignKey: 'productId',
         otherKey: 'featureId'

@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Section.hasMany(models.Product, { // REFIERE A SI MISMO
-        as: 'products', // ALIAS
+        as: 'product', // ALIAS
         foreignKey: 'sectionId' // POR LO TANTO REFIERE A SI MISMO ACA TAMBIEN
       })
-      Section.belongsToMany(models.Image, {
-        as: 'images',
+      Section.belongsToMany(models.Image, { // FUNCIONA 
+        as: 'image',
         through: 'section_image',
         foreignKey: 'sectionId',
         otherKey: 'imageId'

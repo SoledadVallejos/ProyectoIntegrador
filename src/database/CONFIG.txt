@@ -1,0 +1,11 @@
+COMPARAR EN ORDEN SECUENCIAL migration pivot migration (product product_feature feature)
+COMPARAR EN ORDEN SECUENCIAL models
+EN REFERENCES as: product (DEBE COINCICIR MINÚSCULA O MAYÚSCULA CON EL RESTO...)
+SI QUITAS productId DE migrations QUITAR TAMBIEN DEL MODELO  (init)
+
+COMPROBAR QUE LLEGUEN DATOS EN controller (ej. productController.js) CON res.send
+EN PLURARL LAS TABLAS!! INCLUSO LAS PIVOT
+
+EN PIVOT PONER DATO (ej. productId, featureId) NO EN products ni features
+
+

@@ -13,30 +13,40 @@ module.exports = {
       },
       productId: {
         type: Sequelize.INTEGER,
-        references : {
-          model : {
-            tableName : 'Products'
+        references: {
+          model: {
+            tableName: 'Products'
           },
-          key : 'id'
+          key: 'id'
         },
-        onDelete : 'cascade'
+        onDelete: 'cascade'
       },
       categoryId: {
         type: Sequelize.INTEGER,
-        references : {
-          model : {
-            tableName : 'Categories'
+        references: {
+          model: {
+            tableName: 'Categories'
           },
-          key : 'id'
+          key: 'id'
         },
-        onDelete : 'cascade'
+        onDelete: 'cascade'
+      },
+      sectionId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'Sections'
+          },
+          key: 'id'
+        },
+        onDelete: 'cascade'
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        defaultValue : null,
+        defaultValue: null,
         type: Sequelize.DATE
       },
       deletedAt: {

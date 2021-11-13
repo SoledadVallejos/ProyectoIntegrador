@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Feature.belongsToMany(models.Product,{
-        as : 'products',
+        as : 'product',
         through : 'product_feature',
         foreignKey : 'featureId',
         otherKey : 'productId'

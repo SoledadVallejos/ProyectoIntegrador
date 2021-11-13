@@ -11,14 +11,14 @@ module.exports = {
 
     // COMPROBAR AQUI DATOS DE DB ESTEN LLEGANDO BIEN
     index: (req, res) => {
-        let products = db.Product.findAll({
+        let products = db.Category.findAll({
             include: [
-                'images',
-                'section',
-                'category',
-                // 'carts',
-                'features',
-                // 'products'
+                'image', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                // 'section',
+                // 'category',
+                // 'feature',
+                // 'product',
+                // 'cart',
                 // 'rol'
             ]
         });

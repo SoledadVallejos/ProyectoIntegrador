@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Image.belongsToMany(models.Section, {
-        as: 'sections',
+        as: 'section',
         through: 'section_image',
         foreignKey: 'imageId',
         otherKey: 'sectionId'
-      })
+      }),
       Image.belongsTo(models.Product, {
         as: 'product',
         foreignKey: 'productId'
@@ -29,8 +29,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   Image.init({
     file: DataTypes.STRING,
-    productId: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER
+    productId: DataTypes.INTEGER, // EL MISMO DATO EN image  DE migrations
+    categoryId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Image',

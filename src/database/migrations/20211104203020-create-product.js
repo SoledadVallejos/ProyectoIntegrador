@@ -34,7 +34,7 @@ module.exports = {
       },
       categoryId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        // allowNull: false,
         references: {
           model: {
             tableName: 'Categories'
@@ -44,7 +44,7 @@ module.exports = {
       },
       sectionId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        // allowNull: false,
         references: {
           model: {
             tableName: 'Sections'
