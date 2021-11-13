@@ -1,0 +1,1 @@
+SELECT * FROM `roma3.0_db`.images;
