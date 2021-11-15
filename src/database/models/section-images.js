@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  section_images.init({
+  section_images.init({ // ESCRIBIR AQUI TODOS LOS ITEMS DE TU TABLA PARA QUE SE MUESTREN EN NAVEGDOR
     sectionId: DataTypes.INTEGER,
     imageId: DataTypes.INTEGER
   }, {

@@ -11,18 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Category.hasMany(models.Product,{
-        as : 'product',
-        foreignKey : 'categoryId'
+      Category.hasMany(models.Product, {
+        as: 'product',
+        foreignKey: 'categoryId'
       }),
-      Category.hasMany(models.Image,{
-        as : 'image',
-        foreignKey : 'categoryId'
-      })
+        Category.hasMany(models.Image, {
+          as: 'image',
+          foreignKey: 'categoryId'
+        })
     }
   };
-  Category.init({
-    name: DataTypes.STRING
+  Category.init({ // ESCRIBIR AQUI TODOS LOS ITEMS DE TU TABLA PARA QUE SE MUESTREN EN NAVEGDOR
+    name: DataTypes.STRING,
+    description: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Category',

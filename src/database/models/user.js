@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   };
-  User.init({
+  User.init({ // ESCRIBIR AQUI TODOS LOS ITEMS DE TU TABLA PARA QUE SE MUESTREN EN NAVEGDOR
     name: DataTypes.STRING,
     lastName: DataTypes.STRING,
     email: DataTypes.STRING,

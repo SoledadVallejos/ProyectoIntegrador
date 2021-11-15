@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   };
-  Cart.init({
+  Cart.init({ // ESCRIBIR AQUI TODOS LOS ITEMS DE TU TABLA PARA QUE SE MUESTREN EN NAVEGDOR
     userId: DataTypes.INTEGER,
     productId: DataTypes.INTEGER,
     quantity: DataTypes.INTEGER,

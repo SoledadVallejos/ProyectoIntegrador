@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
         as: 'section', // TAL CUAL DEBE INCLUIRSE EN COMO include: [sections, ...]
         foreignKey: 'sectionId' // PERTENECE A... REFIERE A OTRO (sectionId)
       }),
-      Product.hasMany(models.Image, {
-        as: 'image',
-        onDelete: 'cascade',
-        foreignKey: 'productId' // TIENE MUCHOS... REFIERE A SI MISMO (productId)
-      })
+        Product.hasMany(models.Image, {
+          as: 'image',
+          onDelete: 'cascade',
+          foreignKey: 'productId' // TIENE MUCHOS... REFIERE A SI MISMO (productId)
+        })
       Product.hasMany(models.Cart, {
         as: 'cart',
         onDelete: 'cascade',
@@ -37,10 +37,12 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   };
-  Product.init({
+  Product.init({ // ESCRIBIR AQUI TODOS LOS ITEMS DE TU TABLA PARA QUE SE MUESTREN EN NAVEGDOR
     name: DataTypes.STRING,
-    price: DataTypes.DECIMAL,
     description: DataTypes.STRING,
+    size: DataTypes.STRING,
+    color: DataTypes.STRING,
+    price: DataTypes.DECIMAL,
     discount: DataTypes.INTEGER,
     categoryId: DataTypes.INTEGER,
     sectionId: DataTypes.INTEGER

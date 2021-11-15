@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   };
-  Feature.init({
+  Feature.init({ // ESCRIBIR AQUI TODOS LOS ITEMS DE TU TABLA PARA QUE SE MUESTREN EN NAVEGDOR
     name: DataTypes.STRING,
     icon: DataTypes.STRING
   }, {

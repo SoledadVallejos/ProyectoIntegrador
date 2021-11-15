@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  product_feature.init({
+  product_feature.init({ // ESCRIBIR AQUI TODOS LOS ITEMS DE TU TABLA PARA QUE SE MUESTREN EN NAVEGDOR
     productId: DataTypes.INTEGER,
     featureId: DataTypes.INTEGER
   }, {

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   };
-  Rol.init({
+  Rol.init({ // ESCRIBIR AQUI TODOS LOS ITEMS DE TU TABLA PARA QUE SE MUESTREN EN NAVEGDOR
     name: DataTypes.STRING
   }, {
     sequelize,

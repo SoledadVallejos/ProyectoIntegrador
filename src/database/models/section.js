@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   };
-  Section.init({
+  Section.init({ // ESCRIBIR AQUI TODOS LOS ITEMS DE TU TABLA PARA QUE SE MUESTREN EN NAVEGDOR
     name: DataTypes.STRING
   }, {
     sequelize,

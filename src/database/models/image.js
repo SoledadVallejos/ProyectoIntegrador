@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
         })
     }
   };
-  Image.init({
+  Image.init({ // ESCRIBIR AQUI TODOS LOS ITEMS DE TU TABLA PARA QUE SE MUESTREN EN NAVEGDOR 
     file: DataTypes.STRING,
     productId: DataTypes.INTEGER, // EL MISMO DATO EN image  DE migrations
     categoryId: DataTypes.INTEGER,

@@ -28,16 +28,54 @@
                     </div>
                 </div>
 
+
+
+
+
                 <section class="tipo-main">
-                    <div class="mujer">
-                        <a href="/products/mujer"><img src="/img/img-producto-vestido-beige1.jpg" alt=""></a>
-                        <h4>ROPA MUJER</h4>
-                    </div>
-                    <div class="hombre">
-                        <a href="/products/hombre"><img src="/img/ropa-hombre.jpg" alt=""></a>
-                        <h4>ROPA HOMBRE</h4>
-                    </div>
+
+
+
+                    <% productCategory.forEach(element=> { %>
+                        <div class="mujer">
+                            <!--           /RUTA URI -->
+                            <a href="/products/<%= element.name %> ">
+                                <!--             /RUTA AL ARCHIVO  -->
+                                <img src="/img/<%= element.image[0].file %> " alt="">
+                                <!--                         = NOMBRE IMAGEN EN DB -->
+                            </a>
+                            <h4>
+                                <%= element.description%>
+                            </h4>
+                        </div>
+                        <% }) %>
+
+
+
+                            <!-- 
+                            <div class="hombre">
+                                          /RUTA URI
+                            <a href="/products/hombre">
+                                /RUTA AL ARCHIVO
+                                <img src="/img/" alt="">
+                                = NOMBRE IMAGEN EN DB
+                            </a>
+                            <h4>
+
+                            </h4>
+                            </div>
+                            -->
+
+
+
                 </section>
+
+
+
+
+
+
+
 
                 <h2>OFERTAS</h2>
 
@@ -46,8 +84,11 @@
                     <% productsOff.forEach(element=> { %>
                         <article class="ofertas-android">
                             <div>
-                                <a href="/products/productDetail/<%= element.id %>"><img
-                                        src="/img/productDetail-splide/<%= element.splideImages[0]%>" alt=""></a>
+                                <!--          /RUTA URI -->
+                                <a href="/products/productDetail/<%= element.id %>">
+                                    <!--             /RUTA AL ARCHIVO              = NOMBRE IMAGEN EN DB -->
+                                    <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
+                                </a>
                                 <h5>
                                     <%= element.discount %> % OFF
                                 </h5>
@@ -57,7 +98,7 @@
                         <article class="ofertas-tablet">
                             <div>
                                 <a href="/products/productDetail/<%= element.id %>"><img
-                                        src="/img/productDetail-splide/<%= element.splideImages[0]%>" alt=""></a>
+                                        src="/img/productDetail-splide/<%= element.image[0].file%>" alt=""></a>
                                 <h5>
                                     <%= element.discount %> % OFF
                                 </h5>
@@ -67,7 +108,7 @@
                         <article class="ofertas-desktop">
                             <div>
                                 <a href="/products/productDetail/<%= element.id %>"><img
-                                        src="/img/productDetail-splide/<%= element.splideImages[0]%>" alt=""></a>
+                                        src="/img/productDetail-splide/<%= element.image[0].file%>" alt=""></a>
                                 <h5>
                                     <%= element.discount %> % OFF
                                 </h5>
