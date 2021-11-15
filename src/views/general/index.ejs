@@ -8,38 +8,28 @@
 
             <main class="home">
 
-                <!--         <section class="banner-main">
-            <img src="/img/banner-1.jpg" alt="">
-        </section>
- -->
-
-                <!-- CAROUSELS -->
+                <!-- SLIDE HOME -->
                 <div id="image-slider" class="splide">
                     <div class="splide__track">
                         <ul class="splide__list">
-                            <!--                         bannerImages YA TIENE LAS IMAGENES. CONFIGURADO EN productsController.js -->
+                            <!--                      bannerImages YA TIENE LAS IMAGENES. CONFIGURADO EN productsController.js -->
                             <% for( let i=0; i < bannerImages.length; i++ ) { %>
-                                <!--                                                                                     bannerImages[i].image  NO VA PORQUE YA HAY IMAGENES EN bannerImages-->
-                                <li class="splide__slide"><img class="img"
-                                        src="/img/banner-splide/<%= bannerImages[i] %>" alt="">
+                                <li class="splide__slide">
+                                    <!--                                                                      bannerImages[i].image  NO VA PORQUE YA HAY IMAGENES EN bannerImages-->
+                                    <img class="img" src="/img/banner-splide/<%= bannerImages[i] %>" alt="">
                                 </li>
                                 <% } %>
                         </ul>
                     </div>
                 </div>
 
-
-
-
-
+                <!-- CATEGORIAS -->
                 <section class="tipo-main">
-
-
-
                     <% productCategory.forEach(element=> { %>
                         <div class="mujer">
                             <!--           /RUTA URI -->
                             <a href="/products/<%= element.name %> ">
+                                <!--                          = NOMBRE IMAGEN EN DB -->
                                 <!--             /RUTA AL ARCHIVO  -->
                                 <img src="/img/<%= element.image[0].file %> " alt="">
                                 <!--                         = NOMBRE IMAGEN EN DB -->
@@ -50,33 +40,9 @@
                         </div>
                         <% }) %>
 
-
-
-                            <!-- 
-                            <div class="hombre">
-                                          /RUTA URI
-                            <a href="/products/hombre">
-                                /RUTA AL ARCHIVO
-                                <img src="/img/" alt="">
-                                = NOMBRE IMAGEN EN DB
-                            </a>
-                            <h4>
-
-                            </h4>
-                            </div>
-                            -->
-
-
-
                 </section>
 
-
-
-
-
-
-
-
+                <!-- OFERTAS -->
                 <h2>OFERTAS</h2>
 
                 <section class="ofertas-main">
@@ -88,6 +54,7 @@
                                 <a href="/products/productDetail/<%= element.id %>">
                                     <!--             /RUTA AL ARCHIVO              = NOMBRE IMAGEN EN DB -->
                                     <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
+                                    <!--                                                                                   [0]   SELECCIONA IMAGEN POR INDICE -->
                                 </a>
                                 <h5>
                                     <%= element.discount %> % OFF
@@ -97,8 +64,12 @@
 
                         <article class="ofertas-tablet">
                             <div>
-                                <a href="/products/productDetail/<%= element.id %>"><img
-                                        src="/img/productDetail-splide/<%= element.image[0].file%>" alt=""></a>
+                                <!--          /RUTA URI -->
+                                <a href="/products/productDetail/<%= element.id %>">
+                                    <!--             /RUTA AL ARCHIVO              = NOMBRE IMAGEN EN DB -->
+                                    <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
+                                    <!--                                                                                   [0]   SELECCIONA IMAGEN POR INDICE -->
+                                </a>
                                 <h5>
                                     <%= element.discount %> % OFF
                                 </h5>
@@ -107,14 +78,21 @@
 
                         <article class="ofertas-desktop">
                             <div>
-                                <a href="/products/productDetail/<%= element.id %>"><img
-                                        src="/img/productDetail-splide/<%= element.image[0].file%>" alt=""></a>
+                                <!--          /RUTA URI -->
+                                <a href="/products/productDetail/<%= element.id %>">
+                                    <!--             /RUTA AL ARCHIVO              = NOMBRE IMAGEN EN DB -->
+                                    <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
+                                    <!--                                                                                   [0]   SELECCIONA IMAGEN POR INDICE -->
+                                </a>
                                 <h5>
                                     <%= element.discount %> % OFF
                                 </h5>
                             </div>
                         </article>
-                        <% }) %>
+                        <!-- COMPROBAR -->
+                        <%= console.log(element.id); %>
+                            <!-- IMPRIME 1 2 3 4 -->
+                            <% }) %>
 
                 </section>
 
@@ -136,13 +114,13 @@
 
             </main>
 
-            <!-- Splide -->
-            <!-- <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script> -->
+            <!-- Splide HOME CONFIG -->
+            <!-- <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script> ESTE TAMBIEN FUNCIONA-->
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
                     new Splide('.splide', {
                         type: 'loop', // 'slide' 'fade' 'loop'
-                        perPage: 1,
+                        perPage: 2,
                         autoplay: true,
                         speed: 3000, // VELOCIDAD DEL SLIDE
                         interval: 60000 * 2, // RETARDO HASTA LA PRÓXIMA IMÁGEN
@@ -153,8 +131,6 @@
                 });
             </script>
             <!-- Splide /-->
-
-
 
             <%- include('../partials/footer') %>
     </body>
