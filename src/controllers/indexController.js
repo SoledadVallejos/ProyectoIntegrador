@@ -1,7 +1,7 @@
-﻿
-// DE A POCO IR AGREGANDO PEDAZOS DE CODIGO NUEVO PARA INCORPORAR DB
+﻿// DE A POCO IR AGREGANDO PEDAZOS DE CODIGO NUEVO PARA INCORPORAR DB
 // AGREGAS Y COMPRUEBAS DATOS OBTENIDOS DESDE DB MEDIANTE return res.send()
 // HACER COPIAS CUANDO LLEGUES A UN PUNTO DE PROGRESO FUNCIONANDO TODO !!!
+// EL ORDEN Y CONCENTRACION ES IMPORTANTE!
 
 const db = require('../database/models');
 const { Op, Sequelize } = require('sequelize');
@@ -26,7 +26,7 @@ module.exports = {
             },
             include: [{ //MAS CONVENIENTE
                 raw: true, // AQUI SI ES UTIL. NO BORRARLO
-                association: 'image',
+                association: 'image', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
                 attributes: ['file'],
             }],
             // raw: true, // FUNCIONA. ARRAY PLANO
@@ -54,19 +54,20 @@ module.exports = {
                     return index
                 });
                 // return res.send(productCategory) //COMPROBAR ANTES DE PROSEGUIR
+                // return res.send(productCategory) //COMPROBAR ANTES DE PROSEGUIR
                 // return res.send(bannerImages) //COMPROBAR ANTES DE PROSEGUIR
                 // return res.send(productsOff) //COMPROBAR ANTES DE PROSEGUIR
                 // TRANSICION JSON A DB: 1_RUTAS ACTUALIZADAS EN INDEX 2_LLEGUE DE DB DATOS CORRECTOS (igual o parecido como llegaba del JSON) 3_EXISTA ARCHIVO ENLAZADO (imagen en este caso)
                 return res.render('general/index', {
                     title: 'Roma - Venta de Indumentaria Textil',
-                    bannerImages, // LISTO. DB EN ACCION QUE EMOCION!!
+                    bannerImages, // LISTO. DB EN ACCION QUE EMOCION!! CONTIENE IMAGENES DEL BANNER
                     productCategory, // LISTO PARA MOSTRAR DATOS DE HOMBRE O MUJER...
                     productsOff, //LISTO. MUESTRA PRODUCTOS SOLO CON DESCUENTO EN HOME
                     // productsSugest, NUNCA SE USÓ
                     // products, // NUNCA SE USÓ
                 });
+
             })
             .catch(error => console.log(error))
     },
 }
-

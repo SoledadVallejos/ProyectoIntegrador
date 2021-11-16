@@ -55,14 +55,14 @@
                             <td><%= searchResults[i].id%></td>
                             <td><%= searchResults[i].name%></td>
                             <td><a href="/products/productDetail/<%= searchResults[i].id%>">
-                                    <img src="/img/productDetail-splide/<%= searchResults[i].splideImages[0]%>" alt=""
+                                    <img src="/img/productDetail-splide/<%= searchResults[i].image[i].file%>" alt=""
                                         width="100px">
                                 </a>
                             </td>
                             <td><%= searchResults[i].description%></td>
                             <td><%= searchResults[i].color%></td>
                             <td><%= searchResults[i].size%></td>
-                            <td><%= searchResults[i].category%></td>
+                            <td><%= searchResults[i].category.description%></td> <!--NUNCA VI .category.description FUNCIONA!!--> 
                             <td><%= searchResults[i].price%></td>
                             <td><%= searchResults[i].discount%></td>
                             <td><a href="/products/productDetail/<%= searchResults[i].id%>">

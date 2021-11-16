@@ -46,6 +46,6 @@ node_modules/
 .vscode/
 
 # My ignored #
+####################
 package-lock.json
-tests
 .env
