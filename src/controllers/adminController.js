@@ -141,7 +141,23 @@ module.exports = {
 } //module.exports /
 
 
-// console.log(products); // COMPROBAR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

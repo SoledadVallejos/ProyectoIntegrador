@@ -66,5 +66,47 @@
       "color": "Beige",
       "price": "5555",
       "discount": 15
+   },
+   {
+      "id": 4,
+      "name": "da",
+      "description": "da",
+      "price": 12232,
+      "discount": 32,
+      "color": "Blanco",
+      "size": "XL",
+      "category": "1",
+      "splideImages": [
+         "splideImages-2021-11-19-157-1637292918782-.jpg",
+         "splideImages-2021-11-19-157-1637292918818-.jpg"
+      ]
+   },
+   {
+      "id": 5,
+      "name": "d1",
+      "description": "d1",
+      "price": 23232,
+      "discount": 23,
+      "color": "Beige",
+      "size": "M",
+      "category": "1",
+      "splideImages": [
+         "splideImages-2021-11-19-85-1637338734800-.jpg",
+         "splideImages-2021-11-19-85-1637338734923-.jpg"
+      ]
+   },
+   {
+      "id": 6,
+      "name": "d1",
+      "description": "fswfsa",
+      "price": 232432,
+      "discount": 32,
+      "color": "Beige",
+      "size": "S",
+      "category": "1",
+      "splideImages": [
+         "splideImages-2021-11-19-333-1637351855351-.jpg",
+         "splideImages-2021-11-19-333-1637351855390-.jpg"
+      ]
    }
 ]
