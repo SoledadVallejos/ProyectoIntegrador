@@ -2,65 +2,111 @@
 const { Op, Sequelize } = require('sequelize');
 const { validationResult } = require('express-validator');
 
-const fs = require('fs');
+/* const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname, '../data', 'products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+ */
 module.exports = {
 
     //CREAR PRODUCTO
     add: (req, res) => {
         return res.render('admin/add');
     },
+    
     store: (req, res) => {
-        // const { name, description, price, color, size, category, image, discount } = req.body;
-        let imagesArr = req.files.map(images => {
-            return images.filename
-        });
-        let product = {
-            id: products[products.length - 1].id + 1,
-            name: req.body.name.trim(),
-            description: req.body.description.trim(),
-            price: +req.body.price,
-            discount: +req.body.discount,
-            color: req.body.color,
-            size: req.body.size,
-            category: req.body.category,
-            splideImages: imagesArr,
-            // adminImage: req.file.filename, // CAPTURA UNA single IMAGE
-        };
-        // return res.send(products); //COMPROBAR
-        products.push(product)
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
-        res.redirect('/admin');
+        let errors = validationResult(req);  // PULL ERRORS 
+        if (errors.isEmpty()) {  // VALIDATE CONDITION FOR req.body
+            db.Product.create({  //PUSH req.body INTO DB
+                name: req.body.name.trim(), //ROMA
+                description: req.body.description.trim(),
+                size: req.body.size,
+                color: req.body.color,
+                price: +req.body.price,
+                discount: +req.body.discount,
+                categoryId: req.body.category,
+                sectionId: req.body.section,
+                // splideImages: imagesArr // ACÁ NO! ABAJO SI! / OR... NOT HERE! DOWN YES.  QUE TAL MI INGLÉS TÉCNICO EEEHH ITS VERY DIFICULT!
+                // adminImage: req.file.filename, // CAPTURE AN IMAGE SINGLE
+            })
+                .then(product => { // THEN PUSH INTO THE product...
+                    // return res.send(product) //COMPROBARRRRRRRRRRRRRRRRRRRRRRR ANTES DE PROSEGUIR //MUESTRA DATOS DEL FORMULARIO A INGRESAR EN DB
+                    if (req.files[0] != undefined) {  // VALIDATE FORM DATA IMAGES IN req.files 
+                        let imagesArr = req.files.map(image => { //FORM DATA. IMAGES OF req.files PUSH IN imagesArr ARRAY 
+                            let img = {
+                                file: image.filename,  // WRITE IMAGE FILE NAME IN file COLUMN INTO DB
+                                productId: product.id // WRITE IMAGE ID IN productId COLUMN INTO DB
+                            }
+                            return img
+                        });
+                        db.Image.bulkCreate(imagesArr, { validate: true }) //  PUSH imagesArr INTO DB
+                            .then(() => console.log('imagenes agregadas'))  // THEN... "joya! funcionó!"
+                    }
+                    // return res.send(product) //COMPROBARRRRRRRRRRRRRRRRRRRRRRR ANTES DE PROSEGUIR //MUESTRA DATOS INGRESADOS EN DB
+                    return res.redirect('/admin') // RETURN admin IF ITS OK THE ABOVE
+                })
+                .catch(error => console.log(error))
+        } else {  // ERRORS SHOW IF THE ABOVE FAILS
+            db.Category.findAll()
+                .then(categories => {
+                    return res.render('productAdd', { // RENDER FORM DATA WITH ERRORS
+                        // categories,
+                        // firstLetter,
+                        errors: errors.mapped(),
+                        old: req.body
+                    })
+                })
+                .catch(error => console.log(error))
+        }
     },
 
     //EDITAR PRODUCTO
     edit: (req, res) => {
-        return res.render('admin/edit',
-            {
-                title: 'editar',
-                product: products.find(product => product.id === +req.params.id)
-            });
+        let product = db.Product.findByPk(req.params.id) // ENCUENTRA PRODUCTO POR ID
+        Promise.all([product])
+            .then(([product]) => {
+                // return res.send(product);
+                return res.render('admin/edit', {
+                    title: 'editar',
+                    product,
+                });
+            })
+            .catch(error => console.log(error))
     },
     update: (req, res) => {
-        const { name, description, price, color, size, image, category } = req.body;
-        let product = products.find(product => product.id === +req.params.id);
-        let productModified = {
-            id: +req.params.id,
-            name: name.trim(),
-            description: description.trim(),
-            price: +price,
-            color: color,
-            size: size,
-            category: category.trim(),
-            image: image,
-            features: product.features
-        };
-        let productsModified = products.map(product => product.id === +req.params.id ? productModified : product);
-        fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'), JSON.stringify(productsModified, null, 3), 'utf-8');
-        res.redirect('/admin')
+        let errors = validationResult(req);
+        if (errors.isEmpty()) { // VALIDACION
+            const { name, description, size, color, price } = req.body; // req.body MUESTRA UNICO PRODUCTO SEGUN ID
+            db.Product.update({ //PONER NUEVOS DATOS EN PRODUCTO ELEGIDO
+                name: name,
+                description: description.trim(),
+                size: size, // FALTA CAPTURAR
+                color: color, // FALTA CAPTURAR
+                price: price,
+                // discount: discount, // FALTA CAPTURAR
+                // categoryId: category,
+            },
+                {
+                    where: {
+                        id: req.params.id
+                    }
+                })
+                .then(() => {
+                    // return res.send(description)
+                    return res.redirect('/admin') // REDIRIGE A ADMIN SI LA UPDATE SALIO BIEN
+                })
+        } else { // ERRORES MOSTRAR EN VISTAS
+            let product = db.Product.findByPk(req.params.id) // TRAER DE NUEVO EL PRODUCTO PARA MOSTRAR ERRORES
+            Promise.all([product]) // PIDE DE NUEVO PRODUCTO A LA DB
+                .then(([product]) => {
+                    return res.render('edit', {
+                        product,
+                        errors: errors.mapped(), //ERRORES ALMACENADOS EN ERRORS LISTOS PARA PASARSELOS A VISTAS
+                    })
+                })
+                .catch(error => console.log(error))
+        }
+
     },
 
     //LISTADO DE PRODUCTOS
@@ -86,14 +132,15 @@ module.exports = {
 
     //ELIMINAR PRODUCTO DELETE DESTROY
     hastaLaVistaBeibi: (req, res) => {
-        let id = +req.params.id;
-        let productsMenosUno = products.filter(index => {
-            return id !== index.id;
-        });
-        // return res.send(productsMenosUno); //COMPROBAR
-        let productsUpdate = JSON.stringify(productsMenosUno, null, 3);
-        fs.writeFileSync(productsFilePath, productsUpdate, 'utf-8');
-        res.redirect('/admin')
+        db.Product.destroy({
+            where: {
+                id: req.params.id,
+            }
+        })
+            .then(() => {
+                return res.redirect('/admin')
+            })
+            .catch(error => console.log(error))
     },
 
     // SEARCH
