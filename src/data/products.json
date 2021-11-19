@@ -66,5 +66,18 @@
       "color": "Beige",
       "price": "5555",
       "discount": 15
+   },
+   {
+      "id": 4,
+      "name": "zapatillas",
+      "description": "zapatillas cali",
+      "price": 12000,
+      "discount": 5,
+      "color": "Rojo",
+      "size": "M",
+      "category": "1",
+      "splideImages": [
+         "splideImages-2021-11-19-750-1637328661871-.jpg"
+      ]
    }
 ]

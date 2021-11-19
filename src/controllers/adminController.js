@@ -15,10 +15,10 @@ module.exports = {
     },
     
     store: (req, res) => {
-        let errors = validationResult(req);  // PULL ERRORS 
-        if (errors.isEmpty()) {  // VALIDATE CONDITION FOR req.body
-            db.Product.create({  //PUSH req.body INTO DB
-                name: req.body.name.trim(), //ROMA
+        let errors = validationResult(req);   
+        if (errors.isEmpty()) {  
+            db.Product.create({  
+                name: req.body.name.trim(), 
                 description: req.body.description.trim(),
                 size: req.body.size,
                 color: req.body.color,
@@ -26,32 +26,34 @@ module.exports = {
                 discount: +req.body.discount,
                 categoryId: req.body.category,
                 sectionId: req.body.section,
-                // splideImages: imagesArr // ACÁ NO! ABAJO SI! / OR... NOT HERE! DOWN YES.  QUE TAL MI INGLÉS TÉCNICO EEEHH ITS VERY DIFICULT!
-                // adminImage: req.file.filename, // CAPTURE AN IMAGE SINGLE
+                
             })
-                .then(product => { // THEN PUSH INTO THE product...
-                    // return res.send(product) //COMPROBARRRRRRRRRRRRRRRRRRRRRRR ANTES DE PROSEGUIR //MUESTRA DATOS DEL FORMULARIO A INGRESAR EN DB
-                    if (req.files[0] != undefined) {  // VALIDATE FORM DATA IMAGES IN req.files 
-                        let imagesArr = req.files.map(image => { //FORM DATA. IMAGES OF req.files PUSH IN imagesArr ARRAY 
+                .then(product => { 
+                    
+                    if (req.files[0] != undefined) {  
+                        let imagesArr = req.files.map(image => {  
                             let img = {
-                                file: image.filename,  // WRITE IMAGE FILE NAME IN file COLUMN INTO DB
-                                productId: product.id // WRITE IMAGE ID IN productId COLUMN INTO DB
+                                file: image.filename,  
+                                productId: product.id 
                             }
                             return img
                         });
-                        db.Image.bulkCreate(imagesArr, { validate: true }) //  PUSH imagesArr INTO DB
-                            .then(() => console.log('imagenes agregadas'))  // THEN... "joya! funcionó!"
+                        db.Image.bulkCreate(imagesArr, { validate: true })
+                            .then(() => {
+                                console.log('imagenes agregadas')
+                                return res.redirect('/admin')
+                                
+                            }  
+                            )
                     }
-                    // return res.send(product) //COMPROBARRRRRRRRRRRRRRRRRRRRRRR ANTES DE PROSEGUIR //MUESTRA DATOS INGRESADOS EN DB
-                    return res.redirect('/admin') // RETURN admin IF ITS OK THE ABOVE
+                    
+                    return res.redirect('/admin') 
                 })
                 .catch(error => console.log(error))
-        } else {  // ERRORS SHOW IF THE ABOVE FAILS
+        } else {  
             db.Category.findAll()
                 .then(categories => {
-                    return res.render('productAdd', { // RENDER FORM DATA WITH ERRORS
-                        // categories,
-                        // firstLetter,
+                    return res.render('productAdd', { 
                         errors: errors.mapped(),
                         old: req.body
                     })
@@ -62,10 +64,9 @@ module.exports = {
 
     //EDITAR PRODUCTO
     edit: (req, res) => {
-        let product = db.Product.findByPk(req.params.id) // ENCUENTRA PRODUCTO POR ID
+        let product = db.Product.findByPk(req.params.id) 
         Promise.all([product])
             .then(([product]) => {
-                // return res.send(product);
                 return res.render('admin/edit', {
                     title: 'editar',
                     product,
@@ -75,16 +76,14 @@ module.exports = {
     },
     update: (req, res) => {
         let errors = validationResult(req);
-        if (errors.isEmpty()) { // VALIDACION
-            const { name, description, size, color, price } = req.body; // req.body MUESTRA UNICO PRODUCTO SEGUN ID
-            db.Product.update({ //PONER NUEVOS DATOS EN PRODUCTO ELEGIDO
+        if (errors.isEmpty()) { 
+            const { name, description, size, color, price } = req.body; 
+            db.Product.update({ 
                 name: name,
                 description: description.trim(),
-                size: size, // FALTA CAPTURAR
-                color: color, // FALTA CAPTURAR
+                size: size, 
+                color: color, 
                 price: price,
-                // discount: discount, // FALTA CAPTURAR
-                // categoryId: category,
             },
                 {
                     where: {
@@ -92,16 +91,15 @@ module.exports = {
                     }
                 })
                 .then(() => {
-                    // return res.send(description)
-                    return res.redirect('/admin') // REDIRIGE A ADMIN SI LA UPDATE SALIO BIEN
+                    return res.redirect('/admin') 
                 })
-        } else { // ERRORES MOSTRAR EN VISTAS
-            let product = db.Product.findByPk(req.params.id) // TRAER DE NUEVO EL PRODUCTO PARA MOSTRAR ERRORES
-            Promise.all([product]) // PIDE DE NUEVO PRODUCTO A LA DB
+        } else { 
+            let product = db.Product.findByPk(req.params.id) 
+            Promise.all([product]) 
                 .then(([product]) => {
                     return res.render('edit', {
                         product,
-                        errors: errors.mapped(), //ERRORES ALMACENADOS EN ERRORS LISTOS PARA PASARSELOS A VISTAS
+                        errors: errors.mapped(), 
                     })
                 })
                 .catch(error => console.log(error))
