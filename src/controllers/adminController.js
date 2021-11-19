@@ -1,9 +1,9 @@
 ﻿const db = require('../database/models');
 const { Op, Sequelize } = require('sequelize');
+const { validationResult } = require('express-validator');
 
 const fs = require('fs');
 const path = require('path');
-// const { filter } = require('../../../../../../../../../templates/github.com-Comision10-craftsy3.0/craftsy3.0/src/controllers/productsController');
 const productsFilePath = path.join(__dirname, '../data', 'products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -38,36 +38,24 @@ module.exports = {
 
     //LISTADO DE PRODUCTOS
     admin: (req, res) => {
-        // let productimage = products[id] // Y ESTO?
-        let products1 = db.Product.findAll({
-            include: [ // SI
-                'section',
-                'category', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
-                'image' // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
-            ]
-        })
-        Promise.all([products1])
-            .then(([products1]) => {
-                return res.render('admin/admin', {
-                    title: 'Administración',
-                    products1,
-                });
-            })
-            .catch(error => console.log(error))
+        // let productimage = products[id]
+        return res.render('admin/admin', {
+            title: 'Administración',
+            products,
+        });
     },
 
     //EDITAR PRODUCTO
     edit: (req, res) => {
-        return res.render('admin/edit', {
-            title: 'editar',
-            product: products.find(product => product.id === +req.params.id)
-        });
+        return res.render('admin/edit',
+            {
+                title: 'editar',
+                product: products.find(product => product.id === +req.params.id)
+            });
     },
     update: (req, res) => {
-
         const { name, description, price, color, size, image, category } = req.body;
         let product = products.find(product => product.id === +req.params.id);
-
         let productModified = {
             id: +req.params.id,
             name: name.trim(),
@@ -79,14 +67,9 @@ module.exports = {
             image: image,
             features: product.features
         };
-
         let productsModified = products.map(product => product.id === +req.params.id ? productModified : product);
-
         fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'), JSON.stringify(productsModified, null, 3), 'utf-8');
-
-
         res.redirect('/admin')
-
     },
 
     //ELIMINAR PRODUCTO DELETE DESTROY
@@ -101,7 +84,8 @@ module.exports = {
         res.redirect('/admin')
     },
 
-    // ORDENÉ TODO SEGUN MI RAZONAMIENTO. NO FUNCIONÓ, PROBÉ OTRO MÉTODO, Y OTRO...
+    // SEARCH
+    // ORDENÉ TODO COMO MEJOR PUDE ENTENDER. NO FUNCIONÓ, PROBÉ OTRO MÉTODO, Y OTRO...
     // FINALMENTE VOLVÍ AL PRIMER MÉTODO LO PROBÉ DE NUEVO... Y FUNCIONÓ!!! QUE PASO?
     search: (req, res) => {
         let products1 = db.Product.findAll({
@@ -110,29 +94,10 @@ module.exports = {
                 'category', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
                 'image' // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
             ]
-
-            // include: [{ //MAS CONVENIENTE
-            //     raw: true, // AQUI SI ES UTIL. NO BORRARLO
-            //     association: 'category', // TAL CUAL ESTA PUESTO EN as: 'category' EN MODELO
-            //     attributes: ['description'],
-            // }],
-            // include: [{ //MAS CONVENIENTE
-            //     raw: true, // AQUI SI ES UTIL. NO BORRARLO
-            //     association: 'section', // TAL CUAL ESTA PUESTO EN as: 'category' EN MODELO
-            //     attributes: ['name'],
-            // }],
-            // where: {
-            //     name: {
-            //         [Op.substring]: req.query.keyword
-            //     }
-            // },
-            // include: ['image', 'category']
         })
-        // let categories = db.Category.findAll()
         Promise.all([products1])
             .then(([products1]) => {
                 // let p1 = products1[0].name; // PROBANDO products1
-
                 // var result = []; // PROBANDO un for en limpio...
                 // for (let index = 0; index < products1.length; index++) {
                 //     result += products1[index];
@@ -153,388 +118,15 @@ module.exports = {
                     return exists;
                 });
                 // return res.send(categories); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-                // return res.send(result); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-                // return res.send(p1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-                // return res.send(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
                 // console.log(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-                // return res.send(products); //COMPROBAR
-                // console.log(JSON.stringify(searchResults)); //COMPROBAR
-                // return res.send(searchResults); //COMPROBAR
-                // return res.send(products); //COMPROBAR
                 // return res.send(toSearch); //COMPROBAR
                 res.render('admin/results', { // LAS COMPROBACIONES HACERLAS ANTES DE ESTE res.render()
                     searchResults,
                 });
-
             })
             .catch(error => console.log(error))
     },
-} //module.exports 
-
-
-
-
-
-
-
-
-//     // ORDENÉ TODO SEGUN MI RAZONAMIENTO. NO FUNCIONÓ, PROBÉ OTRO MÉTODO, Y OTRO...
-//     // FINALMENTE VOLVÍ AL PRIMER MÉTODO LO PROBÉ DE NUEVO... Y FUNCIONÓ!!! QUE PASO?
-//     search: (req, res) => {
-//         let products1 = db.Product.findAll({
-//                 // include: [{ //MAS CONVENIENTE
-//                 //     raw: true, // AQUI SI ES UTIL. NO BORRARLO
-//                 //     association: 'category', // TAL CUAL ESTA PUESTO EN as: 'category' EN MODELO
-//                 //     attributes: ['description'],
-//                 // }],
-//                 // include: [
-//                 //     'category' // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
-//                 // ]
-//                 // where: {
-//                 //     name: {
-//                 //         [Op.substring]: req.query.keyword
-//                 //     }
-//                 // },
-//                 // include: ['image', 'category']
-//             })
-//             // let categories = db.Category.findAll()
-//         Promise.all([products1])
-//             .then(([products1]) => {
-//                 // let p1 = products1[0].name; // PROBANDO products1
-
-//                 // var result = []; // PROBANDO un for en limpio...
-//                 // for (let index = 0; index < products1.length; index++) {
-//                 //     result += products1[index];
-//                 // }
-//                 let toSearch = (req.query.keywords).toLowerCase();
-//                 let searchResults = [];
-//                 for (let i = 0; i < products1.length; i++) {
-//                     ((products1[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : "Nada encontrado";
-//                     // ((products1[i].category).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : 'Nada encontrado';
-//                     ((products1[i].description).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : 'Nada encontrado';
-//                     ((products1[i].color).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : 'Nada encontrado';
-//                 };
-//                 // FILTRAR REPETIDOS
-//                 let hash = {};
-//                 searchResults = searchResults.filter(function(current) {
-//                     let exists = !hash[current.id];
-//                     hash[current.id] = true;
-//                     return exists;
-//                 });
-//                 // return res.send(categories); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-//                 // return res.send(result); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-//                 // return res.send(p1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-//                 // return res.send(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-//                 // console.log(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-//                 // return res.send(products); //COMPROBAR
-//                 // console.log(JSON.stringify(searchResults)); //COMPROBAR
-//                 return res.send(searchResults); //COMPROBAR
-//                 // return res.send(products); //COMPROBAR
-//                 // return res.send(toSearch); //COMPROBAR
-//                 res.render('admin/results', { // LAS COMPROBACIONES HACERLAS ANTES DE ESTE res.render()
-//                     searchResults,
-//                 });
-//             })
-
-//     },
-
-// } //module.exports 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//     search: (req, res) => {
-//         let products1 = db.Product.findAll({
-//                 // include: [{ //MAS CONVENIENTE
-//                 //     raw: true, // AQUI SI ES UTIL. NO BORRARLO
-//                 //     association: 'category', // TAL CUAL ESTA PUESTO EN as: 'category' EN MODELO
-//                 //     attributes: ['description'],
-//                 // }],
-//                 // include: [
-//                 //     'category' // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
-//                 // ]
-
-//                 // where: {
-//                 //     name: {
-//                 //         [Op.substring]: req.query.keyword
-//                 //     }
-//                 // },
-//                 // include: ['image', 'category']
-//             })
-//             // let categories = db.Category.findAll()
-//         Promise.all([products1])
-//             .then(([products1]) => {
-//                 // let p1 = products1[0].name;
-
-//                 // var result = [];
-//                 // for (let index = 0; index < products1.length; index++) {
-//                 //     result += products1[index];
-//                 // }
-
-//                 let toSearch = (req.query.keywords).toLowerCase();
-//                 let searchResults = [];
-//                 for (let i = 0; i < products1.length; i++) {
-//                     ((products1[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : "Nada encontrado";
-//                     // ((products1[i].category).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : 'Nada encontrado';
-//                     // ((products1[i].description).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : 'Nada encontrado';
-//                     // ((products1[i].color).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : 'Nada encontrado';
-//                 };
-//                 //FILTRAR REPETIDOS
-//                 // let hash = {};
-//                 // searchResults = searchResults.filter(function(current) {
-//                 //     let exists = !hash[current.id];
-//                 //     hash[current.id] = true;
-//                 //     return exists;
-//                 // });
-//                 // return res.send(categories); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-//                 // return res.send(result); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-//                 // return res.send(p1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-//                 // return res.send(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-//                 // console.log(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-//                 // return res.send(products); //COMPROBAR
-//                 // console.log(JSON.stringify(searchResults)); //COMPROBAR
-//                 return res.send(searchResults); //COMPROBAR
-//                 // return res.send(products); //COMPROBAR
-//                 // return res.send(toSearch); //COMPROBAR
-//                 res.render('admin/results', { // LAS COMPROBACIONES HACERLAS ANTES DE ESTE res.render()
-//                     searchResults,
-//                 });
-//             })
-
-//     },
-
-// } //module.exports 
-
-
-
-
-
-
-
-
-
-
-// search: (req, res) => { //CRAFTY
-//     let products = db.Product.findAll({
-//         where: {
-//             name: {
-//                 [Op.substring]: req.query.keyword
-//             }
-//         },
-//         include: ['image', 'category']
-//     })
-//     let categories = db.Category.findAll()
-//     Promise.all([products, categories])
-//         .then(([products, categories]) => {
-//             return res.render('admin', {
-//                 products,
-//                 categories,
-//                 title: 'Resultado de la búsqueda'
-//             })
-//         })
-//         .catch(error => console.log(error))
-// },
-
-
-
-
-
-
-
-
-
-
-
-
-
-// search: (req, res) => {
-//     var productss = db.Product.findAll({
-//             //     where: {
-//             //         name: {
-//             //             [Op.substring]: req.query.keyword
-//             //         }
-//             //     },
-//             //     include: ['image', 'category']
-//         })
-//         // let categories = db.Category.findAll()
-
-//     let toSearch = (req.query.keywords).toLowerCase();
-//     let searchResults = [];
-//     for (let i = 0; i < products.length; i++) {
-//         ((products[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : "Nada encontrado";
-//         ((products[i].category).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
-//         ((products[i].color).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
-//         ((products[i].description).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
-//     };
-//     //FILTRAR REPETIDOS
-//     let hash = {};
-//     searchResults = searchResults.filter(function(current) {
-//         let exists = !hash[current.id];
-//         hash[current.id] = true;
-//         return exists;
-//     });
-//     // console.log(JSON.stringify(productss)); //COMPROBAR
-//     // res.send(products); //COMPROBAR
-//     // res.send(searchResults); //COMPROBAR
-//     Promise.all([productss, categories])
-//         .then(([products, categories]) => {
-//             console.log(productss); //COMPROBAR
-//             res.render('admin/results', {
-//                 searchResults,
-//             });
-//         })
-//         .catch(error => console.log(error))
-
-
-// },
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// module.exports = {
-
-//     //CREAR PRODUCTO
-//     add: (req, res) => {
-//         return res.render('admin/add');
-//     },
-//     store: (req, res) => {
-//         // const { name, description, price, color, size, category, image, discount } = req.body;
-//         let imagesArr = req.files.map(images => {
-//             return images.filename
-//         });
-//         let product = {
-//             id: products[products.length - 1].id + 1,
-//             name: req.body.name.trim(),
-//             description: req.body.description.trim(),
-//             price: +req.body.price,
-//             discount: +req.body.discount,
-//             color: req.body.color,
-//             size: req.body.size,
-//             category: req.body.category,
-//             splideImages: imagesArr,
-//             // adminImage: req.file.filename, // CAPTURA UNA single IMAGE
-//         };
-//         // return res.send(products); //COMPROBAR
-//         products.push(product)
-//         fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'), JSON.stringify(products, null, 3), 'utf-8');
-//         res.redirect('/admin');
-//     },
-
-//     //LISTADO DE PRODUCTOS
-//     admin: (req, res) => {
-//         // let productimage = products[id]
-//         return res.render('admin/admin', {
-//             title: 'Administración',
-//             products,
-//         });
-//     },
-
-//     //EDITAR PRODUCTO
-//     edit: (req, res) => {
-//         return res.render('admin/edit',
-//             {
-//                 title: 'editar',
-//                 product: products.find(product => product.id === +req.params.id)
-//             });
-//     },
-//     update: (req, res) => {
-
-//         const { name, description, price, color, size, image, category } = req.body;
-//         let product = products.find(product => product.id === +req.params.id);
-
-//         let productModified = {
-//             id: +req.params.id,
-//             name: name.trim(),
-//             description: description.trim(),
-//             price: +price,
-//             color: color,
-//             size: size,
-//             category: category.trim(),
-//             image: image,
-//             features: product.features
-//         };
-
-//         let productsModified = products.map(product => product.id === +req.params.id ? productModified : product);
-
-//         fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'), JSON.stringify(productsModified, null, 3), 'utf-8');
-
-
-//         res.redirect('/admin')
-
-//     },
-
-//     //ELIMINAR PRODUCTO DELETE DESTROY
-//     hastaLaVistaBeibi: (req, res) => {
-//         let id = +req.params.id;
-//         let productsMenosUno = products.filter(index => {
-//             return id !== index.id;
-//         });
-//         // return res.send(productsMenosUno); //COMPROBAR
-//         let productsUpdate = JSON.stringify(productsMenosUno, null, 3);
-//         fs.writeFileSync(productsFilePath, productsUpdate, 'utf-8');
-//         res.redirect('/admin')
-//     },
-
-//     search: (req, res) => {
-//         let toSearch = (req.query.keywords).toLowerCase();
-//         let searchResults = [];
-//         for (let i = 0; i < products.length; i++) {
-//             ((products[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : "Nada encontrado";
-//             ((products[i].category).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
-//             ((products[i].color).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
-//             ((products[i].description).toLowerCase()).includes(toSearch) ? searchResults.push(products[i]) : 'Nada encontrado';
-//         };
-//         //FILTRAR REPETIDOS
-//         let hash = {};
-//         searchResults = searchResults.filter(function (current) {
-//             let exists = !hash[current.id];
-//             hash[current.id] = true;
-//             return exists;
-//         });
-//         // console.log(JSON.stringify(searchResults)); //COMPROBAR
-//         // res.send(searchResults); //COMPROBAR
-//         res.render('admin/results', {
-//             searchResults,
-
-//         });
-//     },
-// }
-
-
-
-
-
-
-
-
-
-
+} //module.exports /
 
 
 // console.log(products); // COMPROBAR

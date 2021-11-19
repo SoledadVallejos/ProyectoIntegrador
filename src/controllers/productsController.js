@@ -37,6 +37,7 @@ module.exports = {
             })
             .catch(error => console.log(error))
     },
+    
     cart: (req, res) => {
         return res.render('products/cart', {
             title: 'Tu carrito',

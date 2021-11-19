@@ -128,7 +128,7 @@ CREATE TABLE `images` (
   KEY `categoryId` (`categoryId`),
   CONSTRAINT `images_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `products` (`id`) ON DELETE CASCADE,
   CONSTRAINT `images_ibfk_2` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,7 +137,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,'banner-1.jpg',NULL,NULL,'2021-11-13 01:52:05',NULL,NULL),(2,'banner-2.jpg',NULL,NULL,'2021-11-13 01:52:05',NULL,NULL),(3,'banner-3.jpg',NULL,NULL,'2021-11-13 01:52:05',NULL,NULL),(4,'img-producto-polera-rojo1.jpg',1,NULL,'2021-11-13 01:52:05',NULL,NULL),(5,'img-producto-polera-blanco1.jpg',2,NULL,'2021-11-13 01:52:05',NULL,NULL),(6,'img-producto-polera-negro1.jpg',3,NULL,'2021-11-13 01:52:05',NULL,NULL),(7,'img-producto-polera-beige1.jpg',4,NULL,'2021-11-13 01:52:05',NULL,NULL),(8,'img-producto-polera-rojo2.jpg',1,NULL,'2021-11-13 04:35:57',NULL,NULL),(9,'img-producto-polera-blanco2.jpg',2,NULL,'2021-11-13 04:35:57',NULL,NULL),(10,'img-producto-polera-negro2.jpg',3,NULL,'2021-11-13 04:35:57',NULL,NULL),(11,'img-producto-polera-beige2.jpg',4,NULL,'2021-11-13 04:35:57',NULL,NULL),(12,'img-producto-polera-rojo3.jpg',1,NULL,'2021-11-13 04:36:29',NULL,NULL),(13,'img-producto-polera-blanco3.jpg',2,NULL,'2021-11-13 04:36:29',NULL,NULL),(14,'img-producto-polera-negro3.jpg',3,NULL,'2021-11-13 04:36:29',NULL,NULL),(15,'img-producto-polera-beige3.jpg',4,NULL,'2021-11-13 04:36:29',NULL,NULL),(16,'img-producto-polera-rojo4.jpg',1,NULL,'2021-11-13 04:36:43',NULL,NULL),(17,'img-producto-polera-blanco4.jpg',2,NULL,'2021-11-13 04:36:43',NULL,NULL),(18,'img-producto-polera-negro4.jpg',3,NULL,'2021-11-13 04:36:43',NULL,NULL),(19,'img-producto-polera-beige4.jpg',4,NULL,'2021-11-13 04:36:43',NULL,NULL),(20,'ropa-hombre.jpg',NULL,1,'2021-11-11 00:00:00',NULL,NULL),(21,'ropa-mujer.jpg',NULL,2,'2021-11-11 00:00:00',NULL,NULL),(22,'splideImages-2021-11-18-528-1637260080717-.jpg',5,NULL,'2021-11-18 18:28:00','2021-11-18 18:28:00',NULL),(23,'splideImages-2021-11-18-528-1637260080740-.jpg',5,NULL,'2021-11-18 18:28:00','2021-11-18 18:28:00',NULL);
+INSERT INTO `images` VALUES (1,'banner-1.jpg',NULL,NULL,'2021-11-13 01:52:05',NULL,NULL),(2,'banner-2.jpg',NULL,NULL,'2021-11-13 01:52:05',NULL,NULL),(3,'banner-3.jpg',NULL,NULL,'2021-11-13 01:52:05',NULL,NULL),(4,'img-producto-polera-rojo1.jpg',1,NULL,'2021-11-13 01:52:05',NULL,NULL),(5,'img-producto-polera-blanco1.jpg',2,NULL,'2021-11-13 01:52:05',NULL,NULL),(6,'img-producto-polera-negro1.jpg',3,NULL,'2021-11-13 01:52:05',NULL,NULL),(7,'img-producto-polera-beige1.jpg',4,NULL,'2021-11-13 01:52:05',NULL,NULL),(8,'img-producto-polera-rojo2.jpg',1,NULL,'2021-11-13 04:35:57',NULL,NULL),(9,'img-producto-polera-blanco2.jpg',2,NULL,'2021-11-13 04:35:57',NULL,NULL),(10,'img-producto-polera-negro2.jpg',3,NULL,'2021-11-13 04:35:57',NULL,NULL),(11,'img-producto-polera-beige2.jpg',4,NULL,'2021-11-13 04:35:57',NULL,NULL),(12,'img-producto-polera-rojo3.jpg',1,NULL,'2021-11-13 04:36:29',NULL,NULL),(13,'img-producto-polera-blanco3.jpg',2,NULL,'2021-11-13 04:36:29',NULL,NULL),(14,'img-producto-polera-negro3.jpg',3,NULL,'2021-11-13 04:36:29',NULL,NULL),(15,'img-producto-polera-beige3.jpg',4,NULL,'2021-11-13 04:36:29',NULL,NULL),(16,'img-producto-polera-rojo4.jpg',1,NULL,'2021-11-13 04:36:43',NULL,NULL),(17,'img-producto-polera-blanco4.jpg',2,NULL,'2021-11-13 04:36:43',NULL,NULL),(18,'img-producto-polera-negro4.jpg',3,NULL,'2021-11-13 04:36:43',NULL,NULL),(19,'img-producto-polera-beige4.jpg',4,NULL,'2021-11-13 04:36:43',NULL,NULL),(20,'ropa-hombre.jpg',NULL,1,'2021-11-11 00:00:00',NULL,NULL),(21,'ropa-mujer.jpg',NULL,2,'2021-11-11 00:00:00',NULL,NULL),(22,'splideImages-2021-11-17-63-1637175752937-.png',5,1,'2021-12-12 00:00:00',NULL,NULL),(23,'splideImages-2021-11-18-148-1637217710500-.png',6,NULL,'2021-11-18 06:41:50','2021-11-18 06:41:50',NULL),(24,'splideImages-2021-11-18-148-1637217710575-.png',6,NULL,'2021-11-18 06:41:50','2021-11-18 06:41:50',NULL),(25,'splideImages-2021-11-18-148-1637217710581-.png',6,NULL,'2021-11-18 06:41:50','2021-11-18 06:41:50',NULL),(26,'splideImages-2021-11-18-148-1637218373460-.png',7,NULL,'2021-11-18 06:52:53','2021-11-18 06:52:53',NULL),(27,'splideImages-2021-11-18-148-1637218373578-.png',7,NULL,'2021-11-18 06:52:53','2021-11-18 06:52:53',NULL);
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +226,7 @@ CREATE TABLE `products` (
   KEY `sectionId` (`sectionId`),
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`),
   CONSTRAINT `products_ibfk_2` FOREIGN KEY (`sectionId`) REFERENCES `sections` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +235,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Polera Roja','Polera de mujer Roma','M','Rojo',3950.00,30,2,5,'2021-11-13 01:52:05',NULL,NULL),(2,'Polera Blanca','Aprovechala YA! Es la última en stock!','40','Blanco',1900.00,10,2,5,'2021-11-13 01:52:05',NULL,NULL),(3,'Polera Negra','Polera de mujer Roma','S','Negro',4444.00,5,2,5,'2021-11-13 01:52:05',NULL,NULL),(4,'Polera Beige','Polera de mujer Roma','44','Beige',5555.00,15,2,5,'2021-11-13 01:52:05',NULL,NULL),(5,'d1','d1','M','Negro',7777.00,17,1,NULL,'2021-11-18 18:28:00','2021-11-18 18:28:00',NULL);
+INSERT INTO `products` VALUES (1,'Polera Roja','Polera de mujer Roma','M','Rojo',3950.00,30,2,5,'2021-11-13 01:52:05',NULL,NULL),(2,'Polera Blanca','Aprovechala YA! Es la última en stock!','40','Blanco',1900.00,10,2,5,'2021-11-13 01:52:05',NULL,NULL),(3,'Polera Negra','Polera de mujer Roma','S','Negro',4444.00,5,2,5,'2021-11-13 01:52:05',NULL,NULL),(4,'Polera Beige','Polera de mujer Roma','44','Beige',5555.00,15,2,5,'2021-11-13 01:52:05',NULL,NULL),(5,'as','as','33','blanco',3333.00,3,2,5,'2021-11-11 00:00:00',NULL,NULL),(6,'sa','sa','L','Rojo',333.00,1,1,NULL,'2021-11-18 06:41:50','2021-11-18 06:41:50',NULL),(7,'manzana','con dulce de leche','L','Rojo',121212.00,1,1,NULL,'2021-11-18 06:52:53','2021-11-18 06:52:53',NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -393,4 +393,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-18 15:31:30
+-- Dump completed on 2021-11-18  4:06:03
