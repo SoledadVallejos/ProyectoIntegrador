@@ -90,7 +90,7 @@ module.exports = {
         let productsMenosUno = products.filter(index => {
             return id !== index.id;
         });
-        // return res.send(productsMenosUno); //COMPROBAR
+        // return res.send(productsMenosUno); //COMPROBAR 
         let productsUpdate = JSON.stringify(productsMenosUno, null, 3);
         fs.writeFileSync(productsFilePath, productsUpdate, 'utf-8');
         res.redirect('/admin')
