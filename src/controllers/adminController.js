@@ -36,15 +36,6 @@ module.exports = {
         res.redirect('/admin');
     },
 
-    //LISTADO DE PRODUCTOS
-    admin: (req, res) => {
-        // let productimage = products[id]
-        return res.render('admin/admin', {
-            title: 'Administración',
-            products,
-        });
-    },
-
     //EDITAR PRODUCTO
     edit: (req, res) => {
         return res.render('admin/edit',
@@ -70,6 +61,27 @@ module.exports = {
         let productsModified = products.map(product => product.id === +req.params.id ? productModified : product);
         fs.writeFileSync(path.join(__dirname, '..', 'data', 'products.json'), JSON.stringify(productsModified, null, 3), 'utf-8');
         res.redirect('/admin')
+    },
+
+    //LISTADO DE PRODUCTOS
+    admin: (req, res) => {
+        // let productimage = products[id] // Y ESTO?
+        let products1 = db.Product.findAll({
+            include: [ // SI
+                'section',
+                'category', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                'image' // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+            ]
+        })
+        Promise.all([products1])
+            .then(([products1]) => {
+                // return res.send(products1) //COMPROBARRRRRRRRRRRRRRRRRRRRRRR ANTES DE PROSEGUIR //MUESTRA DATOS INGRESADOS EN DB
+                return res.render('admin/admin', {
+                    title: 'Administración',
+                    products1,
+                });
+            })
+            .catch(error => console.log(error))
     },
 
     //ELIMINAR PRODUCTO DELETE DESTROY
