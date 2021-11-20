@@ -15,7 +15,7 @@
                 <h3>EDITAR PRODUCTO</h3>
             </div>
 
-            <form action="../update/<%= product.id %>?_method=PUT" method="POST">
+            <form action="../update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div>
                     <label for="name">Nombre
                         <input type="text" name="name" id="name" value="<%= product.name %>">
@@ -67,7 +67,7 @@
 
                 <div>
                     <label for="image">Imagen
-                        <input type="file" name="image" id="image">
+                        <input type="file" name="splideImages" id="image" multiple>
                     </label>
                 </div>
 

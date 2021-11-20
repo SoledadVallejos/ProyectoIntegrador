@@ -13,12 +13,12 @@ module.exports = {
     add: (req, res) => {
         return res.render('admin/add');
     },
-    
+
     store: (req, res) => {
-        let errors = validationResult(req);   
-        if (errors.isEmpty()) {  
-            db.Product.create({  
-                name: req.body.name.trim(), 
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            db.Product.create({
+                name: req.body.name.trim(),
                 description: req.body.description.trim(),
                 size: req.body.size,
                 color: req.body.color,
@@ -26,34 +26,44 @@ module.exports = {
                 discount: +req.body.discount,
                 categoryId: req.body.category,
                 sectionId: req.body.section,
-                
+
             })
-                .then(product => { 
-                    
-                    if (req.files[0] != undefined) {  
-                        let imagesArr = req.files.map(image => {  
+                .then(product => {
+                    let imagesArr
+
+                    if (req.files[0] != undefined) {
+                        imagesArr = req.files.map(image => {
                             let img = {
-                                file: image.filename,  
-                                productId: product.id 
+                                file: image.filename,
+                                productId: product.id
                             }
                             return img
                         });
-                        db.Image.bulkCreate(imagesArr, { validate: true })
-                            .then(() => {
-                                console.log('imagenes agregadas')
-                                return res.redirect('/admin')
-                                
-                            }  
-                            )
+
+
+                    } else {
+                        imagesArr = [{
+                            file: "default.png",
+                            productId: product.id
+                        }]
+
                     }
-                    
-                    return res.redirect('/admin') 
+
+                    db.Image.bulkCreate(imagesArr, { validate: true })
+                        .then((result) => {
+                            console.log('imagenes agregadas' + result)
+                            return res.redirect('/admin')
+
+                        })
+                        .catch(error => console.log(error))
+
+
                 })
                 .catch(error => console.log(error))
-        } else {  
+        } else {
             db.Category.findAll()
                 .then(categories => {
-                    return res.render('productAdd', { 
+                    return res.render('productAdd', {
                         errors: errors.mapped(),
                         old: req.body
                     })
@@ -64,7 +74,7 @@ module.exports = {
 
     //EDITAR PRODUCTO
     edit: (req, res) => {
-        let product = db.Product.findByPk(req.params.id) 
+        let product = db.Product.findByPk(req.params.id)
         Promise.all([product])
             .then(([product]) => {
                 return res.render('admin/edit', {
@@ -76,13 +86,14 @@ module.exports = {
     },
     update: (req, res) => {
         let errors = validationResult(req);
-        if (errors.isEmpty()) { 
-            const { name, description, size, color, price } = req.body; 
-            db.Product.update({ 
-                name: name,
+        if (errors.isEmpty()) {
+            console.log('no hubo errores')
+            const { name, description, size, color, price } = req.body;
+            db.Product.update({
+                name: name.trim(),
                 description: description.trim(),
-                size: size, 
-                color: color, 
+                size: size,
+                color: color,
                 price: price,
             },
                 {
@@ -90,16 +101,49 @@ module.exports = {
                         id: req.params.id
                     }
                 })
-                .then(() => {
-                    return res.redirect('/admin') 
+                .then((productResult) => {
+                    console.log('se edito producto: ' + productResult[0])
+                    console.log(req.files);
+                    if (typeof req.files[0] != "undefined") {
+                        console.log('llegaron imagenes');
+                        db.Image.destroy(
+                            {
+                                where: {
+                                    productId: req.params.id
+                                }
+                            }
+                        )
+                            .then(() => {
+                                let imagesArr = req.files.map(image => {
+                                    let img = {
+                                        file: image.filename,
+                                        productId: req.params.id
+                                    }
+                                    return img
+                                })
+                                db.Image.bulkCreate(imagesArr, { validate: true })
+
+                                    .then(() => {
+                                        return res.redirect('/products/productDetail/' + req.params.id)
+                                    })
+                                    .catch(error => console.log(error))
+                            })
+
+                    } else {
+                        console.log('edicion sin imagen')
+                        return res.redirect('/products/productDetail/' + req.params.id)
+                    }
+
                 })
-        } else { 
-            let product = db.Product.findByPk(req.params.id) 
-            Promise.all([product]) 
+        } else {
+            console.log('saltaron errores')
+            let product = db.Product.findByPk(req.params.id)
+            Promise.all([product])
                 .then(([product]) => {
+                    console.log('saltaron errores despues de consulta')
                     return res.render('edit', {
                         product,
-                        errors: errors.mapped(), 
+                        errors: errors.mapped(),
                     })
                 })
                 .catch(error => console.log(error))
@@ -186,7 +230,23 @@ module.exports = {
 } //module.exports /
 
 
-// console.log(products); // COMPROBAR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

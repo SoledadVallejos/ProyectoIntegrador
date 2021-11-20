@@ -2,7 +2,7 @@
 var express = require('express');
 const path = require('path');
 const multer = require('multer');
-const uploadMultiple = require ('../middlewares/multerProductsMiddleware')
+const uploadMultiple = require('../middlewares/multerProductsMiddleware')
 // const guestMiddleware = require('../middlewares/guestMiddleware');
 
 n = new Date();
@@ -27,7 +27,7 @@ router.get('/add', add);
 router.post('/add', uploadMultiple.array('splideImages'), store);
 
 router.get('/edit/:id', edit);
-router.put('/update/:id', update);
+router.put('/update/:id', uploadMultiple.array('splideImages'), update);
 
 router.get('/delete/:id', hastaLaVistaBeibi);
 router.get('/search_results/', search);
