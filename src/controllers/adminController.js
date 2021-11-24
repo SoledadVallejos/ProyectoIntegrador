@@ -153,7 +153,6 @@ module.exports = {
 
     //LISTADO DE PRODUCTOS
     admin: (req, res) => {
-        // let productimage = products[id] // Y ESTO?
         let products1 = db.Product.findAll({
             include: [ // SI
                 'section',

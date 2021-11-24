@@ -53,9 +53,13 @@ module.exports = {
                 let productsOff = productDiscount.map(index => {
                     return index
                 });
-                // return res.send(productCategory) //COMPROBAR ANTES DE PROSEGUIR
+                // productsOff  PARA SPLIDE
+                let productsOffSplide = productDiscount.map(index => {
+                    return index.image[0].file
+                });
                 // return res.send(productCategory) //COMPROBAR ANTES DE PROSEGUIR
                 // return res.send(bannerImages) //COMPROBAR ANTES DE PROSEGUIR
+                // return res.send(productDiscount1) //COMPROBAR ANTES DE PROSEGUIR
                 // return res.send(productsOff) //COMPROBAR ANTES DE PROSEGUIR
                 // TRANSICION JSON A DB: 1_RUTAS ACTUALIZADAS EN INDEX 2_LLEGUE DE DB DATOS CORRECTOS (igual o parecido como llegaba del JSON) 3_EXISTA ARCHIVO ENLAZADO (imagen en este caso)
                 return res.render('general/index', {
@@ -63,6 +67,7 @@ module.exports = {
                     bannerImages, // LISTO. DB EN ACCION QUE EMOCION!! CONTIENE IMAGENES DEL BANNER
                     productCategory, // LISTO PARA MOSTRAR DATOS DE HOMBRE O MUJER...
                     productsOff, //LISTO. MUESTRA PRODUCTOS SOLO CON DESCUENTO EN HOME
+                    productsOffSplide,
                     // productsSugest, NUNCA SE USÓ
                     // products, // NUNCA SE USÓ
                 });

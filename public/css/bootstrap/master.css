@@ -1,20 +1,31 @@
- .container-fluid {
-     margin: 0 auto;
-     padding: 0;
-     margin: 0;
- }
+/* SOLUCION AL CONFLICTO CON responsee.css  */
+.imgAdmin {
+    max-width: 100%;
+    width: 40%;
+}
 
- .misH1 {
-     text-align: center;
-     color: red;
-     font-size: 2rem;
- }
+p, li, dl, blockquote, table, kbd {
+    font-size: 1rem;
+}
 
- /*Aquí dispuse nuestros mismos css que tenidamos en nuestra clase 3, lo realice sólo para que vean que podemos sin ningún problema, combinar como deseemos nuestros conocimientos de maquetación ahora con Bootstrap*/
+/* SOLUCION AL CONFLICTO CON bootstrap.css  ? */
+.container-fluid {
+    margin: 0 auto;
+    padding: 0;
+    margin: 0;
+}
 
- /* AGREGADO POR D.R. */
+.misH1 {
+    text-align: center;
+    color: red;
+    font-size: 2rem;
+}
 
- /*  @media(min-width: 425px) {
+/*Aquí dispuse nuestros mismos css que tenidamos en nuestra clase 3, lo realice sólo para que vean que podemos sin ningún problema, combinar como deseemos nuestros conocimientos de maquetación ahora con Bootstrap*/
+
+/* AGREGADO POR D.R. */
+
+/*  @media(min-width: 425px) {
 
      .addSearch {
          display: flex;
@@ -27,87 +38,90 @@
  }
  */
 
- .searchResultsAdmin {
-     padding: 0 !important;
-     background-color: inherit;
-     border-radius: 5px;
- }
+.searchResultsAdmin {
+    padding: 0 !important;
+    background-color: inherit;
+    border-radius: 5px;
+}
 
- .pt-5 {
-     padding: 0 !important;
-     background-color: red !important;
-     border-radius: 5px;
- }
+.pt-5 {
+    padding: 0 !important;
+    background-color: red !important;
+    border-radius: 5px;
+}
 
- .btn {
-     position: static !important;
- }
+.btn {
+    position: static !important;
+    color: white !important;
+}
 
- p {
-     margin-bottom: auto;
- }
+p {
+    margin-bottom: auto;
+}
 
- .ion-icon {
-     font-size: 2em;
- }
+.ion-icon {
+    font-size: 2em;
+    color: red
+}
 
- .row {
-     margin: 0;
- }
+.row {
+    margin: 0;
+}
 
- input.searchAdmin {
-     padding: 4px;
-     width: 247px;
-     width: 237px;
- }
+input.searchAdmin {
+    padding: 4px;
+    width: 247px;
+    width: 237px;
+    border: 1px solid grey;
+}
 
- [type=search] {
-     -webkit-appearance: auto;
- }
+[type=search] {
+    -webkit-appearance: auto;
+}
 
- @media(min-width: 480px) {
-     .addSearch {
-         display: flex;
-         min-width: 97%;
-         justify-content: space-between;
-         margin: auto;
-         height: 47px;
-     }
-
-
- }
-
-
+@media(min-width: 480px) {
+    .addSearch {
+        display: flex;
+        min-width: 97%;
+        justify-content: space-between;
+        margin: auto;
+        height: 47px;
+    }
 
 
-
+}
 
 
 
 
 
 
- article img {
-     /* width: 100%; */
-     opacity: 1;
- }
 
- article img:hover {
-     opacity: 0.8;
- }
 
- /*p {
+
+
+
+article img {
+    /* width: 100%; */
+    opacity: 1;
+}
+
+article img:hover {
+    opacity: 0.8;
+}
+
+/*p {
     text-align: justify;
 }
 */
 
- .descuento {
-     right: 15px;
-     top: 20px;
-     position: absolute;
-     width: 20%;
- }
+.descuento {
+    right: 15px;
+    top: 20px;
+    position: absolute;
+    width: 20%;
+}
 
- .descripcion {
-     min-height: 10vh;
- }
+.descripcion {
+    min-height: 10vh;
+}
