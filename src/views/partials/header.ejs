@@ -56,7 +56,7 @@
 
                     <% if (locals.userLogin) { %>
                         <!--   ruta users/profile (link) misma ruta que en app.js + user.js -->
-                        <a href="/users/profile/<%= locals.userLogin.id %>">Mi Perfil</a>
+                        <a href="/users/profile/">Mi Perfil</a>
                         <a href="/products/cart"><i class="fas fa-shopping-bag"> Carrito</i></a>
 
                         <% if (locals.userLogin.rol==='Administrador' ) { %>
@@ -65,7 +65,7 @@
                             <a href="/users/register">Registro</a>
                             <% } %>
 
-                                <a href="/users/<%= locals.userLogin.id %>/logout">Salir</a>
+                                <a href="/users/logout">Salir</a>
 
                                 <% }else{ %>
                                     <a href="/users/login">Entrar</a>
