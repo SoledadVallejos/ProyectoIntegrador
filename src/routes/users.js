@@ -30,10 +30,10 @@ router.post('/login', loginValidator, processLogin);
 router.get('/', adminMiddleware, index);
 
 // PERFIL DE USUARIO
-router.get('/profile/:id', authMiddleware, /* myProfileOnlyMiddleware, */ profile);
+router.get('/profile',authMiddleware, profile);
 
 // LOGOUT
-router.get('/:id/logout/', logout);
+router.get('/logout/', logout);
 
 
 

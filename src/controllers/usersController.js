@@ -1,15 +1,16 @@
-﻿// REQUIRES
-const fs = require('fs');
+﻿const db = require('../database/models');
+const bcrypt = require('bcryptjs');
 const path = require('path');
-//              ERRORES    EXTRAER  DE  express - validator
-const { validationResult } = require('express-validator');
-const bcryptjs = require('bcryptjs');
-// DE REGISTRO LOGIN COMPLETO JAVI...
-const User = require('../models/UserModel');
-let users = require(path.join(__dirname, '../data/users.json'));
-// DE DH COMPLETE VALIDACIONES CODELANDO...
-const jsonTable = require('../models/jsonTable');
-const usersModel = jsonTable('users');
+const fs = require('fs');
+const { validationResult } = require('express-validator')
+
+
+
+
+
+
+
+
 
 module.exports = {
 
@@ -18,73 +19,48 @@ module.exports = {
         res.render('users/register');
         return res.send(user); // COMPROBAR USUARIOS
     },
-    processCreate: (req, res) => {
-        // PONER ERRORES EN UNA VARIABLE SI LOS HAY
-        let errors = validationResult(req);
-        console.log(errors); // COMPROBAR
-        //CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR
-        // SI errors VACÍO... PROCEDER COMO SIGUE
-        if (errors.isEmpty()) {
-            //  USUARIO EXISTE? 
-            let userInDB = User.findByField('email', req.body.email);
-            // SI EXISTE... MOSTRAR MENSAJE DE ERROR EN form
-            if (userInDB) {
-                return res.render('users/register', {
-                    errors: [
-                        {
-                            value: "",
-                            msg: "Este Email ya está registrado",
-                            param: "email",
-                            location: "body"
-                        }
-                    ],
-                    old: req.body,
+    processCreate: async (req, res) => {
+        const { name, lastName, country, email, password } = req.body;
+
+        try {
+
+            let userExist = await db.User.findOne({
+                where: {
+                    email
                 }
-                );
+            })
+            if (userExist) {
+                res.render('users/register', {
+                    error: {
+                        email: "este email ya esta registrado"
+                    }
+                }
+                )
             }
-            console.log(errors); //  COMPROBAR
-            if (req.body.password === req.body.password2) {
-                req.body.password2 = null;
-                // SIGUE EJECUTANDO...
-                // USUARIO A CREAR... RECOLECTAR DATOS DEL USUARIO EN ESTA VARIABLE
-                let userToCreate = {
-                    // TRAE DATOS DE LOS inputs del form
-                    ...req.body,
-                    // PISA password NO ENCRIPTADO DEL req.body Y ES ENCRIPTADO POR bcryptsjs
-                    password: bcryptjs.hashSync(req.body.password, 10),
-                    // REQUIERE filename DE avatar (nombre de imágen)
-                    avatar: req.file.filename,
-                    // SI checkbox   NO VACIO    Admin    SINO  Usuario
-                    rol: req.body.rol != null ? 'Administrador' : 'Usuario',
-                }
-                // USUARIO CREADO CON FUNCION DEFINIDA EN UserModel
-                let userCreated = User.create(userToCreate);
-                // NUEVO USUARIO CREADO REDIRIGIDO AL login
-                return res.redirect('/users/login');
-                //SINO, (si en errors hay errores) PROCEDER A EXPONERLOS AL USUARIO
-            } else {
-                return res.render('users/register', {
-                    errors: [
-                        {
-                            value: "",
-                            msg: "Las contraseñas no coinciden",
-                            param: "password",
-                            location: "body"
-                        }
-                    ],
-                    old: req.body,
-                }
-                );
+
+            let user = await db.User.create(
+                {
+                    name: name.trim(),
+                    lastName: lastName.trim(),
+                    email: email.trim(),
+                    password: bcrypt.hashSync(password, 10),
+                    country: country.trim(),
+                    avatar: req.file ? req.file.filename : 'default.png',
+                    rolId: 1
+                })
+
+            req.session.userLogin = {
+                id: user.id,
+                name: user.name,
+                avatar: user.avatar,
+                rol: user.rolId
             }
-        } else {
-            // RENDER form  register    :
-            res.render('users/register', {
-                // DATOS DE ERRORES DISPONIBLES EN form register
-                errors: errors.array(), // Errors COMO array DE ERRORES SI NO COMPLETA form DE CREACIÓN DE USUARIO
-                old: req.body, // old: req.body RECORDAR VIEJO DATO INGRESADO
-            });
+            console.log(req.session.userLogin)
+
+            return res.redirect('/users/profile')
+        } catch (error) {
+            console.log(error)
         }
-        console.log(errors); // COMPROBAR ARRAY DE ERRORES
     },
 
     login: (req, res) => {
@@ -93,43 +69,59 @@ module.exports = {
 
         });
     },
-    processLogin: (req, res) => {
-        let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-            let user = users.find(user => user.email === req.body.email);
-            if (user) {
-                let isOkThePassword = bcryptjs.compareSync(req.body.password, user.password);
-                if (isOkThePassword) {
-                    req.session.userLogin = {
-                        id: user.id,
-                        name: user.name,
-                        avatar: user.avatar,
-                        rol: user.rol
-                    }
-                    if (req.body.remember) {
-                        res.cookie('rememberRoma', req.session.userLogin, { maxAge: 1000000 * 60 })
+    processLogin: async (req, res) => {
+        const { email, password, remember } = req.body;
+        try {
+            let user = await db.User.findOne({
+                where: {
+                    email
+                }
+            })
+            if (!user) {
+                return res.render('users/register', {
+                    error: {
+                        credenciales: "credenciales invalidas"
                     }
                 }
+                )
             }
 
-            return res.redirect('/')
-        } else {
-            return res.render('users/login', {
-                errores: errors.mapped()
-            })
+            if (!bcrypt.compareSync(password, user.password)) {
+                return res.render('users/register', {
+                    error: {
+                        credenciales: "credenciales invalidas"
+                    }
+                }
+                )
+            }
+             req.session.userLogin = {
+                id: user.id,
+                name: user.name,
+                avatar: user.avatar,
+                rol: user.rolId
+            }
+            if (remember) {
+                res.cookie('rememberRoma', req.session.userLogin, { maxAge: 1000000 * 60 })
+            }
+            console.log(req.session.userLogin)
+            return res.redirect('/users/profile')
         }
-    },
+        catch (error) {
 
+        }
+    }
+
+
+    ,
     index: (req, res) => {
         let users = User.findAll();
         // return res.send(users); // COMPROBAR LISTA DE USUARIOS
         res.render('users/index', { users });
     },
 
-    profile: (req, res) => {
-        let user = usersModel.find(req.params.id);
-        res.render('users/profile', { user });
+    profile: async (req, res) => {
+        let user = await db.User.findByPk(req.session.userLogin.id)
+        return res.render('users/profile', { user });
     },
 
     logout: (req, res) => {
