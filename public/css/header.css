@@ -40,6 +40,12 @@ label.menuUser {
     color: white;
 }
 
+span.hola{
+    align-self:center;
+    margin-left: 10px;
+}
+
+
 
 
 /* MENU DESPLEGABLE DE USUARIO PASANDO EL MOUSE*/
@@ -53,6 +59,7 @@ label.menuUser {
     cursor: pointer;
     margin-right: 2px;
     height: 87px;
+    display: flex;
 }
 
 .dropbtn:active,
@@ -119,6 +126,7 @@ label.menuUser {
     cursor: pointer;
     height: 2rem;
     display: block;
+    background: none;
 }
 
 .dropbtn1:hover, .dropbtn1:focus {

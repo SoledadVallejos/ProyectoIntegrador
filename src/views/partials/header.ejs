@@ -27,7 +27,7 @@
 					<% if (locals.userLogin) { %>
 						<!--                                                                                             avatar USUARIO -->
 						<img class="user" src="/img/users/<%= locals.userLogin.avatar %>">
-						<%= 'Hola ' + locals.userLogin.name %>
+						<span class="hola"><%= 'Hola ' + locals.userLogin.name %></span>
 							<% }else{ %>
 								Iniciar Sesión
 								<% } %>
