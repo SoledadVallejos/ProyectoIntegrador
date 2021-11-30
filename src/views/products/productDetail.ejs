@@ -42,9 +42,31 @@
                         <div class="descripcion-producto">
                             <p class="ml-1">
                                 <%=product.name%> <span class="precio-estilo">
-                                        <%=product.price%>
+                                        $ <%=product.price%> / <%=product.discount%>% OFF
                                     </span>
                             </p>
+
+                            <p>
+                                Descripción
+                            </p>
+                            <span class="descriptions">
+                                <%=product.description%>
+                            </span>
+
+                            <p>
+                                Color
+                            </p>
+                            <span class="descriptions">
+                                <%=product.color%>
+                            </span>
+
+                            <p>
+                                Size
+                            </p>
+                            <span class="descriptions">
+                                <%=product.size%>
+                            </span>
+
                             <div class="colores-radio ml-2">
                                 <label for="text">color</label>
                                 <div class="radio-rojo ml-2">
