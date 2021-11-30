@@ -23,8 +23,6 @@ html#productsWoman {
     display: none;
 }
 
-/* 
-VERSION 1
 a.productImage:hover .full-imgHover {
     display: block;
     width: 20%;
@@ -36,8 +34,9 @@ a.productImage:hover .full-imgHover {
     border-radius: 10px;
     box-shadow: -7px 8px 10px -6px rgb(0, 0, 0);
 }
- */
 
+/* 
+VERSION 2
 a.productImage:hover .full-imgHover {
     display: block;
     width: 94%;
@@ -48,7 +47,7 @@ a.productImage:hover .full-imgHover {
     box-shadow: -7px 8px 10px -6px rgb(0, 0, 0);
     margin: auto;
 }
-
+ */
 a.productImage:hover .full-img {
     display: none;
 }
@@ -119,4 +118,15 @@ footer {
     .cart {
         text-align: center;
     }
+}
+
+
+/* QUITO padding DEL box DEL response.css */
+/* PARA HAYA ARMONIA TODAS LAS VISTAS BASADAS EN TEMPLATE response (shop-template) */
+.box{
+    padding: 0 !important;
+}
+
+.margin2x{
+    margin: 0 -0.3rem;
 }

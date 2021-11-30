@@ -19,7 +19,8 @@
 							</a>
 						</article>
 						<article ">
-					<form action=" /admin/search_results" method="GET">
+							     <!-- 				/admin/search_results  ESTA MISMA RUTA (app + admin.js) EN EL FORM							 -->
+							<form action=" /admin/search_results" method="GET">
 							<input type="search" name="keywords" placeholder="nom. cat. color descr."
 								class="searchAdmin">
 							<button class="btn btn-primary" type="submit">
@@ -58,7 +59,8 @@
 											<%= index.name%>
 										</td>
 										<td><a href="/products/productDetail/<%= index.id%>">
-												<img class="imgAdmin" src="/img/productDetail-splide/<%= index.image[0].file%>" alt=""
+												<img class="imgAdmin"
+													src="/img/productDetail-splide/<%= index.image[0].file%>" alt=""
 													width="100px">
 											</a>
 										</td>

@@ -9,11 +9,19 @@
 			<li class="logo-name"><a href="/">roma</a></li>
 		</div>
 		<div class="header-buscador">
-			<form action="" class="buscar">
+			<!-- <form action="" class="buscar">
 				<a href="" class="icon"></a>
-				<input type="search" name="Search" id="search" placeholder="¿Que desea buscar?"><i
-					class="fas fa-search"></i>
+				<input type="search" name="Search" id="search" placeholder="¿Que desea buscar?">
+				<i class="fas fa-search"></i>
+			</form> -->
+			<!--					/sr/  ESTA MISMA RUTA (app + index.js) EN EL FORM -->
+			<form action=" /sr/" method="GET" class="buscar">
+				<input type="search" name="keywords" id="search" placeholder=" ¿Que desea buscar? " class="searchAdmin">
+				<button class="btn-search-header" type="submit">
+					<i class="fas fa-search"></i>
+				</button>
 			</form>
+
 		</div>
 
 		<!-- MENU USUARIO  -->
@@ -27,10 +35,12 @@
 					<% if (locals.userLogin) { %>
 						<!--                                                                                             avatar USUARIO -->
 						<img class="user" src="/img/users/<%= locals.userLogin.avatar %>">
-						<span class="hola"><%= 'Hola ' + locals.userLogin.name %></span>
-							<% }else{ %>
-								Iniciar Sesión
-								<% } %>
+						<span class="hola">
+							<%= 'Hola ' + locals.userLogin.name %>
+						</span>
+						<% }else{ %>
+							Iniciar Sesión
+							<% } %>
 				</button>
 
 				<!--                                                 dropdown1-content MUESTRA MENU DESPLEGABLE-->

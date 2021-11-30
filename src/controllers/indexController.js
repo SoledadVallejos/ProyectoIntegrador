@@ -75,4 +75,47 @@ module.exports = {
             })
             .catch(error => console.log(error))
     },
+    search: (req, res) => {
+        let products1 = db.Product.findAll({
+            include: [ // SI
+                'section',
+                'category', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                'image' // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+            ]
+        })
+        Promise.all([products1])
+            .then(([products1]) => {
+                // let p1 = products1[0].name; // PROBANDO products1
+                // var result = []; // PROBANDO un for en limpio...
+                // for (let index = 0; index < products1.length; index++) {
+                //     result += products1[index];
+                // }
+                let toSearch = (req.query.keywords).toLowerCase();
+                let searchResults = [];
+                for (let i = 0; i < products1.length; i++) {
+                    ((products1[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : "Nada encontrado";
+                    // ((products1[i].category.description).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i].category.description) : 'Nada encontrado'; // FALTA RESOLVER
+                    ((products1[i].description).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : 'Nada encontrado';
+                    ((products1[i].color).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : 'Nada encontrado';
+                }
+                // FILTRAR REPETIDOS
+                let hash = {};
+                searchResults = searchResults.filter(function (current) {
+                    let exists = !hash[current.id];
+                    hash[current.id] = true;
+                    return exists;
+                });
+                // return res.send(categories); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
+                // console.log(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
+                // return res.send(searchResults); //COMPROBAR
+                //             /general  OJO!! NO PONER BARRA!! NO FUNCIONA!!
+                res.render('general/resultsHome', { // LAS COMPROBACIONES HACERLAS ANTES DE ESTE res.render()
+                    searchResults,
+                    toSearch,
+                });
+            })
+            .catch(error => console.log(error))
+    },
+
+
 }

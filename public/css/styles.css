@@ -18,3 +18,7 @@
 /* CUSTOM STYLE */
 @import url("./productWoman/template-style.css");
 /* productWoman / */
+
+/* resultsHome.ejs */
+@import url("./resultsHome.css");
+/* resultsHome.ejs  / */

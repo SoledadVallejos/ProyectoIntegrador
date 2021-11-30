@@ -27,10 +27,20 @@
 }
 
 /* DETALLE DE PRODUCTO */
+
+/*add by Daniel R.*/
+/*DESCRIPCION DEL PRODUCTO*/
+span.descriptions{
+    margin-bottom: 1rem;
+}
+
+
+
+
  
 .caracteristicas-producto{
     background-color: #ece6e2;
-    height: 275px;
+    /*height: 275px;*/
     margin: auto;
     margin-top: 20px;
     width: 90%;
@@ -209,7 +219,7 @@
     }
 
     .caracteristicas-producto{
-        height: 325px;
+        /*height: 325px;*/
         width: 80%;
     }
 

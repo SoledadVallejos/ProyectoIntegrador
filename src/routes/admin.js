@@ -30,6 +30,8 @@ router.get('/edit/:id', edit);
 router.put('/update/:id', uploadMultiple.array('splideImages'), update);
 
 router.get('/delete/:id', hastaLaVistaBeibi);
+
+//      admin/search_results  ESTA MISMA RUTA (app + admin.js) EN EL FORM
 router.get('/search_results/', search);
 
 
