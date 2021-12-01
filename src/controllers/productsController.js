@@ -29,6 +29,44 @@ module.exports = {
             .catch(error => console.log(error))
     },
 
+    productsWoman: (req, res) => {
+        let products = db.Product.findAll({
+            include: [ // SI
+                'section',
+                'category', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                'image' // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+            ]
+        })
+        Promise.all([products])
+            .then(([products]) => {
+                // return res.send(products) //COMPROBARRRRRRRRRRRRRRRRRRRRRRR ANTES DE PROSEGUIR //MUESTRA DATOS INGRESADOS EN DB
+                return res.render('products/productsWoman', {
+                    title: 'Ropa Mujer',
+                    products,
+                });
+            })
+            .catch(error => console.log(error))
+    },
+
+    productsMan: (req, res) => {
+        let products = db.Product.findAll({
+            include: [ // SI
+                'section',
+                'category', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                'image' // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+            ]
+        })
+        Promise.all([products])
+            .then(([products]) => {
+                // return res.send(products) //COMPROBARRRRRRRRRRRRRRRRRRRRRRR ANTES DE PROSEGUIR //MUESTRA DATOS INGRESADOS EN DB
+                return res.render('products/productsMan', {
+                    title: 'Ropa Hombre',
+                    products,
+                });
+            })
+            .catch(error => console.log(error))
+    },
+
     cart: (req, res) => {
         return res.render('products/cart', {
             title: 'Tu carrito',

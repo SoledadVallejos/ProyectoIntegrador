@@ -1,118 +1,198 @@
 <header>
 
-    <div class="top-header">
-        <p>ENVIO GRATIS A PARTIR DE 15.000$ - 3 Y 6 CUOTAS SIN INTERES.</p>
-    </div>
-    <nav class="header-nav">
-        <div class="header-logo">
-            <li class="logo"><a href="/"><img src="/img/logo-roma.jpg" alt=""></a></li>
-            <li class="logo-name"><a href="/">roma</a></li>
-        </div>
-        <div class="header-buscador">
-            <form action="" class="buscar">
-                <a href="" class="icon"></a>
-                <input type="search" name="Search" id="search" placeholder="¿Que desea buscar?"><i
-                    class="fas fa-search"></i>
-            </form>
+	<div class="top-header">
+		<p>ENVIO GRATIS A PARTIR DE 15.000$ - 3 Y 6 CUOTAS SIN INTERES.</p>
+	</div>
+	<nav class="header-nav">
+		<div class="header-logo">
+			<li class="logo"><a href="/"><img src="/img/logo-roma.jpg" alt=""></a></li>
+			<li class="logo-name"><a href="/">roma</a></li>
+		</div>
+		<div class="header-buscador">
+			<!-- <form action="" class="buscar">
+				<a href="" class="icon"></a>
+				<input type="search" name="Search" id="search" placeholder="¿Que desea buscar?">
+				<i class="fas fa-search"></i>
+			</form> -->
+			<!--					/sr/  ESTA MISMA RUTA (app + index.js) EN EL FORM -->
+			<form action=" /sr/" method="GET" class="buscar">
+				<input type="search" name="keywords" id="search" placeholder=" ¿Que desea buscar? " class="searchAdmin">
+				<button class="btn-search-header" type="submit">
+					<i class="fas fa-search"></i>
+				</button>
+			</form>
 
-        </div>
+		</div>
+
+		<!-- MENU USUARIO  -->
+		<div class="header-menu-user">
+			<!-- MENU DESPLEGABLE PASANDO EL MOUSE-->
+			<!--              dropdown DESPLIEGA MENU -->
+			<div class="dropdown">
+
+				<!--                        dropbtn ESTILOS DEL MENU BOTON-->
+				<button class=" dropbtn">
+					<% if (locals.userLogin) { %>
+						<!--                                                                                             avatar USUARIO -->
+						<img class="user" src="/img/users/<%= locals.userLogin.avatar %>">
+						<span class="hola">
+							<%= 'Hola ' + locals.userLogin.name %>
+						</span>
+						<% }else{ %>
+							Iniciar Sesión
+							<% } %>
+				</button>
+
+				<!--                                                 dropdown1-content MUESTRA MENU DESPLEGABLE-->
+				<div id="myDropdown" class="dropdown-content">
+					<% if (locals.userLogin) { %>
+						<!--   ruta users/profile (link) misma ruta que en (app.js + user.js) -->
+						<a href="/users/profile/<%= locals.userLogin.id %>">Mi Perfil</a>
+						<a href="/products/cart"><i class="fas fa-shopping-bag"> Carrito</i></a>
+						<% if (locals.userLogin.rol==='Administrador' ) { %>
+							<a href="/admin">Administrar Productos</a>
+							<a href="/users">Administrar Usuarios</a>
+							<a href="/users/register">Registro</a>
+							<% } %>
+								<a href="/users/<%= locals.userLogin.id %>/logout">Salir</a>
+								<% }else{ %>
+									<a href="/users/login">Entrar</a>
+									<a href="/users/register">Registro</a>
+									<% } %>
+
+				</div>
+			</div>
+			<!-- MENU DESPLEGABLE PASANDO EL MOUSE /-->
 
 
-        <!--         <div class="header-login">
-            <% if (locals.userLogin) { %>
-            <li><a href="/users/profile"><%= locals.userLogin.name %> </a></li>
-            <li><a href="/products/cart"><i class="fas fa-shopping-bag"></i></li></a>
-            <li><a href="/users/profile"><%= locals.userLogin.name %> </a></li>
-
-            <% if (locals.userLogin.rol === 'Administrador') { %>
-            <li><a href="/admin">Admin</a></li>
-            <% } %>
-
-            <li><a href="/users/logout">Salir</a></li>
-
-            <% }else{ %>
-            <li><a href="/users/login">login</a></li>
-            <li><a href="/users/register">register</a></li>
-            <% } %>
-        </div>
-    </nav>
- -->
-
-        <div class="holausuario">
-            <!-- MENU DESPLEGABLE DE USUARIO -->
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">
-                    <!-- AVATAR USUARIO -->
-                    <% if (locals.userLogin) { %>
-                        <img src="/img/users/<%= locals.userLogin.avatar %>" width="57" height="57"
-                            style="border-radius: 50%; ">
-                        <%= 'Hola ' + locals.userLogin.name %>
-                            <% }else{ %>
-                                Iniciar Sesión
-                                <% } %>
-
-                </button>
-                <div id="myDropdown" class="dropdown-content">
-
-                    <% if (locals.userLogin) { %>
-                        <!--   ruta users/profile (link) misma ruta que en app.js + user.js -->
-                        <a href="/users/profile/">Mi Perfil</a>
-                        <a href="/products/cart"><i class="fas fa-shopping-bag"> Carrito</i></a>
-
-                        <% if (locals.userLogin.rol==='Administrador' ) { %>
-                            <a href="/admin">Administrar Productos</a>
-                            <a href="/users">Administrar Usuarios</a>
-                            <a href="/users/register">Registro</a>
-                            <% } %>
-
-                                <a href="/users/logout">Salir</a>
-
-                                <% }else{ %>
-                                    <a href="/users/login">Entrar</a>
-                                    <a href="/users/register">Registro</a>
-                                    <% } %>
-
+			<!--  MENU SIN MENU DESPLEGABLE
+             <div class="header-login">
+                <% if (locals.userLogin) { %>
+                    <li><a href="/users/profile"><%= locals.userLogin.name %> </a></li>
+                    <li><a href="/products/cart"><i class="fas fa-shopping-bag"></i></li></a>
+                    <li><a href="/users/profile"><%= locals.userLogin.name %> </a></li>
+        
+                    <% if (locals.userLogin.rol === 'Administrador') { %>
+                    <li><a href="/admin">Admin</a></li>
+                    <% } %>
+        
+                    <li><a href="/users/logout">Salir</a></li>
+        
+                    <% }else{ %>
+                    <li><a href="/users/login">login</a></li>
+                    <li><a href="/users/register">register</a></li>
+                    <% } %>
                 </div>
-            </div>
+            </nav>
+                    MENU SIN MENU DESPLEGABLE  /-->
+		</div>
+		<!-- MENU USUARIO /-->
 
-            <script>
-                /* When the user clicks on the button,  toggle between hiding and showing the dropdown content */
-                function myFunction() {
-                    document.getElementById("myDropdown").classList.toggle("show");
-                }
+		<!-- MENU PRODUCTOS -->
+		<nav class="menuHeader">
 
-                // Close the dropdown if the user clicks outside of it
-                window.onclick = function (event) {
-                    if (!event.target.matches('.dropbtn')) {
-                        var dropdowns = document.getElementsByClassName("dropdown-content");
-                        var i;
-                        for (i = 0; i < dropdowns.length; i++) {
-                            var openDropdown = dropdowns[i];
-                            if (openDropdown.classList.contains('show')) {
-                                openDropdown.classList.remove('show');
-                            }
-                        }
-                    }
-                }
-            </script>
-            <!-- MENU DESPLEGABLE DE USUARIO / -->
-        </div>
+			<div class="burger-menu">
+				<i class="fas fa-bars"></i>
+			</div>
+
+			<!-- MENU DESPLEGABLE DE USUARIO DANDO CLIC-->
+
+			<!-- BOTON DISPARADOR DEL MENU -->
+			<div class="search-bar">
+				<ul>
+					<li>
+						<div class="dropdown1">
+							<button onclick="myFunction1()" class="dropbtn1">
+								Hombre
+							</button>
+							<!-- MENU DESPLEGABLE  -->
+							<div id="myDropdown1" class="dropdown-content1">
+								<a href="/products/productsMan">Corbata (Activo)</a>
+								<a href="#">OFF 2</a>
+								<a href="#">OFF 3</a>
+							</div>
+							<!-- MENU DESPLEGABLE /-->
+
+							<!-- SCRIPT NECESARIO PARA dropdown DANDO CLIC -->
+							<!-- INCLUYE CLASES CSS -->
+							<script>
+								/* When the user clicks on the button,  toggle between hiding and showing the dropdown content */
+								function myFunction1OFF() {
+									document.getElementById("myDropdown1").classList.toggle("show");
+								}
+
+								// Close the dropdown if the user clicks outside of it
+								window.onclick = function (event) {
+									if (!event.target.matches('.dropbtn1')) {
+										var dropdowns = document.getElementsByClassName("dropdown-content1");
+										var i;
+										for (i = 0; i < dropdowns.length; i++) {
+											var openDropdown = dropdowns[i];
+											if (openDropdown.classList.contains('show')) {
+												openDropdown.classList.remove('show');
+											}
+										}
+									}
+								}
+							</script>
+							<!-- SCRIPT NECESARIO PARA dropdown DANDO CLIC -->
+						</div>
+					</li>
+					<li>
+						<div class="dropdown1">
+							<button onclick="myFunction2()" class="dropbtn1">
+								Mujer
+							</button>
+							<!-- MENU DESPLEGABLE  -->
+							<div id="myDropdown2" class="dropdown-content1">
+								<a href="/products/productsWoman">Los vestidos (Activo)</a>
+								<a href="#">Beauty</a>
+								<a href="#">Lencería</a>
+							</div>
+							<!-- MENU DESPLEGABLE /-->
+
+							<!-- SCRIPT NECESARIO PARA dropdown DANDO CLIC -->
+							<!-- INCLUYE CLASES CSS -->
+							<script>
+								/* When the user clicks on the button,  toggle between hiding and showing the dropdown content */
+								function myFunction2OFF() {
+									document.getElementById("myDropdown2").classList.toggle("show");
+								}
+
+								// Close the dropdown if the user clicks outside of it
+								window.onclick = function (event) {
+									if (!event.target.matches('.dropbtn1')) {
+										var dropdowns = document.getElementsByClassName("dropdown-content1");
+										var i;
+										for (i = 0; i < dropdowns.length; i++) {
+											var openDropdown = dropdowns[i];
+											if (openDropdown.classList.contains('show')) {
+												openDropdown.classList.remove('show');
+											}
+										}
+									}
+								}
+							</script>
+							<!-- SCRIPT NECESARIO PARA dropdown DANDO CLIC -->
+						</div>
+					</li>
+					<li><a href="#">Categorias</a></li>
+					<li><a href="#">Marcas</a></li>
+					<li><a href="#">Liquidacion</a></li>
+				</ul>
+			</div>
+			<!-- BOTON DISPARADOR DEL MENU /-->
 
 
-        <nav class="menuHeader">
-            <div class="burger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
+			<!-- MENU DESPLEGABLE DE USUARIO DANDO CLIC/-->
 
-            <div class="search-bar">
-                <ul>
-                    <li><a href="">Hombre</a></li>
-                    <li><a href="">Mujer</a></li>
-                    <li><a href="">Categorias</a></li>
-                    <li><a href="">Marcas</a></li>
-                    <li><a href="">Liquidacion</a></li>
-                </ul>
-            </div>
-        </nav>
+
+
+
+
+
+		</nav>
+		<!-- MENU PRODUCTOS /-->
+
 
 </header>

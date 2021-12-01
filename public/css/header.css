@@ -1,12 +1,37 @@
+/* SOLUCION CONFLICTO CON responsee.css  Y OTROS...*/
+
+img.user {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+}
+
 header div.top-header {
     width: 100%;
     color: var(--color-blanco);
     background-color: var(--color-beige);
-    font-size: 9px;
+    font-size: 12px;
     text-align: center;
 }
 
+div.top-header p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+form.buscar input {
+    padding: 2px;
+    line-height: 20px;
+    font-size: 15px;
+}
+
+
+
 /* MENU DE USUARIOS */
+
 .menuHeader {
     width: 100%;
 }
@@ -15,19 +40,29 @@ label.menuUser {
     color: white;
 }
 
-/* MENU DESPLEGABLE DE USUARIO*/
+span.hola{
+    align-self:center;
+    margin-left: 10px;
+}
+
+
+
+
+/* MENU DESPLEGABLE DE USUARIO PASANDO EL MOUSE*/
+/* ACTIVAR O DESACTIVAR COMENTANDO O NO */
 .dropbtn {
     background-color: transparent;
     color: white;
-    padding: 16px;
+    padding: 17px;
     font-size: 17px;
     border: none !important;
     cursor: pointer;
-    /* width: 12.5rem; */
     margin-right: 2px;
     height: 87px;
+    display: flex;
 }
 
+.dropbtn:active,
 .dropbtn:hover,
 .dropbtn:focus {
     /* background-color: white; */
@@ -54,20 +89,108 @@ label.menuUser {
 }
 
 .dropdown-content a {
-    color: black;
+    color: black !important;
     padding: 12px 16px;
-    text-decoration: none;
+    text-decoration: none !important;
     display: block;
 }
 
-.dropdown a:hover {
+.dropdown-content a:hover {
     background-color: #ddd;
+}
+
+/* MUESTRA MENU AL PASAR EL MOUSE */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 0px -40px 30px white;
+    color: white;
+}
+
+/* MENU DESPLEGABLE DE USUARIO PASANDO EL MOUSE / */
+
+
+/* MENU DESPLEGABLE DE USUARIO DANDO CLIC*/
+/* ACTIVAR O DESACTIVAR COMENTANDO O NO */
+
+
+
+.dropbtn1 {
+    padding: 0;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    height: 2rem;
+    display: block;
+    background: none;
+}
+
+.dropbtn1:hover, .dropbtn1:focus {
+    /* background-color: #2980B9; */
+    padding: 0;
+    text-decoration: underline;
+}
+
+.dropdown1 {
+    position: relative;
+    /* display: inline-block; */
+}
+
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: -1em;
+    top: 2rem;
+    padding-top: .4rem;
+}
+
+.dropdown-content1 a {
+    color: black !important;
+    padding: 0px 16px;
+    text-decoration: none;
+    display: block;
+    line-height: 37px;
+}
+
+.dropdown-content1 a:hover {
+    background-color: #ddd;
+    overflow: hidden;
+
+}
+
+.dropdown1 a:hover {
+    text-decoration: underline;
+}
+
+/* MUESTRA MENU AL PASAR EL MOUSE */
+.dropdown1:hover .dropdown-content1 {
+    display: block;
 }
 
 .show {
     display: block;
 }
 
+/* MENU DESPLEGABLE DE USUARIO DANDO CLIC/ */
+
+/* BOTON BUSCAR DEL HEADER */
+.btn-search-header{
+    background-color: black !important; 
+    border-color: white !important;
+}
+
+.btn-search-header:hover{
+    border-color: black !important;
+}
 
 
 
@@ -80,9 +203,21 @@ label.menuUser {
 
 
 
+
+
+
+
+
+
+
+
+
+
+p.top-header-offer {
+    font-size: 14px;
+}
 
 header nav.header-nav {
-
     display: flex;
     background-color: var(--color-negro);
     justify-content: space-between;
@@ -92,41 +227,33 @@ header nav.header-nav {
 }
 
 header nav div.header-logo {
-    margin-top: 5px;
+    margin-left: 15px;
     width: 33%;
     display: flex;
     list-style: NONE;
 }
 
-
 header nav div li.logo {
-
     width: 100%;
     margin: auto;
     justify-content: stretch;
     text-align: center;
 }
 
-
-
 header nav div li.logo a img {
     width: 70%;
     border-radius: 50%;
     margin-top: 5px;
     margin-bottom: 5px;
-
-
 }
 
 header nav div li.logo-name {
     margin-top: 14%;
     width: 40%;
     margin: auto;
-
 }
 
 header nav div li.logo-name a {
-
     color: VAR(--color-blanco);
     margin: auto;
     font-family: 'Permanent Marker', cursive;
@@ -134,7 +261,6 @@ header nav div li.logo-name a {
     font-size: 15px;
     text-transform: uppercase;
     text-align: center;
-
 }
 
 header nav div.header-buscador {
@@ -146,7 +272,6 @@ header nav div.header-buscador form input {
     display: none;
 }
 
-
 header nav div.header-login {
     width: 32%;
     display: flex;
@@ -154,10 +279,8 @@ header nav div.header-login {
 }
 
 header nav div.header-login li {
-
     font-size: 15px;
     text-transform: uppercase;
-
 }
 
 header nav div.header-login li a {
@@ -169,8 +292,6 @@ header nav div.burger-menu {
     display: block;
     text-align: center;
     width: 100%;
-
-
 }
 
 header nav div.burger-menu i {
@@ -181,13 +302,11 @@ header nav div.burger-menu i {
     border-radius: 5px;
     text-align: center;
     margin-bottom: 10px;
-
 }
 
 header nav div.search-bar {
     display: none;
 }
-
 
 @media (min-width: 425px) {
     header div.top-header {
@@ -201,7 +320,6 @@ header nav div.search-bar {
     header nav div.header-buscador {
         width: 33%;
         display: flex;
-
     }
 
     header nav div.header-buscador form {
@@ -222,8 +340,6 @@ header nav div.search-bar {
         border-radius: 0px 5px 5px 0px;
     }
 
-
-
     header nav div.header-login {
         max-width: 200px;
     }
@@ -234,7 +350,6 @@ header nav div.search-bar {
 
     header nav div.search-bar {
         display: flex;
-
         justify-content: space-between;
         background-color: var(--color-blanco);
     }
@@ -243,12 +358,10 @@ header nav div.search-bar {
         display: flex;
         width: 100%;
         border: solid 1px var(--color-negro);
-
     }
 
     header nav div.search-bar ul li {
         margin: 9px;
-
     }
 
     header nav div.search-bar ul li a {
@@ -260,9 +373,7 @@ header nav div.search-bar {
     }
 }
 
-
 @media (min-width: 724px) {
-
     header div.top-header {
         font-size: 15px;
     }

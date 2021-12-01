@@ -1,0 +1,132 @@
+/* SOLUCION A CONFLICTOS CON BOOTSRAP */
+
+html#productsWoman {
+    font-size: 0.99rem;
+}
+
+#asideMargin {
+    margin: 0 !important;
+}
+
+
+/* PERSONALIZACION productImage  */
+.full-img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    margin-bottom: 1rem;
+    height: auto;
+}
+
+.full-imgHover {
+    display: none;
+}
+
+a.productImage:hover .full-imgHover {
+    display: block;
+    width: 20%;
+    max-width: 17%;
+    height: auto;
+    position: absolute;
+    top: 19.5rem;
+    background: none;
+    border-radius: 10px;
+    box-shadow: -7px 8px 10px -6px rgb(0, 0, 0);
+}
+
+/* 
+VERSION 2
+a.productImage:hover .full-imgHover {
+    display: block;
+    width: 94%;
+    height: auto;
+    top: 19.5rem;
+    background: none;
+    border-radius: 10px;
+    box-shadow: -7px 8px 10px -6px rgb(0, 0, 0);
+    margin: auto;
+}
+ */
+a.productImage:hover .full-img {
+    display: none;
+}
+
+a.productImage {
+    display: block;
+    height: 22.7rem;
+    overflow: hidden;
+}
+
+h5.price {
+    margin-top: 1rem;
+}
+
+
+
+/* .margin-bottom{
+    font-size: 1rem;
+} */
+/* SOLUCION A CONFLICTOS CON BOOTSRAP  / */
+
+header form.customform input,
+header form.customform button {
+    margin-bottom: 0;
+}
+
+img.logo {
+    max-width: 170px;
+}
+
+.icon-sli-basket::before {
+    color: #444;
+    font-size: 1.3rem;
+    margin-right: 5px;
+    top: 2px;
+    position: relative;
+}
+
+#header-carousel .owl-dots {
+    margin-top: -30px !important;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+footer {
+    background: #fff;
+    /* EDITADO */
+    /* padding: 3.5rem 0; */
+}
+
+@media screen and (max-width: 768px) {
+    .right {
+        float: none;
+    }
+
+    nav {
+        padding: 0;
+    }
+
+    img.logo {
+        max-width: 170px;
+        margin: 0 auto 20px auto;
+        width: auto;
+        max-height: 40px;
+    }
+
+    .cart {
+        text-align: center;
+    }
+}
+
+
+/* QUITO padding DEL box DEL response.css */
+/* PARA HAYA ARMONIA TODAS LAS VISTAS BASADAS EN TEMPLATE response (shop-template) */
+.box{
+    padding: 0 !important;
+}
+
+.margin2x{
+    margin: 0 -0.3rem;
+}

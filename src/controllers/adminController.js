@@ -153,7 +153,6 @@ module.exports = {
 
     //LISTADO DE PRODUCTOS
     admin: (req, res) => {
-        // let productimage = products[id] // Y ESTO?
         let products1 = db.Product.findAll({
             include: [ // SI
                 'section',
@@ -220,7 +219,8 @@ module.exports = {
                 });
                 // return res.send(categories); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
                 // console.log(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-                // return res.send(toSearch); //COMPROBAR
+                // return res.send(searchResults); //COMPROBAR
+                //             /adminl  OJO!! NO PONER BARRA!! NO FUNCIONA!!
                 res.render('admin/results', { // LAS COMPROBACIONES HACERLAS ANTES DE ESTE res.render()
                     searchResults,
                 });

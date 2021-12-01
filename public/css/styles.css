@@ -8,3 +8,17 @@
 @import url("./register.css");
 @import url("./add.css");
 @import url("./edit.css");
+
+/* productWoman */
+@import url("./productWoman/components.css");
+@import url("./productWoman/responsee.css");
+@import url("./productWoman/icons.css");
+@import url("./productWoman/owl.carousel.css");
+@import url("./productWoman/owl.theme.css");
+/* CUSTOM STYLE */
+@import url("./productWoman/template-style.css");
+/* productWoman / */
+
+/* resultsHome.ejs */
+@import url("./resultsHome.css");
+/* resultsHome.ejs  / */
