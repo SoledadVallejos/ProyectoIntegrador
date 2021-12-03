@@ -46,7 +46,7 @@ module.exports = {
                     password: bcrypt.hashSync(password, 10),
                     country: country.trim(),
                     avatar: req.file ? req.file.filename : 'default.png',
-                    rolId: rol
+                    rolId: rol ? rol : 1
                 })
 
             req.session.userLogin = {
