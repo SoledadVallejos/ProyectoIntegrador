@@ -20,7 +20,7 @@ module.exports = {
         return res.send(user); // COMPROBAR USUARIOS
     },
     processCreate: async (req, res) => {
-        const { name, lastName, country, email, password } = req.body;
+        const { name, lastName, country, email,rol, password } = req.body;
 
         try {
 
@@ -46,7 +46,7 @@ module.exports = {
                     password: bcrypt.hashSync(password, 10),
                     country: country.trim(),
                     avatar: req.file ? req.file.filename : 'default.png',
-                    rolId: 1
+                    rolId: rol
                 })
 
             req.session.userLogin = {

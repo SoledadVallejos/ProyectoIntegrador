@@ -263,6 +263,7 @@ CREATE TABLE `rols` (
 LOCK TABLES `rols` WRITE;
 /*!40000 ALTER TABLE `rols` DISABLE KEYS */;
 INSERT INTO `rols` VALUES (1,'user','2021-02-02 00:00:00',NULL,NULL);
+INSERT INTO `rols` VALUES (2,'admin','2021-02-02 00:00:00',NULL,NULL);
 /*!40000 ALTER TABLE `rols` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -379,7 +380,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Batman','Chirola','BB@pum.com','1234567','Sudaca',1,'default.png','2021-10-10 00:00:00',NULL,NULL);
+INSERT INTO `users` VALUES (1,'Batman','Chirola','BB@pum.com','1234567','Sudaca',2,'default.png','2021-10-10 00:00:00',NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
