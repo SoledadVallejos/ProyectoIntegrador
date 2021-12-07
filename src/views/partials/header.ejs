@@ -47,14 +47,14 @@
 				<div id="myDropdown" class="dropdown-content">
 					<% if (locals.userLogin) { %>
 						<!--   ruta users/profile (link) misma ruta que en (app.js + user.js) -->
-						<a href="/users/profile/<%= locals.userLogin.id %>">Mi Perfil</a>
+						<a href="/users/profile">Mi Perfil</a>
 						<a href="/products/cart"><i class="fas fa-shopping-bag"> Carrito</i></a>
-						<% if (locals.userLogin.rol==='Administrador' ) { %>
+						<% if (locals.userLogin.rol === 2 ) { %>
 							<a href="/admin">Administrar Productos</a>
 							<a href="/users">Administrar Usuarios</a>
 							<a href="/users/register">Registro</a>
 							<% } %>
-								<a href="/users/<%= locals.userLogin.id %>/logout">Salir</a>
+								<a href="/users/logout">Salir</a>
 								<% }else{ %>
 									<a href="/users/login">Entrar</a>
 									<a href="/users/register">Registro</a>
@@ -72,7 +72,7 @@
                     <li><a href="/products/cart"><i class="fas fa-shopping-bag"></i></li></a>
                     <li><a href="/users/profile"><%= locals.userLogin.name %> </a></li>
         
-                    <% if (locals.userLogin.rol === 'Administrador') { %>
+                    <% if (locals.userLogin.rol === 2) { %>
                     <li><a href="/admin">Admin</a></li>
                     <% } %>
         
