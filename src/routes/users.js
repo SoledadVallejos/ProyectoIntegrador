@@ -18,7 +18,7 @@ const loginValidator = require('../validations/loginValidator');
 
 // REGISTER
 //     '/users/register' =app.js+users.js
-router.get('/register', guestMiddleware, create);
+router.get('/register', create);
 // REGISTER PROCESS
 router.post('/register', uploadFile.single('avatar'), validations, processCreate);
 

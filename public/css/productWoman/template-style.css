@@ -14,7 +14,7 @@ html#productsWoman {
     display: block;
     width: 100%;
     max-width: 100%;
-    margin: auto;
+    /* margin: auto; */
     margin-bottom: 1rem;
     height: auto;
 }
@@ -23,6 +23,7 @@ html#productsWoman {
     display: none;
 }
 
+/* 
 a.productImage:hover .full-imgHover {
     display: block;
     width: 20%;
@@ -34,28 +35,29 @@ a.productImage:hover .full-imgHover {
     border-radius: 10px;
     box-shadow: -7px 8px 10px -6px rgb(0, 0, 0);
 }
+ */
 
-/* 
-VERSION 2
+/* VERSION 2 */
 a.productImage:hover .full-imgHover {
     display: block;
-    width: 94%;
+    width: 100%;
     height: auto;
     top: 19.5rem;
     background: none;
     border-radius: 10px;
     box-shadow: -7px 8px 10px -6px rgb(0, 0, 0);
-    margin: auto;
+    /* margin: auto; */
+    margin-bottom: 1rem;
 }
- */
+
 a.productImage:hover .full-img {
     display: none;
 }
 
 a.productImage {
     display: block;
-    height: 22.7rem;
-    overflow: hidden;
+    height: auto;
+    /* overflow: hidden; */
 }
 
 h5.price {
@@ -100,6 +102,28 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+
+    /* AJUSTA IMAGEN EN MODO MOBILE */
+    .full-img {
+        max-width: 80%;
+        height: auto;
+    }
+
+    .full-img:hover {
+        max-width: 80%;
+        height: auto;
+    }
+
+    a.productImage:hover .full-imgHover {
+        width: 80% !important;
+    }
+
+
+
+
+
+
+
     .right {
         float: none;
     }
@@ -123,10 +147,10 @@ footer {
 
 /* QUITO padding DEL box DEL response.css */
 /* PARA HAYA ARMONIA TODAS LAS VISTAS BASADAS EN TEMPLATE response (shop-template) */
-.box{
+.box {
     padding: 0 !important;
 }
 
-.margin2x{
+.margin2x {
     margin: 0 -0.3rem;
 }

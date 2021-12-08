@@ -33,8 +33,8 @@
 				<!--                        dropbtn ESTILOS DEL MENU BOTON-->
 				<button class=" dropbtn">
 					<% if (locals.userLogin) { %>
-						<!--                                                                                             avatar USUARIO -->
-						<img class="user" src="/img/users/<%= locals.userLogin.avatar %>">
+						<!--                                                                                  						             avatar USUARIO -->
+						<img class="user" src="/img/users/<%= locals.userLogin!=='' ? locals.userLogin.avatar : 'default.png' %>">
 						<span class="hola">
 							<%= 'Hola ' + locals.userLogin.name %>
 						</span>
