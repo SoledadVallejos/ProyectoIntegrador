@@ -20,7 +20,7 @@ module.exports = {
         return res.send(user); // COMPROBAR USUARIOS
     },
     processCreate: async (req, res) => {
-        const { name, lastName, country, email,rol, password } = req.body;
+        const { name, lastName, country, email, rol, password } = req.body;
 
         try {
 
@@ -78,7 +78,7 @@ module.exports = {
                 }
             })
             if (!user) {
-                return res.render('users/register', {
+                return res.render('users/login', {
                     error: {
                         credenciales: "credenciales invalidas"
                     }
@@ -87,14 +87,14 @@ module.exports = {
             }
 
             if (!bcrypt.compareSync(password, user.password)) {
-                return res.render('users/register', {
+                return res.render('users/login', {
                     error: {
                         credenciales: "credenciales invalidas"
                     }
                 }
                 )
             }
-             req.session.userLogin = {
+            req.session.userLogin = {
                 id: user.id,
                 name: user.name,
                 avatar: user.avatar,
