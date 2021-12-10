@@ -27,17 +27,3 @@ module.exports = [
 		return true;
 	})
 ]
-/*
-// Validaciones. //ESTO PODRIA ESTAR EN OTRO ARCHIVO EN OTRA CARPETA DISPONIBLE A REQUERIR
-const { body, check } = require('express-validator');
-const validateCreateForm = [
-	body('first_name').notEmpty().withMessage('Debes completar el campo de nombre'),
-	body('last_name').notEmpty().withMessage('Debes completar el campo de apellido'),
-	body('email').isEmail().withMessage('Debes completar un email válido'),
-	check('password') //check OTRA FORMA DE VALIDAR...
-		.notEmpty().withMessage('Debes elegir una contraseña.').bail() // bail() TIRA ERROR Y CORTA. NECESARIO PARA EVITAR ERROR: "value invalid"
-		.isLength({ min: 5 }).withMessage('Debe tener mínimo 5 caracteres la contraseña.'),
-	check('category').notEmpty().withMessage('Debes elegir una categoría.')
-];
-// Validaciones. //ESTO PODRIA ESTAR EN OTRO ARCHIVO EN OTRA CARPETA DISPONIBLE A REQUERIR/
- */
