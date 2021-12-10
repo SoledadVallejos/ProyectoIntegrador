@@ -129,7 +129,21 @@
 }
 
 /* INPUT COLOR FIX riveradanieldavid  / */
+/* 
+sectionsProduct riveradaniel
+.sectionsProduct {
+    display: flex;
+}
 
+.section {
+    display: flex;
+    align-items: baseline !important;
+    width: 100%;
+
+} */
+
+
+/* sectionsProduct riveradaniel / */
 
 
 

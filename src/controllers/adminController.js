@@ -51,6 +51,7 @@ module.exports = {
                             // FINALMENTE REDIRIGIR AL ADMIN
                             console.log('imagenes agregadas' + result)
                             // return res.send(imagesArr);//COMPROBAR
+                            // return res.send(req.body);//COMPROBAR
                             return res.redirect('/admin');
                         })
                         .catch(error => console.log(error))

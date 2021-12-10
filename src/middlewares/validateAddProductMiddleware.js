@@ -5,8 +5,8 @@ module.exports = [
     // body('')  ES MÁS CONFIABLE. VINCULADO A error.param=='color'
     body('name') // VINCULADO A error.param=='name'
         .notEmpty().withMessage('Nombre de producto es necesario').bail() // bail() TIRA ERROR Y CORTA. NECESARIO PARA EVITAR ERROR: "value invalid"
-        .isAlphanumeric().withMessage('Solo letras y números').bail() // bail() TIRA ERROR Y CORTA. NECESARIO PARA EVITAR ERROR: "value invalid"
-        .isLength({ min: 5 }).withMessage('Mínimo 5 caracteres'),
+        .isLength({ min: 5 }).withMessage('Mínimo 5 caracteres').bail()
+        .matches('^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$').withMessage('Solo se permite un espacio entre palabras'),
     body('category')
         .notEmpty().withMessage('Categoría del producto es necesario').bail()
         .isNumeric().withMessage('1 o 2: 1=Hombre 2=Mujer').bail()
@@ -14,8 +14,8 @@ module.exports = [
         .isLength({ max: 1 }).withMessage('1 o 2: 1=Hombre 2=Mujer'),
     body('price')
         .notEmpty().withMessage('Precio de producto es necesario').bail()
-        .isNumeric().withMessage('Número mayor a 100').bail()
-        // .isLength({ min: 2 }).withMessage('2 a 10 dígitos').bail()
+        .isNumeric().withMessage('Solo números').bail()
+        .isLength({ min: 2 }).withMessage('2 a 10 dígitos').bail()
         .isLength({ max: 10 }).withMessage('2 a 10 dígitos').bail()
         .matches('[^0]').withMessage('No se permite valor 0').bail()
         //                                                                           NO 0     / NULL
@@ -23,20 +23,21 @@ module.exports = [
         .custom((value, { req }) => (value === value.replace(/^0+/, ''))).withMessage('Los ceros de la izquierda no se permiten').bail()
         .custom((value, { req }) => (value >= 100)).withMessage('Más de 100'),
     body('discount')
-        .isNumeric().withMessage('Vacío o número entre 5 y 70').bail()
-        .isLength({ max: 2 }).withMessage('Vacío o número entre 5 y 70').bail()
-        //            NO 0
+        // .isNumeric().withMessage('Número entre 5 y 70').bail()
+        // .isLength({ max: 2 }).withMessage('Número entre 5 y 70').bail()
         // .matches('[^0]').withMessage('No se permite valor 0').bail()
-        .custom((value, { req }) => (value === value.replace(/^0+/, ''))).withMessage('Los ceros de la izquierda no se permiten').bail()
-        .custom((value, { req }) => (value >= 5 && value <= 70)).withMessage('Vacío o número entre 5 y 70'),
+        .custom((value, { req }) => (value === value.replace(/^0+/, ''))).withMessage('Ceros de la izquierda, o valor 0 no se permiten').bail()
+        // .custom((value, { req }) => (value >= 5 && value <= 70)).withMessage('Número entre 5 y 70'),
+        .custom((value, { req }) => (value >= 5 && value <= 70 || value == '' || value === 0)).withMessage('Vacío o número entre 5 y 70').bail()
+        .trim(),
     body('color') //check OTRA FORMA DE VALIDAR...  VINCULADO A error.param=='color'
         .notEmpty().withMessage('Color del producto es necesario'),
     check('size') //check OTRA FORMA DE VALIDAR... 
         .notEmpty().withMessage('Talle del producto es necesario'),
     body('description')
         .notEmpty().withMessage('Descripción del producto es necesario').bail()
+        .matches('^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$').withMessage('Solo se permite un espacio entre palabras').bail()
         .isLength({ min: 20 }).withMessage('Al menos 20 caracteres'),
-
     body('splideImages')
         // .MI PROPIA VALIDATION FUNCTION
         .custom((value, { req }) => {
