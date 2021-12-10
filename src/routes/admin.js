@@ -29,7 +29,7 @@ router.get('/add', add);
 router.post('/add', uploadMultiple.array('splideImages'), validateAddProduct, store);
 
 router.get('/edit/:id', edit);
-router.put('/update/:id', uploadMultiple.array('splideImages'), update);
+router.put('/update/:id', uploadMultiple.array('splideImages'), validateAddProduct, update);
 
 router.get('/delete/:id', hastaLaVistaBeibi);
 

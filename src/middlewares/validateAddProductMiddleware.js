@@ -19,15 +19,15 @@ module.exports = [
         .isLength({ max: 10 }).withMessage('2 a 10 dígitos').bail()
         .matches('[^0]').withMessage('No se permite valor 0').bail()
         //                                                                           NO 0     / NULL
-        //                      (field form)value   ES   valor.reemplazadoa/ VACÍO
+        //                                                                                 0 A LA IZQUIERDA NO PERMITIDO
         .custom((value, { req }) => (value === value.replace(/^0+/, ''))).withMessage('Los ceros de la izquierda no se permiten').bail()
         .custom((value, { req }) => (value >= 100)).withMessage('Más de 100'),
     body('discount')
         // .isNumeric().withMessage('Número entre 5 y 70').bail()
         // .isLength({ max: 2 }).withMessage('Número entre 5 y 70').bail()
         // .matches('[^0]').withMessage('No se permite valor 0').bail()
-        .custom((value, { req }) => (value === value.replace(/^0+/, ''))).withMessage('Ceros de la izquierda, o valor 0 no se permiten').bail()
-        // .custom((value, { req }) => (value >= 5 && value <= 70)).withMessage('Número entre 5 y 70'),
+        //                                                                                 0 A LA IZQUIERDA NO PERMITIDO
+        .custom((value, { req }) => (value === value.replace(/^0+/, ''))).withMessage('Ceros a la izquierda o valor 0 no es permitido').bail()
         .custom((value, { req }) => (value >= 5 && value <= 70 || value == '' || value === 0)).withMessage('Vacío o número entre 5 y 70').bail()
         .trim(),
     body('color') //check OTRA FORMA DE VALIDAR...  VINCULADO A error.param=='color'
@@ -36,7 +36,7 @@ module.exports = [
         .notEmpty().withMessage('Talle del producto es necesario'),
     body('description')
         .notEmpty().withMessage('Descripción del producto es necesario').bail()
-        .matches('^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$').withMessage('Solo se permite un espacio entre palabras').bail()
+        .matches(`^[a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚ]+( [a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚ]+)*$`).withMessage('Solo un espacio entre palabras. Se puede incluir caracteres básicos de escritura').bail()
         .isLength({ min: 20 }).withMessage('Al menos 20 caracteres'),
     body('splideImages')
         // .MI PROPIA VALIDATION FUNCTION

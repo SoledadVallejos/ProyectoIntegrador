@@ -1,97 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head',{title : 'Agregar producto'}) %>
+<%- include('../partials/head',{title : 'Agregar producto' }) %>
 
-<body>
-    <%- include('../partials/header') %>
+    <body>
+        <%- include('../partials/header') %>
 
+            <main class="add">
 
+                <section class="contain-add">
 
-    <main class="edit">
+                    <div>
+                        <h3>EDITAR PRODUCTO</h3>
+                    </div>
+                    <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. enctype  -->
+                    <form action="../update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
-        <section class="contain-edit">
-
-            <div>
-                <h3>EDITAR PRODUCTO</h3>
-            </div>
-
-            <form action="../update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                <div>
-                    <label for="name">Nombre
-                        <input type="text" name="name" id="name" value="<%= product.name %>">
-                    </label>
-                </div>
-
-                <div>
-                    <label for="category">Categoria
-                        <input type="text" name="category" id="category" value="<%= product.category  %> ">
-                    </label>
-                </div>
-
-                <div>
-                    <label for="price">Precio
-                        <input type="text" name="price" id="price" value="<%= product.price %>">
-                    </label>
-                </div>
-
-                <div>
-                    <label for="discount">Descuento
-                        <input type="text" name="discount" id="discount" >
-                    </label>
-                </div>
-
-                <div>
-                    <label for="size">Talle
-                       <div class="button-contain">
-                
-                        <label for="">L<input  type="radio" name="size" value="<%= product.size %>"></label>
-                        <label for="">S<input  type="radio" name="size" value="<%= product.size %>"></label>
-                        <label for="">M<input type="radio" name="size" value="<%= product.size %>"></label>
-                        <label for="">XL<input type="radio" name="size" value="<%= product.size %>"></label>
-                       
-                
-                       </div> 
-                    </label>
-                </div>
-
-                <div>
-                    <label for="">Color
-                        <div class="button-contain">
-                            <div class="rojo"><input type="radio" name="color" value="Rojo"></div>
-                            <div class="beige"><input type="radio" name="color" value="Beige"></div>
-                            <div class="blanco"><input type="radio" name="color" value="Blanco"></div>
-                            <div class="negro"><input type="radio" name="color" value="Negro"></div>
+                        <div>
+                            <label for="name">Nombre
+                                <input type="text" name="name" id="name"
+                                    placeholder="Al menos 5 caracteres alfanuméricos"
+                                    value="<%= locals.old && old.name ? old.name : product.name%>">
+                            </label>
+                            <!-- MENSAJE DE VALIDACION -->
+                            <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                            <% if (locals.errors ) { %>
+                                <% errors.forEach(error=> { %>
+                                    <p class="text-danger">
+                                        <%= error.param=='name' ?error.msg : null %>
+                                    </p>
+                                    <% }) %>
+                                        <% } %>
+                                            <!-- MENSAJE DE VALIDACION/ -->
                         </div>
-                    </label>
-                </div>
 
-                <div>
-                    <label for="image">Imagen
-                        <input type="file" name="splideImages" id="image" multiple>
-                    </label>
-                </div>
+                        <div>
+                            <label for="category">Categoria
+                                <input type="text" name="category" id="category" placeholder="1=Hombre      2=Mujer"
+                                    value="<%= locals.old && old.category ? old.category : product.categoryId%>">
+                            </label>
+                            <!-- MENSAJE DE VALIDACION -->
+                            <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                            <% if (locals.errors ) { %>
+                                <% errors.forEach(error=> { %>
+                                    <p class="text-danger">
+                                        <%= error.param=='category' ?error.msg : null %>
+                                    </p>
+                                    <% }) %>
+                                        <% } %>
+                                            <!-- MENSAJE DE VALIDACION/ -->
+                        </div>
 
-                <div>
-                    <h4>DESCRIPCION</h4>
-                </div>
-                <div class="add-description">
-                    <textarea name="description" id="comentario"><%= product.description %> </textarea>
-                </div>
+                        <div>
+                            <label for="price">Precio
+                                <input type="text" name="price" id="" placeholder="Número mayor a 100"
+                                    value="<%= locals.old && old.price ? old.price : product.price%>">
+                            </label>
+                            <!-- MENSAJE DE VALIDACION -->
+                            <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                            <% if (locals.errors ) { %>
+                                <% errors.forEach(error=> { %>
+                                    <p class="text-danger">
+                                        <%= error.param=='price' ?error.msg : null %>
+                                    </p>
+                                    <% }) %>
+                                        <% } %>
+                                            <!-- MENSAJE DE VALIDACION/ -->
+                        </div>
 
-                <button class="button-blue" type="submit">Editar</button>
-                <button class="button-red" type="reset">Cancelar</button>
-            </form>
+                        <div>
+                            <label for="discount">Descuento
+                                <input type="text" name="discount" id="" placeholder="Vacío o un número entre 5 y 70"
+                                    value="<%= product.discount>0 ? product.discount : locals.old && old.discount%>">
+                            </label>
+                            <!-- MENSAJE DE VALIDACION -->
+                            <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                            <% if (locals.errors ) { %>
+                                <% errors.forEach(error=> { %>
+                                    <p class="text-danger">
+                                        <%= error.param=='discount' ?error.msg : null %>
+                                    </p>
+                                    <% }) %>
+                                        <% } %>
+                                            <!-- MENSAJE DE VALIDACION/ -->
+                        </div>
 
-        </section>
+                        <div>
+                            <label for="">Color
+                                <div class="button-contain">
 
+                                    <div class="radio-item4" class="negro">
+                                        <input type="radio" id="ritemd" name="color" value="Negro">
+                                        <label for="ritemd">Negro</label>
+                                    </div>
 
+                                    <div class="radio-item1">
+                                        <input type="radio" id="ritema" name="color" value="Rojo">
+                                        <label for="ritema">Rojo</label>
+                                    </div>
 
-    </main>
+                                    <div class="radio-item2" class="beige">
+                                        <input type="radio" id="ritemb" name="color" value="Beige">
+                                        <label for="ritemb">Beige</label>
+                                    </div>
 
+                                    <div class="radio-item3" class="blanco">
+                                        <input type="radio" id="ritemc" name="color" value="Blanco">
+                                        <label for="ritemc">Blanco</label>
+                                    </div>
 
+                                </div>
+                                <% if (locals.errors ) { %>
+                                    <% errors.forEach(error=> { %>
+                                        <p class="text-danger">
+                                            <%= error.param=='color' ?error.msg : null %>
+                                        </p>
+                                        <% }) %>
+                                            <% } %>
+                                                <!-- MENSAJE DE VALIDACION/ -->
+                            </label>
 
+                            <div>
+                                <label for="size">Talle
+                                    <div class="button-contain">
 
-    <%- include('../partials/footer') %>
-</body>
+                                        <label for="s">S<input type="radio" id="s" name="size" value="S"></label>
+                                        <label for="m">M<input type="radio" id="m" name="size" value="M"></label>
+                                        <label for="l">L<input type="radio" id="l" name="size" value="L"></label>
+                                        <label for="xl">XL<input type="radio" id="xl" name="size" value="XL"></label>
+
+                                    </div>
+                                    <!-- MENSAJE DE VALIDACION -->
+                                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                                    <% if (locals.errors ) { %>
+                                        <% errors.forEach(error=> { %>
+                                            <p class="text-danger">
+                                                <%= error.param=='size' ?error.msg : null %>
+                                            </p>
+                                            <% }) %>
+                                                <% } %>
+                                                    <!-- MENSAJE DE VALIDACION/ -->
+                                </label>
+                            </div>
+
+                            <!-- CARGA DE IMAGENES CON MULTER -->
+                            <div>
+                                <label for="splideImages">Imágenes del producto
+                                    <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. name  -->
+                                    <input type="file" name="splideImages" id="splideImages" value="splideImages"
+                                        multiple
+                                        class=" <%= locals.errors && errors.splideImages ? 'is-invalid' : null %>">
+                                    <!-- MENSAJE DE VALIDACION -->
+                                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                                    <% if (locals.errors ) { %>
+                                        <% errors.forEach(error=> { %>
+                                            <p class="text-danger">
+                                                <%= error.param=='splideImages' ?error.msg : null %>
+                                            </p>
+                                            <% }) %>
+                                                <% } %>
+                                                    <!-- MENSAJE DE VALIDACION/ -->
+                                </label>
+                            </div>
+
+                            <h6>Descripción</h6>
+                            <div class="add-description">
+                                <textarea name="description" id="comentario"
+                                    placeholder="Al menos 20 caracteres es requerido"><%= locals.old && old.description ? old.description : product.description %></textarea>
+                            </div>
+                            <!-- MENSAJE DE VALIDACION -->
+                            <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                            <% if (locals.errors ) { %>
+                                <% errors.forEach(error=> { %>
+                                    <p class="text-danger">
+                                        <%= error.param=='description' ?error.msg : null %>
+                                    </p>
+                                    <% }) %>
+                                        <% } %>
+                                            <!-- MENSAJE DE VALIDACION/ -->
+
+                                            <div>
+                                                <label for="section">Disponible en la sección:
+                                                    <div class="sectionProduct">
+                                                        <!--NECESARIO PARA GUARDAR: name="section" -->
+                                                        <input type="radio" id="banner" name="section" value="1">
+                                                        <!-- GUARDA VALOR EN DB                                   value="1"-->
+                                                        <!--     for="banner" id="banner" NECESARIO PARA VINCULAR CLIC AL SELECCIONAR -->
+                                                        <label for="banner">1 Banner</label>
+                                                        <input type="radio" id="masvendidos" name="section" value="2">
+                                                        <label for="masvendidos">2 Más vendidos</label>
+                                                        <input type="radio" id="promocion" name="section" value="3">
+                                                        <label for="promocion">3 Promoción</label>
+                                                        <input type="radio" id="liquidacion" name="section" value="4">
+                                                        <label for="liquidacion">4 Liquidación</label>
+                                                        <input type="radio" id="oferta" name="section" value="5">
+                                                        <label for="oferta">5 Oferta</label>
+
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <a href="http://localhost:3017/admin" class="button-red"
+                                                style="padding: 10px; color:white; border-radius: 7%">
+                                                Cancelar
+                                            </a>
+                                            <button class=" button-red" type="reset">Reiniciar</button>
+                                            <button class="button-blue" type="submit">Actualizar</button>
+
+                    </form>
+
+                </section>
+
+            </main>
+
+            <%- include('../partials/footer') %>
+    </body>
 
 </html>

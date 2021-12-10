@@ -139,14 +139,14 @@ module.exports = {
                                 db.Image.bulkCreate(imagesArr, { validate: true })
 
                                     .then(() => {
-                                        return res.redirect('/admin' + req.params.id)
+                                        return res.redirect('/admin')
                                     })
                                     .catch(error => console.log(error))
                             })
 
                     } else {
                         console.log('edicion sin imagen')
-                        return res.redirect('/products/productDetail/' + req.params.id)
+                        return res.redirect('/admin')
                     }
 
                 })
@@ -156,9 +156,10 @@ module.exports = {
             Promise.all([product])
                 .then(([product]) => {
                     console.log('saltaron errores despues de consulta')
-                    return res.render('edit', {
-                        product,
-                        errors: errors.mapped(),
+                    return res.render('admin/edit', {
+                        product, // NECESARIO EN EDIT PARA DEVOLVER DATOS DE DB. REEMPLAZA old DE FORM add
+                        errors: errors.array(), // errors DISPONIBLES EN edit COMO EN add
+                        old: req.body,
                     })
                 })
                 .catch(error => console.log(error))
