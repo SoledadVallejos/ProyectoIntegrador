@@ -7,20 +7,17 @@ const formulario = $('form-login');
 
 const inputEmail = $('email');
 const inputPassword = $('password');
-const checkTerms = $('terms');
+const btnWatch = $('watch');
+
 
 
 /* expresiones regulares */
 const regExEmail = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]:+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/
-const regExPassword = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
+
 
 
 /* email */
-/* inputEmail.addEventListener('focus', function () {
-    $('info-email').innerText = "Escriba un email válido"
-    $('error-email').innerText = null;
-    this.classList.remove('is-invalid');
-}) */
+
 
 inputEmail.addEventListener('keydown', function () {
     $('info-email').innerText = null;
@@ -60,4 +57,35 @@ inputPassword.addEventListener('blur', function () {
             this.classList.add('is-valid');
             break;
     }
+})
+
+/* ver contraseña */
+btnWatch.addEventListener('click', () => {
+    inputPassword.type === "text" ? inputPassword.type = "password" : inputPassword.type = "text";
+    console.log(inputPassword.type)
+})
+
+////////////////*********************////////////////
+
+formulario.addEventListener('submit', e => {
+
+    e.preventDefault();
+
+    let error = false;
+    const elementos = formulario.elements;
+
+    for (let i = 0; i < elementos.length - 2; i++) {
+
+        if (!elementos[i].value) {
+            elementos[i].classList.add('is-invalid');
+            $('error-empty').innerText = "Los campos señalados son obligatorios";
+            error = true;
+        }
+
+    }
+
+    if (!error) {
+        formulario.submit()
+    }
+
 })
