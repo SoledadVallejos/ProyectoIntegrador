@@ -113,15 +113,19 @@ module.exports = {
 
 
     ,
-    index: (req, res) => {
-        let users = User.findAll();
+    index: async (req, res) => {
+        let users = await db.Users.findAll();
         // return res.send(users); // COMPROBAR LISTA DE USUARIOS
-        res.render('users/index', { users });
+        res.render('users/users', { users });
     },
 
     profile: async (req, res) => {
         let user = await db.User.findByPk(req.session.userLogin.id)
         return res.render('users/profile', { user });
+    },
+    detail: async (req, res) => {
+        let user = await db.User.findByPk(user.id)
+        return res.render('users/detail/', { user });
     },
 
     logout: (req, res) => {
