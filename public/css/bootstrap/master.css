@@ -1,7 +1,7 @@
 /* SOLUCION AL CONFLICTO CON responsee.css  */
 .imgAdmin {
-    min-width: 40%;
-    width: 40%;
+    min-width: 117px;
+    max-width: 117px;
 }
 
 p, li, dl, blockquote, table, kbd {

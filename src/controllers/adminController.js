@@ -1,12 +1,7 @@
-﻿const db = require('../database/models');
-const { Op, Sequelize } = require('sequelize');
+﻿const path = require('path');
+const db = require('../database/models');
 const { validationResult } = require('express-validator');
 
-/* const fs = require('fs');
-const path = require('path');
-const productsFilePath = path.join(__dirname, '../data', 'products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
- */
 module.exports = {
 
     //CREAR PRODUCTO
@@ -15,8 +10,11 @@ module.exports = {
     },
 
     store: (req, res) => {
+        // ERRORES CAPTURARÁ ERRORES LISTOS PARA DEVOLVER POR PANTALLA
         let errors = validationResult(req);
+        // SI NO HAY ERRORES
         if (errors.isEmpty()) {
+            // CREAR PRODUCTO CON ESTOS DATOS QUE VIENEN DEL FORM
             db.Product.create({
                 name: req.body.name.trim(),
                 description: req.body.description.trim(),
@@ -26,11 +24,11 @@ module.exports = {
                 discount: +req.body.discount,
                 categoryId: req.body.category,
                 sectionId: req.body.section,
-
             })
+                // LUEGO CUANDO LO ANTERIOR TERMINE...
                 .then(product => {
+                    // EN imagesArr PONER IMAGENES PROVENIENTES DEL req.files DEL FORM
                     let imagesArr
-
                     if (req.files[0] != undefined) {
                         imagesArr = req.files.map(image => {
                             let img = {
@@ -39,38 +37,55 @@ module.exports = {
                             }
                             return img
                         });
-
-
+                        // SI NO HAY IMAGENES
                     } else {
+                        //EN imageArr PONER UNA POR DEFECTO
                         imagesArr = [{
                             file: "default.png",
                             productId: product.id
                         }]
-
                     }
-
+                    // Y EN db.image PONERLAS O CREARLAS
                     db.Image.bulkCreate(imagesArr, { validate: true })
                         .then((result) => {
+                            // FINALMENTE REDIRIGIR AL ADMIN
                             console.log('imagenes agregadas' + result)
-                            return res.redirect('/admin')
-
+                            // return res.send(imagesArr);//COMPROBAR
+                            // return res.send(req.body);//COMPROBAR
+                            return res.redirect('/admin');
                         })
                         .catch(error => console.log(error))
-
-
                 })
                 .catch(error => console.log(error))
+            // SI NO ESTÁ VACÍA DE ERRORES LA VARIABLE errors...(ARRIBA AL PRINCIPIO SE LA DEFINE)
         } else {
-            db.Category.findAll()
-                .then(categories => {
-                    return res.render('productAdd', {
-                        errors: errors.mapped(),
-                        old: req.body
-                    })
+            // SOLICITAR DE NUEVO Product EN DB
+            db.Product.findAll()
+                // CUANDO DB RESPONDA...
+                .then(products => {
+                    console.log(errors); //  COMPROBAR
+                    // // COMPROBABA OBTENER ARRAY DE EXTENSIONES PARA VALIDAR
+                    // let exts = req.files.map(image => {
+                    //     let img = path.extname(image.filename)
+                    //     return img;
+                    // });
+                    // // COMPROBABA OBTENER ARRAY DE EXTENSIONES PARA VALIDAR /
+                    // let ext = path.extname("a/b/splideImages-2021-12-9-211-1639087067534-.jpg");
+                    // return res.send(exts);//COMPROBAR
+                    // return res.send(req.files);//COMPROBAR
+                    // return res.send(errors);//COMPROBAR
+                    // return res.send(req.body);//COMPROBAR
+                    // RENDERIZAR admin/add DE NUEVO ESTA VEZ, PARA MOSTRAR ERRORES EN EL LLENADO DE DATOS DEL FORM
+                    res.render('admin/add', {
+                        errors: errors.array(), // Errors COMO array DE ERRORES SI NO COMPLETA form 
+                        old: req.body, // old: req.body RECORDAR VIEJO DATO INGRESADO
+                        // oldFiles: req.files,
+                    });
                 })
                 .catch(error => console.log(error))
         }
-    },
+
+    }, //STORE /
 
     //EDITAR PRODUCTO
     edit: (req, res) => {
@@ -124,14 +139,14 @@ module.exports = {
                                 db.Image.bulkCreate(imagesArr, { validate: true })
 
                                     .then(() => {
-                                        return res.redirect('/products/productDetail/' + req.params.id)
+                                        return res.redirect('/admin')
                                     })
                                     .catch(error => console.log(error))
                             })
 
                     } else {
                         console.log('edicion sin imagen')
-                        return res.redirect('/products/productDetail/' + req.params.id)
+                        return res.redirect('/admin')
                     }
 
                 })
@@ -141,9 +156,10 @@ module.exports = {
             Promise.all([product])
                 .then(([product]) => {
                     console.log('saltaron errores despues de consulta')
-                    return res.render('edit', {
-                        product,
-                        errors: errors.mapped(),
+                    return res.render('admin/edit', {
+                        product, // NECESARIO EN EDIT PARA DEVOLVER DATOS DE DB. REEMPLAZA old DE FORM add
+                        errors: errors.array(), // errors DISPONIBLES EN edit COMO EN add
+                        old: req.body,
                     })
                 })
                 .catch(error => console.log(error))

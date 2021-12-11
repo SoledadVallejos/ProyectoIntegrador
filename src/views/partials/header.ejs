@@ -33,8 +33,8 @@
 				<!--                        dropbtn ESTILOS DEL MENU BOTON-->
 				<button class=" dropbtn">
 					<% if (locals.userLogin) { %>
-						<!--                                                                                             avatar USUARIO -->
-						<img class="user" src="/img/users/<%= locals.userLogin.avatar %>">
+						<!--                                                                                  						             avatar USUARIO -->
+						<img class="user" src="/img/users/<%= locals.userLogin!=='' ? locals.userLogin.avatar : 'default.png' %>">
 						<span class="hola">
 							<%= 'Hola ' + locals.userLogin.name %>
 						</span>
@@ -51,7 +51,7 @@
 						<a href="/products/cart"><i class="fas fa-shopping-bag"> Carrito</i></a>
 						<% if (locals.userLogin.rol === 2 ) { %>
 							<a href="/admin">Administrar Productos</a>
-							<a href="/users">Administrar Usuarios</a>
+							<a href="/users/users">Administrar Usuarios</a>
 							<a href="/users/register">Registro</a>
 							<% } %>
 								<a href="/users/logout">Salir</a>
