@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
+
 <body>
     <%- include('../partials/header') %>
-    <main>
-        <% if(profile) { %>
-            <%- include('profile', { profile }) %>
-        <% } else { %>
-            <h2>No encontramos ese grupo</h2>
-        <% } %>
-    </main>
+
+<article class="card">
+    <div class="card-left">
+        <figure class="profile">
+            <img src="/img/users/<%= user.avatar ? user.avatar : 'default.png' %>" alt="">
+        </figure>
+        <h3>#<%= user.id %></h3>
+    </div>
+    <div class="card-content">
+        <h3><%= user.name %> <%=user.lastName %></h3>
+        <p>Rol: <a href="<%= user.rolId == 2 ? "admin" : "user" %>" target="_blank"><%= user.rolId == 2 ? "admin" : "user" %></a></p>
+        <p>Email: <a href="<%= user.email %>" target="_blank"><%= user.email %></a></p>
+        <p>País: <a href="<%= user.country %>" target="_blank"><%= user.country %></a></p>
+
+        <div>
+            <a class="button" href="/">Volver</a>
+        </div>
+
+    </div>
+</article>
 </body>
+
 </html>

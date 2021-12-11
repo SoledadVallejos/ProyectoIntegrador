@@ -46,9 +46,15 @@ main.edit {
 }
 
 div.rojo {
+<<<<<<< HEAD
+    
+    width: 42px;
+    height: 35px;
+=======
 
     width: 30px;
     height: 30px;
+>>>>>>> sprint7-validations-frontend-backend--product-create-edit/daniel
     background-color: rgb(255, 0, 13);
     border-radius: 50%;
     border: solid 1px darkgrey;
@@ -56,24 +62,24 @@ div.rojo {
 
 
 div.beige {
-    width: 30px;
-    height: 30px;
+    width: 42px;
+    height: 35px;
     background-color: rgba(255, 230, 0, 0.479);
     border-radius: 50%;
     border: solid 1px darkgrey;
 }
 
 div.blanco {
-    width: 30px;
-    height: 30px;
+    width: 42px;
+    height: 35px;
     background-color: white;
     border-radius: 50%;
     border: solid 1px darkgrey;
 }
 
 div.negro {
-    width: 30px;
-    height: 30px;
+    width: 42px;
+    height: 35px;
     background-color: black;
     border-radius: 50%;
     border: solid 1px darkgrey;

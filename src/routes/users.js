@@ -1,6 +1,6 @@
 // REQUIRES
 var express = require('express');
-const { create, processCreate, login, processLogin, index, profile, logout } = require('../controllers/usersController');
+const { create, processCreate, login, processLogin,detail, index, profile, logout } = require('../controllers/usersController');
 
 // express.Router() EN router
 var router = express.Router();
@@ -34,6 +34,8 @@ router.get('/profile',authMiddleware, profile);
 
 // LOGOUT
 router.get('/logout/', logout);
+
+router.get('/detail/:id', detail);
 
 
 
