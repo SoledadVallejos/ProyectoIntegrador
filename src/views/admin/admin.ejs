@@ -41,6 +41,7 @@
 									<th scope="col">Color</th>
 									<th scope="col">Talle</th>
 									<th scope="col">Categoría</th>
+									<th scope="col">Sección</th>
 									<th scope="col">Precio</th>
 									<th scope="col">Descuento</th>
 									<th scope="col">Ver</th>
@@ -74,7 +75,12 @@
 											<%= index.size%>
 										</td>
 										<td>
-											<%= index.category.description%>
+											<!--Con		categoryId imvoca el id de products -->
+											<%= index.category.name%>
+										</td>
+										<td>
+											<!-- Con 	section.name va directo a tabla sections y luego a su name -->
+											<%= index.section.name%>
 										</td>
 										<td>
 											<%= index.price%>

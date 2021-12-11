@@ -6,7 +6,7 @@ module.exports = [
     body('name') // VINCULADO A error.param=='name'
         .notEmpty().withMessage('Nombre de producto es necesario').bail() // bail() TIRA ERROR Y CORTA. NECESARIO PARA EVITAR ERROR: "value invalid"
         .isLength({ min: 5 }).withMessage('Mínimo 5 caracteres').bail()
-        .matches('^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$').withMessage('Solo se permite un espacio entre palabras'),
+        .matches(`^[a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚ]+( [a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚ]+)*$`).withMessage('Solo un espacio entre palabras. Se pueden incluir caracteres básicos de escritura'),
     body('category')
         .notEmpty().withMessage('Categoría del producto es necesario').bail()
         .isNumeric().withMessage('1 o 2: 1=Hombre 2=Mujer').bail()
@@ -14,9 +14,10 @@ module.exports = [
         .isLength({ max: 1 }).withMessage('1 o 2: 1=Hombre 2=Mujer'),
     body('price')
         .notEmpty().withMessage('Precio de producto es necesario').bail()
-        .isNumeric().withMessage('Solo números').bail()
-        .isLength({ min: 2 }).withMessage('2 a 10 dígitos').bail()
-        .isLength({ max: 10 }).withMessage('2 a 10 dígitos').bail()
+        .isDecimal().withMessage('Solo números').bail()
+        .isLength({ min: 2 }).withMessage('2 a 8 dígitos').bail()
+        //              max: valor CONFIGURAR VALOR MENOR QUE EL ACEPTADO POR LA DB SINO: ""Out of range value for column 'price' at row 1"
+        .isLength({ max: 8 }).withMessage('2 a 8 dígitos').bail()
         .matches('[^0]').withMessage('No se permite valor 0').bail()
         //                                                                           NO 0     / NULL
         //                                                                                 0 A LA IZQUIERDA NO PERMITIDO
@@ -36,7 +37,7 @@ module.exports = [
         .notEmpty().withMessage('Talle del producto es necesario'),
     body('description')
         .notEmpty().withMessage('Descripción del producto es necesario').bail()
-        .matches(`^[a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚ]+( [a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚ]+)*$`).withMessage('Solo un espacio entre palabras. Se puede incluir caracteres básicos de escritura').bail()
+        .matches(`^[a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚ]+( [a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚ]+)*$`).withMessage('Solo un espacio entre palabras. Se pueden incluir caracteres básicos de escritura').bail()
         .isLength({ min: 20 }).withMessage('Al menos 20 caracteres'),
     body('splideImages')
         // .MI PROPIA VALIDATION FUNCTION

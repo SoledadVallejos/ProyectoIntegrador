@@ -20,6 +20,9 @@
                                 <input type="text" name="name" id="name"
                                     placeholder="Al menos 5 caracteres alfanuméricos"
                                     value="<%= locals.old && old.name ? old.name : product.name%>">
+                                <!-- SI SE INGRESÓ DATOS RECIÉN        ? ESE DATO : SINO TRAER DATO DE DB -->
+                                <!-- value: TRAIGA DATOS DE DB PERSISTIENDO SI NO SE INGRESA DATO NUEVO -->
+                                <!-- value: SI HAY DATOS NUEVOS INGRESADOS, RECUERDA DATO NUEVO INGRESADO -->
                             </label>
                             <!-- MENSAJE DE VALIDACION -->
                             <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
@@ -71,6 +74,8 @@
                             <label for="discount">Descuento
                                 <input type="text" name="discount" id="" placeholder="Vacío o un número entre 5 y 70"
                                     value="<%= product.discount>0 ? product.discount : locals.old && old.discount%>">
+                                <!--     SI PRODUCTO ES MAYOr A 0 TRAER DATO DB SINO, DATO ULTIMO INGRESADO AL EDITAR-->
+                                <!--value: PARA QUE NO TRAIGA EL 0 DE LA DB -->
                             </label>
                             <!-- MENSAJE DE VALIDACION -->
                             <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
@@ -109,6 +114,8 @@
                                     </div>
 
                                 </div>
+                                <!-- MENSAJE DE VALIDACION -->
+                                <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
                                 <% if (locals.errors ) { %>
                                     <% errors.forEach(error=> { %>
                                         <p class="text-danger">
@@ -194,8 +201,8 @@
                                                         <label for="liquidacion">4 Liquidación</label>
                                                         <input type="radio" id="oferta" name="section" value="5">
                                                         <label for="oferta">5 Oferta</label>
-
                                                     </div>
+
                                                 </label>
                                             </div>
                                             <a href="http://localhost:3017/admin" class="button-red"

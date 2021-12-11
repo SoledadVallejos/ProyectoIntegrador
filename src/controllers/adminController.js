@@ -103,13 +103,15 @@ module.exports = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             console.log('no hubo errores')
-            const { name, description, size, color, price } = req.body;
             db.Product.update({
-                name: name.trim(),
-                description: description.trim(),
-                size: size,
-                color: color,
-                price: price,
+                name: req.body.name.trim(),
+                description: req.body.description.trim(),
+                size: req.body.size,
+                color: req.body.color,
+                price: +req.body.price,
+                discount: +req.body.discount,
+                categoryId: req.body.category,
+                sectionId: req.body.section,
             },
                 {
                     where: {
