@@ -107,32 +107,38 @@
 
                                     <div class="margin2x resultsHome-margin2x">
                                         <div class="s-12 m-12 l-4 xl-3 xxl-3">
-                                            <a class="productImage"
-                                                href="/products/productDetail/<%= searchResults[i].id%>">
-                                                <img class="imgSearchResultsHome"
-                                                    src="/img/productDetail-splide/<%= searchResults[i].image[0].file%>"
-                                                    alt="" width="100px">
-                                                <img class="full-imgHover" src="">
-                                            </a>
-                                            <h5 class="price">
-                                                $ <%= searchResults[i].price%> / <%= searchResults[i].discount%> % OFF
-                                             </h5>
-                                            <a href="#">
-                                                <h4 class="margin-bottom">
-                                                    <strong>
-                                                        <%= searchResults[i].name%>
-                                                    </strong>
-                                                </h4>
-                                            </a>
-                                            <p class="margin-bottom">
-                                                <%= searchResults[i].description%>
-                                            </p>
-                                            <form class="customform s-12 margin-bottom2x" action="">
-                                                <div><button class="button rounded-btn submit-btn s-12"
-                                                        type="submit">Add to
-                                                        Cart</button>
-                                                </div>
-                                            </form>
+                                            <div class="pImage">
+                                                <a class="productImage"
+                                                    href="/products/productDetail/<%= searchResults[i].id%>">
+                                                    <img class="imgSearchResultsHome"
+                                                        src="/img/productDetail-splide/<%= searchResults[i].image[0].file == 0 ? 'default.png' : searchResults[i].image[0].file%>"
+                                                        alt="" width="100px">
+                                                    <img class="full-imgHover" src="">
+                                                </a>
+                                            </div>
+                                            <div class="dataWoman">
+                                                <h5 class="price">
+                                                    $ <%= searchResults[i].price%> / <%= searchResults[i].discount%> %
+                                                            OFF
+                                                </h5>
+                                                <a href="#">
+                                                    <h4 class="margin-bottom">
+                                                        <strong>
+                                                            <%= searchResults[i].name%>
+                                                        </strong>
+                                                    </h4>
+                                                </a>
+                                                <p class="margin-bottom">
+                                                    <%= searchResults[i].description%>
+                                                </p>
+                                                <form class="customform s-12 margin-bottom2x" action="">
+                                                    <div><button class="button rounded-btn submit-btn s-12"
+                                                            type="submit">Add to
+                                                            Cart</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+
                                         </div>
 
                                         <% } %>
@@ -152,7 +158,8 @@
             </div>
 
             <!-- MENU DESPLEGABLE FILTRO -->
-            <script type="text/javascript" src="/js/productWomanJs/responsee.js"></script>
+            <script type="text/javascript" src="/templates/shop-template/js/responsee.js"></script>
+            <script type="text/javascript" src="/templates/shop-template/owl-carousel/owl.carousel.js"></script>
 
             <%- include('../partials/footer') %>
     </body>

@@ -54,12 +54,15 @@ module.exports = [
                 // VERIFICA ARCHIVOS CARGADOS SEAN LOS PERMITIDOS
                 // SI NO HAY ERROR ARRIBA (si hay archivos cargados)
             } else {
-                // EN exts PONER EXTENSIÓN DE ARCHIVOS CARGADOS
+                // EN exts PONER EXTENSIONES DE ARCHIVOS CARGADOS
+                // map DEVUELVE ARRAY DE EXTENSIONES RECORRIENDO req.files Y USANDO path.extname('')
                 let exts = req.files.map(image => {
                     let img = path.extname(image.filename)
                     return img;
                 });
                 // SI acceptedExtensions NO INCLUYE EXTENSIÓNES DE ARCHIVO PERMITIDOS...
+                // for PONE EXTENSIONES DE UNA A UNA EN includes() 
+                // PARA VERIFICAR  DE UNA A UNA SI ETENSIONES ESTÁN INCLUIDAS EN EXTENSIONES PERMITIDAS
                 for (let i = 0; i < exts.length; i++) {
                     if (!acceptedExtensions.includes(exts[i])) {
                         // TIRA ERROR INFORMANDO EXTENSIONES PERMITIDAS

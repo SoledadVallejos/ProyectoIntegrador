@@ -41,35 +41,86 @@
                         <% }) %>
                 </section>
 
-                <!-- SUGERIDOS CAROUSEL OWL-->
-                <section class="sugest">
-                    <h2>SUGERIDOS</h2>
+                <!-- MAS VENDIDOS CAROUSEL OWL-->
+                <section class="muchSale">
+                    <h2 class="muchSale">MAS VENDIDOS</h2>
                     <div class="line hide-s">
-                        <div id="sugest-carousel" class="owl-carousel owl-theme">
-                            <div class="item"><img src="/img/productWomanImg/gallery-1.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-2.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-3.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-4.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-5.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-6.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-7.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-8.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-9.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-10.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-11.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-12.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-13.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-15.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-16.jpg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-17.jpg" alt=""></div>
+                        <div id="muchSale-carousel" class="owl-carousel owl-theme">
+
+                            <% productsOff.forEach(element=> { %>
+                                <article class="ofertas-android">
+                                    <div>
+                                        <a href="/products/productDetail/<%= element.id %>">
+                                            <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
+                                            <!--                                                                                   [0]   SELECCIONA IMAGEN POR INDICE -->
+                                        </a>
+                                        <h5>
+                                            <%= element.discount %> % OFF
+                                        </h5>
+                                    </div>
+                                </article>
+                                <% }) %>
+
+                                    <div class="item"><img src="/img/logo-roma.jpg" alt=""></div>
+
                         </div>
                     </div>
                 </section>
-                <!-- SUGERIDOS CAROUSEL OWL /-->
+                <!-- MAS VENDIDOS CAROUSEL OWL /-->
+
+                <!-- PROMOCIÓN CAROUSEL OWL-->
+                <section class="promo">
+                    <h2 class="promo">PROMOCIÓN</h2>
+                    <div class="line hide-s">
+                        <div id="promo-carousel" class="owl-carousel owl-theme">
+
+                            <% productsOff.forEach(element=> { %>
+                                <article class="ofertas-android">
+                                    <div>
+                                        <a href="/products/productDetail/<%= element.id %>">
+                                            <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
+                                            <!--                                                                                   [0]   SELECCIONA IMAGEN POR INDICE -->
+                                        </a>
+                                        <h5>
+                                            <%= element.discount %> % OFF
+                                        </h5>
+                                    </div>
+                                </article>
+                                <% }) %>
+
+                                    <div class="item"><img src="/img/logo-roma.jpg" alt=""></div>
+                        </div>
+                    </div>
+                </section>
+                <!-- PROMOCIÓN CAROUSEL OWL /-->
+
+                <!-- ULTIMOS VISTOS CARROUSEL OWL-->
+                <section class="lastViews">
+                    <h2 class="lastViews">ÚLTIMOS VISTOS</h2>
+                    <div class="line hide-s">
+                        <div id="lastViews-carousel" class="owl-carousel owl-theme">
+
+                            <% productsOff.forEach(element=> { %>
+                                <article class="ofertas-android">
+                                    <div class="item">
+                                        <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
+                                        <h5>
+                                            <%= element.discount %> % OFF
+                                        </h5>
+                                    </div>
+                                </article>
+                                <% }) %>
+
+                                    <div class="item"><img src="/img/logo-roma.jpg" alt=""></div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ULTIMOS VISTOS CARROUSEL OWL /-->
 
                 <!-- OFERTAS -->
                 <h2>OFERTAS</h2>
                 <section class="ofertas-main">
+                    <!-- SIMPLEMENTE PONE RUTAS DINÁMICAS DONDE SE REQUIERA -->
                     <% productsOff.forEach(element=> { %>
                         <article class="ofertas-android">
                             <div>
@@ -118,40 +169,24 @@
                             <% }) %>
 
                 </section>
-
-                <!-- VISTOS CARROUSEL OWL-->
-                <section class="vistos">
-                    <h2>ULTIMOS VISTOS</h2>
-                    <div class="line hide-s">
-                        <div id="vistos-carRousel" class="owl-carousel owl-theme">
-                            <div class="item"><img src="/img/productWomanImg/gallery-1.svg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-2.svg" alt=""></div>
-                            <div class="item"><img src="/img/productWomanImg/gallery-3.svg" alt=""></div>
-                        </div>
-                    </div>
-                </section>
-                <!-- VISTOS CARROUSEL OWL /-->
+                <!-- OFERTAS  / -->
 
 
-                <!-- 
-        TARJETAS CON INDUMENTARIA SUGERIDA POR EL SITIO
-        <h2>SUGERIDOS</h2>
-        <section class="ofertas-main">
-            < productsSugest.forEach(element=> { %>
-                <article class="ofertas-desktop">
-                    <div>
-                        <a href="/products/productDetail/<= element.id %>"><img src="/img/<= element.image %>"
-                                alt=""></a>
-                        <br>
-                    </div>
-                </article>
-                < }) %>
-        </section>
-        -->
+
+
+
 
             </main>
 
-            <!-- BANNER HOME SPLIDE CONTROL -->
+
+
+
+
+
+
+            <!-- CONTROL SLIDES -->
+
+            <!-- Banner Splide -->
             <!-- <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script> ESTE TAMBIEN FUNCIONA-->
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -168,50 +203,111 @@
                 });
                 add('<li class="splide__slide"></li>');
             </script>
-            <!-- Splide /-->
+            <!-- Banner Splide /-->
 
-            <!-- SUGERIDOS owl-carousel CONTROL -->
-            <script type="text/javascript" src="/js/productWomanJs/responsee.js"></script>
-            <script type="text/javascript" src="/js/productWomanJs/owl.carousel.js"></script>
+            <!-- MAS VENDIDOS owl-carousel CONTROL -->
+            <script type="text/javascript" src="/templates/shop-template/js/responsee.js"></script>
+            <script type="text/javascript" src="/templates/shop-template/owl-carousel/owl.carousel.js"></script>
             <script type="text/javascript">
                 jQuery(document).ready(function ($) {
-                    var owl = $('#sugest-carousel');
+                    var owl = $('#muchSale-carousel');
                     owl.owlCarousel({
                         nav: true,
                         dots: true,
-                        items: 7,
+                        items: 5,
                         loop: true,
                         navText: ["&#xf007", "&#xf006"],
                         autoplay: true,
                         autoplayTimeout: 3000,
-                        autoHeight: true
+                        autoHeight: false,
+                        margin: 7,
+                        mouseDrag: true,
+                        touchDrag: true,
+                        pullDrag: true,
+                        freeDrag: true,
+                        stagePadding: false,
+                        merge: true,
+                        autoWidth: false,
+                        rewind: true,
+                        slideBy: 1,
+                        autoplayHoverPause: false,
+                        autoplaySpeed: false, //number / boolean
+                        checkVisible: true,
+                        fluidSpeed: false,//number / boolean
+                        smartSpeed: true,
                     });
+                    // https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html
                 })
             </script>
-            <!-- SUGERIDOS owl-carousel CONTROL / -->
+            <!-- MAS VENDIDOS owl-carousel CONTROL / -->
 
-            <!-- VISTOS owl-carousel CONTROL -->
-            <script type="text/javascript" src="/js/productWomanJs/responsee.js"></script>
-            <script type="text/javascript" src="/js/productWomanJs/owl.carousel.js"></script>
+            <!-- PROMOCION CARROUSEL OWL-->
             <script type="text/javascript">
                 jQuery(document).ready(function ($) {
-                    var owl = $('#vistos-carousel');
+                    var owl = $('#promo-carousel');
                     owl.owlCarousel({
                         nav: true,
                         dots: true,
-                        items: 7,
+                        items: 5,
                         loop: true,
                         navText: ["&#xf007", "&#xf006"],
                         autoplay: true,
                         autoplayTimeout: 3000,
-                        autoHeight: true
+                        autoHeight: false,
+                        margin: 7,
+                        mouseDrag: true,
+                        touchDrag: true,
+                        pullDrag: true,
+                        freeDrag: true,
+                        stagePadding: false,
+                        merge: true,
+                        autoWidth: false,
+                        rewind: true,
+                        slideBy: 1,
+                        autoplayHoverPause: false,
+                        autoplaySpeed: false, //number / boolean
+                        checkVisible: true,
+                        fluidSpeed: false,//number / boolean
+                        smartSpeed: true,
                     });
+                    // https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html
                 })
             </script>
-            <!-- VISTOS owl-carousel CONTROL / -->
+            <!-- PROMOCION CARROUSEL OWL /-->
 
-            <!-- MENU DESPLEGABLE HOVER -->
-            <script type="text/javascript" src="js/responsee.js"></script>
+            <!-- ULTIMOS VISTOS CARROUSEL OWL-->
+            <script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    var owl = $('#lastViews-carousel');
+                    owl.owlCarousel({
+                        nav: true,
+                        dots: true,
+                        items: 5,
+                        loop: true,
+                        navText: ["&#xf007", "&#xf006"],
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        autoHeight: false,
+                        margin: 7,
+                        mouseDrag: true,
+                        touchDrag: true,
+                        pullDrag: true,
+                        freeDrag: true,
+                        stagePadding: false,
+                        merge: true,
+                        autoWidth: false,
+                        rewind: true,
+                        slideBy: 1,
+                        autoplayHoverPause: false,
+                        autoplaySpeed: false, //number / boolean
+                        checkVisible: true,
+                        fluidSpeed: false,//number / boolean
+                        smartSpeed: true,
+                    });
+                    // https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html
+                })
+            </script>
+            <!-- ULTIMOS VISTOS CARROUSEL OWL /-->
 
             <%- include('../partials/footer') %>
     </body>

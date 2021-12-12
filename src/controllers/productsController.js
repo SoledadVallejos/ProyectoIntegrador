@@ -1,5 +1,7 @@
 const db = require('../database/models');
 const { Op, Sequelize } = require('sequelize');
+//       toThousand CONVIERTE NÚMEROS A MILES ( 1000 => 1.000)
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
 
@@ -24,6 +26,7 @@ module.exports = {
                     title: 'Detalle del Producto',
                     product, // BIEN... PARA MOSTRAR DETALLES DEL PRODUCTO
                     productImg, //BIEN... PARA EL SLIDE DEL DETALLE
+                    toThousand,
                 });
             })
             .catch(error => console.log(error))

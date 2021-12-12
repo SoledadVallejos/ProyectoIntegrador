@@ -1,1 +1,14 @@
-﻿
+﻿    /* IMAGENES ALINEADAS  */
+    .pImage {
+        background-image: url('/img/productDetail-splide/default.png');
+        height: auto;
+    }
+
+    .dataWoman {
+        height: auto;
+    }
+
+    .imgSearchResultsHome {
+        display: block;
+        width: 100%;
+    }

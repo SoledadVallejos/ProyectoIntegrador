@@ -3,7 +3,7 @@
 
 <%- include('../partials/productdetail',{title : 'Detalle de producto' }) %>
 
-    <body>
+    <body class="productdetail">
         <%- include('../partials/header') %>
 
             <main class="contenedor-producto">
@@ -41,10 +41,35 @@
                     <div class="caracteristicas-producto">
                         <div class="descripcion-producto">
                             <p class="ml-1">
-                                <%=product.name%> <span class="precio-estilo">
-                                        $ <%=product.price%> / <%=product.discount%>% OFF
+
+                                <span class="nameproduct">
+                                    <%=product.name%>
+                                </span>
+
+                                <!-- PRECIO DEL PRODUCTO -->
+                                <!-- SI HAY DESCUENTO -->
+                                <% if (product.discount !=0) { %>
+                                    <!-- PRECIO REAL CHIQUITO COLOR VERDE Y TACHADO -->
+                                    <span class="pricesmall">
+                                        <span>
+                                            $ <%= toThousand(product.price)%>
+                                        </span>
+                                        /
+                                        <%= product.discount %>% OFF
                                     </span>
+                                    <!-- Y PRECIO CON DESCUENTO DESTACADO -->
+                                    <span class="priceoff ">
+                                        $ <%= toThousand(product.price - ((product.price * product.discount) /100)) %>
+                                    </span>
+                                    <% }else{ %>
+                                        <!-- SINO PRECIO REAL -->
+                                        <span class="precio-estilo">
+                                            $ <%= toThousand(product.price)%>
+                                        </span>
+
+                                        <% } %>
                             </p>
+                            <!-- PRECIO DEL PRODUCTO  / -->
 
                             <p>
                                 Descripción
@@ -128,8 +153,6 @@
 
             <!-- Splide -->
             <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
-            <!-- ENCONTRÉ QUE ESTE script TIRABA ERROR/daniel  -->
-            <!--<script src="path-to-the-file/splide.min.js"></script> -->
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
                     new Splide('.splide').mount();
