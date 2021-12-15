@@ -26,6 +26,7 @@ const { admin, add, store, edit, update, hastaLaVistaBeibi, search } = require('
 router.get('/', admin);
 
 router.get('/add', add);
+// PARA QUE FUNCIONE MULTER ESTE   'splideImages'  DEBE SER EXACTAMENTE EL MISMO DEL <input name 'splideImages'  EN EL FORM SINO, ESTE ERROR TIRA: Unexpected field MulterError: Unexpected field
 router.post('/add', uploadMultiple.array('splideImages'), validateAddEditProduct, store);
 
 router.get('/edit/:id', edit);

@@ -46,6 +46,7 @@ module.exports = {
                 return res.render('products/productsWoman', {
                     title: 'Ropa Mujer',
                     products,
+                    toThousand,
                 });
             })
             .catch(error => console.log(error))

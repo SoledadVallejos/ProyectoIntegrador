@@ -118,8 +118,14 @@
                                             </div>
                                             <div class="dataWoman">
                                                 <h5 class="price">
-                                                    $ <%= searchResults[i].price%> / <%= searchResults[i].discount%> %
-                                                            OFF
+
+                                                    $ <%= toThousand(searchResults[i].price -
+                                                        ((searchResults[i].price*searchResults[i].discount) / 100 ))%>
+
+                                                        <%= searchResults[i].discount> 0 ? ' / ' +
+                                                            toThousand(searchResults[i].discount) + ' OFF' : null %>
+
+
                                                 </h5>
                                                 <a href="#">
                                                     <h4 class="margin-bottom">

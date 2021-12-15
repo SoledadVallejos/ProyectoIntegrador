@@ -89,9 +89,13 @@ module.exports = {
 
     //EDITAR PRODUCTO
     edit: (req, res) => {
-        let product = db.Product.findByPk(req.params.id)
+        let product = db.Product.findByPk(req.params.id, {
+            include: [{ all: true }]
+        })
+
         Promise.all([product])
             .then(([product]) => {
+                // return res.send(product); // COMPROBAR SI VIENEN IMAGENES 
                 return res.render('admin/edit', {
                     title: 'editar',
                     product,
@@ -110,7 +114,7 @@ module.exports = {
                 color: req.body.color,
                 price: +req.body.price,
                 discount: +req.body.discount,
-                categoryId: req.body.category,
+                categoryId: req.body.category, // ACA VIENE EL DATO DEL FORM EN "category". LUEGO, DATO! ÉNTRA EN DB EN LA COLUMNA "categoryId" ES LA ORDEN FINAL
                 sectionId: req.body.section,
             },
                 {
@@ -159,7 +163,7 @@ module.exports = {
                 .then(([product]) => {
                     console.log('saltaron errores despues de consulta')
                     return res.render('admin/edit', {
-                        product, // NECESARIO EN EDIT PARA DEVOLVER DATOS DE DB. REEMPLAZA old DE FORM add
+                        product, // NECESARIO EN EDIT PARA DEVOLVER DATOS DE DB.
                         errors: errors.array(), // errors DISPONIBLES EN edit COMO EN add
                         old: req.body,
                     })
