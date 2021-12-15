@@ -81,18 +81,8 @@
                 <div>
 
                     <label><b>Imagen de perfil:</b></label>
-                    <input type="file" name="avatar"
-                        class=" <%= locals.errors && errors.avatar ? 'is-invalid' : null %>">
-                    <!-- MENSAJE DE VALIDACION -->
-                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
-                    <% if (locals.errors ) { %>
-                    <% errors.forEach(error => { %>
-                    <p class="text-danger">
-                        <%= error.param=='avatar' ?error.msg : null %>
-                    </p>
-                    <% }) %>
-                    <% } %>
-                    <!-- MENSAJE DE VALIDACION/ -->
+                    <input type="file" name="avatar">
+                        <span id="error-avatar" class="small text-danger"><%= locals.errores && errores.avatar ? errores.avatar.msg : null %> </span>
                 </div>
 
                 <!-- CAJAS -->

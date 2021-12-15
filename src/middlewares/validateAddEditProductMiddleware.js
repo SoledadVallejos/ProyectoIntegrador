@@ -40,42 +40,24 @@ module.exports = [
         // SI NO FUNCIONA LO MÁS PROBABLE ES QUE SEA POR ALGÚN CARACTER ESPECIAL QUE NO ESTÁ ADMINTIENDO... INLUCIRLO!!
         .matches(`^[a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚñÑ]+( [a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚñÑ]+)*$`).withMessage('Solo un espacio entre palabras. Se pueden incluir caracteres básicos de escritura.').bail()
         .isLength({ min: 20 }).withMessage('Al menos 20 caracteres'),
-    body('splideImages') // QUE HAYA ARCHIVOS CARGADOS, QUE SEAN LOS PERMITIDOS
-        // .MI PROPIA VALIDATION FUNCTION
+    body('splideImages') 
         .custom((value, { req }) => {
-            // EN file req.files(imágenes) PONER ARCHIVOS CARGADOS POR EL USUARIO
             let file = req.files;
-            // EN acceptedExtensions PONER EXTENSIONES DE IMÁGENES PERMITIDAS
             let acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp',];
-            // VERIFICA QUE HAYA ARCHIVOS CARGADOS
-            // SI file ESTÁ VACÍO O INDEFINIDO...
             if (file == '') {
-                // TIRAR ESTE ERROR
                 throw new Error('Al menos una imágen de producto es necesario');
-                // VERIFICA ARCHIVOS CARGADOS SEAN LOS PERMITIDOS
-                // SI NO HAY ERROR ARRIBA (si hay archivos cargados)
             } else {
-                // EN exts PONER EXTENSIONES DE ARCHIVOS CARGADOS
-                // map DEVUELVE ARRAY DE EXTENSIONES RECORRIENDO req.files Y USANDO path.extname('')
                 let exts = req.files.map(image => {
                     let img = path.extname(image.filename)
                     return img;
                 });
-                // SI acceptedExtensions NO INCLUYE EXTENSIÓNES DE ARCHIVO PERMITIDOS...
-                // for PONE EXTENSIONES DE UNA A UNA EN includes() 
-                // PARA VERIFICAR  DE UNA A UNA SI ETENSIONES ESTÁN INCLUIDAS EN EXTENSIONES PERMITIDAS
                 for (let i = 0; i < exts.length; i++) {
                     if (!acceptedExtensions.includes(exts[i])) {
-                        // TIRA ERROR INFORMANDO EXTENSIONES PERMITIDAS
                         throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
                     }
                 }
             }
-            // SI VERFICACIONES DE ARRIBA RESULTAN EN "true" 
-            // O SEA, HAY ARCHIVOS CARGADOS Y SI ESTOS SON LOS PERMITIDOS 
-            // ESTE MIDDLEWARE PERMITE SIGA EJECUTANDO PASANDO A LA CREACIÓN DE PRODUCTO
-            // RETORNANDO true
-            return true;
+         return true;
         })
 
 
