@@ -29,7 +29,7 @@ module.exports = [
         // .matches('[^0]').withMessage('No se permite valor 0').bail()
         //                                                                                 0 A LA IZQUIERDA NO PERMITIDO
         // .custom((value, { req }) => (value === value.replace(/^0+/, ''))).withMessage('Ceros a la izquierda o valor 0 no es permitido').bail()
-        .custom((value, { req }) => (value > -1 && value <= 70)).withMessage('Número entre 5 y 70').bail()
+        .custom((value, { req }) => (value > -1 && value <= 70)).withMessage('Número entre 0 y 70').bail()
         .trim(),
     body('color') //check OTRA FORMA DE VALIDAR...  VINCULADO A error.param=='color'
         .notEmpty().withMessage('Color del producto es necesario'),
@@ -38,7 +38,7 @@ module.exports = [
     body('description')
         .notEmpty().withMessage('Descripción del producto es necesario').bail()
         // SI NO FUNCIONA LO MÁS PROBABLE ES QUE SEA POR ALGÚN CARACTER ESPECIAL QUE NO ESTÁ ADMINTIENDO... INLUCIRLO!!
-        .matches(`^[a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚñ]+( [a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚñ]+)*$`).withMessage('Solo un espacio entre palabras. Se pueden incluir caracteres básicos de escritura').bail()
+        .matches(`^[a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚñÑ]+( [a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚñÑ]+)*$`).withMessage('Solo un espacio entre palabras. Se pueden incluir caracteres básicos de escritura.').bail()
         .isLength({ min: 20 }).withMessage('Al menos 20 caracteres'),
     body('splideImages') // QUE HAYA ARCHIVOS CARGADOS, QUE SEAN LOS PERMITIDOS
         // .MI PROPIA VALIDATION FUNCTION
@@ -46,7 +46,7 @@ module.exports = [
             // EN file req.files(imágenes) PONER ARCHIVOS CARGADOS POR EL USUARIO
             let file = req.files;
             // EN acceptedExtensions PONER EXTENSIONES DE IMÁGENES PERMITIDAS
-            let acceptedExtensions = ['.jpg', '.png', '.gif'];
+            let acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp',];
             // VERIFICA QUE HAYA ARCHIVOS CARGADOS
             // SI file ESTÁ VACÍO O INDEFINIDO...
             if (file == '') {
