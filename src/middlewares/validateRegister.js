@@ -1,5 +1,6 @@
 const {body,check} = require('express-validator');
 const db = require('../database/models');
+const path = require("path")
 
 module.exports = [
 
@@ -45,6 +46,12 @@ module.exports = [
                 return true
             }
         }).withMessage('Las contraseñas no coinciden'),
+    body('avatar') 
+        .custom((value, { req }) => {
+         let file = req.file;
+           if (!file) {
+               throw new Error('Al menos una imágen es necesaria')}
+            else{return true}}),
 
     check('terms')
         .isString('on').withMessage('Debes aceptar los términos y condiciones')

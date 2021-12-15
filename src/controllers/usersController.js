@@ -22,7 +22,7 @@ module.exports = {
     processCreate: async (req, res) => {
         let errors = validationResult(req);
 
-        if (errors.isEmpty()) {
+        if (errors.isEmpty() || !req.fileValidationError ) {
 
         const { name, lastName, country, email, rol, password } = req.body;
 
@@ -65,8 +65,17 @@ module.exports = {
         } catch (error) {
             console.log(error)
         }}else {
+            errors = errors.mapped()
+            if (req.fileValidationError) {
+                errors = {
+                    ...errors,
+                    avatar: {
+                        msg: req.fileValidationError,
+                    },
+                };
+            }
             return res.render('users/register', {
-                errores: errors.mapped(),
+                errores : errors,
                 old: req.body
             })
         }
