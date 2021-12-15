@@ -20,6 +20,10 @@ module.exports = {
         return res.send(user); // COMPROBAR USUARIOS
     },
     processCreate: async (req, res) => {
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+
         const { name, lastName, country, email, rol, password } = req.body;
 
         try {
@@ -60,6 +64,11 @@ module.exports = {
             return res.redirect('/users/profile')
         } catch (error) {
             console.log(error)
+        }}else {
+            return res.render('users/register', {
+                errores: errors.mapped(),
+                old: req.body
+            })
         }
     },
 

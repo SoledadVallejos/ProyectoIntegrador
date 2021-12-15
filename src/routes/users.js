@@ -7,7 +7,7 @@ var router = express.Router();
 
 // Middlewares
 const uploadFile = require('../middlewares/multerMiddleware');
-const validateRegister = require('../middlewares/validateRegisterMiddleware');
+const validateRegister = require('../middlewares/validateRegister');
 const adminMiddleware = require('../middlewares/adminMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');

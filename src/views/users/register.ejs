@@ -14,91 +14,38 @@
 
                 <div>
                     <label for="name">Nombre
-                        <input type="text" id="name" placeholder="Ingrese su nombre" name="name"
-                            value="<%= locals.old && old.name ? old.name : ''%>">
-                        <!--			     IF data old  Y    old 	 name          old.    name    imprimir-->
-                        <!-- 					  RECORDAR VIEJO DATO INGRESADO EN input -->
-                    </label>
-                    <!-- MENSAJE DE VALIDACION -->
-                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
-                    <% if (locals.errors ) { %>
-                    <% errors.forEach(error => { %>
-                    <p class="text-danger">
-                        <%= error.param=='name' ?error.msg : null %>
-                    </p>
-                    <% }) %>
-                    <% } %>
-                    <!-- MENSAJE DE VALIDACION/ -->
+                        <input type="text" id="name" placeholder="Ingrese su nombre" name="name" value="<%= locals.old && old.name ? old.name : null %>">
+                        <span id="error-name" class="small text-danger"><%= locals.errores && errores.name ? errores.name.msg : null %> </span>
+                                <span id="info-name" class="small text-info"></span>  
+                        
+        
                 </div>
 
                 <div>
                     <label for="lastName">Apellido
-                        <input type="text" id="lastName" placeholder="Ingrese su apellido" name="lastName"
-                            value="<%= locals.old && old.lastName ? old.lastName : ''%>">
-                        <!--				IF data old  Y    old 	 name       old.    name    imprimir-->
-                        <!-- 					  RECORDAR VIEJO DATO INGRESADO EN input -->
-                    </label>
-                    <!-- MENSAJE DE VALIDACION -->
-                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
-                    <% if (locals.errors ) { %>
-                    <% errors.forEach(error => { %>
-                    <p class="text-danger">
-                        <%= error.param=='lastName' ?error.msg : null %>
-                    </p>
-                    <% }) %>
-                    <% } %>
-                    <!-- MENSAJE DE VALIDACION/ -->
+                        <input type="text" id="lastName" placeholder="Ingrese su apellido" name="lastName" value="<%= locals.old && old.lastName ? old.lastName : null %>">
+                        <span id="error-lastName" class="small text-danger"><%= locals.errores && errores.lastName ? errores.lastName.msg : null %> </span>
+                        <span id="info-lastName" class="small text-info"></span> 
                 </div>
 
                 <div>
                     <label for="email">Correo electronico
-                        <input type="email" id="email" placeholder="Ingrese su Email" name="email"
-                            value="<%= locals.old && old.email ? old.email : ''%>">
-                        <!--				IF data old  Y    old 	 name       old.    name    imprimir-->
-                        <!-- 					  RECORDAR VIEJO DATO INGRESADO EN input -->
-                    </label>
-                    <!-- MENSAJE DE VALIDACION -->
-                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
-                    <% if (locals.errors ) { %>
-                    <% errors.forEach(error => { %>
-                    <p class="text-danger">
-                        <%= error.param=='email' ?error.msg : null %>
-                    </p>
-                    <% }) %>
-                    <% } %>
-                    <!-- MENSAJE DE VALIDACION/ -->
+                        <input type="email" id="email" placeholder="Ingrese su Email" name="email">
+                        <span id="error-email" class="small text-danger"><%= locals.errores && errores.email ? errores.email.msg : null %> </span>
+                        <span id="info-email" class="small text-info"></span>
                 </div>
 
                 <div>
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" placeholder="Ingrese su contraseña" name="password">
-                    <!-- NO ES PRUDENTE PERSISTIR LA VIEJA DATA INGRESADA EN ESTE input -->
-                    <!-- MENSAJE DE VALIDACION -->
-                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
-                    <% if (locals.errors ) { %>
-                    <% errors.forEach(error => { %>
-                    <p class="text-danger">
-                        <%= error.param=='password' ?error.msg : null %>
-                    </p>
-                    <% }) %>
-                    <% } %>
-                    <!-- MENSAJE DE VALIDACION/ -->
+                    <span id="error-password" class="small text-danger"><%= locals.errores && errores.password ? errores.password.msg : null %> </span>
+                                <span id="info-password" class="small text-info"></span>
                 </div>
 
                 <div>
                     <label for="password2">Confirmar Contraseña</label>
                     <input type="password" id="password2" placeholder="Ingrese su contraseña" name="password2">
-                    <!-- NO ES PRUDENTE PERSISTIR LA VIEJA DATA INGRESADA EN ESTE input -->
-                    <!-- MENSAJE DE VALIDACION -->
-                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
-                    <% if (locals.errors ) { %>
-                    <% errors.forEach(error => { %>
-                    <p class="text-danger">
-                        <%= error.param=='password' ?error.msg : null %>
-                    </p>
-                    <% }) %>
-                    <% } %>
-                    <!-- MENSAJE DE VALIDACION/ -->
+                    <span id="error-password2" class="small text-danger"><%= locals.errores && errores.password2 ? errores.password2.msg : null %> </span>
                 </div>
 
                 <div>
@@ -151,35 +98,19 @@
                 <!-- CAJAS -->
 
                 <div>
-                    <label for="terms"><input type="checkbox" name="terms" value="terms"> Acepto los terminos y
+                    <div class= "terms">
+                     <input type="checkbox" name="terms" value="terms">
+                     <label for="terms">Acepto los terminos y
                         condiciones</label>
+                    </div>
+                        <span id="error-terms" class="small text-danger"><%= locals.errores && errores.terms ? errores.terms.msg : null %> </span>
                 </div>
-                <!-- MENSAJE DE VALIDACION -->
-                <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
-                <% if (locals.errors ) { %>
-                <% errors.forEach(error => { %>
-                <p class="text-danger">
-                    <%= error.param=='terms' ?error.msg : null %>
-                </p>
-                <% }) %>
-                <% } %>
-                <!-- MENSAJE DE VALIDACION/ -->
-
-                <div>
-                    <label for="rol">Esta es una cuenta de Administrador</label>
+              
+                <div class="terms">
                     <input type="checkbox" name="rol" value="2" id="rol">
+                    <label for="rol">Esta es una cuenta de Administrador</label>
                 </div>
-                <!-- MENSAJE DE VALIDACION -->
-                <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
-                <% if (locals.errors ) { %>
-                <% errors.forEach(error => { %>
-                <p class="text-danger">
-                    <%= error.param=='rol' ?error.msg : null %>
-                </p>
-                <% }) %>
-                <% } %>
-                <!-- MENSAJE DE VALIDACION/ -->
-
+               
                 <div>
                     <button class="button-blue" type="submit">Crear</button>
                     <button class="button-red" type="reset">Cancelar</button>

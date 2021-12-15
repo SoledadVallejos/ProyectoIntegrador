@@ -141,6 +141,23 @@ label .a-check{
     margin-left: 260px;
 }
 
+.terms {
+    display: flex;
+    align-items: center;
+   
+}
+
+.terms input {
+    width: 10%
+
+}
+
+.terms label {
+    width : 90%;
+    margin-top: 3%;
+}
+
+
 
 /*MOBILE*/
 @media (max-width:426px ){
