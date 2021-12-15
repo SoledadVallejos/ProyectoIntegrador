@@ -12,19 +12,25 @@
                     <div>
                         <h3>EDITAR PRODUCTO</h3>
                     </div>
-                    <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. enctype  -->
-                    <form action="../update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
+                    <!-- FORM -->
+                    <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. enctype  -->
+                    <form action="../update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data"
+                        id="formproductadd">
+                        <!--ESTE id ESTÁ SIRVIENDO PARA VALIDACIONES FRONT -->
+
+                        <!-- NAME -->
                         <div>
-                            <label for="name">Nombre
+                            <label for="name" class="inputsEdit">Nombre
                                 <input type="text" name="name" id="name"
+                                    class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
                                     placeholder="Al menos 5 caracteres alfanuméricos"
                                     value="<%= locals.old && old.name ? old.name : product.name%>">
                                 <!-- SI SE INGRESÓ DATOS RECIÉN        ? ESE DATO : SINO TRAER DATO DE DB -->
                                 <!-- value: TRAIGA DATOS DE DB PERSISTIENDO SI NO SE INGRESA DATO NUEVO -->
                                 <!-- value: SI HAY DATOS NUEVOS INGRESADOS, RECUERDA DATO NUEVO INGRESADO -->
                             </label>
-                            <!-- MENSAJE DE VALIDACION -->
+                            <!-- MENSAJE DE VALIDACION BACKEND-->
                             <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
                             <% if (locals.errors ) { %>
                                 <% errors.forEach(error=> { %>
@@ -33,15 +39,22 @@
                                     </p>
                                     <% }) %>
                                         <% } %>
-                                            <!-- MENSAJE DE VALIDACION/ -->
+                                            <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                            <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                                            <span id="nameError" class="text-danger small ms-2" style="display: block;">
+                                                <%= locals.errors && errors.name ? errors.name.msg : null%>
+                                            </span>
+                                            <!-- MENSAJE DE VALIDACION DEL FRONT / -->
                         </div>
 
+                        <!-- CATEGORY -->
                         <div>
-                            <label for="category">Categoria
+                            <label for="category" class="inputsEdit">Categoria
                                 <input type="text" name="category" id="category" placeholder="1=Hombre      2=Mujer"
+                                    class="form-control <%= locals.errors && errors.category ? 'is-invalid' : null %>"
                                     value="<%= locals.old && old.category ? old.category : product.categoryId%>">
                             </label>
-                            <!-- MENSAJE DE VALIDACION -->
+                            <!-- MENSAJE DE VALIDACION BACKEND-->
                             <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
                             <% if (locals.errors ) { %>
                                 <% errors.forEach(error=> { %>
@@ -50,15 +63,23 @@
                                     </p>
                                     <% }) %>
                                         <% } %>
-                                            <!-- MENSAJE DE VALIDACION/ -->
+                                            <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                            <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                                            <span id="categoryError" class="text-danger small ms-2"
+                                                style="display: block;">
+                                                <%= locals.errors && errors.category ? errors.category.msg : null%>
+                                            </span>
+                                            <!-- MENSAJE DE VALIDACION DEL FRONT / -->
                         </div>
 
+                        <!-- PRICE -->
                         <div>
-                            <label for="price">Precio
+                            <label for="price" class="inputsEdit">Precio
                                 <input type="text" name="price" id="" placeholder="Número mayor a 100"
+                                    class="form-control <%= locals.errors && errors.price ? 'is-invalid' : null %>"
                                     value="<%= locals.old && old.price ? old.price : product.price%>">
                             </label>
-                            <!-- MENSAJE DE VALIDACION -->
+                            <!-- MENSAJE DE VALIDACION BACKEND-->
                             <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
                             <% if (locals.errors ) { %>
                                 <% errors.forEach(error=> { %>
@@ -67,17 +88,25 @@
                                     </p>
                                     <% }) %>
                                         <% } %>
-                                            <!-- MENSAJE DE VALIDACION/ -->
+                                            <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                            <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                                            <span id="priceError" class="text-danger small ms-2"
+                                                style="display: block;">
+                                                <%= locals.errors && errors.price ? errors.price.msg : null%>
+                                            </span>
+                                            <!-- MENSAJE DE VALIDACION DEL FRONT / -->
                         </div>
 
+                        <!-- DISCOUNT -->
                         <div>
-                            <label for="discount">Descuento
+                            <label for="discount" class="inputsEdit">Descuento
                                 <input type="text" name="discount" id="" placeholder="Vacío o un número entre 5 y 70"
-                                    value="<%= product.discount>0 ? product.discount : locals.old && old.discount%>">
+                                    class="form-control <%= locals.errors && errors.discount ? 'is-invalid' : null %>"
+                                    value="<%= locals.old && old.discount? old.discount:'0'%>">
                                 <!--     SI PRODUCTO ES MAYOr A 0 TRAER DATO DB SINO, DATO ULTIMO INGRESADO AL EDITAR-->
                                 <!--value: PARA QUE NO TRAIGA EL 0 DE LA DB -->
                             </label>
-                            <!-- MENSAJE DE VALIDACION -->
+                            <!-- MENSAJE DE VALIDACION BACKEND-->
                             <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
                             <% if (locals.errors ) { %>
                                 <% errors.forEach(error=> { %>
@@ -86,78 +115,109 @@
                                     </p>
                                     <% }) %>
                                         <% } %>
-                                            <!-- MENSAJE DE VALIDACION/ -->
+                                            <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                            <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                                            <span id="discountError" class="text-danger small ms-2"
+                                                style="display: block;">
+                                                <%= locals.errors && errors.discount ? errors.discount.msg : null%>
+                                            </span>
+                                            <!-- MENSAJE DE VALIDACION DEL FRONT / -->
                         </div>
 
-                        <div>
-                            <label for="">Color
-                                <div class="button-contain">
+                        <!-- DESCRIPTION -->
+                        <h6>Descripción</h6>
+                        <div class="add-description">
+                            <textarea name="description" id="comentario"
+                                class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>"
+                                placeholder="Al menos 20 caracteres es requerido"><%= locals.old && old.description ? old.description : product.description %></textarea>
+                        </div>
+                        <!-- MENSAJE DE VALIDACION BACKEND-->
+                        <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                        <% if (locals.errors ) { %>
+                            <% errors.forEach(error=> { %>
+                                <p class="text-danger">
+                                    <%= error.param=='description' ?error.msg : null %>
+                                </p>
+                                <% }) %>
+                                    <% } %>
+                                        <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                        <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                                        <span id="descriptionError" class="text-danger small ms-2"
+                                            style="display: block;">
+                                            <%= locals.errors && errors.description ? errors.description.msg : null%>
+                                        </span>
+                                        <!-- MENSAJE DE VALIDACION DEL FRONT / -->
+                                        <!-- DESCRIPTION / -->
 
-                                    <div class="radio-item4" class="negro">
-                                        <input type="radio" id="ritemd" name="color" value="Negro">
-                                        <label for="ritemd">Negro</label>
-                                    </div>
+                                        <!-- COLOR -->
+                                        <div>
+                                            <label for="">Color
+                                                <div class="button-contain">
+                                                    <div class="radio-item4" class="negro">
+                                                        <input type="radio" id="ritemd" name="color" value="Negro">
+                                                        <label for="ritemd">Negro</label>
+                                                    </div>
+                                                    <div class="radio-item1">
+                                                        <input type="radio" id="ritema" name="color" value="Rojo">
+                                                        <label for="ritema">Rojo</label>
+                                                    </div>
+                                                    <div class="radio-item2" class="beige">
+                                                        <input type="radio" id="ritemb" name="color" value="Beige">
+                                                        <label for="ritemb">Beige</label>
+                                                    </div>
+                                                    <div class="radio-item3" class="blanco">
+                                                        <input type="radio" id="ritemc" name="color" value="Blanco">
+                                                        <label for="ritemc">Blanco</label>
+                                                    </div>
+                                                </div>
+                                                <!-- MENSAJE DE VALIDACION BACKEND -->
+                                                <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                                                <% if (locals.errors ) { %>
+                                                    <% errors.forEach(error=> { %>
+                                                        <p class="text-danger">
+                                                            <%= error.param=='color' ?error.msg : null %>
+                                                        </p>
+                                                        <% }) %>
+                                                            <% } %>
+                                                                <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                            </label>
 
-                                    <div class="radio-item1">
-                                        <input type="radio" id="ritema" name="color" value="Rojo">
-                                        <label for="ritema">Rojo</label>
-                                    </div>
+                                            <!-- SIZE -->
+                                            <div>
+                                                <label for="size">Talle
+                                                    <div class="button-contain">
+                                                        <label for="s">S<input type="radio" id="s" name="size"
+                                                                value="S"></label>
+                                                        <label for="m">M<input type="radio" id="m" name="size"
+                                                                value="M"></label>
+                                                        <label for="l">L<input type="radio" id="l" name="size"
+                                                                value="L"></label>
+                                                        <label for="xl">XL<input type="radio" id="xl" name="size"
+                                                                value="XL"></label>
+                                                    </div>
+                                                    <!-- MENSAJE DE VALIDACION BACKEND-->
+                                                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                                                    <% if (locals.errors ) { %>
+                                                        <% errors.forEach(error=> { %>
+                                                            <p class="text-danger">
+                                                                <%= error.param=='size' ?error.msg : null %>
+                                                            </p>
+                                                            <% }) %>
+                                                                <% } %>
+                                                                    <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                                </label>
+                                            </div>
 
-                                    <div class="radio-item2" class="beige">
-                                        <input type="radio" id="ritemb" name="color" value="Beige">
-                                        <label for="ritemb">Beige</label>
-                                    </div>
-
-                                    <div class="radio-item3" class="blanco">
-                                        <input type="radio" id="ritemc" name="color" value="Blanco">
-                                        <label for="ritemc">Blanco</label>
-                                    </div>
-
-                                </div>
-                                <!-- MENSAJE DE VALIDACION -->
-                                <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
-                                <% if (locals.errors ) { %>
-                                    <% errors.forEach(error=> { %>
-                                        <p class="text-danger">
-                                            <%= error.param=='color' ?error.msg : null %>
-                                        </p>
-                                        <% }) %>
-                                            <% } %>
-                                                <!-- MENSAJE DE VALIDACION/ -->
-                            </label>
-
+                                            <!-- IMAGES ANTIGUA VERSIÓN-->
+                                            <!-- CARGA DE IMAGENES CON MULTER
                             <div>
-                                <label for="size">Talle
-                                    <div class="button-contain">
-
-                                        <label for="s">S<input type="radio" id="s" name="size" value="S"></label>
-                                        <label for="m">M<input type="radio" id="m" name="size" value="M"></label>
-                                        <label for="l">L<input type="radio" id="l" name="size" value="L"></label>
-                                        <label for="xl">XL<input type="radio" id="xl" name="size" value="XL"></label>
-
-                                    </div>
-                                    <!-- MENSAJE DE VALIDACION -->
-                                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
-                                    <% if (locals.errors ) { %>
-                                        <% errors.forEach(error=> { %>
-                                            <p class="text-danger">
-                                                <%= error.param=='size' ?error.msg : null %>
-                                            </p>
-                                            <% }) %>
-                                                <% } %>
-                                                    <!-- MENSAJE DE VALIDACION/ -->
-                                </label>
-                            </div>
-
-                            <!-- CARGA DE IMAGENES CON MULTER -->
-                            <div>
-                                <label for="splideImages">Imágenes del producto
-                                    <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. name  -->
+                                <label for="splideImages" class="inputsEdit">Imágenes del producto
+                                    CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. name 
                                     <input type="file" name="splideImages" id="splideImages" value="splideImages"
                                         multiple
                                         class=" <%= locals.errors && errors.splideImages ? 'is-invalid' : null %>">
-                                    <!-- MENSAJE DE VALIDACION -->
-                                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                                    MENSAJE DE VALIDACION BACKEND
+                                    CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR
                                     <% if (locals.errors ) { %>
                                         <% errors.forEach(error=> { %>
                                             <p class="text-danger">
@@ -165,28 +225,14 @@
                                             </p>
                                             <% }) %>
                                                 <% } %>
-                                                    <!-- MENSAJE DE VALIDACION/ -->
+                                                    MENSAJE DE VALIDACION BACKEND /
                                 </label>
                             </div>
+ -->
 
-                            <h6>Descripción</h6>
-                            <div class="add-description">
-                                <textarea name="description" id="comentario"
-                                    placeholder="Al menos 20 caracteres es requerido"><%= locals.old && old.description ? old.description : product.description %></textarea>
-                            </div>
-                            <!-- MENSAJE DE VALIDACION -->
-                            <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
-                            <% if (locals.errors ) { %>
-                                <% errors.forEach(error=> { %>
-                                    <p class="text-danger">
-                                        <%= error.param=='description' ?error.msg : null %>
-                                    </p>
-                                    <% }) %>
-                                        <% } %>
-                                            <!-- MENSAJE DE VALIDACION/ -->
-
+                                            <!-- SECTIONS -->
                                             <div>
-                                                <label for="section">Disponible en la sección:
+                                                <label for="section" class="inputsEdit">Disponible en la sección:
                                                     <div class="sectionProduct">
                                                         <!--NECESARIO PARA GUARDAR: name="section" -->
                                                         <input type="radio" id="banner" name="section" value="1">
@@ -202,15 +248,77 @@
                                                         <input type="radio" id="oferta" name="section" value="5">
                                                         <label for="oferta">5 Oferta</label>
                                                     </div>
-
                                                 </label>
                                             </div>
-                                            <a href="http://localhost:3017/admin" class="button-red"
-                                                style="padding: 10px; color:white; border-radius: 7%">
-                                                Cancelar
+
+                                            <!-- MENSAJE ERROR GENERAL (validaciones front) -->
+                                            <span id="errorEmpty" class="text-danger" style="display: block;"></span>
+
+                                            <!-- IMAGENES GUARDADAS -->
+                                            <div class="row my-4 g-2" id="preview">
+                                                <!-- RECORRE images DEVUELVE image Y ALGO MAS JAJA -->
+                                                <% product.image.forEach((image,index)=> { %>
+                                                    <div class="col-4 text-center">
+                                                        <!-- IMPRIME EN PANTALLA CADA IMÁGEN RECORRIDA -->
+                                                        <img width="200"
+                                                            src="/img/productDetail-splide/<%= image.file %>"
+                                                            alt="imagen">
+                                                        <div>
+                                                            <!--AL CLICK  ELIMINAR     image.ESTEid-->
+                                                            <a onclick="deleteImage('<%=image.id%>')"
+                                                                class="btn btn-danger ">Eliminar</a>
+                                                        </div>
+                                                    </div>
+                                                    <% }) %>
+                                            </div>
+                                            <!-- IMAGENES GUARDADAS  / -->
+
+                                            <!-- CAMBIAR IMÁGENES EDIT -->
+                                            <div class="col-12 col-md-6">
+                                                <div class="mb-3">
+                                                    <!-- DE label for input id, LA RELACIÓN for id DEBE TENER EL MISMO VALOR PARA ELEGIR ARCHIVO A SUBIR -->
+                                                    <label for="image" class="button-red" style="padding: 10px;">
+                                                        Subir imagen
+                                                    </label>
+                                                    <!-- ESTE                                                                 name   'splideImages' DEBE ESTAR IGUALITO EN router, ASI: router.put('/update/:id', uploadMultiple.array('splideImages'), validateAddEditProduct, update);-->
+                                                    <input hidden class="form-control" type="file" accept="image/*"
+                                                        id="image" name="splideImages" multiple
+                                                        class="form-control <%= locals.errors && errors.splideImage ? 'is-invalid' : null %>"
+                                                        onchange="addImage('<%=product.id%>',this.files)">
+                                                </div>
+                                                <!-- MENSAJE DE VALIDACION BACKEND -->
+                                                <% if (locals.errors ) { %>
+                                                    <% errors.forEach(error=> { %>
+                                                        <p class="text-danger">
+                                                            <%= error.param=='splideImages' ?error.msg : null %>
+                                                        </p>
+                                                        <% }) %>
+                                                            <% } %>
+                                                                <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                                                <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                                                                <span id="splideImagesError"
+                                                                    class="text-danger small ms-2">
+                                                                    <%= locals.errors && errors.splideImages ?
+                                                                        errors.splideImages.msg : null%>
+                                                                </span>
+                                                                <!-- MENSAJE DE VALIDACION DEL FRONT / -->
+                                            </div>
+                                            <!-- CAMBIAR IMÁGENES EDIT / -->
+
+                                            <!-- SUBMITS -->
+                                            <a href="http://localhost:3017/admin" class="button-blue"
+                                                style="padding: 10px; color: white; border-radius: 5px;">
+                                                ADMIN
                                             </a>
-                                            <button class=" button-red" type="reset">Reiniciar</button>
-                                            <button class="button-blue" type="submit">Actualizar</button>
+                                            <button class=" button-blue" type="reset">
+                                                REINICIAR
+                                            </button>
+                                            <div class="col-12 mt-5">
+                                                <button type="submit" class="button-red" style="width: 80%;">
+                                                    ACTUALIZAR
+                                                </button>
+                                            </div>
+                                            <!-- SUBMITS / -->
 
                     </form>
 
@@ -219,6 +327,12 @@
             </main>
 
             <%- include('../partials/footer') %>
+
+                <!-- PONER ESTE LINK SINO NO, LAS VALIDACIONES FRONT NO FUNCNIONA!! -->
+                <script src="/js/productValidator.js"></script>
+
+                <!-- PARA QUE FUNCIONE EDICIÓN DE IMÁGENES EN edit.ejs -->
+                <script src="/js/productEdit.js"></script>
     </body>
 
 </html>

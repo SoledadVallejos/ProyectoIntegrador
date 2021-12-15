@@ -1,3 +1,20 @@
+/* ANCHO DE LOS INPUTS */
+label.inputsEdit {
+    width: 80%;
+}
+
+/* ANCHO DE LOS INPUTS / */
+
+
+
+
+
+
+
+
+
+
+
 main.edit {
     display: flex;
     justify-content: center;
@@ -46,15 +63,8 @@ main.edit {
 }
 
 div.rojo {
-<<<<<<< HEAD
-    
-    width: 42px;
-    height: 35px;
-=======
-
     width: 30px;
     height: 30px;
->>>>>>> sprint7-validations-frontend-backend--product-create-edit/daniel
     background-color: rgb(255, 0, 13);
     border-radius: 50%;
     border: solid 1px darkgrey;
@@ -88,11 +98,6 @@ div.negro {
 
 
 
-
-.add-description textarea {
-    width: 90%;
-    min-height: 60px;
-}
 
 .contain-edit button {
     padding: 7px;

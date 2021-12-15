@@ -145,6 +145,13 @@ sectionsProduct riveradaniel
 
 /* sectionsProduct riveradaniel / */
 
+/* ANCHO DE LOS INPUTS */
+
+label.inputsAdd {
+    width: 80%;
+}
+
+
 
 
 
@@ -245,8 +252,8 @@ div.negro {
 
 
 .add-description textarea {
-    width: 90%;
-    min-height: 60px;
+    /* width: 90%;
+    min-height: 60px; */
 }
 
 .contain-add button {

@@ -31,83 +31,85 @@
 					</div>
 
 					<article class="col-12">
-						<table class="table">
-							<thead>
-								<tr>
-									<th scope="col">Id</th>
-									<th scope="col">Nombre</th>
-									<th scope="col">Imágen</th>
-									<th scope="col">Descripción</th>
-									<th scope="col">Color</th>
-									<th scope="col">Talle</th>
-									<th scope="col">Categoría</th>
-									<th scope="col">Sección</th>
-									<th scope="col">Precio</th>
-									<th scope="col">Descuento</th>
-									<th scope="col">Ver</th>
-									<th scope="col">Editar</th>
-									<th scope="col">Borrar</th>
-								</tr>
-							</thead>
-							<tbody>
-
-								<% products1.forEach(index=> { %>
+						<div class="table-responsive">
+							<table class="table">
+								<thead>
 									<tr>
-										<td>
-											<%= index.id%>
-										</td>
-										<td>
-											<%= index.name%>
-										</td>
-										<td><a href="/products/productDetail/<%= index.id%>">
-												<img class="imgAdmin"
-													src="/img/productDetail-splide/<%= index.image[0].file%>" alt=""
-													width="100px">
-											</a>
-										</td>
-										<td>
-											<%= index.description%>
-										</td>
-										<td>
-											<%= index.color%>
-										</td>
-										<td>
-											<%= index.size%>
-										</td>
-										<td>
-											<!--Con		categoryId imvoca el id de products -->
-											<%= index.category.name%>
-										</td>
-										<td>
-											<!-- Con 	section.name va directo a tabla sections y luego a su name -->
-											<%= index.section.name%>
-										</td>
-										<td>
-											<%= index.price%>
-										</td>
-										<td>
-											<%= index.discount%>
-										</td>
-										<td>
-											<a href="/products/productDetail/<%= index.id%>">
-												<ion-icon class="ion-icon" name="eye-outline"></ion-icon>
-											</a>
-										</td>
-										<td>
-											<a href="/admin/edit/<%= index.id%>">
-												<ion-icon class="ion-icon" name="construct-outline"></ion-icon>
-											</a>
-										</td>
-										<td>
-											<a href="/admin/delete/<%= index.id%>">
-												<ion-icon class="ion-icon" name="trash-outline"></ion-icon>
-											</a>
-										</td>
+										<th scope="col">Id</th>
+										<th scope="col">Nombre</th>
+										<th scope="col">Imágen</th>
+										<th scope="col">Descripción</th>
+										<th scope="col">Color</th>
+										<th scope="col">Talle</th>
+										<th scope="col">Categoría</th>
+										<th scope="col">Sección</th>
+										<th scope="col">Precio</th>
+										<th scope="col">Descuento</th>
+										<th scope="col">Ver</th>
+										<th scope="col">Editar</th>
+										<th scope="col">Borrar</th>
 									</tr>
-									<% }); %>
+								</thead>
+								<tbody>
 
-							</tbody>
-						</table>
+									<% products1.forEach(index=> { %>
+										<tr>
+											<td>
+												<%= index.id%>
+											</td>
+											<td>
+												<%= index.name%>
+											</td>
+											<td><a href="/products/productDetail/<%= index.id%>">
+													<img class="imgAdmin"
+														src="/img/productDetail-splide/<%= index.image[0].file%>" alt=""
+														width="100px">
+												</a>
+											</td>
+											<td>
+												<%= index.description%>
+											</td>
+											<td>
+												<%= index.color%>
+											</td>
+											<td>
+												<%= index.size%>
+											</td>
+											<td>
+												<!--Con		categoryId imvoca el id de products -->
+												<%= index.category.name%>
+											</td>
+											<td>
+												<!-- Con 	section.name va directo a tabla sections y luego a su name -->
+												<%= index.section.name%>
+											</td>
+											<td>
+												<%= index.price%>
+											</td>
+											<td>
+												<%= index.discount%>
+											</td>
+											<td>
+												<a href="/products/productDetail/<%= index.id%>">
+													<ion-icon class="ion-icon" name="eye-outline"></ion-icon>
+												</a>
+											</td>
+											<td>
+												<a href="/admin/edit/<%= index.id%>">
+													<ion-icon class="ion-icon" name="construct-outline"></ion-icon>
+												</a>
+											</td>
+											<td>
+												<a href="/admin/delete/<%= index.id%>">
+													<ion-icon class="ion-icon" name="trash-outline"></ion-icon>
+												</a>
+											</td>
+										</tr>
+										<% }); %>
+
+								</tbody>
+							</table>
+						</div>
 					</article>
 			</main>
 			<!-- THIS IS DEPRECATED. ESTO VA CON OTRA SINTAXIS EN EL head -->

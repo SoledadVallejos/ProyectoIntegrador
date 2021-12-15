@@ -21,6 +21,12 @@ p, li, dl, blockquote, table, kbd {
     font-size: 2rem;
 }
 
+.table td {
+    padding: .75rem 0 .75rem .75rem;
+}
+
+
+
 /*Aquí dispuse nuestros mismos css que tenidamos en nuestra clase 3, lo realice sólo para que vean que podemos sin ningún problema, combinar como deseemos nuestros conocimientos de maquetación ahora con Bootstrap*/
 
 /* AGREGADO POR D.R. */

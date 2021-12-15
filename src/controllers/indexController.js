@@ -5,6 +5,8 @@
 
 const db = require('../database/models');
 const { Op, Sequelize } = require('sequelize');
+//       toThousand CONVIERTE NÚMEROS A MILES ( 1000 => 1.000)
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
     index: (req, res) => {
@@ -112,6 +114,7 @@ module.exports = {
                 res.render('general/resultsHome', { // LAS COMPROBACIONES HACERLAS ANTES DE ESTE res.render()
                     searchResults,
                     toSearch,
+                    toThousand,
                 });
             })
             .catch(error => console.log(error))
