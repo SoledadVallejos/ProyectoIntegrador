@@ -166,7 +166,7 @@ formproductadd.addEventListener('submit', function (e) {
             // A elements AGREGAR        is-invalid (a cada element, a cada entrada de formulario)
             this.elements[i].classList.add('is-invalid');
             // EN errorEmpty PONER MENSAJE DE ERROR
-            errorEmpty.innerHTML = "Los campos indicados son obligatorios"
+            errorEmpty.innerHTML = "Todas las entradas de datos son requeridas, excepto: 'Descuento' y 'Sección' "
             // SI ALGO NO ES FUNCIONAL MEJOR QUITRLO O COMENTARLO
             // if (!this.elements[6].value) {
             //     $('btnImagen').classList.remove('btn-outline-secondary')

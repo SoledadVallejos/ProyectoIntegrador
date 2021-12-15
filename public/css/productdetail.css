@@ -53,7 +53,7 @@ span.descriptions {
 }
 
 .pricesmall span {
-    text-decoration: line-through;
+    text-decoration: line-through 2px;
 }
 
 .priceoff,
