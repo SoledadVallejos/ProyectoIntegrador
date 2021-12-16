@@ -81,8 +81,10 @@
                 <div>
 
                     <label><b>Imagen de perfil:</b></label>
-                    <input type="file" name="avatar">
-                        <span id="error-avatar" class="small text-danger"><%= locals.errores && errores.avatar ? errores.avatar.msg : null %> </span>
+                    <input type="file" name="avatar" id="imagen">
+                    <span id="error-avatar" class="small text-danger"><%= locals.errores && errores.avatar ? errores.avatar.msg : null %> </span>
+                    <span id="info-img" class="small text-info"></span>
+                        
                 </div>
 
                 <!-- CAJAS -->
