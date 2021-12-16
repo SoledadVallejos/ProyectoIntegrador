@@ -38,13 +38,16 @@
                             <th scope="col">Descripción</th>
                             <th scope="col">Color</th>
                             <th scope="col">Talle</th>
-                            <th scope="col">Categoría</th>
+                            <th scope="col">Sección</th>
+                            <th scope="col">Categoría nombre</th>
+                            <th scope="col">Categoría descripción</th>
+                            <!-- <th scope="col">Características</th> -->
                             <th scope="col">Precio</th>
                             <th scope="col">Descuento</th>
                             <th scope="col">Ver</th>
                             <th scope="col">Editar</th>
                             <th scope="col">Borrar</th>
-                        </tr>
+</tr>
                     </thead>
                     <tbody>
 
@@ -62,7 +65,9 @@
                             <td><%= searchResults[i].description%></td>
                             <td><%= searchResults[i].color%></td>
                             <td><%= searchResults[i].size%></td>
-                            <td><%= searchResults[i].category.description%></td> <!--NUNCA VI .category.description FUNCIONA!!--> 
+                            <td><%= searchResults[i].section.name%></td> <!--NUNCA VI .section.name FUNCIONA!!-->
+                            <td><%= searchResults[i].category.name%></td> <!--NUNCA VI .category.name FUNCIONA!!-->
+                            <td><%= searchResults[i].category.description%></td> <!--NUNCA VI .category.description FUNCIONA!!-->
                             <td><%= searchResults[i].price%></td>
                             <td><%= searchResults[i].discount%></td>
                             <td><a href="/products/productDetail/<%= searchResults[i].id%>">

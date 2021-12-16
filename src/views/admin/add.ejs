@@ -12,9 +12,44 @@
                     <div>
                         <h3>AGREGAR PRODUCTO</h3>
                     </div>
+
+                    <!-- MUESTRA IMÁGENES GUARDADAS A SUBIR O CAMBIAR EN add.ejs y edit.ejs RESPECTIVAMENTE -->
+                    <div class="col-12 col-md-6">
+                        <div id="preview">
+                        </div>
+                    </div>
+                    <!-- MUESTRA IMÁGENES GUARDADAS A SUBIR O CAMBIAR EN add.ejs y edit.ejs RESPECTIVAMENTE / -->
+
                     <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. enctype  -->
                     <!--                                                                                                                        ESTE id ESTÁ SIRVIENDO PARA VALIDACIONES FRONT -->
                     <form action="/admin/add" method="POST" enctype="multipart/form-data" id="formproductadd">
+
+
+                        <!-- SUBIR IMAGEN  PROFUNDIDAD DE CÓDIGO DE PROFE ERIC-->
+                        <div class="col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="image" class="button-red" style="padding: 10px;">
+                                    Subir imagen
+                                </label>
+                                <input hidden class="form-control" type="file" id="image" name="splideImages" multiple
+                                    class="form-control <%= locals.errors && errors.splideImage ? 'is-invalid' : null %>">
+                                <!-- MENSAJE DE VALIDACION BACKEND -->
+                                <% if (locals.errors ) { %>
+                                    <% errors.forEach(error=> { %>
+                                        <p class="text-danger">
+                                            <%= error.param=='splideImages' ?error.msg : null %>
+                                        </p>
+                                        <% }) %>
+                                            <% } %>
+                                                <!-- MENSAJE DE VALIDACION BACKEND / -->
+                            </div>
+                            <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                            <span id="splideImagesError" class="text-danger small ms-2">
+                                <%= locals.errors && errors.splideImages ? errors.splideImages.msg : null%>
+                            </span>
+                            <!-- MENSAJE DE VALIDACION DEL FRONT / -->
+                        </div>
+                        <!-- SUBIR IMAGEN  PROFUNDIDAD DE CÓDIGO DE PROFE ERIC / -->
 
                         <!-- NAME -->
                         <div>
@@ -228,41 +263,6 @@
 
                                             <!-- MENSAJE ERROR GENERAL (validaciones front)-->
                                             <span id="errorEmpty" class="text-danger" style="display: block;"></span>
-
-                                            <!-- MUESTRA IMÁGENES A SUBIR O CAMBIAR EN add.ejs y edit.ejs RESPECTIVAMENTE -->
-                                            <div class="col-12 col-md-6">
-                                                <div id="preview">
-                                                </div>
-                                            </div>
-                                            <!-- MUESTRA IMÁGENES A SUBIR O CAMBIAR EN add.ejs y edit.ejs RESPECTIVAMENTE / -->
-
-                                            <!-- SUBIR IMAGEN  PROFUNDIDAD DE CÓDIGO DE PROFE ERIC-->
-                                            <div class="col-12 col-md-6">
-                                                <div class="mb-3">
-                                                    <label for="image" class="button-red" style="padding: 10px;">
-                                                        Subir imagen
-                                                    </label>
-                                                    <input hidden class="form-control" type="file" id="image"
-                                                        name="splideImages" multiple
-                                                        class="form-control <%= locals.errors && errors.splideImage ? 'is-invalid' : null %>">
-                                                    <!-- MENSAJE DE VALIDACION BACKEND -->
-                                                    <% if (locals.errors ) { %>
-                                                        <% errors.forEach(error=> { %>
-                                                            <p class="text-danger">
-                                                                <%= error.param=='splideImages' ?error.msg : null %>
-                                                            </p>
-                                                            <% }) %>
-                                                                <% } %>
-                                                                    <!-- MENSAJE DE VALIDACION BACKEND / -->
-                                                </div>
-                                                <!-- MENSAJE DE VALIDACION DEL FRONT -->
-                                                <span id="splideImagesError" class="text-danger small ms-2">
-                                                    <%= locals.errors && errors.splideImages ? errors.splideImages.msg :
-                                                        null%>
-                                                </span>
-                                                <!-- MENSAJE DE VALIDACION DEL FRONT / -->
-                                            </div>
-                                            <!-- SUBIR IMAGEN  PROFUNDIDAD DE CÓDIGO DE PROFE ERIC / -->
 
                                             <!-- SUBMITS -->
                                             <a href="http://localhost:3017/admin" class="button-blue"

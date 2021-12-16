@@ -8,8 +8,31 @@ const { Op, Sequelize } = require('sequelize');
 //       toThousand CONVIERTE NÚMEROS A MILES ( 1000 => 1.000)
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+// SHUFFLE ARRAY RANDOMIZA UN ARRAY
+function shuffle(array) {
+    let currentIndex = array.length, randomIndex;
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+    return array;
+}
+// Used like so
+// var arr = [2, 11, 37, 42];
+// shuffle(arr);
+// console.log(arr);
+// SHUFFLE ARRAY RANDOMIZA UN ARRAY /
+
 module.exports = {
     index: (req, res) => {
+        let products = db.Product.findAll({
+            include: [{ all: true }]
+        })
         let sectionBanner = db.Section.findAll({
             where: {
                 name: {
@@ -42,8 +65,8 @@ module.exports = {
                 attributes: ['file'],
             }],
         })
-        Promise.all([sectionBanner, productDiscount, productCategory])
-            .then(([sectionBanner, productDiscount, productCategory]) => {
+        Promise.all([sectionBanner, productDiscount, productCategory, products])
+            .then(([sectionBanner, productDiscount, productCategory, products]) => {
                 // bannerImages OBTENER DATOS TAL CUAL VENIA DE JSON
                 let productsMap1 = sectionBanner.map(index => {
                     return index.image
@@ -51,25 +74,60 @@ module.exports = {
                 let bannerImages = productsMap1[0].map(index => {
                     return index.file
                 });
+                // PASADO
                 // productsOff OBTENER DATOS TAL CUAL VENIA DE JSON
-                let productsOff = productDiscount.map(index => {
-                    return index
-                });
+                // let productsOff = productDiscount.map(index => {
+                //     return index
+                // });
                 // productsOff  PARA SPLIDE
-                let productsOffSplide = productDiscount.map(index => {
-                    return index.image[0].file
-                });
+                // let productsOffSplide = productDiscount.map(index => {
+                //     return index.image[0].file
+                // });
+                // PASADO /
+
+                // SECCIONES EN HOME
+                let productsMuchSale = products.filter(product => {
+                    return product.section.name === 'Más vendidos';
+                })
+                shuffle(productsMuchSale)
+                let productsPromo = products.filter(product => {
+                    return product.section.name === 'Promoción';
+                })
+                shuffle(productsPromo)
+                let productsOff = products.filter(product => {
+                    return product.section.name === 'Ofertas';
+                })
+                shuffle(productsOff)
+                let productsClearance = products.filter(product => {
+                    return product.section.name === 'Liquidación';
+                })
+                shuffle(productsClearance)
+                let productsLastView = products.filter(product => {
+                    return product.section.name === 'Últimos vistos';
+                })
+                shuffle(productsLastView)
+                // SECCIONES EN HOME /
+
+
+                // return res.send(productsMuchSale) // COMPROBAR
+                // return res.send(products); //COMPROBAR products
                 // return res.send(productCategory) //COMPROBAR ANTES DE PROSEGUIR
                 // return res.send(bannerImages) //COMPROBAR ANTES DE PROSEGUIR
                 // return res.send(productDiscount1) //COMPROBAR ANTES DE PROSEGUIR
                 // return res.send(productsOff) //COMPROBAR ANTES DE PROSEGUIR
+                // return res.send(productsOffSplide) //COMPROBAR ANTES DE PROSEGUIR
                 // TRANSICION JSON A DB: 1_RUTAS ACTUALIZADAS EN INDEX 2_LLEGUE DE DB DATOS CORRECTOS (igual o parecido como llegaba del JSON) 3_EXISTA ARCHIVO ENLAZADO (imagen en este caso)
                 return res.render('general/index', {
                     title: 'Roma - Venta de Indumentaria Textil',
                     bannerImages, // LISTO. DB EN ACCION QUE EMOCION!! CONTIENE IMAGENES DEL BANNER
                     productCategory, // LISTO PARA MOSTRAR DATOS DE HOMBRE O MUJER...
-                    productsOff, //LISTO. MUESTRA PRODUCTOS SOLO CON DESCUENTO EN HOME
-                    productsOffSplide,
+                    productsMuchSale,
+                    productsPromo,
+                    productsOff,
+                    productsClearance,
+                    productsLastView,
+                    // productsOff, //LISTO. MUESTRA PRODUCTOS SOLO CON DESCUENTO EN HOME
+                    // productsOffSplide,
                     // productsSugest, NUNCA SE USÓ
                     // products, // NUNCA SE USÓ
                 });
@@ -77,6 +135,7 @@ module.exports = {
             })
             .catch(error => console.log(error))
     },
+
     search: (req, res) => {
         let products1 = db.Product.findAll({
             include: [ // SI

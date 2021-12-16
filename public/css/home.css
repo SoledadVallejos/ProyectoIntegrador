@@ -1,319 +1,345 @@
- div.mujer {
-     max-width: 50%;
- }
+/* riveradanieldavid */
 
- section.sugest {
-     margin: -10% 0 5%;
- }
+div.mujer {
+    max-width: 50%;
+}
 
- /* OCULTAR SUGERIDOS CON MENOS DE 480PX */
- @media (max-width:480px) {
+section.sugest {
+    margin: -10% 0 5%;
+}
 
-h2.sugest{
+@media (min-width:480px) {
+
+    /* OCULTAR SUGERIDOS CON MENOS DE 480PX */
+    section.ofertas-main, h2.ofertas-main {
+        display: none !important;
+    }
+
+    /* OCULTAR SUGERIDOS CON MENOS DE 480PX  / */
+
+}
+
+@media (max-width:480px) {
+
+    header nav div.header-buscador form input {
+        position: absolute;
+        top: 50px;
+        left: 45%;
+        display: block;
+        max-width: 53%
+    }
+
+    .btn-search-header {
+        background-color: white;
+        position: absolute;
+        top: 87px;
+        left: 45.7%;
+        color: white
+    }
+
+
+}
+
+
+
+
+
+
+main.home section.banner-main img {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+main.home section.tipo-main div.mujer a img {
+    width: 100%;
+}
+
+main.home section.tipo-main div.hombre a img {
+    width: 100%;
+}
+
+main.home section.tipo-main div.mujer h4 {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 60px;
+    font-size: 30px;
+    color: white;
+
+
+}
+
+main.home section.tipo-main div.hombre h4 {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 60px;
+    font-size: 30px;
+    color: white;
+}
+
+main.home h2 {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 15px;
+
+}
+
+main.home section.ofertas-main {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+main.home section.ofertas-main article.ofertas-android {
+    display: flex;
+}
+
+main.home section.ofertas-main article.ofertas-android div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+main.home section.ofertas-main article.ofertas-android div a img {
+    width: 97%;
+}
+
+main.home section.ofertas-main article.ofertas-tablet div a img {
+    width: 50%;
+
+}
+
+main.home section.ofertas-main article.ofertas-tablet div {
     display: none;
 }
 
- }
+main.home section.ofertas-main article.ofertas-desktop div a img {
+    width: 50%;
+    display: none;
+}
+
+main.home section.ofertas-main article.ofertas-desktop div {
+    display: none;
+}
+
+
+main.home section.ofertas-main article.ofertas-android div h5 {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 60px;
+    font-size: 25px;
+    color: white;
+}
 
+main.home section.ofertas-main article.ofertas-tablet div h5 {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 60px;
+    font-size: 25px;
+    color: white;
 
+}
 
+main.home section.ofertas-main article.ofertas-desktop div h5 {
+    width: 50%;
+    text-align: center;
+    position: relative;
+    bottom: 60px;
+    font-size: 25px;
+    color: white;
 
+}
 
- main.home section.banner-main img {
-     width: 100%;
-     margin: auto;
-     text-align: center;
- }
 
- main.home section.tipo-main div.mujer a img {
-     width: 100%;
- }
+@media (min-width:225px) {
 
- main.home section.tipo-main div.hombre a img {
-     width: 100%;
- }
+    div.mujer {
+        max-width: 100%;
+    }
 
- main.home section.tipo-main div.mujer h4 {
-     width: 100%;
-     text-align: center;
-     position: relative;
-     bottom: 60px;
-     font-size: 30px;
-     color: white;
+}
 
 
- }
+@media (min-width:425px) {
 
- main.home section.tipo-main div.hombre h4 {
-     width: 100%;
-     text-align: center;
-     position: relative;
-     bottom: 60px;
-     font-size: 30px;
-     color: white;
- }
+    main.home section.tipo-main {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 15px;
 
- main.home h2 {
-     text-align: center;
-     font-size: 35px;
-     margin-bottom: 15px;
+    }
 
- }
 
- main.home section.ofertas-main {
-     display: flex;
-     flex-wrap: wrap;
-     text-align: center;
- }
+    main.home section.tipo-main div.mujer a img {
+        width: 92%;
+        height: 73%;
+        margin: auto;
+    }
 
- main.home section.ofertas-main article.ofertas-android {
-     display: flex;
- }
+    main.home section.tipo-main div.hombre a img {
+        width: 100%;
+        height: 77%;
+    }
 
- main.home section.ofertas-main article.ofertas-android div {
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: space-around;
+    main.home section.tipo-main div.mujer h4 {
+        width: 100%;
+        text-align: center;
+        position: relative;
+        bottom: 60px;
+        font-size: 25px;
+        color: white;
+    }
 
- }
+    main.home section.tipo-main div.hombre h4 {
+        width: 100%;
+        text-align: center;
+        position: relative;
+        bottom: 60px;
+        font-size: 25px;
+        color: white;
+    }
 
- main.home section.ofertas-main article.ofertas-android div a img {
-     width: 97%;
- }
+    main.home section.ofertas-main article.ofertas-tablet div a img {
+        width: 50%;
 
- main.home section.ofertas-main article.ofertas-tablet div a img {
-     width: 50%;
+    }
 
- }
+    main.home section.ofertas-main article.ofertas-android {
+        width: 50%;
+        display: none;
+    }
 
- main.home section.ofertas-main article.ofertas-tablet div {
-     display: none;
- }
 
- main.home section.ofertas-main article.ofertas-desktop div a img {
-     width: 50%;
-     display: none;
- }
+    main.home section.ofertas-main article.ofertas-tablet div {
+        /* width: 50%; */
+        display: block;
+        margin: auto;
+    }
 
- main.home section.ofertas-main article.ofertas-desktop div {
-     display: none;
- }
+    main.home section.ofertas-main article.ofertas-tablet {
+        width: 50%;
+        display: flex;
 
 
- main.home section.ofertas-main article.ofertas-android div h5 {
-     width: 100%;
-     text-align: center;
-     position: relative;
-     bottom: 60px;
-     font-size: 25px;
-     color: white;
- }
+    }
 
- main.home section.ofertas-main article.ofertas-tablet div h5 {
-     width: 100%;
-     text-align: center;
-     position: relative;
-     bottom: 60px;
-     font-size: 25px;
-     color: white;
+    main.home section.ofertas-main article.ofertas-tablet div a img {
+        /* width: 97%; */
+        width: auto;
+        height: 287px;
 
- }
+    }
 
- main.home section.ofertas-main article.ofertas-desktop div h5 {
-     width: 50%;
-     text-align: center;
-     position: relative;
-     bottom: 60px;
-     font-size: 25px;
-     color: white;
 
- }
+}
 
 
- @media (min-width:225px) {
+@media (min-width: 724px) {
 
-     div.mujer {
-         max-width: 100%;
-     }
 
- }
 
+    main.home section.ofertas-main article.ofertas-android {
 
- @media (min-width:425px) {
+        width: 33%;
+        display: none;
+    }
 
-     main.home section.tipo-main {
-         display: flex;
-         justify-content: space-around;
-         margin-top: 15px;
+    main.home section.ofertas-main article.ofertas-tablet {
+        margin: auto;
+        width: auto;
+    }
 
-     }
+    main.home section.ofertas-main article.ofertas-tablet div a img {
+        height: 247px;
+    }
 
+    main.home section.ofertas-main article.ofertas-desktop {
 
-     main.home section.tipo-main div.mujer a img {
-         width: 92%;
-         height: 73%;
-         margin: auto;
-     }
+        width: 33%;
 
-     main.home section.tipo-main div.hombre a img {
-         width: 100%;
-         height: 77%;
-     }
+    }
 
-     main.home section.tipo-main div.mujer h4 {
-         width: 100%;
-         text-align: center;
-         position: relative;
-         bottom: 60px;
-         font-size: 25px;
-         color: white;
-     }
+    main.home section.ofertas-main article.ofertas-desktop {
+        display: flex;
+        display: none;
+    }
 
-     main.home section.tipo-main div.hombre h4 {
-         width: 100%;
-         text-align: center;
-         position: relative;
-         bottom: 60px;
-         font-size: 25px;
-         color: white;
-     }
 
-     main.home section.ofertas-main article.ofertas-tablet div a img {
-         width: 50%;
+    main.home section.ofertas-main article.ofertas-desktop div {
 
-     }
+        width: 100%;
+        display: block;
 
-     main.home section.ofertas-main article.ofertas-android {
-         width: 50%;
-         display: none;
-     }
 
+    }
 
-     main.home section.ofertas-main article.ofertas-tablet div {
-         /* width: 50%; */
-         display: block;
-         margin: auto;
-     }
+    main.home section.ofertas-main article.ofertas-desktop div a img {
+        width: 97%;
+        display: block;
+    }
 
-     main.home section.ofertas-main article.ofertas-tablet {
-         width: 50%;
-         display: flex;
+    main.home section.ofertas-main article.ofertas-desktop div h5 {
+        width: 100%;
 
+    }
 
-     }
+}
 
-     main.home section.ofertas-main article.ofertas-tablet div a img {
-         /* width: 97%; */
-         width: auto;
-         height: 287px;
 
-     }
+@media (min-width: 450px) {
+    main.home section.ofertas-main article.ofertas-tablet {
+        margin: auto;
+        width: auto;
+    }
 
+    main.home section.ofertas-main article.ofertas-tablet div a img {
+        margin: auto;
+        height: 215px;
+    }
 
- }
+}
 
+@media (min-width: 1024px) {
+    main.home section.ofertas-main article.ofertas-tablet {
+        margin: auto;
+        width: auto;
+    }
 
- @media (min-width: 724px) {
+    main.home section.ofertas-main article.ofertas-tablet div a img {
+        margin: auto;
+        height: 284px;
+    }
 
+}
 
 
-     main.home section.ofertas-main article.ofertas-android {
+@media (min-width: 1400px) {
+    main.home section.ofertas-main article.ofertas-tablet {
+        margin: auto;
+        width: auto;
+    }
 
-         width: 33%;
-         display: none;
-     }
+    main.home section.ofertas-main article.ofertas-tablet div a img {
+        height: 397px;
+    }
 
-     main.home section.ofertas-main article.ofertas-tablet {
-         margin: auto;
-         width: auto;
-     }
+}
 
-     main.home section.ofertas-main article.ofertas-tablet div a img {
-         height: 247px;
-     }
 
-     main.home section.ofertas-main article.ofertas-desktop {
 
-         width: 33%;
+@media (min-width: 2500px) {
+    main.home section.ofertas-main article.ofertas-tablet {
+        margin: auto;
+        width: auto;
+    }
 
-     }
+    main.home section.ofertas-main article.ofertas-tablet div a img {
+        height: 477px;
+    }
 
-     main.home section.ofertas-main article.ofertas-desktop {
-         display: flex;
-         display: none;
-     }
-
-
-     main.home section.ofertas-main article.ofertas-desktop div {
-
-         width: 100%;
-         display: block;
-
-
-     }
-
-     main.home section.ofertas-main article.ofertas-desktop div a img {
-         width: 97%;
-         display: block;
-     }
-
-     main.home section.ofertas-main article.ofertas-desktop div h5 {
-         width: 100%;
-
-     }
-
- }
-
-
- @media (min-width: 450px) {
-     main.home section.ofertas-main article.ofertas-tablet {
-         margin: auto;
-         width: auto;
-     }
-
-     main.home section.ofertas-main article.ofertas-tablet div a img {
-         margin: auto;
-         height: 215px;
-     }
-
- }
-
- @media (min-width: 1024px) {
-     main.home section.ofertas-main article.ofertas-tablet {
-         margin: auto;
-         width: auto;
-     }
-
-     main.home section.ofertas-main article.ofertas-tablet div a img {
-         margin: auto;
-         height: 284px;
-     }
-
- }
-
-
- @media (min-width: 1400px) {
-     main.home section.ofertas-main article.ofertas-tablet {
-         margin: auto;
-         width: auto;
-     }
-
-     main.home section.ofertas-main article.ofertas-tablet div a img {
-         height: 397px;
-     }
-
- }
-
-
-
- @media (min-width: 2500px) {
-     main.home section.ofertas-main article.ofertas-tablet {
-         margin: auto;
-         width: auto;
-     }
-
-     main.home section.ofertas-main article.ofertas-tablet div a img {
-         height: 477px;
-     }
-
- }
+}

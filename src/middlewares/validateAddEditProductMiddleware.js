@@ -38,7 +38,7 @@ module.exports = [
     body('description')
         .notEmpty().withMessage('Descripción del producto es necesario').bail()
         // SI NO FUNCIONA LO MÁS PROBABLE ES QUE SEA POR ALGÚN CARACTER ESPECIAL QUE NO ESTÁ ADMINTIENDO... INLUCIRLO!!
-        .matches(`^[a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚñÑ]+( [a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚñÑ]+)*$`).withMessage('Solo un espacio entre palabras. Se pueden incluir caracteres básicos de escritura.').bail()
+        .matches(`^[a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚñÑ%]+( [a-zA-Z0-9_()"!¡'¿?.,:áéíóúÁÉÍÓÚñÑ%]+)*$`).withMessage('Solo un espacio entre palabras. Se pueden incluir caracteres básicos de escritura.').bail()
         .isLength({ min: 20 }).withMessage('Al menos 20 caracteres'),
     body('splideImages') 
         .custom((value, { req }) => {

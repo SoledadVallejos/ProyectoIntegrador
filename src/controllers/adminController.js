@@ -179,7 +179,8 @@ module.exports = {
             include: [ // SI
                 'section',
                 'category', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
-                'image' // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                'image',  // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                'feature', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
             ]
         })
         Promise.all([products1])
@@ -211,10 +212,12 @@ module.exports = {
     // FINALMENTE VOLVÍ AL PRIMER MÉTODO LO PROBÉ DE NUEVO... Y FUNCIONÓ!!! QUE PASO?
     search: (req, res) => {
         let products1 = db.Product.findAll({
+            // CON  include : [{all:true}] TRAIGO TODO DE UNA!
             include: [ // SI
                 'section',
-                'category', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
-                'image' // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                'category',  // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                'image', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                'feature', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
             ]
         })
         Promise.all([products1])
@@ -224,13 +227,21 @@ module.exports = {
                 // for (let index = 0; index < products1.length; index++) {
                 //     result += products1[index];
                 // }
+                // PROBANDO LLEGUEN DATOS MAPEADOS DE TODOS LOS ITEMS DE products1
+                let feature = products1.map(index => {
+                    return index.image[0].file
+                })
+                // PROBANDO LLEGUEN DATOS MAPEADOS DE TODOS LOS ITEMS DE products1 /
                 let toSearch = (req.query.keywords).toLowerCase();
                 let searchResults = [];
                 for (let i = 0; i < products1.length; i++) {
-                    ((products1[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : "Nada encontrado";
-                    // ((products1[i].category.description).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i].category.description) : 'Nada encontrado'; // FALTA RESOLVER
-                    ((products1[i].description).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : 'Nada encontrado';
-                    ((products1[i].color).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : 'Nada encontrado';
+                    ((products1[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : '';
+                    ((products1[i].description).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : '';
+                    ((products1[i].color).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : '';
+                    ((products1[i].section.name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : '';
+                    ((products1[i].category.name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : '';
+                    ((products1[i].category.description).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : '';
+                    // ((products1[i].feature[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i].feature[i]) : ''; // FALTA ANALIZAR
                 }
                 // FILTRAR REPETIDOS
                 let hash = {};
@@ -239,10 +250,12 @@ module.exports = {
                     hash[current.id] = true;
                     return exists;
                 });
-                // return res.send(categories); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
-                // console.log(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
+                // return res.send(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
+                // APARENTEMENTE feature NO FUNCIONA PORQUE NO SE INGRESAN CARACTERÍSTICAS (features) AL PRODUCTO DESDE add.ejs
+                // return res.send(feature); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
+                console.log(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
                 // return res.send(searchResults); //COMPROBAR
-                //             /adminl  OJO!! NO PONER BARRA!! NO FUNCIONA!!
+                //               /admin  OJO!! NO PONER BARRA AHÍ!! NO FUNCIONA!!
                 res.render('admin/results', { // LAS COMPROBACIONES HACERLAS ANTES DE ESTE res.render()
                     searchResults,
                 });

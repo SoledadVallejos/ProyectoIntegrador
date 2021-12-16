@@ -25,7 +25,8 @@
 
                 <!-- CATEGORIAS -->
                 <section class="tipo-main">
-                    <% productCategory.forEach(element=> { %>
+                    <!-- A ESTE ARRAY    .reverse()  LE INVIERTE SUS INDICES PARA MOSTRAR CONTENIDO AL REVES!-->
+                    <% productCategory.reverse().forEach(element=> { %>
                         <div class="mujer">
                             <!--           /RUTA URI -->
                             <a href="/products/<%= element.name %> ">
@@ -46,8 +47,7 @@
                     <h2 class="muchSale">MAS VENDIDOS</h2>
                     <div class="line hide-s">
                         <div id="muchSale-carousel" class="owl-carousel owl-theme">
-
-                            <% productsOff.forEach(element=> { %>
+                            <% productsMuchSale.forEach(element=> { %>
                                 <article class="ofertas-android">
                                     <div>
                                         <a href="/products/productDetail/<%= element.id %>">
@@ -60,9 +60,7 @@
                                     </div>
                                 </article>
                                 <% }) %>
-
                                     <div class="item"><img src="/img/logo-roma.jpg" alt=""></div>
-
                         </div>
                     </div>
                 </section>
@@ -73,7 +71,30 @@
                     <h2 class="promo">PROMOCIÓN</h2>
                     <div class="line hide-s">
                         <div id="promo-carousel" class="owl-carousel owl-theme">
+                            <% productsPromo.forEach(element=> { %>
+                                <article class="ofertas-android">
+                                    <div>
+                                        <a href="/products/productDetail/<%= element.id %>">
+                                            <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
+                                            <!--                                                                                   [0]   SELECCIONA IMAGEN POR INDICE -->
+                                        </a>
+                                        <h5>
+                                            <%= element.discount %> % OFF
+                                        </h5>
+                                    </div>
+                                </article>
+                                <% }) %>
+                                    <div class="item"><img src="/img/logo-roma.jpg" alt=""></div>
+                        </div>
+                    </div>
+                </section>
+                <!-- PROMOCIÓN CAROUSEL OWL /-->
 
+                <!-- OFERTAS CAROUSEL OWL-->
+                <section class="promo">
+                    <h2 class="promo">OFERTAS</h2>
+                    <div class="line hide-s">
+                        <div id="off-carousel" class="owl-carousel owl-theme">
                             <% productsOff.forEach(element=> { %>
                                 <article class="ofertas-android">
                                     <div>
@@ -87,20 +108,42 @@
                                     </div>
                                 </article>
                                 <% }) %>
-
                                     <div class="item"><img src="/img/logo-roma.jpg" alt=""></div>
                         </div>
                     </div>
                 </section>
-                <!-- PROMOCIÓN CAROUSEL OWL /-->
+                <!-- OFERTAS CAROUSEL OWL /-->
+
+                <!-- LIQUIDACIÓN CAROUSEL OWL-->
+                <section class="promo">
+                    <h2 class="promo">LIQUIDACIÓN</h2>
+                    <div class="line hide-s">
+                        <div id="clearance-carousel" class="owl-carousel owl-theme">
+                            <% productsClearance.forEach(element=> { %>
+                                <article class="ofertas-android">
+                                    <div>
+                                        <a href="/products/productDetail/<%= element.id %>">
+                                            <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
+                                            <!--                                                                                   [0]   SELECCIONA IMAGEN POR INDICE -->
+                                        </a>
+                                        <h5>
+                                            <%= element.discount %> % OFF
+                                        </h5>
+                                    </div>
+                                </article>
+                                <% }) %>
+                                    <div class="item"><img src="/img/logo-roma.jpg" alt=""></div>
+                        </div>
+                    </div>
+                </section>
+                <!-- LIQUIDACIÓN CAROUSEL OWL /-->
 
                 <!-- ULTIMOS VISTOS CARROUSEL OWL-->
                 <section class="lastViews">
                     <h2 class="lastViews">ÚLTIMOS VISTOS</h2>
                     <div class="line hide-s">
                         <div id="lastViews-carousel" class="owl-carousel owl-theme">
-
-                            <% productsOff.forEach(element=> { %>
+                            <% productsLastView.forEach(element=> { %>
                                 <article class="ofertas-android">
                                     <div class="item">
                                         <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
@@ -110,16 +153,16 @@
                                     </div>
                                 </article>
                                 <% }) %>
-
                                     <div class="item"><img src="/img/logo-roma.jpg" alt=""></div>
                         </div>
                     </div>
                 </section>
                 <!-- ULTIMOS VISTOS CARROUSEL OWL /-->
 
+                <h2 class="ofertas-main">OFERTAS</h2>
                 <!-- OFERTAS -->
-                <h2>OFERTAS</h2>
                 <section class="ofertas-main">
+
                     <!-- SIMPLEMENTE PONE RUTAS DINÁMICAS DONDE SE REQUIERA -->
                     <% productsOff.forEach(element=> { %>
                         <article class="ofertas-android">
@@ -274,6 +317,74 @@
                 })
             </script>
             <!-- PROMOCION CARROUSEL OWL /-->
+
+            <!-- OFERTAS CARROUSEL OWL-->
+            <script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    var owl = $('#off-carousel');
+                    owl.owlCarousel({
+                        nav: true,
+                        dots: true,
+                        items: 5,
+                        loop: true,
+                        navText: ["&#xf007", "&#xf006"],
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        autoHeight: false,
+                        margin: 7,
+                        mouseDrag: true,
+                        touchDrag: true,
+                        pullDrag: true,
+                        freeDrag: true,
+                        stagePadding: false,
+                        merge: true,
+                        autoWidth: false,
+                        rewind: true,
+                        slideBy: 1,
+                        autoplayHoverPause: false,
+                        autoplaySpeed: false, //number / boolean
+                        checkVisible: true,
+                        fluidSpeed: false,//number / boolean
+                        smartSpeed: true,
+                    });
+                    // https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html
+                })
+            </script>
+            <!-- OFERTAS CARROUSEL OWL /-->
+
+            <!-- LIQUIDACION CARROUSEL OWL-->
+            <script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    var owl = $('#clearance-carousel');
+                    owl.owlCarousel({
+                        nav: true,
+                        dots: true,
+                        items: 5,
+                        loop: true,
+                        navText: ["&#xf007", "&#xf006"],
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        autoHeight: false,
+                        margin: 7,
+                        mouseDrag: true,
+                        touchDrag: true,
+                        pullDrag: true,
+                        freeDrag: true,
+                        stagePadding: false,
+                        merge: true,
+                        autoWidth: false,
+                        rewind: true,
+                        slideBy: 1,
+                        autoplayHoverPause: false,
+                        autoplaySpeed: false, //number / boolean
+                        checkVisible: true,
+                        fluidSpeed: false,//number / boolean
+                        smartSpeed: true,
+                    });
+                    // https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html
+                })
+            </script>
+            <!-- LIQUIDACION CARROUSEL OWL /-->
 
             <!-- ULTIMOS VISTOS CARROUSEL OWL-->
             <script type="text/javascript">
