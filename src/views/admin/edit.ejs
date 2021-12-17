@@ -1,3 +1,6 @@
+<!-- NECESARIOEDIT -->
+<!-- TODO MODIFICABLE -->
+
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head',{title : 'Agregar producto' }) %>
@@ -13,27 +16,30 @@
                         <h3>EDITAR PRODUCTO</h3>
                     </div>
 
+                    <!-- IMAGENES GUARDADAS -->
+                    <!-- SIMPLEMENTE BUSCA EN LA DB POR LAS IMÁGENES EXISTENTES -->
+                    <!-- FUERA DE form (podría estar dentro) PERO NO ESTÁ PARA INDICAR QUE ELIMINACION Y AGREGADO DE IMÁGENES ES EN PARALELO A formulario -->
+                    <div class="row my-4 g-2" id="preview">
+                        <!--product.image NO product.images PORQUE EN MI DB ES image (singular)                         -->
+                        <% product.image.forEach((image,index)=> { %>
+                            <div class="col-4 text-center">
+                                <!-- ORIGINAL               /images/products/   CAMBIADA NUESTRA ALMACÉN POR DEFECTO DE IMÁGENES-->
+                                <img width="200" src="/img/productDetail-splide/<%= image.file %>" alt="imagen">
+                                <div>
+                                    <a onclick="deleteImage('<%=image.id%>')" class="btn btn-danger ">Eliminar</a>
+                                </div>
+                            </div>
+                            <% }) %>
+                    </div>
+                    <!-- SIMPLEMENTE BUSCA EN LA DB POR LAS IMÁGENES EXISTENTES  /-->
+                    <!-- IMAGENES GUARDADAS  / -->
+
                     <!-- FORM -->
                     <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. enctype  -->
+                    <!-- POR QUE?  ../  ? -->
                     <form action="../update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data"
                         id="formproductadd">
                         <!--ESTE id ESTÁ SIRVIENDO PARA VALIDACIONES FRONT -->
-
-                        <!-- IMAGENES GUARDADAS -->
-                        <div class="row my-4 g-2" id="preview">
-                            <!-- RECORRE images DEVUELVE image Y ALGO MAS JAJA -->
-                            <% product.image.forEach((image,index)=> { %>
-                                <div class="col-4 text-center">
-                                    <!-- IMPRIME EN PANTALLA CADA IMÁGEN RECORRIDA -->
-                                    <img width="200" src="/img/productDetail-splide/<%= image.file %>" alt="imagen">
-                                    <div>
-                                        <!--AL CLICK  ELIMINAR     image.ESTEid-->
-                                        <a onclick="deleteImage('<%=image.id%>')" class="btn btn-danger ">Eliminar</a>
-                                    </div>
-                                </div>
-                                <% }) %>
-                        </div>
-                        <!-- IMAGENES GUARDADAS  / -->
 
                         <!-- CAMBIAR IMÁGENES EDIT -->
                         <div class="col-12 col-md-6">
@@ -42,17 +48,17 @@
                                 <label for="image" class="button-red" style="padding: 10px;">
                                     Subir imagen
                                 </label>
-                                <!--name   'splideImages' DEBE ESTAR IGUALITO EN router, ASI: router.put('/update/:id', uploadMultiple.array('splideImages'), validateAddEditProduct, update);-->
+                                <!--                                                                                                              name EEDITT CORRECTO -->
+                                <!--                                                                                                             name   'splideImages' DEBE ESTAR IGUALITO EN router, ASI: router.put('/update/:id', uploadMultiple.array('splideImages'), validateAddEditProduct, update);-->
                                 <input hidden class="form-control" type="file" accept="image/*" id="image"
-                                    name="splideImages" multiple
-                                    class="form-control <%= locals.errors && errors.splideImage ? 'is-invalid' : null %>"
-                                    onchange="addImage('<%=product.id%>',this.files)">
+                                    name="splideImages" multiple onchange="addImage('<%=product.id%>',this.files)"
+                                    class="form-control <%= locals.errors && errors.splideImage ? 'is-invalid' : null %>">
                             </div>
                             <!-- MENSAJE DE VALIDACION BACKEND -->
                             <% if (locals.errors ) { %>
                                 <% errors.forEach(error=> { %>
                                     <p class="text-danger">
-                                        <%= error.param=='splideImages' ?error.msg : null %>
+                                        <%= error.param='splideImages' ?error.msg : null %>
                                     </p>
                                     <% }) %>
                                         <% } %>
@@ -82,7 +88,7 @@
                             <% if (locals.errors ) { %>
                                 <% errors.forEach(error=> { %>
                                     <p class="text-danger">
-                                        <%= error.param=='name' ?error.msg : null %>
+                                        <%= error.param='name' ?error.msg : null %>
                                     </p>
                                     <% }) %>
                                         <% } %>
@@ -106,7 +112,7 @@
                             <% if (locals.errors ) { %>
                                 <% errors.forEach(error=> { %>
                                     <p class="text-danger">
-                                        <%= error.param=='category' ?error.msg : null %>
+                                        <%= error.param='category' ?error.msg : null %>
                                     </p>
                                     <% }) %>
                                         <% } %>
@@ -131,7 +137,7 @@
                             <% if (locals.errors ) { %>
                                 <% errors.forEach(error=> { %>
                                     <p class="text-danger">
-                                        <%= error.param=='price' ?error.msg : null %>
+                                        <%= error.param='price' ?error.msg : null %>
                                     </p>
                                     <% }) %>
                                         <% } %>
@@ -158,7 +164,7 @@
                             <% if (locals.errors ) { %>
                                 <% errors.forEach(error=> { %>
                                     <p class="text-danger">
-                                        <%= error.param=='discount' ?error.msg : null %>
+                                        <%= error.param='discount' ?error.msg : null %>
                                     </p>
                                     <% }) %>
                                         <% } %>
@@ -183,7 +189,7 @@
                         <% if (locals.errors ) { %>
                             <% errors.forEach(error=> { %>
                                 <p class="text-danger">
-                                    <%= error.param=='description' ?error.msg : null %>
+                                    <%= error.param='description' ?error.msg : null %>
                                 </p>
                                 <% }) %>
                                     <% } %>
@@ -201,7 +207,8 @@
                                             <label for="">Color
                                                 <div class="button-contain">
                                                     <div class="radio-item4" class="negro">
-                                                        <input type="radio" id="ritemd" name="color" value="Negro">
+                                                        <input type="radio" id="ritemd" name="color" value="Negro"
+                                                            class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
                                                         <label for="ritemd">Negro</label>
                                                     </div>
                                                     <div class="radio-item1">
@@ -213,8 +220,11 @@
                                                         <label for="ritemb">Beige</label>
                                                     </div>
                                                     <div class="radio-item3" class="blanco">
-                                                        <input type="radio" id="ritemc" name="color" value="Blanco">
-                                                        <label for="ritemc">Blanco</label>
+                                                        <input type="radio" id="ritemc" name="color" value="Blanco"
+                                                            class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
+                                                        <label for="ritemc">Blanco
+                                                        </label
+                                                            class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
                                                     </div>
                                                 </div>
                                                 <!-- MENSAJE DE VALIDACION BACKEND -->
@@ -222,11 +232,18 @@
                                                 <% if (locals.errors ) { %>
                                                     <% errors.forEach(error=> { %>
                                                         <p class="text-danger">
-                                                            <%= error.param=='color' ?error.msg : null %>
+                                                            <%= error.param='color' ?error.msg : null %>
                                                         </p>
                                                         <% }) %>
                                                             <% } %>
                                                                 <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                                                <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                                                                <span id="colorError" class="text-danger small ms-2"
+                                                                    style="display: block;">
+                                                                    <%= locals.errors && errors.color ? errors.color.msg
+                                                                        : null%>
+                                                                </span>
+                                                                <!-- MENSAJE DE VALIDACION DEL FRONT / -->
                                             </label>
 
                                             <!-- SIZE -->
@@ -240,42 +257,31 @@
                                                         <label for="l">L<input type="radio" id="l" name="size"
                                                                 value="L"></label>
                                                         <label for="xl">XL<input type="radio" id="xl" name="size"
-                                                                value="XL"></label>
+                                                                value="XL"
+                                                                class="form-control <%= locals.errors && errors.size ? 'is-invalid' : null %>">
+                                                        </label>
                                                     </div>
                                                     <!-- MENSAJE DE VALIDACION BACKEND-->
                                                     <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
                                                     <% if (locals.errors ) { %>
                                                         <% errors.forEach(error=> { %>
                                                             <p class="text-danger">
-                                                                <%= error.param=='size' ?error.msg : null %>
+                                                                <%= error.param='size' ?error.msg : null %>
                                                             </p>
                                                             <% }) %>
                                                                 <% } %>
                                                                     <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                                                    <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                                                                    <span id="sizeError" class="text-danger small ms-2"
+                                                                        style="display: block;">
+                                                                        <%= locals.errors && errors.size ?
+                                                                            errors.size.msg : null%>
+                                                                    </span>
+                                                                    <!-- MENSAJE DE VALIDACION DEL FRONT / -->
                                                 </label>
                                             </div>
 
-                                            <!-- IMAGES ANTIGUA VERSIÓN-->
-                                            <!-- CARGA DE IMAGENES CON MULTER
-                            <div>
-                                <label for="splideImages" class="inputsEdit">Imágenes del producto
-                                    CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. name 
-                                    <input type="file" name="splideImages" id="splideImages" value="splideImages"
-                                        multiple
-                                        class=" <%= locals.errors && errors.splideImages ? 'is-invalid' : null %>">
-                                    MENSAJE DE VALIDACION BACKEND
-                                    CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR
-                                    <% if (locals.errors ) { %>
-                                        <% errors.forEach(error=> { %>
-                                            <p class="text-danger">
-                                                <%= error.param=='splideImages' ?error.msg : null %>
-                                            </p>
-                                            <% }) %>
-                                                <% } %>
-                                                    MENSAJE DE VALIDACION BACKEND /
-                                </label>
-                            </div>
- -->
+
 
                                             <!-- SECTIONS -->
                                             <div>
@@ -297,25 +303,44 @@
                                                     </div>
                                                 </label>
                                             </div>
+                                            <!-- MENSAJE DE VALIDACION BACKEND-->
+                                            <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                                            <% if (locals.errors ) { %>
+                                                <% errors.forEach(error=> { %>
+                                                    <p class="text-danger">
+                                                        <%= error.param='section' ?error.msg : null %>
+                                                    </p>
+                                                    <% }) %>
+                                                        <% } %>
+                                                            <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                                            <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                                                            <span id="sectionError" class="text-danger small ms-2"
+                                                                style="display: block;">
+                                                                <%= locals.errors && errors.section ? errors.section.msg
+                                                                    : null%>
+                                                            </span>
+                                                            <!-- MENSAJE DE VALIDACION DEL FRONT / -->
 
-                                            <!-- MENSAJE ERROR GENERAL (validaciones front) -->
-                                            <span id="errorEmpty" class="text-danger" style="display: block;"></span>
+                                                            <!-- MENSAJE ERROR GENERAL (validaciones front) -->
+                                                            <span id="errorEmpty" class="text-danger"
+                                                                style="display: block;"></span>
 
 
-                                            <!-- SUBMITS -->
-                                            <a href="http://localhost:3017/admin" class="button-blue"
-                                                style="padding: 10px; color: white; border-radius: 5px;">
-                                                ADMIN
-                                            </a>
-                                            <button class=" button-blue" type="reset">
-                                                REINICIAR
-                                            </button>
-                                            <div class="col-12 mt-5">
-                                                <button type="submit" class="button-red" style="width: 80%;">
-                                                    ACTUALIZAR
-                                                </button>
-                                            </div>
-                                            <!-- SUBMITS / -->
+                                                            <!-- SUBMITS -->
+                                                            <a href="http://localhost:3017/admin" class="button-blue"
+                                                                style="padding: 10px; color: white; border-radius: 5px;">
+                                                                ADMIN
+                                                            </a>
+                                                            <button class=" button-blue" type="reset">
+                                                                REINICIAR
+                                                            </button>
+                                                            <div class="col-12 mt-5">
+                                                                <button type="submit" class="button-red"
+                                                                    style="width: 80%;">
+                                                                    ACTUALIZAR
+                                                                </button>
+                                                            </div>
+                                                            <!-- SUBMITS / -->
 
                     </form>
 
@@ -325,11 +350,19 @@
 
             <%- include('../partials/footer') %>
 
-                <!-- PONER ESTE LINK SINO NO, LAS VALIDACIONES FRONT NO FUNCNIONA!! -->
-                <script src="/js/productValidator.js"></script>
-
-                <!-- PARA QUE FUNCIONE EDICIÓN DE IMÁGENES EN edit.ejs -->
+                <!-- HACE FUNCIONAR EDICIÓN DE IMÁGENES. DEBE ESTAR PRIMERO -->
                 <script src="/js/productEdit.js"></script>
+                <!-- HACE FUNCIONAR EDICIÓN DE IMÁGENES. DEBE ESTAR PRIMERO / -->
+
+                <!-- PARA QUE FUNCIONE EDICIÓN DE IMÁGENES EN edit.ejs ?-->
+                <%- include('../partials/scripts') %>
+
+                    <!-- IMPORTA VALIDADOR FRONT -->
+                    <!-- PONER ESTE LINK SINO NO, LAS VALIDACIONES FRONT NO FUNCNIONA!! -->
+                    <!-- ESTE SCRIPT FUNCIONA PORQUE ESTA ENCERRADO EN window.onload = () => {} -->
+                    <!-- SINO NO FUNCIONARÍA. NECESITA ESTAR PRIMERO, PERO PRIMERO TENEMOS A productEdit.js PARA EDICIÓN DE IMÁGENES DE PRODUCTO -->
+                    <script src="/js/productValidator.js"></script>
+                    <!-- IMPORTA VALIDADOR FRONT / -->
     </body>
 
 </html>

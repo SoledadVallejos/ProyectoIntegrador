@@ -1,8 +1,11 @@
+<!-- NECESARIO -->
+
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head',{title : 'Agregar producto' }) %>
 
-    <body>
+
+    <body class="bg-light">
         <%- include('../partials/header') %>
 
             <main class="add">
@@ -22,13 +25,14 @@
 
                     <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. enctype  -->
                     <!--                                                                                                                        ESTE id ESTÁ SIRVIENDO PARA VALIDACIONES FRONT -->
-                    <form action="/admin/add" method="POST" enctype="multipart/form-data" id="formproductadd">
+                    <form method="POST" enctype="multipart/form-data" id="formproductadd">
+
 
 
                         <!-- SUBIR IMAGEN  PROFUNDIDAD DE CÓDIGO DE PROFE ERIC-->
                         <div class="col-12 col-md-6">
                             <div class="mb-3">
-                                <label for="image" class="button-red" style="padding: 10px;">
+                                <label for="image" class="button-red" style="padding: 10px;" id="btnImagen">
                                     Subir imagen
                                 </label>
                                 <input hidden class="form-control" type="file" id="image" name="splideImages" multiple
@@ -44,12 +48,19 @@
                                                 <!-- MENSAJE DE VALIDACION BACKEND / -->
                             </div>
                             <!-- MENSAJE DE VALIDACION DEL FRONT -->
-                            <span id="splideImagesError" class="text-danger small ms-2">
-                                <%= locals.errors && errors.splideImages ? errors.splideImages.msg : null%>
+                            <span id="imageError" class="text-danger small ms-2">
+                                <%= locals.errors && errors.image ? errors.image.msg : null%>
                             </span>
                             <!-- MENSAJE DE VALIDACION DEL FRONT / -->
                         </div>
                         <!-- SUBIR IMAGEN  PROFUNDIDAD DE CÓDIGO DE PROFE ERIC / -->
+
+
+
+
+
+
+
 
                         <!-- NAME -->
                         <div>
@@ -103,6 +114,8 @@
                                             <!-- MENSAJE DE VALIDACION DEL FRONT / -->
                         </div>
 
+
+
                         <!-- PRICE -->
                         <div>
                             <label class="inputsAdd" for="price">Precio
@@ -128,6 +141,8 @@
                                             </span>
                                             <!-- MENSAJE DE VALIDACION DEL FRONT / -->
                         </div>
+
+
 
                         <!-- DISCOUNT -->
                         <div>
@@ -157,6 +172,9 @@
                                             <!-- MENSAJE DE VALIDACION DEL FRONT / -->
                         </div>
 
+
+
+
                         <!-- DESCRIPTION -->
                         <h6>Descripción</h6>
                         <div class="add-description">
@@ -177,7 +195,6 @@
                                         <!-- MENSAJE DE VALIDACION DEL FRONT -->
                                         <span id="descriptionError" class="text-danger small ms-2"
                                             style="display: block;">
-                                            <%= locals.errors && errors.description ? errors.description.msg : null%>
                                         </span>
                                         <!-- MENSAJE DE VALIDACION DEL FRONT / -->
 
@@ -186,109 +203,157 @@
                                             <label for="section">Disponible en la sección:
                                                 <div class="sectionProduct">
                                                     <!--NECESARIO PARA GUARDAR: name="section" -->
-                                                    <input type="radio" id="banner" name="section" value="1">
+                                                    <input type="radio" id="banner" name="section" value="1" class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
                                                     <!-- GUARDA VALOR EN DB                                        value="1"-->
                                                     <!--     for="banner" id="banner" NECESARIO PARA VINCULAR CLIC AL SELECCIONAR -->
                                                     <label for="banner">1 Banner</label>
-                                                    <input type="radio" id="masvendidos" name="section" value="2">
+                                                    <input type="radio" id="masvendidos" name="section" value="2" class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
                                                     <label for="masvendidos">2 Más vendidos</label>
-                                                    <input type="radio" id="promocion" name="section" value="3">
+                                                    <input type="radio" id="promocion" name="section" value="3" class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
                                                     <label for="promocion">3 Promoción</label>
-                                                    <input type="radio" id="liquidacion" name="section" value="4">
+                                                    <input type="radio" id="liquidacion" name="section" value="4" class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
                                                     <label for="liquidacion">4 Liquidación</label>
-                                                    <input type="radio" id="oferta" name="section" value="5">
+                                                    <input type="radio" id="oferta" name="section" value="5" class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
                                                     <label for="oferta">5 Oferta</label>
                                                 </div>
                                             </label>
                                         </div>
+                                        <!-- MENSAJE DE VALIDACION BACKEND-->
+                                        <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                                        <% if (locals.errors ) { %>
+                                            <% errors.forEach(error=> { %>
+                                                <p class="text-danger">
+                                                    <%= error.param=='section' ?error.msg : null %>
+                                                </p>
+                                                <% }) %>
+                                                    <% } %>
+                                                        <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                                        <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                                                        <span id="sectionError" class="text-danger small ms-2"
+                                                            style="display: block;">
+                                                        </span>
+                                                        <!-- MENSAJE DE VALIDACION DEL FRONT / -->
 
-                                        <!-- COLOR -->
-                                        <div>
-                                            <label for="">Color
-                                                <div class="button-contain">
-                                                    <div class="radio-item4" class="negro">
-                                                        <input type="radio" id="ritemd" name="color" value="Negro">
-                                                        <label for="ritemd">Negro</label>
-                                                    </div>
-                                                    <div class="radio-item1">
-                                                        <input type="radio" id="ritema" name="color" value="Rojo">
-                                                        <label for="ritema">Rojo</label>
-                                                    </div>
-                                                    <div class="radio-item2" class="beige">
-                                                        <input type="radio" id="ritemb" name="color" value="Beige">
-                                                        <label for="ritemb">Beige</label>
-                                                    </div>
-                                                    <div class="radio-item3" class="blanco">
-                                                        <input type="radio" id="ritemc" name="color" value="Blanco">
-                                                        <label for="ritemc">Blanco</label>
-                                                    </div>
-                                                </div>
-                                                <!-- MENSAJE DE VALIDACION BACKEND -->
-                                                <% if (locals.errors ) { %>
-                                                    <% errors.forEach(error=> { %>
-                                                        <p class="text-danger">
-                                                            <%= error.param=='color' ?error.msg : null %>
-                                                        </p>
-                                                        <% }) %>
-                                                            <% } %>
-                                                                <!-- MENSAJE DE VALIDACION BACKEND / -->
-                                            </label>
+                                                        <!-- COLOR -->
+                                                        <div>
+                                                            <label for="">Color
+                                                                <div class="button-contain">
+                                                                    <div class="radio-item4" class="negro">
+                                                                        <input type="radio" id="ritemd" name="color"
+                                                                            value="Negro">
+                                                                        <label for="ritemd">Negro</label>
+                                                                    </div>
+                                                                    <div class="radio-item1">
+                                                                        <input type="radio" id="ritema" name="color"
+                                                                            value="Rojo">
+                                                                        <label for="ritema">Rojo</label>
+                                                                    </div>
+                                                                    <div class="radio-item2" class="beige">
+                                                                        <input type="radio" id="ritemb" name="color"
+                                                                            value="Beige">
+                                                                        <label for="ritemb">Beige</label>
+                                                                    </div>
+                                                                    <div class="radio-item3" class="blanco">
+                                                                        <input type="radio" id="ritemc" name="color"
+                                                                            value="Blanco">
+                                                                        <label for="ritemc">Blanco</label>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- MENSAJE DE VALIDACION BACKEND -->
+                                                                <% if (locals.errors ) { %>
+                                                                    <% errors.forEach(error=> { %>
+                                                                        <p class="text-danger">
+                                                                            <%= error.param=='color' ?error.msg : null
+                                                                                %>
+                                                                        </p>
+                                                                        <% }) %>
+                                                                            <% } %>
+                                                                                <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                                                                <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                                                                                <span id="colorError"
+                                                                                    class="text-danger small ms-2"
+                                                                                    style="display: block;">
+                                                                                    <%= locals.errors && errors.color ?
+                                                                                        errors.color.msg : null%>
+                                                                                </span>
+                                                                                <!-- MENSAJE DE VALIDACION DEL FRONT / -->
+                                                            </label>
 
-                                            <!-- SIZE -->
-                                            <div>
-                                                <label for="size">Talle
-                                                    <div class="button-contain">
-                                                        <label for="s"> S
-                                                            <input type="radio" id="s" name="size" value="S">
-                                                        </label>
-                                                        <label for="m">M<input type="radio" id="m" name="size"
-                                                                value="M"></label>
-                                                        <label for="l">L<input type="radio" id="l" name="size"
-                                                                value="L"></label>
-                                                        <label for="xl">XL<input type="radio" id="xl" name="size"
-                                                                value="XL"></label>
-                                                    </div>
-                                                    <!-- MENSAJE DE VALIDACION BACKEND-->
-                                                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
-                                                    <% if (locals.errors ) { %>
-                                                        <% errors.forEach(error=> { %>
-                                                            <p class="text-danger">
-                                                                <%= error.param=='size' ?error.msg : null %>
-                                                            </p>
-                                                            <% }) %>
-                                                                <% } %>
-                                                                    <!-- MENSAJE DE VALIDACION BACKEND / -->
-                                                </label>
-                                            </div>
+                                                            <!-- SIZE -->
+                                                            <div>
+                                                                <label for="size">Talle
+                                                                    <div class="button-contain">
+                                                                        <label for="s"> S
+                                                                            <input type="radio" id="s" name="size"
+                                                                                value="S">
+                                                                        </label>
+                                                                        <label for="m">M<input type="radio" id="m"
+                                                                                name="size" value="M"></label>
+                                                                        <label for="l">L<input type="radio" id="l"
+                                                                                name="size" value="L"></label>
+                                                                        <label for="xl">XL<input type="radio" id="xl"
+                                                                                name="size" value="XL"></label>
+                                                                    </div>
+                                                                    <!-- MENSAJE DE VALIDACION BACKEND-->
+                                                                    <!-- CONDICIONAL NECESARIO PARA MOSTRAR ERRORES SOLO SI LOS HAY, O CUANDO LOS HAYA. SINO MOSTRARÍA ERROR -->
+                                                                    <% if (locals.errors ) { %>
+                                                                        <% errors.forEach(error=> { %>
+                                                                            <p class="text-danger">
+                                                                                <%= error.param=='size' ?error.msg :
+                                                                                    null %>
+                                                                            </p>
+                                                                            <% }) %>
+                                                                                <% } %>
+                                                                                    <!-- MENSAJE DE VALIDACION BACKEND / -->
+                                                                                    <!-- MENSAJE DE VALIDACION DEL FRONT -->
+                                                                                    <span id="sizeError"
+                                                                                        class="text-danger small ms-2"
+                                                                                        style="display: block;">
+                                                                                        <%= locals.errors && errors.size
+                                                                                            ? errors.size.msg : null%>
+                                                                                    </span>
+                                                                                    <!-- MENSAJE DE VALIDACION DEL FRONT / -->
+                                                                </label>
+                                                            </div>
 
-                                            <!-- MENSAJE ERROR GENERAL (validaciones front)-->
-                                            <span id="errorEmpty" class="text-danger" style="display: block;"></span>
 
-                                            <!-- SUBMITS -->
-                                            <a href="http://localhost:3017/admin" class="button-blue"
-                                                style="padding: 10px; color: white; border-radius: 5px;">
-                                                ADMIN
-                                            </a>
-                                            <button class=" button-blue" type="reset">
-                                                REINICIAR
-                                            </button>
-                                            <div class="col-12 mt-5">
-                                                <button type="submit" class="button-red" style="width: 80%;">
-                                                    CREAR
-                                                </button>
-                                            </div>
-                                            <!-- SUBMITS / -->
+
+
+                                                            <!-- MENSAJE ERROR GENERAL (validaciones front)-->
+                                                            <span id="errorEmpty" class="text-danger"
+                                                                style="display: block;"></span>
+
+                                                            <!-- SUBMITS -->
+                                                            <a href="http://localhost:3017/admin" class="button-blue"
+                                                                style="padding: 10px; color: white; border-radius: 5px;">
+                                                                ADMIN
+                                                            </a>
+                                                            <button class=" button-blue" type="reset">
+                                                                REINICIAR
+                                                            </button>
+                                                            <div class="col-12 mt-5">
+                                                                <button type="submit" class="button-red"
+                                                                    style="width: 80%;">
+                                                                    CREAR
+                                                                </button>
+                                                            </div>
+                                                            <!-- SUBMITS / -->
+
+
 
                     </form>
-
                 </section>
 
             </main>
 
             <%- include('../partials/footer') %>
 
-                <!-- PONER ESTE LINK SINO NO, LAS VALIDACIONES FRONT NO FUNCNIONA!! -->
-                <script src="/js/productValidator.js"></script>
+                <!-- PARA QUE FUNCIONE EDICIÓN DE IMÁGENES EN edit.ejs ?-->
+                <%- include('../partials/scripts') %>
+
+                    <!-- PONER ESTE LINK SINO NO, LAS VALIDACIONES FRONT NO FUNCNIONA!! -->
+                    <script src="/js/productValidator.js"></script>
+
     </body>
 
 </html>

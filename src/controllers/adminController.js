@@ -232,6 +232,7 @@ module.exports = {
                     return index.image[0].file
                 })
                 // PROBANDO LLEGUEN DATOS MAPEADOS DE TODOS LOS ITEMS DE products1 /
+                // SEARCHER
                 let toSearch = (req.query.keywords).toLowerCase();
                 let searchResults = [];
                 for (let i = 0; i < products1.length; i++) {
@@ -250,6 +251,8 @@ module.exports = {
                     hash[current.id] = true;
                     return exists;
                 });
+                // FILTRAR REPETIDOS /
+                // SEARCHER /
                 // return res.send(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
                 // APARENTEMENTE feature NO FUNCIONA PORQUE NO SE INGRESAN CARACTERÍSTICAS (features) AL PRODUCTO DESDE add.ejs
                 // return res.send(feature); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!

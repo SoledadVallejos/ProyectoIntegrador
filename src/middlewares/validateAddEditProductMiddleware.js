@@ -2,7 +2,7 @@
 const { body, check } = require('express-validator');
 
 module.exports = [
-    // body('')  ES MÁS CONFIABLE. VINCULADO A error.param=='color'
+    // body('')  ES MÁS CONFIABLE.
     body('name') // VINCULADO A error.param=='name'
         .notEmpty().withMessage('Nombre de producto es necesario').bail() // bail() TIRA ERROR Y CORTA. NECESARIO PARA EVITAR ERROR: "value invalid"
         .isLength({ min: 5 }).withMessage('Mínimo 5 caracteres').bail()

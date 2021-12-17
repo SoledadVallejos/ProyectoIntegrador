@@ -138,10 +138,12 @@ module.exports = {
 
     search: (req, res) => {
         let products1 = db.Product.findAll({
+            // CON  include : [{all:true}] TRAIGO TODO DE UNA!
             include: [ // SI
                 'section',
-                'category', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
-                'image' // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                'category',  // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                'image', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
+                'feature', // TAL CUAL ESTA PUESTO EN as: 'image' EN MODELO
             ]
         })
         Promise.all([products1])
@@ -151,13 +153,17 @@ module.exports = {
                 // for (let index = 0; index < products1.length; index++) {
                 //     result += products1[index];
                 // }
+                // SEARCHER
                 let toSearch = (req.query.keywords).toLowerCase();
                 let searchResults = [];
                 for (let i = 0; i < products1.length; i++) {
-                    ((products1[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : "Nada encontrado";
-                    // ((products1[i].category.description).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i].category.description) : 'Nada encontrado'; // FALTA RESOLVER
-                    ((products1[i].description).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : 'Nada encontrado';
-                    ((products1[i].color).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : 'Nada encontrado';
+                    ((products1[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : '';
+                    ((products1[i].description).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : '';
+                    ((products1[i].color).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : '';
+                    ((products1[i].section.name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : '';
+                    ((products1[i].category.name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : '';
+                    ((products1[i].category.description).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i]) : '';
+                    // ((products1[i].feature[i].name).toLowerCase()).includes(toSearch) ? searchResults.push(products1[i].feature[i]) : ''; // FALTA ANALIZAR
                 }
                 // FILTRAR REPETIDOS
                 let hash = {};
@@ -166,6 +172,8 @@ module.exports = {
                     hash[current.id] = true;
                     return exists;
                 });
+                // FILTRAR REPETIDOS /
+                // SEARCHER /
                 // return res.send(categories); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
                 // console.log(products1); //COMPROBAR. PONELO AQUI!!! LUEGO DEL .then !!! ANTES DEL Promise .then DICE {pending} EN CONSOLA !!!
                 // return res.send(searchResults); //COMPROBAR

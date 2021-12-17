@@ -1,3 +1,8 @@
+// NECESARIOADD
+// NECESARIOEDIT
+
+// AGREGADOS
+
 // REQUIRES
 var createError = require('http-errors');
 var express = require('express');
@@ -31,12 +36,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname,'..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 app.use(session({
-  secret : "Roma",
-  resave : false,
-  saveUninitialized : false // true ESTA OBSOLETO... CAMBIADO A false // EN true NO ES POSIBLE BORRAR COOKIE connect.sid
+  secret: "Roma",
+  resave: false,
+  saveUninitialized: false // true ESTA OBSOLETO... CAMBIADO A false // EN true NO ES POSIBLE BORRAR COOKIE connect.sid
 }))
 app.use(localUserCheck);
 app.use(checkcookie);
@@ -46,6 +51,8 @@ app.use('/', index);
 app.use('/products', products);
 app.use('/users', users);
 app.use('/admin', /*adminMiddleware,*/ admin);
+// EEDITT NECESARIOEDIT NECESARIOADD
+app.use('/api', require('./routes/api'))
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

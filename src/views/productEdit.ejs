@@ -1,0 +1,101 @@
+<!-- NECESARIOEDIT -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head',{title : 'Agregar producto'}) %> 
+
+<body class="bg-light">
+  <%- include('./partials/header') %> 
+
+    <main class="container">
+        <div class="row">
+            <div class="col-12 col-md-10 col-lg-8 mt-5 mx-auto">
+                <div class="card">
+                    <div class="card-header text-light bg-dark">
+                        <h4>Editar producto</h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="row my-4 g-2" id="preview">
+                        <% product.images.forEach((image,index) => { %>
+                          <div class="col-4 text-center" >
+                            <img width="200" src="/img/productDetail-splide/<%= image.file %>" alt="imagen">
+                              <div >
+                                <a onclick="deleteImage('<%=image.id%>')" class="btn btn-danger ">Eliminar</a>
+                              </div>
+                          </div>
+                        <% }) %>
+                      </div>
+                        <form action="/products/update/<%= product.id %>?_method=PUT" class="row" method="POST">
+                                <div class="col-9 mb-3">
+                                    <div class="form-floating ">
+                                        <input type="text" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" id="name" placeholder="Nombre del producto" name="name" value="<%= product.name %>">
+                                        <label for="name">Nombre del producto</label>
+                                      </div>
+                                      <span class="text-danger small ms-2"><%= locals.errors && errors.name ? errors.name.msg : null%> </span>
+                                </div>
+                                <div class="col-3 mb-3 d-flex justify-content-center mt-3">
+                                  <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" <%= product.show ? 'checked' : null %> name="show" value="1">
+                                    <label class="form-check-label" for="flexSwitchCheckChecked">Visible</label>
+                                  </div>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <div class="form-floating ">
+                                        <textarea style="resize: none; height: 100px;" class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>" placeholder="Descripción del producto" id="floatingTextarea" name="description"><%= product.description %></textarea>
+                                        <label for="floatingTextarea">Descripción</label>
+                                      </div>
+                                      <span class="text-danger small ms-2"><%= locals.errors && errors.description ? errors.description.msg : null%> </span>
+
+                                </div>
+                               <div class="col-12 col-md-6 mb-3">
+                                <div class="form-floating ">
+                                    <input type="number" class="form-control <%= locals.errors && errors.price ? 'is-invalid' : null %>" id="price" name="price" value=<%= product.price %>>
+                                    <label for="price">Precio</label>
+                                  </div>
+                                  <span class="text-danger small ms-2"><%= locals.errors && errors.price ? errors.price.msg : null%> </span>
+
+                               </div>
+                               <div class="col-12 col-md-6 mb-3">
+                                <div class="form-floating ">
+                                    <input type="number" class="form-control <%= locals.errors && errors.discount ? 'is-invalid' : null %>" id="discount" name="discount" value=<%= product.discount %>>
+                                    <label for="discount">Descuento</label>
+                                  </div>
+                                  <span class="text-danger small ms-2"><%= locals.errors && errors.discount ? errors.discount.msg : null%> </span>
+
+                               </div>
+                               <div class="col-12 col-md-6 mb-3">
+                                <div class="form-floating">
+                                    <select class="form-select <%= locals.errors && errors.category ? 'is-invalid' : null %>" id="category" aria-label="Floating label select example" name="category">
+                                      <option value="" selected hidden>Selecciona la categoría</option>
+                                      <% categories.forEach(category => { %>
+                                       <option value="<%= category.id %>" <%= product.categoryId === category.id ? 'selected' : null%> ><%= firstLetter(category.name) %></option>
+                                      <% }) %>
+                                    </select>
+                                    <label for="category">Categoría</label>
+                                  </div>
+                                  <span class="text-danger small ms-2"><%= locals.errors && errors.category ? errors.category.msg : null%> </span>
+
+                               </div>
+                               <div class="col-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="image" class="btn btn-outline-secondary w-100 mt-2">Subir imagen</label>
+                                    <input hidden class="form-control" type="file" accept="image/*" id="image" name="image" multiple onchange="addImage('<%=product.id%>',this.files)">
+                                  </div>
+                               </div>
+                                <div class="col-12 mt-5">
+                                    <button type="submit" class="btn btn-outline-dark w-100">Guardar</button>
+                                </div>
+                           
+                          </form>
+                    </div>
+                   
+                </div>
+            </div>
+           
+        </div>
+    </main>
+
+    <%- include('./partials/scripts') %> 
+    <script src="/javascripts/productEdit.js"></script>
+</body>
+</html>

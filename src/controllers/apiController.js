@@ -1,3 +1,6 @@
+// NECESARIOEDIT
+// NECESARIOADD
+// RUTAS MODIFICABLES
 const db = require('../database/models');
 const fs = require('fs');
 const path = require('path');
@@ -17,12 +20,11 @@ module.exports = {
             return res.status(500).json(error)
         }
     },
-
     deleteImage: async (req, res) => {
         try {
             let image = await db.Image.findByPk(req.params.id)
-
-            fs.existsSync(path.join(__dirname, '../../public/img/productDetail-splide/' + image.file)) ? fs.unlinkSync(path.join(__dirname, '../../public/images/products/' + image.file)) : null
+            //                            RUTA CORRECTA. ORIGINAL images/products
+            fs.existsSync(path.join(__dirname, '../../public/img/productDetail-splide/' + image.file)) ? fs.unlinkSync(path.join(__dirname, '../../public/img/productDetail-Splide/' + image.file)) : null
 
             await db.Image.destroy(
                 {
