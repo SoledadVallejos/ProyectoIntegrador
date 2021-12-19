@@ -24,7 +24,7 @@ module.exports = {
         try {
             let image = await db.Image.findByPk(req.params.id)
             //                            RUTA CORRECTA. ORIGINAL images/products
-            fs.existsSync(path.join(__dirname, '../../public/img/productDetail-splide/' + image.file)) ? fs.unlinkSync(path.join(__dirname, '../../public/img/productDetail-Splide/' + image.file)) : null
+            //fs.existsSync(path.join(__dirname, '../../public/img/productDetail-splide/' + image.file)) ? fs.unlinkSync(path.join(__dirname, '../../public/img/productDetail-Splide/' + image.file)) : null
 
             await db.Image.destroy(
                 {

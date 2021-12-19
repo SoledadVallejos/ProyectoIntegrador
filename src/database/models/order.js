@@ -12,14 +12,15 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Order.belongsTo(models.User,{
-        as : 'order'
+        as : 'order',
+        foreignKey : 'userId'
       })
       Order.hasMany(models.Cart,{
         as : 'carts'
       })
     }
   };
-  Order.init({ // ESCRIBIR AQUI TODOS LOS ITEMS DE TU TABLA PARA QUE SE MUESTREN EN NAVEGDOR
+  Order.init({
     status: DataTypes.STRING,
     userId: DataTypes.INTEGER
   }, {

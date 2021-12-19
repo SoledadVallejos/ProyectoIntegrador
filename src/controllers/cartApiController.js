@@ -1,3 +1,5 @@
+// NECESARIOCART
+
 const db = require('../database/models');
 
 const getURL = req => `${req.protocol}://${req.get('host')}${req.originalUrl}`;
@@ -28,13 +30,13 @@ module.exports = {
         try {
 
             let product = await db.Product.findByPk(req.params.id, {
-                include: ['category', 'images']
+                include: ['category', 'image']
             });
 
             let item = {
                 id: product.id,
                 nombre: product.name,
-                image: product.images[0].file,
+                image: product.image[0].file,
                 precio: +product.price,
                 categoria: product.category.name,
                 cantidad: 1,

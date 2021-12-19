@@ -88,69 +88,49 @@ module.exports = {
         });
     },
     processLogin: async (req, res) => {
-        let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-
-            db.User.findOne({
+        const { email, password, remember } = req.body;
+        try {
+            let user = await db.User.findOne({
                 where: {
-                    email: req.body.email
+                    email
                 }
-            }).then(user => {
-                req.session.userLogin = {
-                    id: user.id,
-                    name: user.name,
-                    avatar: user.avatar,
-                    rol: +user.rolId
-                }
-                if (req.body.remember) {
-                    res.cookie('rememberRoma', req.session.userLogin, { maxAge: 1000000 * 60 })
-                }
-                /* CARRITO */
-                req.session.carrito = [];
-                db.Order.findOne({
-                    where: {
-                        userId: req.session.userLogin.id,
-                        status: 'pending'
-                    },
-                    include: [
-                        {
-                            association: 'carts',
-                            include: [
-                                {
-                                    association: 'product',
-                                    include: ['category', 'images']
-                                }
-                            ]
-                        }
-                    ]
-                }).then(order => {
-                    if (order) {
-                        order.carts.forEach(item => {
-                            let product = {
-                                id: item.productId,
-                                nombre: item.product.name,
-                                image: item.product.images[0].file,
-                                precio: +item.product.price,
-                                categoria: item.product.category.name,
-                                cantidad: +item.quantity,
-                                total: item.product.price * item.quantity,
-                                orderId: order.id
-                            }
-                            req.session.carrito.push(product)
-                        });
+            })
+            if (!user) {
+                return res.render('users/login', {
+                    error: {
+                        credenciales: "credenciales invalidas"
                     }
-                    return res.redirect('/')
-                })
-            })
+                }
+                )
+            }
 
-
-        } else {
-            return res.render('users/login', {
-                errores: errors.mapped()
-            })
+            if (!bcrypt.compareSync(password, user.password)) {
+                return res.render('users/login', {
+                    error: {
+                        credenciales: "credenciales invalidas"
+                    }
+                }
+                )
+            }
+            req.session.userLogin = {
+                id: user.id,
+                name: user.name,
+                avatar: user.avatar,
+                rol: user.rolId
+            }
+            if (remember) {
+                res.cookie('rememberRoma', req.session.userLogin, { maxAge: 1000000 * 60 })
+            }
+            console.log(req.session.userLogin)
+            return res.redirect('/')
         }
-    },
+        catch (error) {
+
+        }
+    }
+
+
+    ,
     index: async (req, res) => {
         let users = await db.Users.findAll();
         // return res.send(users); // COMPROBAR LISTA DE USUARIOS
@@ -174,8 +154,6 @@ module.exports = {
     }
 
 }
-
-
 
 
 
