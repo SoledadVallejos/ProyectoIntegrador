@@ -122,7 +122,7 @@ module.exports = {
                 res.cookie('rememberRoma', req.session.userLogin, { maxAge: 1000000 * 60 })
             }
             console.log(req.session.userLogin)
-            return res.redirect('/users/profile')
+            return res.redirect('/')
         }
         catch (error) {
 
@@ -154,8 +154,6 @@ module.exports = {
     }
 
 }
-
-
 
 
 

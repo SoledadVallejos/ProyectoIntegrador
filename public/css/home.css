@@ -1,5 +1,10 @@
-/* riveradanieldavid */
+/* BUTTON DE CARRITO */
+.btn-cart, .btn btn-outline-light {
+    background-color: black !important;
+    font-size: 20px !important;
+}
 
+/* riveradanieldavid */
 div.mujer {
     max-width: 50%;
 }
@@ -8,11 +13,14 @@ section.sugest {
     margin: -10% 0 5%;
 }
 
-@media (min-width:480px) {
+@media (max-width:480px) {
 
     /* OCULTAR SUGERIDOS CON MENOS DE 480PX */
     section.ofertas-main, h2.ofertas-main {
-        display: none !important;
+    }
+    /* OCULTAR MENU HOVER */
+    .dropdown{
+        display: none;
     }
 
     /* OCULTAR SUGERIDOS CON MENOS DE 480PX  / */
@@ -24,7 +32,7 @@ section.sugest {
     header nav div.header-buscador form input {
         position: absolute;
         top: 50px;
-        left: 45%;
+        left: 24%;
         display: block;
         max-width: 53%
     }
@@ -105,6 +113,7 @@ main.home section.ofertas-main article.ofertas-android div {
 
 main.home section.ofertas-main article.ofertas-android div a img {
     width: 97%;
+    margin: auto;
 }
 
 main.home section.ofertas-main article.ofertas-tablet div a img {
@@ -127,12 +136,13 @@ main.home section.ofertas-main article.ofertas-desktop div {
 
 
 main.home section.ofertas-main article.ofertas-android div h5 {
-    width: 100%;
+    width: 90%;
     text-align: center;
     position: relative;
     bottom: 60px;
     font-size: 25px;
     color: white;
+    background-color: black;
 }
 
 main.home section.ofertas-main article.ofertas-tablet div h5 {
@@ -170,13 +180,12 @@ main.home section.ofertas-main article.ofertas-desktop div h5 {
     main.home section.tipo-main {
         display: flex;
         justify-content: space-around;
-        margin-top: 15px;
-
+        margin: 15px -7px -15% -5px;
     }
 
 
     main.home section.tipo-main div.mujer a img {
-        width: 92%;
+        width: 98%;
         height: 73%;
         margin: auto;
     }

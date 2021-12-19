@@ -6,6 +6,7 @@ const multer = require('multer');
 const uploadMultiple = require('../middlewares/multerProductsMiddleware')
 // const guestMiddleware = require('../middlewares/guestMiddleware');
 const validateAddEditProduct = require('../middlewares/validateAddEditProductMiddleware');
+const validateEditProduct = require('../middlewares/validateEditProduct');
 
 n = new Date();
 //Año
@@ -30,7 +31,7 @@ router.get('/add', add);
 router.post('/add', uploadMultiple.array('splideImages'), validateAddEditProduct, store);
 
 router.get('/edit/:id', edit);
-router.put('/update/:id', uploadMultiple.array('splideImages'), validateAddEditProduct, update);
+router.put('/update/:id', validateEditProduct, update);
 
 router.get('/delete/:id', hastaLaVistaBeibi);
 
