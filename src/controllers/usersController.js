@@ -87,12 +87,22 @@ module.exports = {
 
         });
     },
+    nosotros: (req, res) => {
+        return res.render('users/nosotros', {
+            title: '¿quienes somos?',
+
+        })
+
+
+},
     processLogin: async (req, res) => {
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
 
-            db.User.findOne({
+            try {
+
+                let User = await db.User.findOne({
                 where: {
                     email: req.body.email
                 }
@@ -101,56 +111,18 @@ module.exports = {
                     id: user.id,
                     name: user.name,
                     avatar: user.avatar,
-                    rol: +user.rolId
-                }
-                if (req.body.remember) {
+                    rol: user.rolId
+                }})
+         if (req.body.remember) {
                     res.cookie('rememberRoma', req.session.userLogin, { maxAge: 1000000 * 60 })
-                }
-                /* CARRITO */
-                req.session.carrito = [];
-                db.Order.findOne({
-                    where: {
-                        userId: req.session.userLogin.id,
-                        status: 'pending'
-                    },
-                    include: [
-                        {
-                            association: 'carts',
-                            include: [
-                                {
-                                    association: 'product',
-                                    include: ['category', 'images']
-                                }
-                            ]
-                        }
-                    ]
-                }).then(order => {
-                    if (order) {
-                        order.carts.forEach(item => {
-                            let product = {
-                                id: item.productId,
-                                nombre: item.product.name,
-                                image: item.product.images[0].file,
-                                precio: +item.product.price,
-                                categoria: item.product.category.name,
-                                cantidad: +item.quantity,
-                                total: item.product.price * item.quantity,
-                                orderId: order.id
-                            }
-                            req.session.carrito.push(product)
-                        });
-                    }
-                    return res.redirect('/')
-                })
-            })
-
-
-        } else {
+                
+         return res.redirect('/users/profile')
+                }}catch (error) {
+                    console.log(error)}} else {
             return res.render('users/login', {
                 errores: errors.mapped()
             })
-        }
-    },
+        }},
     index: async (req, res) => {
         let users = await db.Users.findAll();
         // return res.send(users); // COMPROBAR LISTA DE USUARIOS
