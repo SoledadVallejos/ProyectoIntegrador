@@ -96,6 +96,7 @@ module.exports = {
 
 },
     processLogin: async (req, res) => {
+<<<<<<< HEAD
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
@@ -123,6 +124,51 @@ module.exports = {
                 errores: errors.mapped()
             })
         }},
+=======
+        const { email, password, remember } = req.body;
+        try {
+            let user = await db.User.findOne({
+                where: {
+                    email
+                }
+            })
+            if (!user) {
+                return res.render('users/login', {
+                    error: {
+                        credenciales: "credenciales invalidas"
+                    }
+                }
+                )
+            }
+
+            if (!bcrypt.compareSync(password, user.password)) {
+                return res.render('users/login', {
+                    error: {
+                        credenciales: "credenciales invalidas"
+                    }
+                }
+                )
+            }
+            req.session.userLogin = {
+                id: user.id,
+                name: user.name,
+                avatar: user.avatar,
+                rol: user.rolId
+            }
+            if (remember) {
+                res.cookie('rememberRoma', req.session.userLogin, { maxAge: 1000000 * 60 })
+            }
+            console.log(req.session.userLogin)
+            return res.redirect('/')
+        }
+        catch (error) {
+
+        }
+    }
+
+
+    ,
+>>>>>>> ba40b15006433854e4e94de2b3ec49c45755a3c8
     index: async (req, res) => {
         let users = await db.Users.findAll();
         // return res.send(users); // COMPROBAR LISTA DE USUARIOS
@@ -146,8 +192,6 @@ module.exports = {
     }
 
 }
-
-
 
 
 

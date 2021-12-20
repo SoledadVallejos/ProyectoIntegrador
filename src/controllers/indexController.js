@@ -1,4 +1,6 @@
-﻿// DE A POCO IR AGREGANDO PEDAZOS DE CODIGO NUEVO PARA INCORPORAR DB
+﻿// NECESARIOCART
+
+// DE A POCO IR AGREGANDO PEDAZOS DE CODIGO NUEVO PARA INCORPORAR DB
 // AGREGAS Y COMPRUEBAS DATOS OBTENIDOS DESDE DB MEDIANTE return res.send()
 // HACER COPIAS CUANDO LLEGUES A UN PUNTO DE PROGRESO FUNCIONANDO TODO !!!
 // EL ORDEN Y CONCENTRACION ES IMPORTANTE!
@@ -117,8 +119,11 @@ module.exports = {
                 // return res.send(productsOff) //COMPROBAR ANTES DE PROSEGUIR
                 // return res.send(productsOffSplide) //COMPROBAR ANTES DE PROSEGUIR
                 // TRANSICION JSON A DB: 1_RUTAS ACTUALIZADAS EN INDEX 2_LLEGUE DE DB DATOS CORRECTOS (igual o parecido como llegaba del JSON) 3_EXISTA ARCHIVO ENLAZADO (imagen en este caso)
+                req.session.carrito=[]; // COMPROBAR QUE carrito TENGA session (se ve en consola de navegador home)
+                console.log('carrito', req.session.carrito);
                 return res.render('general/index', {
                     title: 'Roma - Venta de Indumentaria Textil',
+                    products,
                     bannerImages, // LISTO. DB EN ACCION QUE EMOCION!! CONTIENE IMAGENES DEL BANNER
                     productCategory, // LISTO PARA MOSTRAR DATOS DE HOMBRE O MUJER...
                     productsMuchSale,

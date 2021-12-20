@@ -124,41 +124,17 @@ module.exports = {
                 })
                 .then((productResult) => {
                     console.log('se edito producto: ' + productResult[0])
-                    console.log(req.files);
-                    if (typeof req.files[0] != "undefined") {
-                        console.log('llegaron imagenes');
-                        db.Image.destroy(
-                            {
-                                where: {
-                                    productId: req.params.id
-                                }
-                            }
-                        )
-                            .then(() => {
-                                let imagesArr = req.files.map(image => {
-                                    let img = {
-                                        file: image.filename,
-                                        productId: req.params.id
-                                    }
-                                    return img
-                                })
-                                db.Image.bulkCreate(imagesArr, { validate: true })
-
-                                    .then(() => {
-                                        return res.redirect('/admin')
-                                    })
-                                    .catch(error => console.log(error))
-                            })
-
-                    } else {
-                        console.log('edicion sin imagen')
-                        return res.redirect('/admin')
-                    }
+                   
+                    return res.redirect('/admin')
+                                  
+    
 
                 })
         } else {
             console.log('saltaron errores')
-            let product = db.Product.findByPk(req.params.id)
+            let product = db.Product.findByPk(req.params.id,{
+                include: [{ all: true }]
+            })
             Promise.all([product])
                 .then(([product]) => {
                     console.log('saltaron errores despues de consulta')

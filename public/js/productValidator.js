@@ -7,13 +7,14 @@ window.onload = () => {
 
     // COMPROBAR CONEXIÓN CON FORMULARIO DEL ARCHIVO
     console.log('add profundizando en código de profe Eric');
-    let elements = document.querySelectorAll('input')
-    console.log(elements);
+    
     // BUSCAR ELEMENTO POR id
     const $ = id => document.getElementById(id);
     // EN formproductadd PONER id DE FORMULARIO
     const formproductadd = $('formproductadd'); // DEACTIVAR VALIDACIONES FRONT AQUI
-    // VALOR 1MB
+
+    const element = formproductadd.elements
+
     const oneMB = 1048576;
     // PARA VALIDAR EXTENSIONES
     const regExExt = /(.jpg|.jpeg|.png|.gif|.webp)$/i;
@@ -211,7 +212,8 @@ window.onload = () => {
         // SI AGREGAS MAS ENTRADAS DE FORMULARIO...
         // O LAS QUITAS, O LAS VALIDAS CORRECTAMENTE, O, SE PORDRÍA RESTAR AQUI?...
         // RECORRER            elements             -3 RESTAR LOS ITEMS QUE NO ME INTERESA RECORRER. (los buttons)
-        for (let i = 0; i < this.elements.length - 3; i++) {
+        for (let i = 1; i < this.elements.length - 2; i++) {
+            console.log(this.elements[i]);
             // SI    elements  CONTIENE               is-invalid   O        elements ES false
             if (this.elements[i].classList.contains('is-invalid') || !this.elements[i].value) {
                 // error true (hay error)

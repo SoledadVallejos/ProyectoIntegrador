@@ -33,6 +33,7 @@ const deleteImage = async id => {
             method: 'POST',
         })
         let result = await response.json()
+        console.log(result)
         showPreview(result.images)
     } catch (error) {
         console.log(error)
