@@ -31,44 +31,47 @@
 			</li>
 			<% } %>
 
-				<!--                                                 dropdown1-content MUESTRA MENU DESPLEGABLE-->
-				<div id="myDropdown" class="dropdown-content">
-					<% if (locals.userLogin) { %>
-						<!--   ruta users/profile (link) misma ruta que en (app.js + user.js) -->
-						<a href="/users/profile">Mi Perfil</a>
-						<a href="/products/cart"><i class="fas fa-shopping-bag"> Carrito</i></a>
-						<% if (locals.userLogin.rol===2 ) { %>
-							<a href="/admin">Administrar Productos</a>
-							<a href="/users/users">Administrar Usuarios</a>
-							<% } %>
-								<a href="/users/logout">Salir</a>
+				<!-- MENU USUARIO  -->
+				<div class="header-menu-user">
+					<!-- MENU DESPLEGABLE PASANDO EL MOUSE-->
+					<!--              dropdown DESPLIEGA MENU -->
+					<div class="dropdown">
+						<!--                        dropbtn ESTILOS DEL MENU BOTON-->
+						<button class=" dropbtn">
+							<% if (locals.userLogin) { %>
+								<!--                                                                                  						             avatar USUARIO -->
+								<img class="user"
+									src="/img/users/<%= locals.userLogin!=='' ? locals.userLogin.avatar : 'default.png' %>">
+								<span class="hola">
+									<%= 'Hola ' + locals.userLogin.name %>
+								</span>
 								<% }else{ %>
 									Iniciar Sesión
 									<% } %>
-										</button>
+						</button>
 
-										<!--                                         dropdown1-content MUESTRA MENU DESPLEGABLE-->
-										<div id="myDropdown" class="dropdown-content">
-											<% if (locals.userLogin) { %>
-												<!--   ruta users/profile (link) misma ruta que en (app.js + user.js) -->
-												<a href="/users/profile">Mi Perfil</a>
-												<% if (locals.userLogin.rol===2 ) { %>
-													<a href="/admin">Administrar Productos</a>
-													<a href="/users/users">Administrar Usuarios</a>
-													<a href="/users/register">Registro</a>
-													<% } %>
-														<a href="/users/logout">Salir</a>
-														<% }else{ %>
-															<a href="/users/login">Entrar</a>
-															<a href="/users/register">Registro</a>
-															<% } %>
+						<!--                                         dropdown1-content MUESTRA MENU DESPLEGABLE-->
+						<div id="myDropdown" class="dropdown-content">
+							<% if (locals.userLogin) { %>
+								<!--   ruta users/profile (link) misma ruta que en (app.js + user.js) -->
+								<a href="/users/profile">Mi Perfil</a>
+								<% if (locals.userLogin.rol===2 ) { %>
+									<a href="/admin">Administrar Productos</a>
+									<a href="/users/users">Administrar Usuarios</a>
+									<a href="/users/register">Registro</a>
+									<% } %>
+										<a href="/users/logout">Salir</a>
+										<% }else{ %>
+											<a href="/users/login">Entrar</a>
+											<a href="/users/register">Registro</a>
+											<% } %>
 
-										</div>
-				</div>
-				<!-- MENU DESPLEGABLE PASANDO EL MOUSE /-->
+						</div>
+					</div>
+					<!-- MENU DESPLEGABLE PASANDO EL MOUSE /-->
 
 
-				<!--  MENU SIN MENU DESPLEGABLE
+					<!--  MENU SIN MENU DESPLEGABLE
              <div class="header-login">
                 <% if (locals.userLogin) { %>
                     <li><a href="/users/profile"><%= locals.userLogin.name %> </a></li>
@@ -102,18 +105,13 @@
 							<a href="#home" class="active"></a>
 							<!-- Navigation links (hidden by default) -->
 							<div id="myLinks">
-								<<<<<<< HEAD <a href="/products/productsMan">Hombre</a>
-									<a href="/products/productsWoman">Mujer</a>
-									=======
-									<a href="/products/productsMan">Corbata (Activo)</a>
-									<<<<<<< HEAD=======<a href="/products/productsWoman">Los vestidos (Activo)</a>
-										>>>>>>> 0df397b2ee1dcba2be2eda69c3c09915b9fb9e90
-										<a href="#">Categorias</a>
-										<a href="#">Marcas</a>
-										<a href="#">Liquidacion</a>
-										<a href="#contact">Contact</a>
-										<a href="#about">About</a>
-										>>>>>>> ba40b15006433854e4e94de2b3ec49c45755a3c8
+								<a href="/products/productsMan">Hombre</a>
+								<a href="/products/productsWoman">Mujer</a>
+								<a href="#">Categorias</a>
+								<a href="#">Marcas</a>
+								<a href="#">Liquidacion</a>
+								<a href="#contact">Contact</a>
+								<a href="#about">About</a>
 							</div>
 							<!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
 							<a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -170,9 +168,12 @@
 									<button onclick="myFunction2()" class="dropbtn1">
 										Mujer
 									</button>
+
 									<!-- MENU DESPLEGABLE  -->
 									<div id="myDropdown2" class="dropdown-content1">
-										<a href="/products/productsWoman">Vestidos (Activo)</a>
+										<a href="/products/productsWoman">Los vestidos (Activo)</a>
+										<a href="#">Beauty</a>
+										<a href="#">Lencería</a>
 									</div>
 									<!-- MENU DESPLEGABLE /-->
 
@@ -201,60 +202,10 @@
 									<!-- SCRIPT NECESARIO PARA dropdown DANDO CLIC -->
 								</div>
 							</li>
-							<li><a href="/">Categorias</a></li>
-							<li><a href="/">Marcas</a></li>
-							<li><a href="/">Liquidacion</a></li>
-							<li><a href="/Users/nosotros">¿Quienes somos?</a></li>
+							<li><a href="#">Categorias</a></li>
+							<li><a href="#">Marcas</a></li>
+							<li><a href="#">Liquidacion</a></li>
 						</ul>
-					</div>
-					<!-- BOTON DISPARADOR DEL MENU /-->
-					</script>
-					<!-- SCRIPT NECESARIO PARA dropdown DANDO CLIC -->
-					</div>
-					</li>
-					<li>
-						<div class="dropdown1">
-							<button onclick="myFunction2()" class="dropbtn1">
-								Mujer
-							</button>
-
-							<!-- MENU DESPLEGABLE  -->
-							<div id="myDropdown2" class="dropdown-content1">
-								<a href="/products/productsWoman">Los vestidos (Activo)</a>
-								<a href="#">Beauty</a>
-								<a href="#">Lencería</a>
-							</div>
-							<!-- MENU DESPLEGABLE /-->
-
-							<!-- SCRIPT NECESARIO PARA dropdown DANDO CLIC -->
-							<!-- INCLUYE CLASES CSS -->
-							<script>
-								/* When the user clicks on the button,  toggle between hiding and showing the dropdown content */
-								function myFunction2OFF() {
-									document.getElementById("myDropdown2").classList.toggle("show");
-								}
-
-								// Close the dropdown if the user clicks outside of it
-								window.onclick = function (event) {
-									if (!event.target.matches('.dropbtn1')) {
-										var dropdowns = document.getElementsByClassName("dropdown-content1");
-										var i;
-										for (i = 0; i < dropdowns.length; i++) {
-											var openDropdown = dropdowns[i];
-											if (openDropdown.classList.contains('show')) {
-												openDropdown.classList.remove('show');
-											}
-										}
-									}
-								}
-							</script>
-							<!-- SCRIPT NECESARIO PARA dropdown DANDO CLIC -->
-						</div>
-					</li>
-					<li><a href="#">Categorias</a></li>
-					<li><a href="#">Marcas</a></li>
-					<li><a href="#">Liquidacion</a></li>
-					</ul>
 					</div>
 					<!-- BOTON DISPARADOR DEL MENU /-->
 
@@ -263,7 +214,6 @@
 
 
 
-					>>>>>>> ba40b15006433854e4e94de2b3ec49c45755a3c8
 
 
 
