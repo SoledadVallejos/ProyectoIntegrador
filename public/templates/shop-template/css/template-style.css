@@ -14,16 +14,6 @@
 
 }
 
-#preview {
-    padding: 7px;
-    text-align: center;
-    align-items: center;
-    overflow: hidden;
-    display: flex;
-    width: 100% !important;
-    overflow: visible;
-}
-
 /* SOLUCION A CONFLICTOS CON BOOTSRAP */
 
 html#productsWoman {

@@ -84,13 +84,6 @@
                         <!-- CONTENT -->
                         <section class="s-12 m-8 l-9 xl-10">
                             <!-- CAROUSEL -->
-                            <!-- <div class="line hide-s">
-                        <div id="header-carousel" class="owl-carousel owl-theme">
-                           <div class="item"><img src="/img/productWomanImg/gallery-5.jpg">
-                           <div class="item"><img src="/img/productWomanImg/gallery-5.jpg">
-                           <div class="item"><img src="/img/productWomanImg/gallery-5.jpg">
-                        </div>
-                     </div> -->
                             <!-- Breadcrumb -->
                             <nav class="breadcrumb-nav">
                                 <ul>
@@ -102,10 +95,9 @@
                             <!-- Pruducts -->
 
                             <% if (searchResults !='' ){%>
-
-                                <% for( let i=0; i < searchResults.length; i++ ) { %>
-
-                                    <div class="margin2x resultsHome-margin2x">
+                                <div class="margin2x">
+                                    <!-- <div class="margin2x resultsHome-margin2x"> -->
+                                    <% for( let i=0; i < searchResults.length; i++ ) { %>
                                         <div class="s-12 m-12 l-4 xl-3 xxl-3">
                                             <div class="pImage">
                                                 <a class="productImage"
@@ -113,42 +105,44 @@
                                                     <img class="imgSearchResultsHome"
                                                         src="/img/productDetail-splide/<%= searchResults[i].image[0].file == 0 ? 'default.png' : searchResults[i].image[0].file%>"
                                                         alt="" width="100px">
-                                                    <img class="full-imgHover" src="">
+                                                    <img class="fullImgHoverResultsHome" src="">
                                                 </a>
                                             </div>
                                             <div class="dataWoman">
-                                                <h5 class="price">
-
-                                                    $ <%= toThousand(searchResults[i].price -
-                                                        ((searchResults[i].price*searchResults[i].discount) / 100 ))%>
-
-                                                        <%= searchResults[i].discount> 0 ? ' / ' +
-                                                            toThousand(searchResults[i].discount) + ' OFF' : null %>
-
-
-                                                </h5>
-                                                <a href="#">
-                                                    <h4 class="margin-bottom">
-                                                        <strong>
-                                                            <%= searchResults[i].name%>
-                                                        </strong>
-                                                    </h4>
-                                                </a>
-                                                <p class="margin-bottom">
-                                                    <%= searchResults[i].description%>
-                                                </p>
-                                                <form class="customform s-12 margin-bottom2x" action="">
-                                                    <div><button class="button rounded-btn submit-btn s-12"
-                                                            type="submit">Add to
-                                                            Cart</button>
-                                                    </div>
-                                                </form>
+                                                <!-- NOMBRE DEL PRODUCTO -->
+                                                <%= searchResults[i].name %>
+                                                    <!-- SI HAY DESCUENTO -->
+                                                    <% if (searchResults[i].discount !=0) { %>
+                                                        <!-- PRECIO REAL CHIQUITO COLOR VERDE Y TACHADO -->
+                                                        <div>
+                                                            <span class="priceSmallthroughResultsHome">
+                                                                $ <%= toThousand(searchResults[i].price)%>  /
+                                                            </span>
+                                                            <%= searchResults[i].discount %>% OFF
+                                                                <!-- Y PRECIO CON DESCUENTO DESTACADO -->
+                                                                <span class="priceStyleResultsHome">
+                                                                    $ <%= toThousand(searchResults[i].price -
+                                                                        ((searchResults[i].price *
+                                                                        searchResults[i].discount) /100)) %>
+                                                                </span>
+                                                        </div>
+                                                        <% }else{ %>
+                                                            <!-- SINO PRECIO REAL -->
+                                                            <span class="priceStyleResultsHome">
+                                                                $ <%= toThousand(searchResults[i].price)%>
+                                                            </span>
+                                                            <% } %>
+                                                                <!-- PRECIO DEL PRODUCTO  / -->
                                             </div>
+                                            <!-- BOTÓN COMPRA -->
+                                            <a class="btnBuyResultsHome" href="#"
+                                                onclick="addItem(event,'<%=searchResults[i].id%>')">
+                                                COMPRAR
+                                            </a>
+                                            <!-- BOTÓN COMPRA / -->
 
                                         </div>
-
                                         <% } %>
-
                                             <% } else{%>
                                                 <h2 style="text-align:center; color: red;">
                                                     Prueba con otras palabras
@@ -156,8 +150,7 @@
                                                 <% } %>
 
 
-                                    </div>
-
+                                </div>
                         </section>
                     </div>
                 </div>
@@ -169,7 +162,7 @@
 
             <%- include('../partials/footer') %>
 
-            <!-- PONER AQUI ARCHIVOS javascript QUE QUIERAS VINCULAR CON ESTE ARCHIVO -->
+                <!-- PONER AQUI ARCHIVOS javascript QUE QUIERAS VINCULAR CON ESTE ARCHIVO -->
                 <!-- CODIGO PUESTO EN ARCHIVOS javascript SE VEN EN CONSOLA AL EJECUTAR EN EL NAVEGADOR ESTE ARCHIVO ejs -->
                 <!-- SI NO VINCULAS ASÍ NUNCA AFECTARÁ TU javascript A TU ARCHIVO html o ejs ... -->
                 <script src="/javascripts/index.js"></script>

@@ -59,6 +59,7 @@ p, li, dl, blockquote, table, kbd {
 .btn {
     position: static !important;
     color: white !important;
+    font-weight: bold !important;
 }
 
 p {

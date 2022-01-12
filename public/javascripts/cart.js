@@ -2,6 +2,9 @@
 
 console.log('cart.js success');
 
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+
 let spanCantidad = document.querySelector('span.badge'); //cantidad de productos en el icono del carrito
 let changuito = document.querySelector('#lista-carrito tbody'); //caja donde se van agregar los productos del carrito
 let spanTotal = document.getElementById('total'); //h5 el valor total de productos agregados al carrito
@@ -17,27 +20,27 @@ const mostrarCantidad = changuito => {
     var cantidad = 0;
     var total = 0;
 
-    if(changuito){
+    if (changuito) {
         changuito.forEach(item => {
             cantidad += item.cantidad
             total += item.total
         });
     }
-    if(spanCantidad){
+    if (spanCantidad) {
         spanCantidad.innerHTML = cantidad
-        spanTotal.innerHTML = `<span>$</span> <span class="float-end">${total}</span>`
+        spanTotal.innerHTML = `<span>$</span> <span class="float-end">${toThousand(total)}</span>`
     }
 
-    if(cantidad == 0){
+    if (cantidad == 0) {
         cartHead.style.display = 'none'
         cartFooter.style.display = 'none'
         cartEmpty.style.display = 'block'
         btnCartEmpty.classList.add('disabled');
         btnNextBuy.classList.add('disabled');
-    }else{
+    } else {
         cartHead.style.display = "table-header-group"
         cartFooter.style.display = 'table-footer-group'
-        cartEmpty.style.display = 'none'        
+        cartEmpty.style.display = 'none'
         btnCartEmpty.classList.remove('disabled');
         btnNextBuy.classList.remove('disabled');
     }
@@ -50,7 +53,7 @@ const cargarTabla = carrito => {
     carrito.forEach(producto => {
         let item = `
             <td class="col-2">
-            <img class="w-100" src="/img/splideImages/${producto.image}" id="imgProduct"> 
+            <img class="w-100" src="/img/productDetail-splide/${producto.image}" id="imgProduct"> 
             </td>
             <td class="text-center col-3 align-middle">
             <a class="text-danger h5" onClick="removeItem(event,${producto.id})"><i class="fas fa-minus-square"></i></a>
@@ -62,10 +65,10 @@ const cargarTabla = carrito => {
             </td>
            
             <td class="align-middle">
-            <span>$</span><span class="float-end">${producto.precio}</span>
+            <span>$</span><span class="float-end">${toThousand(producto.precio)}</span>
             </td>
             <td class="align-middle">
-            <span>$</span><span class="float-end">${producto.total}</span>
+            <span>$</span><span class="float-end">${toThousand(+producto.total)}</span>
             </td>
             `;
         changuito.innerHTML += item
@@ -78,11 +81,11 @@ const getCarrito = async () => {
         let response = await fetch('/api/carts/show')
         let result = await response.json()
         console.log(result);
-        if(result.data.length > 0) {
+        if (result.data.length > 0) {
             mostrarCantidad(result.data)
             cargarTabla(result.data)
 
-        }else{
+        } else {
             mostrarCantidad(result.data)
 
         }
@@ -91,7 +94,7 @@ const getCarrito = async () => {
     }
 }
 
-const addItem = async (e,id) => {
+const addItem = async (e, id) => {
     e.preventDefault()
     try {
         let response = await fetch('/api/carts/add/' + id)
@@ -104,7 +107,7 @@ const addItem = async (e,id) => {
     }
 }
 
-const removeItem = async (e,id) => {
+const removeItem = async (e, id) => {
     e.preventDefault()
     try {
         let response = await fetch('/api/carts/remove/' + id)
@@ -128,7 +131,7 @@ const emptyCart = async () => {
     }
 }
 
-btnCartEmpty?.addEventListener('click',() => emptyCart())
+btnCartEmpty?.addEventListener('click', () => emptyCart())
 
 
 

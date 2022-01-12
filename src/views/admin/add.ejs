@@ -203,18 +203,18 @@
                                             <label for="section">Disponible en la sección:
                                                 <div class="sectionProduct">
                                                     <!--NECESARIO PARA GUARDAR: name="section" -->
-                                                    <input type="radio" id="banner" name="section" value="1" class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
-                                                    <!-- GUARDA VALOR EN DB                                        value="1"-->
-                                                    <!--     for="banner" id="banner" NECESARIO PARA VINCULAR CLIC AL SELECCIONAR -->
+
+                                                    <!-- GUARDA VALOR EN DB                               value="1"-->
+                                                    <input type="radio" id="banner" name="section" value="1">
                                                     <label for="banner">1 Banner</label>
-                                                    <input type="radio" id="masvendidos" name="section" value="2" class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
+                                                    <input type="radio" id="masvendidos" name="section" value="2">
                                                     <label for="masvendidos">2 Más vendidos</label>
-                                                    <input type="radio" id="promocion" name="section" value="3" class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
+                                                    <input type="radio" id="promocion" name="section" value="3">
                                                     <label for="promocion">3 Promoción</label>
-                                                    <input type="radio" id="liquidacion" name="section" value="4" class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
-                                                    <label for="liquidacion">4 Liquidación</label>
-                                                    <input type="radio" id="oferta" name="section" value="5" class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
-                                                    <label for="oferta">5 Oferta</label>
+                                                    <input type="radio" id="ofertas" name="section" value="4">
+                                                    <label for="ofertas">4 Ofertas</label>
+                                                    <input type="radio" id="liquidacion" name="section" value="5">
+                                                    <label for="liquidacion">5 Liquidación</label>
                                                 </div>
                                             </label>
                                         </div>
@@ -236,7 +236,7 @@
 
                                                         <!-- COLOR -->
                                                         <div>
-                                                            <label for="">Color
+                                                            <label for="">Colores
                                                                 <div class="button-contain">
                                                                     <div class="radio-item4" class="negro">
                                                                         <input type="radio" id="ritemd" name="color"
@@ -281,7 +281,7 @@
 
                                                             <!-- SIZE -->
                                                             <div>
-                                                                <label for="size">Talle
+                                                                <label for="size">Talles
                                                                     <div class="button-contain">
                                                                         <label for="s"> S
                                                                             <input type="radio" id="s" name="size"

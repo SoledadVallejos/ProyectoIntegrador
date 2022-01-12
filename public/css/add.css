@@ -1,3 +1,4 @@
+
 /* INPUT RADIO BUTTONS COLOR FIX riveradanieldavid */
 .radio-item1,
 .radio-item2,
@@ -259,7 +260,7 @@ div.negro {
 .contain-add button {
     padding: 7px;
     margin: 10px;
-    border-radius: 15%;
+    border-radius: 7px;
 }
 
 .button-blue {

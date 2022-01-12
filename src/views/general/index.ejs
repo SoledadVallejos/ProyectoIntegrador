@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <%- include('../partials/head') %>
 
     <body class="home">
@@ -44,9 +45,95 @@
                         <% }) %>
                 </section>
 
+                <section class="dropdownSectionsHome">
+                    <!-- ASIDE NAV -->
+                    <aside class="s-12 m-4 l-3 xl-2" id="asideMargin">
+                        <!-- <h4 class="margin-bottom">Filtrar</h4> -->
+                        <div class="aside-nav minimize-on-small">
+                            <p class="aside-nav-text">Select Category</p>
+                            <ul>
+                                <li><a>First Category</a></li>
+                                <li>
+                                    <a>Second Category</a>
+                                    <ul>
+                                        <li><a>Sub Category 1</a></li>
+                                        <li><a>Sub Category 2</a></li>
+                                        <li>
+                                            <a>Sub Category 3</a>
+                                            <ul>
+                                                <li><a>Sub Sub Category 1</a></li>
+                                                <li><a>Sub Sub Category 2</a></li>
+                                                <li><a>Sub Sub Category 3</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>Third Category</a>
+                                    <ul>
+                                        <li><a>Sub Category 1</a></li>
+                                        <li><a>Sub Category 2</a></li>
+                                        <li>
+                                            <a>Sub Category 3</a>
+                                            <ul>
+                                                <li><a>Sub Sub Category 1</a></li>
+                                                <li><a>Sub Sub Category 2</a></li>
+                                                <li><a>Sub Sub Category 3</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a>Fourth Category</a></li>
+                                <li>
+                                    <a>Fifth Category</a>
+                                    <ul>
+                                        <li><a>Sub Category 1</a></li>
+                                        <li><a>Sub Category 2</a></li>
+                                        <li>
+                                            <a>Sub Category 3</a>
+                                            <ul>
+                                                <li><a>Sub Sub Category 1</a></li>
+                                                <li><a>Sub Sub Category 2</a></li>
+                                                <li><a>Sub Sub Category 3</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>Sixth Category</a>
+                                    <ul>
+                                        <li><a>Sub Category 1</a></li>
+                                        <li><a>Sub Category 2</a></li>
+                                        <li>
+                                            <a>Sub Category 3</a>
+                                            <ul>
+                                                <li><a>Sub Sub Category 1</a></li>
+                                                <li><a>Sub Sub Category 2</a></li>
+                                                <li><a>Sub Sub Category 3</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                </section>
+
                 <!-- MAS VENDIDOS CAROUSEL OWL-->
                 <section class="muchSale">
-                    <h2 class="muchSale">MAS VENDIDOS</h2>
+                    <div class="headSlide">
+                        <h4 class="muchSale">Más Vendidos</h4>
+                        <div class="filterHome">
+                            <form action="/action_page.php">
+                                <select name="cars" id="cars">
+                                    <option value="">Ordenar por precio: Alto a bajo</option>
+                                    <option value="">Ordenar por precio: Bajo a alto</option>
+                                    <option value="">Lo último</option>
+                                    <option value="">Lo más valorado</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
                     <div class="line hide-s">
                         <div id="muchSale-carousel" class="owl-carousel owl-theme">
                             <% productsMuchSale.forEach(element=> { %>
@@ -56,12 +143,20 @@
                                             <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
                                             <!--                                                                                   [0]   SELECCIONA IMAGEN POR INDICE -->
                                         </a>
-                                        <h5>
-                                            <%= element.discount %> % OFF
-                                        </h5>
-                                        <a class="btn btn-dark" href="#"
-                                            onclick="addItem(event,'<%=element.id%>')">comprar</a>
-
+                                        <div class="descriptionProduct">
+                                            <h5 class="detailProductHome">
+                                                <ul>
+                                                    <li>
+                                                        <%= element.name %>
+                                                    </li>
+                                                    <li>
+                                                        $ <%= toThousand(element.price) %>
+                                                    </li>
+                                                </ul>
+                                            </h5>
+                                            <a class="btnBuyHome" href="#"
+                                                onclick="addItem(event,'<%=element.id%>')">COMPRAR</a>
+                                        </div>
                                     </div>
                                 </article>
                                 <% }) %>
@@ -74,7 +169,19 @@
 
                 <!-- PROMOCIÓN CAROUSEL OWL-->
                 <section class="promo">
-                    <h2 class="promo">PROMOCIÓN</h2>
+                    <div class="headSlide">
+                        <h4 class="promo">Promoción</h4>
+                        <div class="filterHome">
+                            <form action="/action_page.php">
+                                <select name="cars" id="cars">
+                                    <option value="">Ordenar por precio: Alto a bajo</option>
+                                    <option value="">Ordenar por precio: Bajo a alto</option>
+                                    <option value="">Lo último</option>
+                                    <option value="">Lo más valorado</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
                     <div class="line hide-s">
                         <div id="promo-carousel" class="owl-carousel owl-theme">
                             <% productsPromo.forEach(element=> { %>
@@ -84,9 +191,20 @@
                                             <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
                                             <!--                                                                                   [0]   SELECCIONA IMAGEN POR INDICE -->
                                         </a>
-                                        <h5>
-                                            <%= element.discount %> % OFF
-                                        </h5>
+                                        <div class="descriptionProduct">
+                                            <h5 class="detailProductHome">
+                                                <ul>
+                                                    <li>
+                                                        <%= element.name %>
+                                                    </li>
+                                                    <li>
+                                                        $ <%= toThousand(element.price) %>
+                                                    </li>
+                                                </ul>
+                                            </h5>
+                                            <a class="btnBuyHome" href="#"
+                                                onclick="addItem(event,'<%=element.id%>')">COMPRAR</a>
+                                        </div>
                                     </div>
                                 </article>
                                 <% }) %>
@@ -98,7 +216,19 @@
 
                 <!-- OFERTAS CAROUSEL OWL-->
                 <section class="promo">
-                    <h2 class="promo">OFERTAS</h2>
+                    <div class="headSlide">
+                        <h4 class="promo">Ofertas</h4>
+                        <div class="filterHome">
+                            <form action="/action_page.php">
+                                <select name="cars" id="cars">
+                                    <option value="">Ordenar por precio: Alto a bajo</option>
+                                    <option value="">Ordenar por precio: Bajo a alto</option>
+                                    <option value="">Lo último</option>
+                                    <option value="">Lo más valorado</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
                     <div class="line hide-s">
                         <div id="off-carousel" class="owl-carousel owl-theme">
                             <% productsOff.forEach(element=> { %>
@@ -108,9 +238,20 @@
                                             <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
                                             <!--                                                                                   [0]   SELECCIONA IMAGEN POR INDICE -->
                                         </a>
-                                        <h5>
-                                            <%= element.discount %> % OFF
-                                        </h5>
+                                        <div class="descriptionProduct">
+                                            <h5 class="detailProductHome">
+                                                <ul>
+                                                    <li>
+                                                        <%= element.name %>
+                                                    </li>
+                                                    <li>
+                                                        $ <%= toThousand(element.price) %>
+                                                    </li>
+                                                </ul>
+                                            </h5>
+                                            <a class="btnBuyHome" href="#"
+                                                onclick="addItem(event,'<%=element.id%>')">COMPRAR</a>
+                                        </div>
                                     </div>
                                 </article>
                                 <% }) %>
@@ -122,7 +263,19 @@
 
                 <!-- LIQUIDACIÓN CAROUSEL OWL-->
                 <section class="promo">
-                    <h2 class="promo">LIQUIDACIÓN</h2>
+                    <div class="headSlide">
+                        <h4 class="promo">Liquidación</h4>
+                        <div class="filterHome">
+                            <form action="/action_page.php">
+                                <select name="cars" id="cars">
+                                    <option value="">Ordenar por precio: Alto a bajo</option>
+                                    <option value="">Ordenar por precio: Bajo a alto</option>
+                                    <option value="">Lo último</option>
+                                    <option value="">Lo más valorado</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
                     <div class="line hide-s">
                         <div id="clearance-carousel" class="owl-carousel owl-theme">
                             <% productsClearance.forEach(element=> { %>
@@ -132,9 +285,20 @@
                                             <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
                                             <!--                                                                                   [0]   SELECCIONA IMAGEN POR INDICE -->
                                         </a>
-                                        <h5>
-                                            <%= element.discount %> % OFF
-                                        </h5>
+                                        <div class="descriptionProduct">
+                                            <h5 class="detailProductHome">
+                                                <ul>
+                                                    <li>
+                                                        <%= element.name %>
+                                                    </li>
+                                                    <li>
+                                                        $ <%= toThousand(element.price) %>
+                                                    </li>
+                                                </ul>
+                                            </h5>
+                                            <a class="btnBuyHome" href="#"
+                                                onclick="addItem(event,'<%=element.id%>')">COMPRAR</a>
+                                        </div>
                                     </div>
                                 </article>
                                 <% }) %>
@@ -146,16 +310,27 @@
 
                 <!-- ULTIMOS VISTOS CARROUSEL OWL-->
                 <section class="lastViews">
-                    <h2 class="lastViews">ÚLTIMOS VISTOS</h2>
+                    <h4 class="lastViews">Últimos vistos</h4>
                     <div class="line hide-s">
                         <div id="lastViews-carousel" class="owl-carousel owl-theme">
                             <% productsLastView.forEach(element=> { %>
                                 <article class="ofertas-android">
                                     <div class="item">
                                         <img src="/img/productDetail-splide/<%= element.image[0].file%>" alt="">
-                                        <h5>
-                                            <%= element.discount %> % OFF
-                                        </h5>
+                                        <div class="descriptionProduct">
+                                            <h5 class="detailProductHome">
+                                                <ul>
+                                                    <li>
+                                                        <%= element.name %>
+                                                    </li>
+                                                    <li>
+                                                        $ <%= toThousand(element.price) %>
+                                                    </li>
+                                                </ul>
+                                            </h5>
+                                            <a class="btnBuyHome" href="#"
+                                                onclick="addItem(event,'<%=element.id%>')">COMPRAR</a>
+                                        </div>
                                     </div>
                                 </article>
                                 <% }) %>
@@ -165,7 +340,8 @@
                 </section>
                 <!-- ULTIMOS VISTOS CARROUSEL OWL /-->
 
-                <h2 class="ofertas-main">OFERTAS</h2>
+                <hr>
+                <h4 class="ofertas-main">OFERTAS</h4>
                 <!-- OFERTAS -->
                 <section class="ofertas-main">
 
@@ -184,6 +360,8 @@
                                 </h5>
                             </div>
                         </article>
+                        <a class="btnBuyHome" href="#" onclick="addItem(event,'<%=element.id%>')">AÑADIR AL
+                            CARRITO</a>
 
                         <article class="ofertas-tablet">
                             <div>
@@ -263,11 +441,11 @@
                     owl.owlCarousel({
                         nav: true,
                         dots: true,
-                        items: 5,
+                        items: 4,
                         loop: true,
                         navText: ["&#xf007", "&#xf006"],
                         autoplay: true,
-                        autoplayTimeout: 3000,
+                        autoplayTimeout: 2000,
                         autoHeight: false,
                         margin: 7,
                         mouseDrag: true,
@@ -279,7 +457,7 @@
                         autoWidth: false,
                         rewind: true,
                         slideBy: 1,
-                        autoplayHoverPause: false,
+                        autoplayHoverPause: true,
                         autoplaySpeed: false, //number / boolean
                         checkVisible: true,
                         fluidSpeed: false,//number / boolean
@@ -297,11 +475,11 @@
                     owl.owlCarousel({
                         nav: true,
                         dots: true,
-                        items: 5,
+                        items: 4,
                         loop: true,
                         navText: ["&#xf007", "&#xf006"],
                         autoplay: true,
-                        autoplayTimeout: 3000,
+                        autoplayTimeout: 2000,
                         autoHeight: false,
                         margin: 7,
                         mouseDrag: true,
@@ -313,7 +491,7 @@
                         autoWidth: false,
                         rewind: true,
                         slideBy: 1,
-                        autoplayHoverPause: false,
+                        autoplayHoverPause: true,
                         autoplaySpeed: false, //number / boolean
                         checkVisible: true,
                         fluidSpeed: false,//number / boolean
@@ -331,11 +509,11 @@
                     owl.owlCarousel({
                         nav: true,
                         dots: true,
-                        items: 5,
+                        items: 4,
                         loop: true,
                         navText: ["&#xf007", "&#xf006"],
                         autoplay: true,
-                        autoplayTimeout: 3000,
+                        autoplayTimeout: 2000,
                         autoHeight: false,
                         margin: 7,
                         mouseDrag: true,
@@ -347,7 +525,7 @@
                         autoWidth: false,
                         rewind: true,
                         slideBy: 1,
-                        autoplayHoverPause: false,
+                        autoplayHoverPause: true,
                         autoplaySpeed: false, //number / boolean
                         checkVisible: true,
                         fluidSpeed: false,//number / boolean
@@ -365,11 +543,11 @@
                     owl.owlCarousel({
                         nav: true,
                         dots: true,
-                        items: 5,
+                        items: 4,
                         loop: true,
                         navText: ["&#xf007", "&#xf006"],
                         autoplay: true,
-                        autoplayTimeout: 3000,
+                        autoplayTimeout: 2000,
                         autoHeight: false,
                         margin: 7,
                         mouseDrag: true,
@@ -381,7 +559,7 @@
                         autoWidth: false,
                         rewind: true,
                         slideBy: 1,
-                        autoplayHoverPause: false,
+                        autoplayHoverPause: true,
                         autoplaySpeed: false, //number / boolean
                         checkVisible: true,
                         fluidSpeed: false,//number / boolean
@@ -399,11 +577,11 @@
                     owl.owlCarousel({
                         nav: true,
                         dots: true,
-                        items: 5,
+                        items: 4,
                         loop: true,
                         navText: ["&#xf007", "&#xf006"],
                         autoplay: true,
-                        autoplayTimeout: 3000,
+                        autoplayTimeout: 2000,
                         autoHeight: false,
                         margin: 7,
                         mouseDrag: true,
@@ -415,7 +593,7 @@
                         autoWidth: false,
                         rewind: true,
                         slideBy: 1,
-                        autoplayHoverPause: false,
+                        autoplayHoverPause: true,
                         autoplaySpeed: false, //number / boolean
                         checkVisible: true,
                         fluidSpeed: false,//number / boolean
@@ -434,7 +612,6 @@
                 <script src="/javascripts/index.js"></script>
                 <script src="/javascripts/cart.js"></script>
                 <script src="/javascripts/app.js"></script>
-
 
     </body>
 

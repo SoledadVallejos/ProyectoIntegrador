@@ -67,8 +67,11 @@ module.exports = {
                 attributes: ['file'],
             }],
         })
-        Promise.all([sectionBanner, productDiscount, productCategory, products])
-            .then(([sectionBanner, productDiscount, productCategory, products]) => {
+        let product = db.Product.findByPk(req.params.id, {
+            include: [{ all: true }]
+        })
+        Promise.all([sectionBanner, productDiscount, productCategory, products, product])
+            .then(([sectionBanner, productDiscount, productCategory, products, product]) => {
                 // bannerImages OBTENER DATOS TAL CUAL VENIA DE JSON
                 let productsMap1 = sectionBanner.map(index => {
                     return index.image
@@ -119,11 +122,12 @@ module.exports = {
                 // return res.send(productsOff) //COMPROBAR ANTES DE PROSEGUIR
                 // return res.send(productsOffSplide) //COMPROBAR ANTES DE PROSEGUIR
                 // TRANSICION JSON A DB: 1_RUTAS ACTUALIZADAS EN INDEX 2_LLEGUE DE DB DATOS CORRECTOS (igual o parecido como llegaba del JSON) 3_EXISTA ARCHIVO ENLAZADO (imagen en este caso)
-                req.session.carrito=[]; // COMPROBAR QUE carrito TENGA session (se ve en consola de navegador home)
+                req.session.carrito = []; // COMPROBAR QUE carrito TENGA session (se ve en consola de navegador home)
                 console.log('carrito', req.session.carrito);
                 return res.render('general/index', {
                     title: 'Roma - Venta de Indumentaria Textil',
                     products,
+                    product,
                     bannerImages, // LISTO. DB EN ACCION QUE EMOCION!! CONTIENE IMAGENES DEL BANNER
                     productCategory, // LISTO PARA MOSTRAR DATOS DE HOMBRE O MUJER...
                     productsMuchSale,
@@ -131,6 +135,7 @@ module.exports = {
                     productsOff,
                     productsClearance,
                     productsLastView,
+                    toThousand,
                     // productsOff, //LISTO. MUESTRA PRODUCTOS SOLO CON DESCUENTO EN HOME
                     // productsOffSplide,
                     // productsSugest, NUNCA SE USÓ

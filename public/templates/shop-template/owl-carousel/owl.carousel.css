@@ -1,15 +1,8 @@
 /* MASTER */
+.imgContainer {
 
-/* ALINEAR BOTONES COMPRA SLIDE HOME */
-.imgContainerSlide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: end;
-  height: 27rem;
+  position: relative;
 }
-
-/* ALINEAR BOTONES COMPRA SLIDE HOME  / */
 
 
 

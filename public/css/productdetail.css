@@ -1,3 +1,8 @@
+.splide.is-initialized, .splide.is-rendered {
+    overflow: hidden;
+}
+
+
 /* FUENTE BODY GENERAL productdetail */
 
 body.productdetail {
@@ -39,6 +44,8 @@ span.descriptions {
     text-align: center;
     display: inline-block;
     margin: 10px;
+    font-size: 16px;
+    color: hotpink;
 }
 
 .nameproduct {
@@ -69,13 +76,12 @@ span.descriptions {
 
 .caracteristicas-producto {
     background-color: #ece6e2;
-    /*height: 275px;*/
     margin: auto;
-    margin-top: 20px;
     width: 90%;
     margin-bottom: 25px;
     border-radius: 5px;
     padding: 10px;
+    margin-top: 2rem;
 }
 
 .ml-1 {

@@ -1,18 +1,58 @@
-﻿    /* IMAGENES ALINEADAS  */
-    .pImage {
-        height: auto;
-    }
+﻿/* BOTON COMPRAR HOME */
+.btnBuyResultsHome {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    background: black;
+    color: white !important;
+    font-weight: bold;
+    margin: -40px auto 52px;
+    border-radius: 7px;
+    font-size: 14px;
+    margin: auto;
+    text-align: center;
+    margin: -3px auto 43px;;
+}
 
-    .dataWoman,
-    .dataMan {
-        height: auto;
-        width: 80%;
-        margin: auto;
-    }
+.btnBuyResultsHome:hover {
+    background: linear-gradient(180deg, #468CCF 5%, #63B8EE 100%);
+}
 
-    .imgSearchResultsHome {
-        display: block;
-        width: 100%;
-        width: 80%;
-        margin: auto;
-    }
+
+/* QUITAR EFECTO HOVER QUE VENÍA DE productWoman y ... */
+.fullImgHoverResultsHome {
+    display: inline-block;
+
+}
+
+/* PRECIO OFERTA TACHADO CHICO */
+.priceSmallthroughResultsHome {
+    text-decoration: line-through 2px;
+    color: gray;
+}
+
+/* PRECIO FINAL ESTILOS */
+.priceStyleResultsHome {
+    font-size: 2rem;
+    display: block;
+}
+
+/* IMAGENES ALINEADAS  */
+.pImage {
+    height: auto;
+}
+
+.dataWoman,
+.dataMan {
+    display: flex;
+    flex-direction: column;
+    height: 7rem;
+    justify-content: space-between;
+}
+
+.imgSearchResultsHome {
+    display: block;
+    width: 100%;
+    width: 80%;
+    margin: auto;
+}

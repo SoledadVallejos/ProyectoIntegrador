@@ -1,3 +1,12 @@
+/* MASTER */
+.imgContainerSlide {
+  overflow: hidden;
+}
+
+
+
+
+
 /* POSICIONAR FLECHAS DE NAVEGACION OWL-CAROUSEL */
 .item .owl-stage-outer {
   position: relative;
@@ -5,26 +14,23 @@
 
 .owl-prev {
   position: absolute;
-  left: 0px;
-  top: 34%;
+  left: 0;
+  top: 0;
   background: grey !important;
   color: white;
-}
-
-.owl-prev:hover {
-  opacity: .5;
 }
 
 .owl-next {
   position: absolute;
-  right: 0px;
-  top: 34%;
+  right: 0;
+  top: 0;
   background: grey !important;
   color: white;
 }
 
-.owl-next:hover {
-  opacity: .5;
+.owl-next:hover, .owl-prev:hover {
+  background: black !important;
+  border: 1px solid white;
 }
 
 /* ENABLE FLECHAS DE NAVEGACIÓN */
@@ -56,9 +62,9 @@
 
 .owl-theme .owl-nav [class*='owl-'] {
   color: #FFF;
-  font-size: 14px;
+  font-size: 20px;
   margin: 5px;
-  padding: 4px 7px;
+  padding: 3px 15px;
   background: #D6D6D6;
   display: inline-block;
   cursor: pointer;

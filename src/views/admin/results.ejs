@@ -2,97 +2,146 @@
 <html lang="es">
 <%- include('../partials/head.ejs') %>
 
-<body>
-    <%- include('../partials/header.ejs') %>
+    <body>
+        <%- include('../partials/header.ejs') %>
 
-    <main class="container-fluid">
-        <!--Administrador de productos-->
-        <section class="row">
-            <article class="col-12">
-                <h2 class="display-4 text-white bg-info text-center searchResultsAdmin">Resultado de la búsqueda</h2>
-            </article>
+            <main class="container-fluid">
+                <!--Administrador de productos-->
+                <section class="row">
+                    <article class="col-12">
 
-            <div class="addSearch">
-                <article>
-                    <a class="btn btn-primary" href="/admin/add">Agregar <ion-icon name="add-circle-outline">
-                        </ion-icon>
-                    </a>
-                </article>
-                <article ">
-					<form action="/admin/search_results" method="GET">
-                    <input type="search" name="keywords" placeholder="nomb. cat. color descr." class="searchAdmin">
-                    <button class="btn btn-primary" type="submit">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </button>
-                    </form>
-                </article>
-            </div>
+                        <h2 class="display-4 text-white bg-info text-center pt-5 searchResultsAdmin">Resultado de la
+                            búsqueda</h2>
+                    </article>
 
-            <article class="col-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Imágen</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Color</th>
-                            <th scope="col">Talle</th>
-                            <th scope="col">Sección</th>
-                            <th scope="col">Categoría nombre</th>
-                            <th scope="col">Categoría descripción</th>
-                            <!-- <th scope="col">Características</th> -->
-                            <th scope="col">Precio</th>
-                            <th scope="col">Descuento</th>
-                            <th scope="col">Ver</th>
-                            <th scope="col">Editar</th>
-                            <th scope="col">Borrar</th>
-</tr>
-                    </thead>
-                    <tbody>
+                    <div class="addSearch">
+                        <article>
+                            <a class="btn btn-primary" href="/admin/add">Agregar <ion-icon name="add-circle-outline">
+                                </ion-icon>
+                            </a>
+                        </article>
+                        <article ">
+					<form action=" /admin/search_results" method="GET">
+                            <input type="search" name="keywords" placeholder="nomb. cat. color descr."
+                                class="searchAdmin">
+                            <button class="btn btn-primary" type="submit">
+                                <ion-icon name="search-outline"></ion-icon>
+                            </button>
+                            </form>
+                        </article>
+                    </div>
 
-                        <tr>
-                            <% if (searchResults != ''){%>
+                    <article class="col-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Imágen</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Color</th>
+                                    <th scope="col">Talle</th>
+                                    <th scope="col">Sección</th>
+                                    <th scope="col">Categoría nombre</th>
+                                    <th scope="col">Categoría descripción</th>
+                                    <!-- <th scope="col">Características</th> -->
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Descuento</th>
+                                    <th scope="col">Ver</th>
+                                    <th scope="col">Editar</th>
+                                    <th scope="col">Borrar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                            <% for( let i = 0; i < searchResults.length; i++ ) { %>
-                            <td><%= searchResults[i].id%></td>
-                            <td><%= searchResults[i].name%></td>
-                            <td><a href="/products/productDetail/<%= searchResults[i].id%>">
-                                    <img class="imgAdmin" src="/img/productDetail-splide/<%= searchResults[i].image[0].file%>" alt=""
-                                        width="100px">
-                                </a>
-                            </td>
-                            <td><%= searchResults[i].description%></td>
-                            <td><%= searchResults[i].color%></td>
-                            <td><%= searchResults[i].size%></td>
-                            <td><%= searchResults[i].section.name%></td> <!--NUNCA VI .section.name FUNCIONA!!-->
-                            <td><%= searchResults[i].category.name%></td> <!--NUNCA VI .category.name FUNCIONA!!-->
-                            <td><%= searchResults[i].category.description%></td> <!--NUNCA VI .category.description FUNCIONA!!-->
-                            <td><%= searchResults[i].price%></td>
-                            <td><%= searchResults[i].discount%></td>
-                            <td><a href="/products/productDetail/<%= searchResults[i].id%>">
-                                    <ion-icon class="ion-icon" name="eye-outline"></ion-icon>
-                                </a></td>
-                            <td><a href="/admin/edit/<%= searchResults[i].id%>">
-                                    <ion-icon class="ion-icon" name="construct-outline"></ion-icon>
-                                </a></td>
-                            <td><a href="/admin/delete/<%= searchResults[i].id%>">
-                                    <ion-icon class="ion-icon" name="trash-outline"></ion-icon>
-                                </a></td>
-                        </tr>
-                        <% } %>
+                                <tr>
+                                    <% if (searchResults !='' ){%>
 
-                        <% } else{%>
-                        <h2 style="text-align:center; color: red;"   >Nada encontrado, intenta con otras palabras...</h2>
-                        <% } %>
+                                        <% for( let i=0; i < searchResults.length; i++ ) { %>
+                                            <td>
+                                                <%= searchResults[i].id%>
+                                            </td>
+                                            <td>
+                                                <%= searchResults[i].name%>
+                                            </td>
+                                            <td><a href="/products/productDetail/<%= searchResults[i].id%>">
+                                                    <img class="imgAdmin"
+                                                        src="/img/productDetail-splide/<%= searchResults[i].image[0].file%>"
+                                                        alt="" width="100px">
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <%= searchResults[i].description%>
+                                            </td>
+                                            <td>
+                                                <%= searchResults[i].color%>
+                                            </td>
+                                            <td>
+                                                <%= searchResults[i].size%>
+                                            </td>
+                                            <td>
+                                                <%= searchResults[i].section.name%>
+                                            </td>
+                                            <!--NUNCA VI .section.name FUNCIONA!!-->
+                                            <td>
+                                                <%= searchResults[i].category.name%>
+                                            </td>
+                                            <!--NUNCA VI .category.name FUNCIONA!!-->
+                                            <td>
+                                                <%= searchResults[i].category.description%>
+                                            </td>
+                                            <!--NUNCA VI .category.description FUNCIONA!!-->
+                                            <td>
+                                                <%= searchResults[i].price%>
+                                            </td>
+                                            <td>
+                                                <%= searchResults[i].discount%>
+                                            </td>
+                                            <td><a href="/products/productDetail/<%= searchResults[i].id%>">
+                                                    <ion-icon class="ion-icon" name="eye-outline"></ion-icon>
+                                                </a></td>
+                                            <td><a href="/admin/edit/<%= searchResults[i].id%>">
+                                                    <ion-icon class="ion-icon" name="construct-outline"></ion-icon>
+                                                </a></td>
+                                            <td><a href="/admin/delete/<%= searchResults[i].id%>">
+                                                    <ion-icon class="ion-icon" name="trash-outline"></ion-icon>
+                                                </a></td>
+                                </tr>
+                                <% } %>
 
-                    </tbody>
-                </table>
-            </article>
-    </main>
-    <!-- THIS IS DEPRECATED. ESTO VA CON OTRA SINTAXIS EN EL head -->
-    <!-- 	<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+                                    <% } else{%>
+                                        <h2 style="text-align:center; color: red;">Nada encontrado, intenta con otras
+                                            palabras...</h2>
+                                        <% } %>
+
+                            </tbody>
+                        </table>
+                    </article>
+            </main>
+            <!-- THIS IS DEPRECATED. ESTO VA CON OTRA SINTAXIS EN EL head -->
+            <!-- 	<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
  -->
-</body>
+
+            <!-- BOTÓN PARA SUBIR ARRIBA PUESTO ACA SIRVE PARA TODAS LAS PÁGINAS-->
+            <script>
+                //Get the button
+                var mybutton = document.getElementById("myBtn");
+                // When the user scrolls down 20px from the top of the document, show the button
+                window.onscroll = function () { scrollFunction() };
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        mybutton.style.display = "block";
+                    } else {
+                        mybutton.style.display = "none";
+                    }
+                }
+                // When the user clicks on the button, scroll to the top of the document
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    </body>
 
 </html>

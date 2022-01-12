@@ -1,8 +1,65 @@
-/* BUTTON DE CARRITO */
-.btn-cart, .btn btn-outline-light {
-    background-color: black !important;
-    font-size: 20px !important;
+/* BOTON COMPRAR HOME */
+.btnBuyHome {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    background: black;
+    color: white !important;
+    font-weight: bold;
+    margin: -40px auto 52px;
+    border-radius: 7px;
+    font-size: 14px;
+    margin: auto;
+    text-align: center;
 }
+
+.btnBuyHome:hover {
+    background: linear-gradient(180deg, #468CCF 5%, #63B8EE 100%);
+}
+
+/* QUITAR ESPACIO VACÍO DESPUÉS DE CATEGORÍAS */
+.muchSale {
+    margin-top: -17%;
+}
+
+
+/* TITULO OFETAS MOBILE CENTRADO */
+.ofertas-main {
+    text-align: center;
+}
+
+/* SOLUCION A MENU SECCIONES QUEDE LIBRE */
+.dropdownSectionsHome {
+    display: flex;
+}
+
+/* CARRITO DEL HEADER */
+.btn-cart:hover {
+    background-color: transparent !important;
+}
+
+/* HEAD DE LOS SLIDES DEL HOME */
+.headSlide {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 22px 0 7px;
+    background: aqua;
+    padding: 23px;
+    border-radius: 11px;
+}
+
+
+
+/* DETALLE PRODUCTO ESTILOS */
+h5.detailProductHome {
+    display: block;
+    margin-top: 33px;
+    margin-left: -23px;
+}
+
+
+
 
 /* riveradanieldavid */
 div.mujer {
@@ -13,26 +70,18 @@ section.sugest {
     margin: -10% 0 5%;
 }
 
+
 @media (max-width:480px) {
 
-    /* OCULTAR SUGERIDOS CON MENOS DE 480PX */
-    section.ofertas-main, h2.ofertas-main {
-    }
     /* OCULTAR MENU HOVER */
-    .dropdown{
+    .dropdown {
         display: none;
     }
-
-    /* OCULTAR SUGERIDOS CON MENOS DE 480PX  / */
-
-}
-
-@media (max-width:480px) {
 
     header nav div.header-buscador form input {
         position: absolute;
         top: 50px;
-        left: 24%;
+        left: 27vw;
         display: block;
         max-width: 53%
     }
@@ -88,16 +137,8 @@ main.home section.tipo-main div.hombre h4 {
 }
 
 main.home h2 {
-    text-align: center;
     font-size: 35px;
-    margin-bottom: 15px;
-
-}
-
-main.home section.ofertas-main {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
+    margin-bottom: 35px;
 }
 
 main.home section.ofertas-main article.ofertas-android {
@@ -143,6 +184,9 @@ main.home section.ofertas-main article.ofertas-android div h5 {
     font-size: 25px;
     color: white;
     background-color: black;
+    border-radius: 50%;
+    padding: 7px;
+    width: 45%;
 }
 
 main.home section.ofertas-main article.ofertas-tablet div h5 {
@@ -175,17 +219,19 @@ main.home section.ofertas-main article.ofertas-desktop div h5 {
 }
 
 
-@media (min-width:425px) {
+
+@media (min-width:481px) {
 
     main.home section.tipo-main {
         display: flex;
         justify-content: space-around;
-        margin: 15px -7px -15% -5px;
+        margin-top: 15px;
+
     }
 
 
     main.home section.tipo-main div.mujer a img {
-        width: 98%;
+        width: 92%;
         height: 73%;
         margin: auto;
     }
@@ -246,6 +292,9 @@ main.home section.ofertas-main article.ofertas-desktop div h5 {
 
 
 }
+
+
+
 
 
 @media (min-width: 724px) {
@@ -350,5 +399,50 @@ main.home section.ofertas-main article.ofertas-desktop div h5 {
     main.home section.ofertas-main article.ofertas-tablet div a img {
         height: 477px;
     }
+
+}
+
+
+/* BOTON COMPRAR MOBILE ESTILOS */
+@media (max-width:480px) {
+
+    /* BUTTON DE COMPRAR CARRITO */
+    .buttonBuy {
+        font-size: 7rem;
+    }
+
+    .btnBuyHome {
+        margin: -40px auto 52px;
+    }
+
+}
+
+
+
+
+/* OCULTAR OFERTAS  */
+@media (max-width:480px) {
+    main.home section.ofertas-main {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+}
+
+/* OCULTAR OFERTAS  */
+@media (min-width:481px) {
+
+    .dropdownSectionsHome {
+        display: none;
+    }
+
+    h2.ofertas-main {
+        display: none;
+    }
+
+    main.home section.ofertas-main {
+        display: none;
+    }
+
 
 }

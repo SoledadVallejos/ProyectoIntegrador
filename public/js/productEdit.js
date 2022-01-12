@@ -15,7 +15,7 @@ const showPreview = array => {
         //                      ORIGINAL /images/products
         preview.innerHTML += `
         <div class="col-4 text-center" >
-            <img width="200" src="/img/productDetail-splide/${image.file}" alt="">
+            <img width="400" style="min-width: 3rem;"  src="/img/productDetail-splide/${image.file}" alt="">
             <div >
                 <a onclick="deleteImage('${image.id}')" class="btn btn-danger ">Eliminar</a>
             </div>

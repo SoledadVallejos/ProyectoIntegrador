@@ -19,17 +19,19 @@
                     <!-- IMAGENES GUARDADAS -->
                     <!-- SIMPLEMENTE BUSCA EN LA DB POR LAS IMÁGENES EXISTENTES -->
                     <!-- FUERA DE form (podría estar dentro) PERO NO ESTÁ PARA INDICAR QUE ELIMINACION Y AGREGADO DE IMÁGENES ES EN PARALELO A formulario -->
-                    <div class="row my-4 g-2" id="preview">
-                        <!--product.image NO product.images PORQUE EN MI DB ES image (singular)                         -->
-                        <% product.image.forEach((img,index)=> { %>
-                            <div class="col-4 text-center">
-                                <!-- ORIGINAL               /images/products/   CAMBIADA NUESTRA ALMACÉN POR DEFECTO DE IMÁGENES-->
-                                <img width="200" src="/img/productDetail-splide/<%= img.file %>" alt="imagen">
-                                <div>
-                                    <a onclick="deleteImage('<%=img.id%>')" class="btn btn-danger ">Eliminar</a>
+                    <div class="row my-4 g-2">
+                        <div id="preview">
+                            <!--product.image NO product.images PORQUE EN MI DB ES image (singular)                         -->
+                            <% product.image.forEach((img,index)=> { %>
+                                <div class="col-4 text-center">
+                                    <!-- ORIGINAL               /images/products/   CAMBIADA NUESTRA ALMACÉN POR DEFECTO DE IMÁGENES-->
+                                    <img width="200" src="/img/productDetail-splide/<%= img.file %>" alt="imagen">
+                                    <div>
+                                        <a onclick="deleteImage('<%=img.id%>')" class="btn btn-danger ">Eliminar</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <% }) %>
+                                <% }) %>
+                        </div>
                     </div>
                     <!-- SIMPLEMENTE BUSCA EN LA DB POR LAS IMÁGENES EXISTENTES  /-->
                     <!-- IMAGENES GUARDADAS  / -->
@@ -37,8 +39,7 @@
                     <!-- FORM -->
                     <!-- CONFIGURACION PARA CARGAR ARCHIVOS CON  MULTER. enctype  -->
                     <!-- POR QUE?  ../  ? -->
-                    <form action="../update/<%= product.id %>?_method=PUT" method="POST" 
-                        id="formproductadd">
+                    <form action="../update/<%= product.id %>?_method=PUT" method="POST" id="formproductadd">
                         <!--ESTE id ESTÁ SIRVIENDO PARA VALIDACIONES FRONT -->
 
                         <!-- CAMBIAR IMÁGENES EDIT -->
@@ -204,26 +205,32 @@
 
                                         <!-- COLOR -->
                                         <div>
-                                            <label for="">Color
+                                            <label for="">Colores
                                                 <div class="button-contain">
                                                     <div class="radio-item4" class="negro">
-                                                        <input type="radio" id="ritemd" name="color" value="Negro" <%= product.color === "Negro" && 'checked' %> 
-                                                            class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
-                                                        <label for="ritemd">Negro</label>
+                                                        <input type="radio" id="ritemd" name="color" value="Negro"
+                                                            <%=product.color==="Negro" && 'checked' %>
+                                                        class="form-control <%= locals.errors && errors.description
+                                                            ? 'is-invalid' : null %>">
+                                                            <label for="ritemd">Negro</label>
                                                     </div>
                                                     <div class="radio-item1">
-                                                        <input type="radio" id="ritema" name="color" value="Rojo" <%= product.color === "Rojo" && 'checked'%> >
+                                                        <input type="radio" id="ritema" name="color" value="Rojo"
+                                                            <%=product.color==="Rojo" && 'checked' %> >
                                                         <label for="ritema">Rojo</label>
                                                     </div>
                                                     <div class="radio-item2" class="beige">
-                                                        <input type="radio" id="ritemb" name="color" value="Beige" <%= product.color === "Beige" && 'checked'%> >
+                                                        <input type="radio" id="ritemb" name="color" value="Beige"
+                                                            <%=product.color==="Beige" && 'checked' %> >
                                                         <label for="ritemb">Beige</label>
                                                     </div>
                                                     <div class="radio-item3" class="blanco">
-                                                        <input type="radio" id="ritemc" name="color" value="Blanco" <%= product.color === "Blanco" && 'checked' %>
-                                                            class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>">
-                                                        <label for="ritemc">Blanco
-                                                        </label>
+                                                        <input type="radio" id="ritemc" name="color" value="Blanco"
+                                                            <%=product.color==="Blanco" && 'checked' %>
+                                                        class="form-control <%= locals.errors && errors.description
+                                                            ? 'is-invalid' : null %>">
+                                                            <label for="ritemc">Blanco
+                                                            </label>
                                                     </div>
                                                 </div>
                                                 <!-- MENSAJE DE VALIDACION BACKEND -->
@@ -247,17 +254,22 @@
 
                                             <!-- SIZE -->
                                             <div>
-                                                <label for="size">Talle
+                                                <label for="size">Talles
                                                     <div class="button-contain">
-                                                        <label for="s">S<input type="radio" id="s" name="size"  <%= product.size === "S" && 'checked' %>
-                                                                value="S"></label>
-                                                        <label for="m">M<input type="radio" id="m" name="size"  <%= product.size === "M" && 'checked' %>
-                                                                value="M"></label>
-                                                        <label for="l">L<input type="radio" id="l" name="size"  <%= product.size === "L" && 'checked' %>
-                                                                value="L"></label>
-                                                        <label for="xl">XL<input type="radio" id="xl" name="size"   <%= product.size === "XL" && 'checked' %>
-                                                                value="XL"
-                                                                class="form-control <%= locals.errors && errors.size ? 'is-invalid' : null %>">
+                                                        <label for="s">S<input type="radio" id="s" name="size"
+                                                                <%=product.size==="S" && 'checked' %>
+                                                            value="S"></label>
+                                                        <label for="m">M<input type="radio" id="m" name="size"
+                                                                <%=product.size==="M" && 'checked' %>
+                                                            value="M"></label>
+                                                        <label for="l">L<input type="radio" id="l" name="size"
+                                                                <%=product.size==="L" && 'checked' %>
+                                                            value="L"></label>
+                                                        <label for="xl">XL<input type="radio" id="xl" name="size"
+                                                                <%=product.size==="XL" && 'checked' %>
+                                                            value="XL"
+                                                            class="form-control <%= locals.errors && errors.size
+                                                                ? 'is-invalid' : null %>">
                                                         </label>
                                                     </div>
                                                     <!-- MENSAJE DE VALIDACION BACKEND-->
@@ -287,18 +299,23 @@
                                                 <label for="section" class="inputsEdit">Disponible en la sección:
                                                     <div class="sectionProduct">
                                                         <!--NECESARIO PARA GUARDAR: name="section" -->
-                                                        <input type="radio" id="banner" name="section" value="1" <%= product.sectionId === 1 && 'checked' %>>
+                                                        <input type="radio" id="banner" name="section" value="1"
+                                                            <%=product.sectionId===1 && 'checked' %>>
                                                         <!-- GUARDA VALOR EN DB                                   value="1"-->
                                                         <!--     for="banner" id="banner" NECESARIO PARA VINCULAR CLIC AL SELECCIONAR -->
                                                         <label for="banner">1 Banner</label>
-                                                        <input type="radio" id="masvendidos" name="section" value="2" <%= product.sectionId === 2 && 'checked' %>>
+                                                        <input type="radio" id="masvendidos" name="section" value="2"
+                                                            <%=product.sectionId===2 && 'checked' %>>
                                                         <label for="masvendidos">2 Más vendidos</label>
-                                                        <input type="radio" id="promocion" name="section" value="3" <%= product.sectionId === 3 && 'checked' %>>
+                                                        <input type="radio" id="promocion" name="section" value="3"
+                                                            <%=product.sectionId===3 && 'checked' %>>
                                                         <label for="promocion">3 Promoción</label>
-                                                        <input type="radio" id="liquidacion" name="section" value="4" <%= product.sectionId === 4 && 'checked' %>>
-                                                        <label for="liquidacion">4 Liquidación</label>
-                                                        <input type="radio" id="oferta" name="section" value="5" <%= product.sectionId === 5 && 'checked' %>>
-                                                        <label for="oferta">5 Oferta</label>
+                                                        <input type="radio" id="ofertas" name="section" value="4"
+                                                            <%=product.sectionId===4 && 'checked' %>>
+                                                        <label for="ofertas">4 Ofertas</label>
+                                                        <input type="radio" id="liquidacion" name="section" value="5"
+                                                            <%=product.sectionId===5 && 'checked' %>>
+                                                        <label for="liquidacion">5 Liquidación</label>
                                                     </div>
                                                 </label>
                                             </div>

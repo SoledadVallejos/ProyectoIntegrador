@@ -42,7 +42,6 @@ module.exports = {
                 cantidad: 1,
                 total: +product.price,
             }
-
             if (req.session.carrito.length == 0) {
 
                 let order = await db.Order.findOne({
@@ -136,37 +135,37 @@ module.exports = {
     },
     remove: async (req, res) => {
         try {
-            let index = productVerify(req.session.carrito,req.params.id)
+            let index = productVerify(req.session.carrito, req.params.id)
 
             let product = req.session.carrito[index]
 
-            if(product.cantidad > 1){
+            if (product.cantidad > 1) {
 
                 product.cantidad--
                 product.total = product.cantidad * product.precio
-                req.session.carrito[index] = product   
+                req.session.carrito[index] = product
 
                 /* disminuye la cantidad del producto seleccinado */
                 await db.Cart.update(
                     {
-                        quantity : product.cantidad
+                        quantity: product.cantidad
                     },
                     {
-                        where : {
-                            orderId : product.orderId,
-                            productId : product.id
+                        where: {
+                            orderId: product.orderId,
+                            productId: product.id
                         }
                     }
                 )
 
-            }else{
-                req.session.carrito.splice(index,1);
+            } else {
+                req.session.carrito.splice(index, 1);
 
                 /* elimina el producto de la tabla carrito */
                 await db.Cart.destroy({
-                    where : {
-                        productId : product.id,
-                        orderId : product.orderId
+                    where: {
+                        productId: product.id,
+                        orderId: product.orderId
                     }
                 })
             }
@@ -188,9 +187,9 @@ module.exports = {
     empty: async (req, res) => {
         try {
             await db.Order.destroy({
-                where : { 
-                    userId : req.session.userLogin.id,
-                    status : 'pending'
+                where: {
+                    userId: req.session.userLogin.id,
+                    status: 'pending'
                 }
             })
 

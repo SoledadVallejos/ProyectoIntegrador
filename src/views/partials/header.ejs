@@ -21,7 +21,7 @@
 			</form>
 		</div>
 
-		<% if (locals.userLogin) { %>
+		<% if (locals.userLogin /*&& locals.userLogin.rol !==2*/ ) { %>
 			<button type="button" class="btn-cart btn btn-outline-light" data-bs-toggle="modal"
 				data-bs-target="#modal-carrito">
 				<i class="fas fa-shopping-cart"></i>
@@ -55,7 +55,6 @@
 							<% if (locals.userLogin) { %>
 								<!--   ruta users/profile (link) misma ruta que en (app.js + user.js) -->
 								<a href="/users/profile">Mi Perfil</a>
-								<a href="/products/cart"><i class="fas fa-shopping-bag"> Carrito</i></a>
 								<% if (locals.userLogin.rol===2 ) { %>
 									<a href="/admin">Administrar Productos</a>
 									<a href="/users/users">Administrar Usuarios</a>
@@ -106,8 +105,8 @@
 							<a href="#home" class="active"></a>
 							<!-- Navigation links (hidden by default) -->
 							<div id="myLinks">
-								<a href="/products/productsMan">Corbata (Activo)</a>
-								<a href="/products/productsWoman">Los vestidos (Activo)</a>
+								<a href="/products/productsMan">Hombre</a>
+								<a href="/products/productsWoman">Mujer</a>
 								<a href="#">Categorias</a>
 								<a href="#">Marcas</a>
 								<a href="#">Liquidacion</a>
@@ -169,6 +168,7 @@
 									<button onclick="myFunction2()" class="dropbtn1">
 										Mujer
 									</button>
+
 									<!-- MENU DESPLEGABLE  -->
 									<div id="myDropdown2" class="dropdown-content1">
 										<a href="/products/productsWoman">Los vestidos (Activo)</a>
@@ -228,7 +228,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content" id="miCarrito">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Mi changuito</h5>
+					<h5 class="modal-title" id="exampleModalLabel">TU CHANGUITO</h5>
 				</div>
 				<div class="modal-body" id="lista-carrito">
 					<div class="table-responsive">
