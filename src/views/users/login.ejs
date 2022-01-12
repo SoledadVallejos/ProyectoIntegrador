@@ -14,6 +14,9 @@
             <div>
                 <label for="email">Ingrese Email
                 <input class="form-control" type="email" placeholder="Ingrese su Email" id="email" name="email"></label>
+                <br>
+                <span id="error-email" class="small text-danger"><%= locals.errores && errores.email ? errores.email.msg : null %> </span>
+                <span id="info-email" class="small text-info"></span>
             </div>
             <div>
                 <label for="password">Contraseña
@@ -23,13 +26,19 @@
                     <i class="fa fa-eye"></i>
                 </a>
             </div>
+            <br>
+            <span id="error-password" class="small text-danger"><%= locals.errores && errores.password ? errores.password.msg : null %> </span>
+            <span id="info-password" class="small text-info"></span>
             </div>
             <div>
                 <label for="remember"><input type="checkbox" name="remember" id="terms" value="remember"> Recordame</label>
             </div>
-            <div class="box-error">
-                <span id="error-email" class="text-danger"><%= locals.errores && errores.email ? errores.email.msg : null %> </span>
+            <div  style="color: red;">
+                <span><%= locals.errores && errores.email ? errores.email.msg : null %> </span>
             </div>
+            <div >
+                <span id="error-empty" class="small text-danger"></span>
+            </div> 
             <div>
                 <button class="button-blue" type="submit">Iniciar</button>
                 <button class="button-red" type="reset">Cancelar</button>
@@ -45,6 +54,6 @@
     </main>
 
     <%- include('../partials/footerRegister') %> 
-
+    <script src="/js/loginValidator.js"></script>
 </body>
 </html>

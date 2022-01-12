@@ -22,49 +22,50 @@ module.exports = {
     processCreate: async (req, res) => {
         let errors = validationResult(req);
 
-        if (errors.isEmpty() || !req.fileValidationError ) {
+        if (errors.isEmpty() || !req.fileValidationError) {
 
-        const { name, lastName, country, email, rol, password } = req.body;
+            const { name, lastName, country, email, rol, password } = req.body;
 
-        try {
+            try {
 
-            let userExist = await db.User.findOne({
-                where: {
-                    email
-                }
-            })
-            if (userExist) {
-                res.render('users/register', {
-                    error: {
-                        email: "este email ya esta registrado"
+                let userExist = await db.User.findOne({
+                    where: {
+                        email
                     }
-                }
-                )
-            }
-
-            let user = await db.User.create(
-                {
-                    name: name.trim(),
-                    lastName: lastName.trim(),
-                    email: email.trim(),
-                    password: bcrypt.hashSync(password, 10),
-                    country: country.trim(),
-                    avatar: req.file ? req.file.filename : 'default.png',
-                    rolId: rol ? rol : 1
                 })
+                if (userExist) {
+                    res.render('users/register', {
+                        error: {
+                            email: "este email ya esta registrado"
+                        }
+                    }
+                    )
+                }
 
-            req.session.userLogin = {
-                id: user.id,
-                name: user.name,
-                avatar: user.avatar,
-                rol: user.rolId
+                let user = await db.User.create(
+                    {
+                        name: name.trim(),
+                        lastName: lastName.trim(),
+                        email: email.trim(),
+                        password: bcrypt.hashSync(password, 10),
+                        country: country.trim(),
+                        avatar: req.file ? req.file.filename : 'default.png',
+                        rolId: rol ? rol : 1
+                    })
+
+                req.session.userLogin = {
+                    id: user.id,
+                    name: user.name,
+                    avatar: user.avatar,
+                    rol: user.rolId
+                }
+                console.log(req.session.userLogin)
+
+                return res.redirect('/users/profile')
+            } catch (error) {
+                console.log(error)
             }
-            console.log(req.session.userLogin)
-
-            return res.redirect('/users/profile')
-        } catch (error) {
-            console.log(error)
-        }}else {
+        } else {
             errors = errors.mapped()
             if (req.fileValidationError) {
                 errors = {
@@ -75,7 +76,7 @@ module.exports = {
                 };
             }
             return res.render('users/register', {
-                errores : errors,
+                errores: errors,
                 old: req.body
             })
         }
@@ -86,6 +87,14 @@ module.exports = {
             title: 'Ingresar',
 
         });
+    },
+    nosotros: (req, res) => {
+        return res.render('users/nosotros', {
+            title: '¿quienes somos?',
+
+        })
+
+
     },
     processLogin: async (req, res) => {
         const { email, password, remember } = req.body;
@@ -127,10 +136,8 @@ module.exports = {
         catch (error) {
 
         }
-    }
+    },
 
-
-    ,
     index: async (req, res) => {
         let users = await db.Users.findAll();
         // return res.send(users); // COMPROBAR LISTA DE USUARIOS
